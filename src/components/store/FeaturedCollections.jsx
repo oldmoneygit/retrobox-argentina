@@ -99,21 +99,6 @@ export default function FeaturedCollections() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
-            Colecciones Icónicas
-          </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Las camisetas que marcaron la historia del fútbol argentino
-          </p>
-        </motion.div>
-
         {/* Featured Collections Carousels */}
         <div className="space-y-16">
           {featuredCollections.map((collection, collectionIndex) => {
