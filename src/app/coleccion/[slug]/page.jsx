@@ -9,6 +9,7 @@ import SectionTitle from '@/components/store/SectionTitle'
 import { getAllProducts } from '@/utils/products'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { Filter, X } from 'lucide-react'
 
 // Mapeo de slugs a nombres de colección y metadatos
 const COLLECTION_INFO = {
@@ -434,46 +435,71 @@ export default function ColeccionPage() {
 
         {/* Filters Section */}
         {!loading && availableFilters.length > 0 && (
-          <div className="container mx-auto px-4 py-6 border-b border-white/10">
-            <div className="max-w-6xl mx-auto">
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="text-white/60 text-sm font-medium">Filtrar por:</span>
+          <div className="border-b border-white/10 bg-white/[0.02] backdrop-blur-sm">
+            <div className="container mx-auto px-4 py-4 md:py-6">
+              <div className="max-w-6xl mx-auto">
+                {/* Header - Mobile & Desktop */}
+                <div className="flex items-center justify-between mb-3 md:mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-white/10 rounded-lg">
+                      <Filter className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-white font-bold text-sm md:text-base">
+                      Filtrar
+                      {activeFilters.length > 0 && (
+                        <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-gradient-to-r from-orange-500 to-yellow-400 text-black rounded-full">
+                          {activeFilters.length}
+                        </span>
+                      )}
+                    </span>
+                  </div>
 
-                {/* Filter Chips */}
-                <div className="flex flex-wrap gap-2">
-                  {availableFilters.map((filter) => {
-                    const isActive = activeFilters.includes(filter)
-                    return (
-                      <motion.button
-                        key={filter}
-                        onClick={() => toggleFilter(filter)}
-                        className={`
-                          px-4 py-2 rounded-full text-sm font-medium transition-all
-                          ${isActive
-                            ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-black shadow-lg'
-                            : 'bg-white/10 text-white hover:bg-white/20'
-                          }
-                        `}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        {filter}
-                      </motion.button>
-                    )
-                  })}
+                  {/* Clear Filters Button - Always visible when filters active */}
+                  {activeFilters.length > 0 && (
+                    <motion.button
+                      onClick={clearFilters}
+                      className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-xs md:text-sm text-white font-medium"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <X className="w-3 h-3 md:w-4 md:h-4" />
+                      <span className="hidden sm:inline">Limpiar</span>
+                    </motion.button>
+                  )}
                 </div>
 
-                {/* Clear Filters Button */}
-                {activeFilters.length > 0 && (
-                  <motion.button
-                    onClick={clearFilters}
-                    className="ml-auto px-4 py-2 text-sm text-white/60 hover:text-white transition-colors underline"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
-                    Limpiar filtros
-                  </motion.button>
-                )}
+                {/* Filter Chips - Horizontal scroll on mobile */}
+                <div className="relative">
+                  {/* Gradient fade edges on mobile */}
+                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/50 to-transparent pointer-events-none z-10 md:hidden" />
+                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/50 to-transparent pointer-events-none z-10 md:hidden" />
+
+                  <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+                    <div className="flex md:flex-wrap gap-2 pb-2 md:pb-0">
+                      {availableFilters.map((filter) => {
+                        const isActive = activeFilters.includes(filter)
+                        return (
+                          <motion.button
+                            key={filter}
+                            onClick={() => toggleFilter(filter)}
+                            className={`
+                              flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
+                              ${isActive
+                                ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-black border-orange-400 shadow-lg shadow-orange-500/20'
+                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                              }
+                            `}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            {filter}
+                          </motion.button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
