@@ -35,28 +35,41 @@ const LiveSlotsIndicator = () => {
   return (
     <AnimatePresence>
       {!isMinimized && (
-        <motion.div
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 100 }}
-          className={`fixed z-[70] ${isMobile ? 'bottom-4 right-4' : 'bottom-6 right-6'}`}
-        >
-          <Link href="/#pack-insano">
+        <>
+          {/* Backdrop - Apenas no mobile para fechar ao clicar fora */}
+          {isMobile && (
             <motion.div
-              whileHover={{ scale: isMobile ? 1 : 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`
-                relative overflow-hidden shadow-2xl backdrop-blur-sm
-                transition-all duration-300 cursor-pointer group
-                ${isMobile ? 'rounded-xl' : 'rounded-2xl'}
-                ${isCritical
-                  ? 'bg-gradient-to-br from-red-600/95 to-orange-600/95 border-2 border-red-400/50'
-                  : isLowStock
-                    ? 'bg-gradient-to-br from-orange-600/95 to-yellow-500/95 border-2 border-orange-400/50'
-                    : 'bg-gradient-to-br from-orange-500/95 to-yellow-400/95 border-2 border-orange-400/50'
-                }
-              `}
-            >
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMinimized(true)}
+              className="fixed inset-0 z-[69] bg-transparent"
+              aria-label="Fechar widget"
+            />
+          )}
+
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            className={`fixed z-[70] ${isMobile ? 'bottom-4 right-4' : 'bottom-6 right-6'}`}
+          >
+            <Link href="/#pack-insano">
+              <motion.div
+                whileHover={{ scale: isMobile ? 1 : 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  relative overflow-hidden shadow-2xl backdrop-blur-sm
+                  transition-all duration-300 cursor-pointer group
+                  ${isMobile ? 'rounded-xl' : 'rounded-2xl'}
+                  ${isCritical
+                    ? 'bg-gradient-to-br from-red-600/95 to-orange-600/95 border-2 border-red-400/50'
+                    : isLowStock
+                      ? 'bg-gradient-to-br from-orange-600/95 to-yellow-500/95 border-2 border-orange-400/50'
+                      : 'bg-gradient-to-br from-orange-500/95 to-yellow-400/95 border-2 border-orange-400/50'
+                  }
+                `}
+              >
               {/* Live Badge - Hidden on mobile */}
               {!isMobile && (
                 <div className="absolute top-2 right-2">
@@ -139,6 +152,7 @@ const LiveSlotsIndicator = () => {
             </motion.div>
           </Link>
         </motion.div>
+        </>
       )}
 
       {/* Minimized Version */}
