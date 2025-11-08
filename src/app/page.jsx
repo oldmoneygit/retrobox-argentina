@@ -11,11 +11,6 @@ const BestSellers = dynamic(() => import('@/components/store/BestSellers'), {
   ssr: true,
 })
 
-const Categories = dynamic(() => import('@/components/store/Categories'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
-  ssr: true,
-})
-
 const PackInsanoPromo = dynamic(() => import('@/components/blackfriday/PackInsanoPromo'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
@@ -107,11 +102,6 @@ export default function HomePage() {
         {/* Los Más Vendidos */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <BestSellers />
-        </Suspense>
-
-        {/* Categorías/Ligas */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <Categories />
         </Suspense>
 
         {/* Nuestras Colecciones: Ligas y Equipos */}
