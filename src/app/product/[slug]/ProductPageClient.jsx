@@ -24,7 +24,7 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-4 bg-black/95 backdrop-blur-md"
         onClick={onClose}
       >
         <motion.div
@@ -32,34 +32,34 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-black border-2 border-white/10 rounded-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-black border-2 border-white/10 rounded-xl md:rounded-2xl p-4 md:p-8 max-w-3xl w-full max-h-[92vh] md:max-h-[90vh] overflow-y-auto"
         >
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2 bg-white rounded-lg">
-                <Ruler className="w-5 h-5 text-black" />
+          <div className="flex items-center justify-between mb-4 md:mb-6">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 bg-white rounded-lg">
+                <Ruler className="w-4 h-4 md:w-5 md:h-5 text-black" />
               </div>
-              <h2 className="text-2xl md:text-3xl font-black text-white uppercase">Guía de Tallas</h2>
+              <h2 className="text-lg md:text-3xl font-black text-white uppercase">Guía de Tallas</h2>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="p-1.5 md:p-2 hover:bg-white/10 rounded-lg transition-colors"
               aria-label="Cerrar guía"
             >
-              <X className="w-6 h-6 text-white" />
+              <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
             </button>
           </div>
 
           {/* Nota importante */}
-          <div className="mb-6 p-4 bg-white/5 border border-white/20 rounded-xl">
-            <div className="flex items-start gap-3">
-              <div className="p-2 bg-white rounded-lg shrink-0">
-                <Check className="w-5 h-5 text-black" />
+          <div className="mb-4 md:mb-6 p-3 md:p-4 bg-white/5 border border-white/20 rounded-lg md:rounded-xl">
+            <div className="flex items-start gap-2 md:gap-3">
+              <div className="p-1.5 md:p-2 bg-white rounded-lg shrink-0">
+                <Check className="w-4 h-4 md:w-5 md:h-5 text-black" />
               </div>
               <div>
-                <p className="text-white font-bold mb-1">¿No querés medir?</p>
-                <p className="text-white/80 text-sm">
+                <p className="text-white font-bold mb-1 text-xs md:text-base">¿No querés medir?</p>
+                <p className="text-white/80 text-xs md:text-sm leading-relaxed">
                   Podés elegir tu <strong className="text-white">talla habitual</strong> sin problemas.
                   Nuestras camisetas tienen un calce estándar y cómodo.
                 </p>
@@ -68,62 +68,62 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Size Chart Table */}
-          <div className="mb-6">
-            <h3 className="text-white font-bold mb-3 uppercase text-sm">Tabla de Medidas</h3>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
+          <div className="mb-4 md:mb-6">
+            <h3 className="text-white font-bold mb-2 md:mb-3 uppercase text-xs md:text-sm">Tabla de Medidas</h3>
+            <div className="overflow-x-auto -mx-1">
+              <table className="w-full border-collapse min-w-[500px] md:min-w-0">
                 <thead>
                   <tr className="bg-white/10">
-                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
                       Talla
                     </th>
-                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
-                      Contorno Pecho
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                      Pecho
                     </th>
-                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
-                      Largo Total
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                      Largo
                     </th>
-                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
                       Equivalencia
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">S</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">88-93 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">71 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Small / Pequeño</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">S</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">88-93 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">71 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Small</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">M</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">94-99 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">73 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Medium / Mediano</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">M</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">94-99 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">73 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Medium</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">L</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">100-105 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">75 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Large / Grande</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">L</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">100-105 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">75 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">XL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">106-111 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">77 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Extra Large</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">XL</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">106-111 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">77 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Extra Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">XXL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">112-117 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">79 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">2X Large</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">XXL</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">112-117 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">79 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">2X Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">3XL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">118-123 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">81 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">3X Large</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">3XL</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">118-123 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">81 cm</td>
+                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">3X Large</td>
                   </tr>
                 </tbody>
               </table>
@@ -131,29 +131,29 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Cómo medir */}
-          <div className="mb-6 p-4 bg-white/5 border border-white/20 rounded-xl">
-            <h3 className="text-white font-bold mb-3 uppercase text-sm flex items-center gap-2">
-              <Ruler className="w-4 h-4" />
+          <div className="mb-4 md:mb-6 p-3 md:p-4 bg-white/5 border border-white/20 rounded-lg md:rounded-xl">
+            <h3 className="text-white font-bold mb-2 md:mb-3 uppercase text-xs md:text-sm flex items-center gap-1.5 md:gap-2">
+              <Ruler className="w-3.5 h-3.5 md:w-4 md:h-4" />
               Cómo Medir Correctamente
             </h3>
-            <div className="space-y-3 text-sm text-white/80">
-              <div className="flex items-start gap-2">
-                <span className="text-white font-bold shrink-0">1.</span>
-                <div>
+            <div className="space-y-2 md:space-y-3 text-xs md:text-sm text-white/80">
+              <div className="flex items-start gap-1.5 md:gap-2">
+                <span className="text-white font-bold shrink-0 text-xs md:text-sm">1.</span>
+                <div className="leading-relaxed">
                   <strong className="text-white">Contorno de Pecho:</strong> Colocá la cinta métrica alrededor de la parte más ancha del pecho,
                   pasando por debajo de las axilas. Mantené la cinta horizontal y ajustada pero sin apretar.
                 </div>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="text-white font-bold shrink-0">2.</span>
-                <div>
+              <div className="flex items-start gap-1.5 md:gap-2">
+                <span className="text-white font-bold shrink-0 text-xs md:text-sm">2.</span>
+                <div className="leading-relaxed">
                   <strong className="text-white">Largo Total:</strong> Medí desde el punto más alto del hombro (junto al cuello)
                   hasta el dobladillo inferior de la camiseta.
                 </div>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="text-white font-bold shrink-0">3.</span>
-                <div>
+              <div className="flex items-start gap-1.5 md:gap-2">
+                <span className="text-white font-bold shrink-0 text-xs md:text-sm">3.</span>
+                <div className="leading-relaxed">
                   <strong className="text-white">Consejo:</strong> Para mayor precisión, medí sobre una camiseta que te quede bien
                   y compará con nuestra tabla.
                 </div>
@@ -162,25 +162,25 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           </div>
 
           {/* Tips adicionales */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4 bg-white/5 border border-white/20 rounded-xl">
-              <h4 className="text-white font-bold mb-2 text-sm flex items-center gap-2">
-                <Check className="w-4 h-4" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div className="p-3 md:p-4 bg-white/5 border border-white/20 rounded-lg md:rounded-xl">
+              <h4 className="text-white font-bold mb-1.5 md:mb-2 text-xs md:text-sm flex items-center gap-1.5 md:gap-2">
+                <Check className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Recomendaciones
               </h4>
-              <ul className="space-y-2 text-xs text-white/80">
+              <ul className="space-y-1.5 md:space-y-2 text-[11px] md:text-xs text-white/80 leading-relaxed">
                 <li>• Si estás entre dos tallas, elegí la más grande</li>
                 <li>• Para ajuste más holgado, elegí una talla más</li>
                 <li>• Las medidas pueden variar ±2cm</li>
               </ul>
             </div>
 
-            <div className="p-4 bg-white/5 border border-white/20 rounded-xl">
-              <h4 className="text-white font-bold mb-2 text-sm flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
+            <div className="p-3 md:p-4 bg-white/5 border border-white/20 rounded-lg md:rounded-xl">
+              <h4 className="text-white font-bold mb-1.5 md:mb-2 text-xs md:text-sm flex items-center gap-1.5 md:gap-2">
+                <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
                 Información del Producto
               </h4>
-              <ul className="space-y-2 text-xs text-white/80">
+              <ul className="space-y-1.5 md:space-y-2 text-[11px] md:text-xs text-white/80 leading-relaxed">
                 <li>• Material: 100% Poliéster Premium</li>
                 <li>• Calce: Regular / Estándar</li>
                 <li>• Calidad: Réplica Premium 1:1</li>
