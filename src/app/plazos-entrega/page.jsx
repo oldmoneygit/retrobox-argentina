@@ -11,14 +11,14 @@ export default function ShippingTimesPage() {
       zone: 'CABA (Capital Federal)',
       icon: MapPin,
       time: '24-48 horas',
-      cost: 'Envío gratis en compras superiores a $50.000',
+      cost: 'Envío gratis en compras superiores a $30.000',
       highlight: true
     },
     {
       zone: 'Gran Buenos Aires (GBA)',
       icon: MapPin,
       time: '48-72 horas',
-      cost: 'Envío gratis en compras superiores a $50.000',
+      cost: 'Envío gratis en compras superiores a $30.000',
       highlight: true
     },
     {

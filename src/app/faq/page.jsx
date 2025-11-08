@@ -22,7 +22,7 @@ const faqs = [
   {
     icon: Truck,
     question: '¿Cuánto tiempo tarda el envío?',
-    answer: 'El tiempo de envío es de 24 a 48 horas dentro de Argentina. Los tiempos pueden variar según tu ubicación. Ofrecemos envío gratis en compras superiores a $50.000.',
+    answer: 'El tiempo de envío es de 24 a 48 horas dentro de Argentina. Los tiempos pueden variar según tu ubicación. Ofrecemos envío gratis en compras superiores a $30.000.',
     category: 'Envíos'
   },
   {
