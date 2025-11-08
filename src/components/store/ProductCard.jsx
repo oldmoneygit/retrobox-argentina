@@ -38,37 +38,38 @@ const ProductCard = ({ product, index = 0 }) => {
       className="group h-full flex flex-col"
     >
       <Link href={productUrl} className="flex-1 flex flex-col">
-        <div className="relative aspect-[3/4] bg-white rounded-2xl overflow-hidden mb-4">
-          {/* Black November Badge */}
+        <div className="relative aspect-[3/4] bg-white rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
+          {/* Black November Badge - Mobile First */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute top-2 left-2 z-10 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] md:text-xs font-black px-2 md:px-3 py-1 rounded-md shadow-lg uppercase tracking-wide"
+            className="absolute top-1.5 left-1.5 md:top-2 md:left-2 z-10 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[8px] md:text-[10px] font-black px-1.5 py-0.5 md:px-2 md:py-1 rounded shadow-lg uppercase tracking-tight md:tracking-wide"
           >
-            🔥 Black November
+            🔥 BLACK NOV
           </motion.div>
 
-          {/* Discount Badge */}
+          {/* Discount Badge - Mobile Optimized */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute top-2 right-12 md:right-14 z-10 bg-gradient-to-r from-orange-500 to-yellow-400 text-black text-xs md:text-sm font-bold px-2 md:px-3 py-1 rounded-md shadow-lg shadow-orange-500/30"
+            className="absolute top-1.5 right-9 md:top-2 md:right-12 z-10 bg-gradient-to-r from-orange-500 to-yellow-400 text-black text-[10px] md:text-xs font-black px-1.5 py-0.5 md:px-2 md:py-1 rounded shadow-lg"
           >
             -{discountPercentage}%
           </motion.div>
 
-          {/* Stock Badge - Positioned below Black November badge */}
+          {/* Stock Badge - Below Black November on Mobile */}
           {stock !== 'available' && (
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              className={`absolute top-12 md:top-14 left-2 z-10 ${stockBadge[stock].color} text-white text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-sm`}
+              className={`absolute top-8 left-1.5 md:top-12 md:left-2 z-10 ${stockBadge[stock].color} text-white text-[8px] md:text-[10px] font-bold px-1.5 py-0.5 md:px-2 rounded backdrop-blur-sm`}
             >
               {stockBadge[stock].text}
             </motion.div>
           )}
 
-          <div className="absolute top-2 right-2 z-10">
+          {/* Wishlist Button - Adjusted for mobile */}
+          <div className="absolute top-1.5 right-1.5 md:top-2 md:right-2 z-10">
             <WishlistButton product={product} size="sm" />
           </div>
 
@@ -90,18 +91,18 @@ const ProductCard = ({ product, index = 0 }) => {
           </motion.div>
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1.5 md:space-y-2">
           <h3 className="text-white font-semibold text-sm md:text-base line-clamp-2 group-hover:text-white/80 transition-colors min-h-[2.5rem]">
             {name}
           </h3>
 
-          <div className="space-y-1">
+          <div className="space-y-0.5 md:space-y-1">
             {/* Original Price (Always show for Black November) */}
             <p className="text-gray-medium text-xs md:text-sm line-through">
               ${originalPrice.toLocaleString('es-AR')}
             </p>
             {/* Promotional Price */}
-            <p className="text-white font-bold text-lg md:text-xl">
+            <p className="text-white font-bold text-base md:text-lg lg:text-xl">
               ${typeof price === 'number' ? price.toLocaleString('es-AR') : price}
             </p>
           </div>
