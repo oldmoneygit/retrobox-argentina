@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import SectionTitle from './SectionTitle'
 
 // Ligas Principales
 const ligas = [
@@ -162,20 +161,6 @@ export default function NuestrasColecciones() {
   return (
     <section className="py-16 md:py-24 bg-black">
       <div className="container mx-auto px-4">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <SectionTitle
-            title="Nuestras"
-            highlight="Colecciones"
-            subtitle="Explorá nuestra amplia selección de camisetas de los mejores equipos y ligas del mundo"
-          />
-        </motion.div>
-
         {/* Seleção Argentina - Destaque */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
