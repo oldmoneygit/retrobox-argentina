@@ -261,7 +261,7 @@ const ProductGallery = ({ images = [], productName }) => {
     <div className="space-y-2 md:space-y-4">
       {/* Main Carousel */}
       <div className="relative">
-        <div className="overflow-hidden rounded-lg md:rounded-2xl" ref={emblaRef}>
+        <div className="overflow-hidden rounded-2xl md:rounded-3xl" ref={emblaRef}>
           <div className="flex">
             {images.map((image, index) => (
               <div
@@ -427,9 +427,9 @@ export default function ProductPageClient({ product }) {
       {/* Size Guide Modal */}
       <SizeGuideModal isOpen={showSizeGuide} onClose={() => setShowSizeGuide(false)} />
 
-      <main className="min-h-screen bg-black pt-20">
+      <main className="min-h-screen bg-black pt-16 md:pt-20">
         {/* Breadcrumb */}
-        <div className="container mx-auto px-4 py-2 md:py-3">
+        <div className="container mx-auto px-4 py-1 md:py-2">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-base font-semibold"
@@ -440,7 +440,7 @@ export default function ProductPageClient({ product }) {
         </div>
 
         {/* Product Section */}
-        <div className="container mx-auto px-4 pb-8 md:pb-12 pt-2 md:pt-4">
+        <div className="container mx-auto px-4 pb-8 md:pb-12 pt-1 md:pt-2">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Left Column - Gallery */}
             <div>
@@ -451,21 +451,9 @@ export default function ProductPageClient({ product }) {
             <div className="space-y-3 md:space-y-6">
               {/* Product Name */}
               <div>
-                <h1 className="text-white font-black text-xl md:text-4xl mb-1 md:mb-2 uppercase tracking-wide leading-tight">
+                <h1 className="text-white font-black text-xl md:text-4xl uppercase tracking-wide leading-tight">
                   {product.name}
                 </h1>
-                {product.tags && product.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1 md:gap-2">
-                    {product.tags.map((tag, index) => (
-                      <span
-                        key={index}
-                        className="px-2 py-0.5 md:px-3 md:py-1 bg-white/10 text-white/80 rounded-md md:rounded-lg text-[10px] md:text-xs font-semibold uppercase"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
               </div>
 
               {/* Price */}
