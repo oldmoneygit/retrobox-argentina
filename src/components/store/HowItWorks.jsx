@@ -29,15 +29,19 @@ const HowItWorks = () => {
   ]
 
   return (
-    <section className="relative py-20 bg-black">
+    <section className="relative py-12 md:py-16 lg:py-20 bg-black">
       <div className="container mx-auto px-4">
-        <SectionTitle
-          title="Cómo"
-          highlight="Funciona"
-          subtitle="Proceso simple y rápido para obtener tu camiseta retrô"
-        />
+        {/* Section Title */}
+        <div className="mb-8 md:mb-12">
+          <SectionTitle
+            title="Cómo"
+            highlight="Funciona"
+            subtitle="Proceso simple y rápido para obtener tu camiseta retrô"
+          />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
+        {/* Steps Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
           {steps.map((step, index) => {
             const Icon = step.icon
             return (
@@ -47,23 +51,36 @@ const HowItWorks = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
+                className="relative"
               >
-                <div className="relative mb-6 flex justify-center">
-                  <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:bg-white/20 transition-colors">
-                    <Icon size={32} className="text-white" />
+                {/* Card */}
+                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all hover:bg-white/10 h-full flex flex-col items-center text-center">
+                  {/* Icon Container */}
+                  <div className="relative mb-4 md:mb-6">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-lg">
+                      <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
+                    </div>
+                    {/* Step Number Badge */}
+                    <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-7 h-7 md:w-8 md:h-8 bg-white text-black rounded-full flex items-center justify-center font-bold text-xs md:text-sm shadow-lg">
+                      {index + 1}
+                    </div>
                   </div>
-                  {/* Step number */}
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
-                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-white font-bold text-base md:text-lg mb-2 md:mb-3">
+                    {step.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="text-white font-bold text-lg mb-2">
-                  {step.title}
-                </h3>
-                <p className="text-gray-medium text-sm">
-                  {step.description}
-                </p>
+
+                {/* Connector Line (hidden on mobile, visible on lg) */}
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent -translate-x-1/2 z-0" />
+                )}
               </motion.div>
             )
           })}
