@@ -448,18 +448,18 @@ export default function ProductPageClient({ product }) {
             </div>
 
             {/* Right Column - Product Info */}
-            <div className="space-y-6">
+            <div className="space-y-3 md:space-y-6">
               {/* Product Name */}
               <div>
-                <h1 className="text-white font-black text-2xl md:text-4xl mb-2 uppercase tracking-wide leading-tight">
+                <h1 className="text-white font-black text-xl md:text-4xl mb-1 md:mb-2 uppercase tracking-wide leading-tight">
                   {product.name}
                 </h1>
                 {product.tags && product.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1 md:gap-2">
                     {product.tags.map((tag, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-white/10 text-white/80 rounded-lg text-xs font-semibold uppercase"
+                        className="px-2 py-0.5 md:px-3 md:py-1 bg-white/10 text-white/80 rounded-md md:rounded-lg text-[10px] md:text-xs font-semibold uppercase"
                       >
                         {tag}
                       </span>
@@ -469,17 +469,17 @@ export default function ProductPageClient({ product }) {
               </div>
 
               {/* Price */}
-              <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-xl p-5">
-                <div className="flex items-center gap-3">
-                  <p className="text-3xl md:text-4xl font-black text-white">
+              <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-lg md:rounded-xl p-3 md:p-5">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <p className="text-2xl md:text-4xl font-black text-white">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
                   {product.regularPrice && product.regularPrice > product.price && (
                     <>
-                      <p className="text-lg md:text-xl text-gray-medium line-through">
+                      <p className="text-base md:text-xl text-gray-medium line-through">
                         ${product.regularPrice.toLocaleString('es-AR')}
                       </p>
-                      <span className="bg-white text-black text-xs font-bold px-3 py-1.5 rounded-lg shadow-lg shadow-white/30">
+                      <span className="bg-white text-black text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg shadow-lg shadow-white/30">
                         -{Math.round(((product.regularPrice - product.price) / product.regularPrice) * 100)}% OFF
                       </span>
                     </>
@@ -488,65 +488,65 @@ export default function ProductPageClient({ product }) {
               </div>
 
               {/* Size Selector with Guide */}
-              <div className="space-y-4">
+              <div className="space-y-2 md:space-y-4">
                 <div className="flex items-center justify-between">
-                  <label className="block text-white font-bold text-sm uppercase tracking-wide">
+                  <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
                     Seleccioná tu talla
                   </label>
                   <button
                     onClick={() => setShowSizeGuide(true)}
-                    className="flex items-center gap-2 text-white hover:text-gray-light transition-colors text-sm font-bold"
+                    className="flex items-center gap-1 md:gap-2 text-white hover:text-gray-light transition-colors text-xs md:text-sm font-bold"
                   >
-                    <Ruler size={16} />
+                    <Ruler size={14} className="md:w-4 md:h-4" />
                     Guía de tallas
                   </button>
                 </div>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-3">
                   {sizes.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`relative py-4 px-4 rounded-xl font-bold text-base transition-all duration-200 ${
+                      className={`relative py-2.5 px-2 md:py-4 md:px-4 rounded-lg md:rounded-xl font-bold text-sm md:text-base transition-all duration-200 ${
                         selectedSize === size
                           ? 'bg-white text-black shadow-lg shadow-white/30 scale-105'
-                          : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105 border-2 border-white/10 hover:border-white/30'
+                          : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105 border border-white/10 md:border-2 hover:border-white/30'
                       }`}
                     >
                       {size}
                       {selectedSize === size && (
-                        <div className="absolute -top-1 -right-1 w-4 h-4 bg-black rounded-full flex items-center justify-center">
-                          <Check className="w-3 h-3 text-white" />
+                        <div className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-3 h-3 md:w-4 md:h-4 bg-black rounded-full flex items-center justify-center">
+                          <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
                         </div>
                       )}
                     </button>
                   ))}
                 </div>
                 {selectedSize && (
-                  <p className="text-white/60 text-sm flex items-center gap-2">
-                    <Check className="w-4 h-4 text-white" />
+                  <p className="text-white/60 text-xs md:text-sm flex items-center gap-2">
+                    <Check className="w-3 h-3 md:w-4 md:h-4 text-white" />
                     Talla seleccionada: <span className="text-white font-bold">{selectedSize}</span>
                   </p>
                 )}
               </div>
 
               {/* Quantity Selector */}
-              <div className="space-y-3">
-                <label className="block text-white font-bold text-sm uppercase tracking-wide">
+              <div className="space-y-2 md:space-y-3">
+                <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
                   Cantidad
                 </label>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 md:gap-4">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     disabled={quantity <= 1}
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center transition-all duration-200 ${
                       quantity <= 1
                         ? 'bg-white/5 text-white/30 cursor-not-allowed'
                         : 'bg-white/10 text-white hover:bg-white hover:text-black hover:scale-110'
                     }`}
                   >
-                    <Minus size={20} />
+                    <Minus size={16} className="md:w-5 md:h-5" />
                   </button>
-                  <div className="flex-1 max-w-[100px]">
+                  <div className="flex-1 max-w-[80px] md:max-w-[100px]">
                     <input
                       type="text"
                       value={quantity}
