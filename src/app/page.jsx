@@ -31,11 +31,6 @@ const PackInsanoLiveSlots = dynamic(() => import('@/components/blackfriday/PackI
   ssr: true,
 })
 
-const NuestrasColecciones = dynamic(() => import('@/components/store/NuestrasColecciones'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
-  ssr: true,
-})
-
 const HowItWorks = dynamic(() => import('@/components/store/HowItWorks'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
@@ -112,11 +107,6 @@ export default function HomePage() {
         {/* Categorías/Ligas */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <Categories />
-        </Suspense>
-
-        {/* Nuestras Colecciones: Ligas y Equipos */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <NuestrasColecciones />
         </Suspense>
 
         {/* Promoção Pack Insano */}
