@@ -119,9 +119,9 @@ export default function HomePage() {
           <Categories />
         </Suspense>
 
-        {/* Colecciones Icónicas: Boca, River, Argentina */}
+        {/* Nuestras Colecciones: Ligas y Equipos */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <FeaturedCollections />
+          <NuestrasColecciones />
         </Suspense>
 
         {/* Promoção Pack Insano */}
@@ -141,11 +141,6 @@ export default function HomePage() {
           <PackInsanoLiveSlots />
         </Suspense>
 
-        {/* Nuestras Colecciones: Ligas y Equipos */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <NuestrasColecciones />
-        </Suspense>
-
         {/* Como Funciona (Geral) */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <HowItWorks />
@@ -154,6 +149,11 @@ export default function HomePage() {
         {/* Produtos Destacados */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <FeaturedProducts />
+        </Suspense>
+
+        {/* Colecciones Icónicas: Boca, River, Argentina */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <FeaturedCollections />
         </Suspense>
 
         {/* MysteryBox - Caja Sorpresa */}
