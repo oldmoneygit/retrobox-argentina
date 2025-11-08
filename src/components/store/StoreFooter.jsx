@@ -12,6 +12,7 @@ const StoreFooter = () => {
     { name: 'Guía de Tallas', href: '/guia-de-tallas' },
     { name: 'Preguntas Frecuentes', href: '/faq' },
     { name: 'Política de Cambios', href: '/politica-cambios' },
+    { name: 'Términos y Condiciones', href: '/terminos-y-condiciones' },
     { name: 'Contáctanos', href: '/contacto' },
     { name: 'Plazos de Entrega', href: '/plazos-entrega' },
     { name: 'Privacidad', href: '/privacidade' },
