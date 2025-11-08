@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "shopify:fetch": "node scripts/fetchShopifyProducts.mjs",
+    "shopify:fetch-variants": "node scripts/fetchShopifyVariants.mjs",
     "shopify:clean-duplicates": "node scripts/cleanDuplicateImages.mjs",
     "shopify:clean-duplicates:execute": "node scripts/cleanDuplicateImages.mjs --execute"
   },
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
     "postcss": "^8.5.6",

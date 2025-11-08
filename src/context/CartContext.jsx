@@ -1,6 +1,8 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
+import { createShopifyCheckout } from '@/lib/shopifyCheckout'
+import { getVariantId } from '@/utils/getVariantId'
 
 const normalizeKey = (value) =>
   (value ?? '')
@@ -125,9 +127,37 @@ export function CartProvider({ children }) {
 
   // Create checkout URL (Shopify integration)
   const createCheckout = async () => {
-    // TODO: Implement Shopify checkout creation
-    // For now, return empty string
-    return ''
+    try {
+      if (cartItems.length === 0) {
+        throw new Error('Carrinho vazio')
+      }
+
+      // Converter itens do carrinho para line items do Shopify
+      const lineItems = []
+
+      for (const item of cartItems) {
+        // Buscar variant ID usando o slug e tamanho
+        const variantId = getVariantId(item.slug, item.size)
+
+        if (!variantId) {
+          console.error(`Variant ID não encontrado para: ${item.slug} - ${item.size}`)
+          throw new Error(`Produto ${item.name} (${item.size}) não está disponível no momento`)
+        }
+
+        lineItems.push({
+          variantId: variantId,
+          quantity: item.quantity
+        })
+      }
+
+      // Criar checkout no Shopify
+      const checkout = await createShopifyCheckout(lineItems)
+
+      return checkout.webUrl
+    } catch (error) {
+      console.error('Erro ao criar checkout:', error)
+      throw error
+    }
   }
 
   const value = {

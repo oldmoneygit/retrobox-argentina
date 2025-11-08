@@ -1,66 +1,78 @@
+/**
+ * Script para buscar Variant IDs do Shopify via GraphQL API
+ *
+ * Pré-requisito: Produtos já importados no Shopify
+ *
+ * Como usar:
+ * npm run shopify:fetch-variants
+ *
+ * Irá gerar: shopify-variant-mapping.json
+ */
+
 import dotenv from 'dotenv'
+import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import fs from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-dotenv.config({ path: path.join(__dirname, '../.env.local') })
+dotenv.config({ path: '.env.local' })
 
-console.log('🗺️  SHOPIFY VARIANT MAPPING GENERATOR - RETROBOX ARGENTINA\n')
+const SHOPIFY_DOMAIN = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN
+const API_VERSION = '2024-10'
 
-// Verificar credenciais
-if (!process.env.SHOPIFY_STORE_DOMAIN || !process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN) {
-  console.error('❌ ERRO: Credenciais da Shopify não configuradas!')
-  console.error('   Verifique se o arquivo .env.local existe e contém:')
-  console.error('   - SHOPIFY_STORE_DOMAIN')
-  console.error('   - SHOPIFY_STOREFRONT_ACCESS_TOKEN')
+if (!SHOPIFY_DOMAIN || !ACCESS_TOKEN) {
+  console.error('❌ Erro: Variáveis de ambiente não configuradas!')
+  console.error('Certifique-se de que .env.local contém:')
+  console.error('  NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN=9wurf1-73.myshopify.com')
+  console.error('  NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN=...')
   process.exit(1)
 }
 
-const SHOPIFY_STORE = {
-  domain: process.env.SHOPIFY_STORE_DOMAIN,
-  storefrontToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN
-}
+console.log(`🔗 Conectando ao Shopify: ${SHOPIFY_DOMAIN}`)
 
-const API_VERSION = '2024-10'
+// Carregar produtos locais
+const productsPath = path.join(__dirname, '../src/data/products.json')
+const productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'))
 
-console.log(`🔗 Conectando à loja: ${SHOPIFY_STORE.domain}\n`)
+console.log(`📦 Produtos locais: ${productsData.length}`)
 
-/**
- * GraphQL request helper
- */
+// Função para fazer request GraphQL
 async function shopifyGraphQL(query, variables = {}) {
-  const url = `https://${SHOPIFY_STORE.domain}/api/${API_VERSION}/graphql.json`
+  const url = `https://${SHOPIFY_DOMAIN}/api/${API_VERSION}/graphql.json`
 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Shopify-Storefront-Access-Token': SHOPIFY_STORE.storefrontToken,
-    },
-    body: JSON.stringify({ query, variables }),
-  })
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': ACCESS_TOKEN,
+      },
+      body: JSON.stringify({ query, variables }),
+    })
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
+
+    const json = await response.json()
+
+    if (json.errors) {
+      throw new Error(`GraphQL errors: ${JSON.stringify(json.errors, null, 2)}`)
+    }
+
+    return json.data
+  } catch (error) {
+    console.error('❌ Erro na requisição GraphQL:', error.message)
+    throw error
   }
-
-  const json = await response.json()
-
-  if (json.errors) {
-    throw new Error(`GraphQL errors: ${JSON.stringify(json.errors)}`)
-  }
-
-  return json.data
 }
 
-/**
- * Buscar todos os produtos com paginação
- */
+// Função para buscar todos os produtos (com paginação)
 async function fetchAllProducts() {
-  console.log('🔍 Buscando produtos da Shopify...\n')
+  console.log('\n🔍 Buscando produtos do Shopify...')
 
   const allProducts = []
   let hasNextPage = true
@@ -79,32 +91,25 @@ async function fetchAllProducts() {
             endCursor
           }
           edges {
+            cursor
             node {
               id
               title
               handle
-              productType
-              tags
               variants(first: 100) {
                 edges {
                   node {
                     id
                     title
-                    sku
                     selectedOptions {
                       name
                       value
                     }
-                    price {
-                      amount
-                      currencyCode
-                    }
-                    compareAtPrice {
+                    priceV2 {
                       amount
                       currencyCode
                     }
                     availableForSale
-                    quantityAvailable
                   }
                 }
               }
@@ -122,106 +127,95 @@ async function fetchAllProducts() {
     hasNextPage = data.products.pageInfo.hasNextPage
     cursor = data.products.pageInfo.endCursor
 
-    // Delay para rate limit
+    // Delay para não bater rate limit
     if (hasNextPage) {
       await new Promise(resolve => setTimeout(resolve, 500))
     }
   }
 
-  console.log(`\n✅ Total de produtos encontrados: ${allProducts.length}\n`)
+  console.log(`✅ Total de produtos no Shopify: ${allProducts.length}`)
   return allProducts
 }
 
-/**
- * Criar mapeamento
- */
+// Função principal
 async function main() {
   try {
+    // Buscar produtos do Shopify
     const shopifyProducts = await fetchAllProducts()
 
     if (shopifyProducts.length === 0) {
-      console.error('⚠️  Nenhum produto encontrado!')
+      console.error('\n⚠️  Nenhum produto encontrado no Shopify!')
+      console.error('Certifique-se de que você já importou os produtos.')
       process.exit(1)
     }
 
-    console.log('🔗 Criando mapeamento de Variant IDs...\n')
+    // Criar mapeamento
+    console.log('\n🔗 Criando mapeamento de Variant IDs...')
 
     const mapping = {}
     let totalVariants = 0
 
-    shopifyProducts.forEach((product) => {
-      const handle = product.handle
+    shopifyProducts.forEach((shopifyProduct) => {
+      const handle = shopifyProduct.handle
+      // Buscar produto local pelo slug (handle do Shopify é o mesmo que o slug)
+      const localProduct = productsData.find(p => p.slug === handle)
 
+      if (!localProduct) {
+        console.warn(`⚠️  Produto não encontrado localmente: ${handle}`)
+        return
+      }
+
+      // Inicializar mapeamento para este produto (usar handle como chave)
       mapping[handle] = {
-        handle: handle,
-        title: product.title,
-        shopifyProductId: product.id,
-        productType: product.productType,
-        tags: product.tags,
+        handle: localProduct.slug,
+        title: shopifyProduct.title,
+        shopifyProductId: shopifyProduct.id,
+        productType: shopifyProduct.productType || '',
+        tags: shopifyProduct.tags || [],
         variants: {},
       }
 
       // Mapear cada variante
-      product.variants.edges.forEach((edge) => {
+      shopifyProduct.variants.edges.forEach((edge) => {
         const variant = edge.node
 
-        // Encontrar opção de tamanho
+        // Encontrar opção "Tamanho" ou "Size"
         const sizeOption = variant.selectedOptions.find(
-          opt => opt.name.toLowerCase() === 'size' ||
-                 opt.name.toLowerCase() === 'tamanho'
+          opt => opt.name === 'Tamanho' || opt.name === 'Size'
         )
 
-        const size = sizeOption ? sizeOption.value : 'Default'
+        const size = sizeOption ? sizeOption.value : variant.title
 
         mapping[handle].variants[size] = {
           shopifyVariantId: variant.id,
-          title: variant.title,
-          sku: variant.sku,
-          price: variant.price.amount,
-          compareAtPrice: variant.compareAtPrice?.amount || null,
-          currency: variant.price.currencyCode,
+          sku: variant.sku || `${handle}-${size}`,
+          price: variant.priceV2.amount,
+          compareAtPrice: variant.compareAtPrice || null,
+          currency: variant.priceV2.currencyCode,
           availableForSale: variant.availableForSale,
-          quantityAvailable: variant.quantityAvailable,
+          quantityAvailable: 100, // Storefront API não retorna inventory
         }
 
         totalVariants++
       })
-
-      console.log(`   ✓ ${product.title} (${product.variants.edges.length} variantes)`)
     })
 
     // Salvar mapeamento
     const mappingPath = path.join(__dirname, '../shopify-variant-mapping.json')
     fs.writeFileSync(mappingPath, JSON.stringify(mapping, null, 2), 'utf8')
 
-    // Resumo
-    console.log('\n' + '='.repeat(60))
-    console.log('✅ MAPEAMENTO CRIADO COM SUCESSO!')
-    console.log('='.repeat(60))
-    console.log(`📁 Arquivo: shopify-variant-mapping.json`)
+    console.log('\n✅ Mapeamento criado com sucesso!')
+    console.log(`📁 Arquivo: ${mappingPath}`)
     console.log(`📊 Produtos mapeados: ${Object.keys(mapping).length}`)
     console.log(`🔢 Total de variantes: ${totalVariants}`)
-    console.log('='.repeat(60))
 
-    console.log('\n📖 Exemplo de uso:')
-    console.log('```javascript')
-    console.log('import mapping from "./shopify-variant-mapping.json"')
-    console.log('')
-    console.log('// Buscar variant ID')
-    console.log('const handle = "ac-milan-02-03-retro-home"')
-    console.log('const size = "M"')
-    console.log('const variantId = mapping[handle].variants[size].shopifyVariantId')
-    console.log('```')
-
-    console.log('\n🎯 PRÓXIMO PASSO:')
-    console.log('   Agora você pode integrar o checkout!')
-    console.log('   As funções de checkout usarão este mapeamento para')
-    console.log('   converter handle+size em Shopify Variant ID\n')
-
+    console.log('\n🎯 Checkout do Shopify está pronto para uso!')
+    console.log('   Os clientes agora podem finalizar compras diretamente no Shopify.\n')
   } catch (error) {
     console.error('\n❌ Erro:', error.message)
     process.exit(1)
   }
 }
 
+// Executar
 main()
