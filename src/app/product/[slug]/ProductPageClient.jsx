@@ -13,6 +13,7 @@ import BlackFridayProductCard from '@/components/blackfriday/BlackFridayProductC
 import ReservationCountdown from '@/components/blackfriday/ReservationCountdown'
 import { DEFAULT_SIZES } from '@/utils/constants'
 import useEmblaCarousel from 'embla-carousel-react'
+import AddToCartToast from '@/components/product/AddToCartToast'
 
 // Size Guide Modal Component
 const SizeGuideModal = ({ isOpen, onClose }) => {
@@ -424,6 +425,7 @@ export default function ProductPageClient({ product }) {
   const [selectedSize, setSelectedSize] = useState(null)
   const [addedToCart, setAddedToCart] = useState(false)
   const [showSizeGuide, setShowSizeGuide] = useState(false)
+  const [toastOpen, setToastOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('envio') // Tab control for Información Importante
 
   const images = product.gallery || [product.image]
@@ -440,6 +442,7 @@ export default function ProductPageClient({ product }) {
     }
     addToCart(product, selectedSize, quantity)
     setAddedToCart(true)
+    setToastOpen(true)
     setTimeout(() => setAddedToCart(false), 2000)
   }
 
@@ -1138,6 +1141,15 @@ export default function ProductPageClient({ product }) {
           )}
         </div>
       </main>
+
+      {/* Add to Cart Toast Notification */}
+      <AddToCartToast
+        isOpen={toastOpen}
+        onClose={() => setToastOpen(false)}
+        product={product}
+        size={selectedSize}
+        quantity={quantity}
+      />
 
       <StoreFooter />
     </>
