@@ -36,17 +36,15 @@ const LiveSlotsIndicator = () => {
     <AnimatePresence>
       {!isMinimized && (
         <>
-          {/* Backdrop - Apenas no mobile para fechar ao clicar fora */}
-          {isMobile && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMinimized(true)}
-              className="fixed inset-0 z-[69] bg-transparent"
-              aria-label="Fechar widget"
-            />
-          )}
+          {/* Backdrop - Para fechar ao clicar fora (mobile e desktop) */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsMinimized(true)}
+            className="fixed inset-0 z-[69] bg-transparent"
+            aria-label="Fechar widget"
+          />
 
           <motion.div
             initial={{ opacity: 0, x: 100 }}
