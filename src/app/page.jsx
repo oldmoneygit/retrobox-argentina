@@ -56,11 +56,6 @@ const CustomerFeedbacks = dynamic(() => import('@/components/store/CustomerFeedb
   ssr: true,
 })
 
-const FeaturedCollections = dynamic(() => import('@/components/store/FeaturedCollections'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
-  ssr: true,
-})
-
 export const metadata = {
   title: 'Retrobox Argentina - Camisetas Retrô Exclusivas | Pack Insano 3x49.900',
   description: 'Descubre las camisetas retrô más exclusivas. Pack Insano: 3 camisetas por $49.900 con envío gratis. Solo 50 packs diarios. Boca Juniors, River Plate, Argentina y más.',
@@ -161,11 +156,6 @@ export default function HomePage() {
         {/* Depoimentos de Clientes */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <CustomerFeedbacks />
-        </Suspense>
-
-        {/* Colecciones Icónicas: Boca, River, Argentina */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <FeaturedCollections />
         </Suspense>
 
         {/* Footer */}
