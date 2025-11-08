@@ -9,10 +9,10 @@ import ReservationCountdown from '@/components/blackfriday/ReservationCountdown'
 const CartSummary = ({ subtotal, cartItems }) => {
   const [isCheckingOut, setIsCheckingOut] = useState(false)
   const [checkoutError, setCheckoutError] = useState(null)
-  const { calculateCombo3xTotals, COMBO_PRICE } = useBlackFriday()
+  const { calculatePackInsanoTotals, PACK_INSANO_PRICE } = useBlackFriday()
 
   // Calcular dados do combo
-  const comboData = calculateCombo3xTotals(cartItems)
+  const comboData = calculatePackInsanoTotals(cartItems)
 
   const handleCheckout = async () => {
     if (!cartItems || cartItems.length === 0) {
@@ -64,7 +64,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
           </div>
 
           {/* Combo 3x - Display */}
-          {comboData.hasCombo ? (
+          {comboData.hasPack ? (
             <div className="flex items-start gap-2 bg-gradient-to-r from-orange-500/10 to-yellow-400/10 border border-orange-500/30 rounded-lg p-3">
               <Tag className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
@@ -77,7 +77,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
                   </span>
                 </div>
                 <p className="text-orange-500/80 text-xs">
-                  ¡{comboData.fullCombos} {comboData.fullCombos === 1 ? 'combo' : 'combos'} de 3 camisetas por ARS {COMBO_PRICE.toLocaleString('es-AR')}!
+                  ¡{comboData.fullPacks} {comboData.fullPacks === 1 ? 'combo' : 'combos'} de 3 camisetas por ARS {PACK_INSANO_PRICE.toLocaleString('es-AR')}!
                 </p>
               </div>
             </div>
@@ -87,8 +87,8 @@ const CartSummary = ({ subtotal, cartItems }) => {
               <div className="flex-1 min-w-0">
                 <p className="text-orange-500 text-xs font-semibold">
                   {comboData.itemCount === 0
-                    ? '¡Agrega 3 camisetas para combo de ARS 32.900!'
-                    : `¡Agrega ${comboData.productsNeeded} más para combo de ARS 32.900!`}
+                    ? `¡Agrega 3 camisetas para combo de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`
+                    : `¡Agrega ${comboData.productsNeeded} más para combo de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`}
                 </p>
               </div>
             </div>
@@ -112,7 +112,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
                 ${comboData.total.toLocaleString('es-AR')}
               </span>
             </div>
-            {comboData.hasCombo && comboData.savings > 0 && (
+            {comboData.hasPack && comboData.savings > 0 && (
               <p className="text-orange-500 text-xs text-right font-semibold">
                 ¡Ahorraste ${comboData.savings.toLocaleString('es-AR')}!
               </p>
