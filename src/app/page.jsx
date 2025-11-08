@@ -151,11 +151,6 @@ export default function HomePage() {
           <FeaturedProducts />
         </Suspense>
 
-        {/* Colecciones Icónicas: Boca, River, Argentina */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <FeaturedCollections />
-        </Suspense>
-
         {/* MysteryBox - Caja Sorpresa */}
         <div id="mysterybox">
           <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
@@ -166,6 +161,11 @@ export default function HomePage() {
         {/* Depoimentos de Clientes */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <CustomerFeedbacks />
+        </Suspense>
+
+        {/* Colecciones Icónicas: Boca, River, Argentina */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <FeaturedCollections />
         </Suspense>
 
         {/* Footer */}
