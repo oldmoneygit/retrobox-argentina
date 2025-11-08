@@ -432,6 +432,10 @@ export default function ProductPageClient({ product }) {
   const sizes = product.sizes || DEFAULT_SIZES
   const inWishlist = isInWishlist(product.id)
 
+  // Black November: Calculate original price (50% more expensive)
+  const originalPrice = product.regularPrice || Math.round(product.price * 1.5)
+  const discountPercentage = Math.round(((originalPrice - product.price) / originalPrice) * 100)
+
   console.log('🖼️ [ProductPageClient] Images:', images.length, 'imagens')
   console.log('🖼️ [ProductPageClient] Gallery:', product.gallery?.length || 0, 'imagens na gallery')
 
@@ -490,22 +494,28 @@ export default function ProductPageClient({ product }) {
                 </h1>
               </div>
 
-              {/* Price */}
+              {/* Price - Black November */}
               <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-lg md:rounded-xl p-3 md:p-5">
-                <div className="flex items-center gap-2 md:gap-3">
+                {/* Black November Badge */}
+                <div className="flex items-center gap-2 mb-2 md:mb-3">
+                  <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg uppercase tracking-wide">
+                    🔥 BLACK NOVEMBER
+                  </span>
+                  <span className="inline-flex items-center bg-gradient-to-r from-orange-500 to-yellow-400 text-black text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg">
+                    -{discountPercentage}% OFF
+                  </span>
+                </div>
+
+                {/* Prices */}
+                <div className="space-y-1">
+                  {/* Original Price (Always show for Black November) */}
+                  <p className="text-sm md:text-lg text-gray-medium line-through">
+                    ${originalPrice.toLocaleString('es-AR')}
+                  </p>
+                  {/* Promotional Price */}
                   <p className="text-2xl md:text-4xl font-black text-white">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
-                  {product.regularPrice && product.regularPrice > product.price && (
-                    <>
-                      <p className="text-base md:text-xl text-gray-medium line-through">
-                        ${product.regularPrice.toLocaleString('es-AR')}
-                      </p>
-                      <span className="bg-white text-black text-[10px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg shadow-lg shadow-white/30">
-                        -{Math.round(((product.regularPrice - product.price) / product.regularPrice) * 100)}% OFF
-                      </span>
-                    </>
-                  )}
                 </div>
               </div>
 
