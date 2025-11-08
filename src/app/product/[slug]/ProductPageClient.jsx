@@ -70,60 +70,91 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           {/* Size Chart Table */}
           <div className="mb-4 md:mb-6">
             <h3 className="text-white font-bold mb-2 md:mb-3 uppercase text-xs md:text-sm">Tabla de Medidas</h3>
-            <div className="overflow-x-auto -mx-1">
-              <table className="w-full border-collapse min-w-[500px] md:min-w-0">
+
+            {/* Mobile: Cards Layout */}
+            <div className="md:hidden space-y-2">
+              {[
+                { size: 'S', chest: '88-93 cm', length: '71 cm', equiv: 'Small' },
+                { size: 'M', chest: '94-99 cm', length: '73 cm', equiv: 'Medium' },
+                { size: 'L', chest: '100-105 cm', length: '75 cm', equiv: 'Large' },
+                { size: 'XL', chest: '106-111 cm', length: '77 cm', equiv: 'Extra Large' },
+                { size: 'XXL', chest: '112-117 cm', length: '79 cm', equiv: '2X Large' },
+                { size: '3XL', chest: '118-123 cm', length: '81 cm', equiv: '3X Large' }
+              ].map((item) => (
+                <div key={item.size} className="bg-white/5 border border-white/10 rounded-lg p-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-white font-bold text-lg">{item.size}</span>
+                    <span className="text-white/60 text-[10px] uppercase">{item.equiv}</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <span className="text-white/60 text-[10px] uppercase block">Pecho</span>
+                      <span className="text-white/90">{item.chest}</span>
+                    </div>
+                    <div>
+                      <span className="text-white/60 text-[10px] uppercase block">Largo</span>
+                      <span className="text-white/90">{item.length}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop: Table Layout */}
+            <div className="hidden md:block">
+              <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-white/10">
-                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
                       Talla
                     </th>
-                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
                       Pecho
                     </th>
-                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
                       Largo
                     </th>
-                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-white font-bold uppercase text-[10px] md:text-sm border border-white/10">
+                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
                       Equivalencia
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">S</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">88-93 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">71 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Small</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">S</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">88-93 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">71 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Small</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">M</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">94-99 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">73 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Medium</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">M</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">94-99 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">73 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Medium</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">L</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">100-105 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">75 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Large</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">L</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">100-105 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">75 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">XL</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">106-111 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">77 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">Extra Large</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">XL</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">106-111 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">77 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Extra Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">XXL</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">112-117 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">79 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">2X Large</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">XXL</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">112-117 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">79 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">2X Large</td>
                   </tr>
                   <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white font-bold text-xs md:text-base border border-white/10">3XL</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">118-123 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/80 text-[11px] md:text-base border border-white/10">81 cm</td>
-                    <td className="px-2 md:px-4 py-2 md:py-3 text-white/60 text-[10px] md:text-sm border border-white/10">3X Large</td>
+                    <td className="px-4 py-3 text-white font-bold border border-white/10">3XL</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">118-123 cm</td>
+                    <td className="px-4 py-3 text-white/80 border border-white/10">81 cm</td>
+                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">3X Large</td>
                   </tr>
                 </tbody>
               </table>
@@ -427,9 +458,9 @@ export default function ProductPageClient({ product }) {
       {/* Size Guide Modal */}
       <SizeGuideModal isOpen={showSizeGuide} onClose={() => setShowSizeGuide(false)} />
 
-      <main className="min-h-screen bg-black pt-16 md:pt-20">
+      <main className="min-h-screen bg-black pt-14 md:pt-20">
         {/* Breadcrumb */}
-        <div className="container mx-auto px-4 py-1 md:py-2">
+        <div className="container mx-auto px-4 py-0 md:py-2">
           <Link
             href="/"
             className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-base font-semibold"
@@ -440,7 +471,7 @@ export default function ProductPageClient({ product }) {
         </div>
 
         {/* Product Section */}
-        <div className="container mx-auto px-4 pb-8 md:pb-12 pt-1 md:pt-2">
+        <div className="container mx-auto px-4 pb-8 md:pb-12 pt-0 md:pt-2">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
             {/* Left Column - Gallery */}
             <div>
