@@ -1,0 +1,1054 @@
+{
+  "summary": {
+    "totalProducts": 419,
+    "productsWithAllImages": 294,
+    "productsWithMissingImages": 94
+  },
+  "issues": [
+    {
+      "nome": "AC Milan 06/07 Retro Away",
+      "handle": "ac-milan-06-07-retro-away",
+      "shopifyId": "gid://shopify/Product/9059524509912",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "AC Milan 06/07 Retro Away Long Sleeve",
+      "handle": "ac-milan-06-07-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059524542680",
+      "imagesInShopify": 11,
+      "expectedImages": 7,
+      "missing": -4,
+      "missingLocalFiles": [
+        "002.jpg",
+        "003.jpg"
+      ]
+    },
+    {
+      "nome": "AC Milan 06/07 Retro Home",
+      "handle": "ac-milan-06-07-retro-home",
+      "shopifyId": "gid://shopify/Product/9059524575448",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "AC Milan 89/90 Retro Away",
+      "handle": "ac-milan-89-90-retro-away",
+      "shopifyId": "gid://shopify/Product/9059525624024",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Alemania 02/03 Retro Home",
+      "handle": "alemania-02-03-retro-home",
+      "shopifyId": "gid://shopify/Product/9059525853400",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Alemania 1986 Retro Home",
+      "handle": "alemania-1986-retro-home",
+      "shopifyId": "gid://shopify/Product/9059525886168",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1978 Retro Home",
+      "handle": "argentina-1978-retro-home",
+      "shopifyId": "gid://shopify/Product/9059526312152",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1986 Retro Away",
+      "handle": "argentina-1986-retro-away",
+      "shopifyId": "gid://shopify/Product/9059526344920",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1986 Retro Home",
+      "handle": "argentina-1986-retro-home",
+      "shopifyId": "gid://shopify/Product/9059526377688",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1986 Retro Home Long Sleeve",
+      "handle": "argentina-1986-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059526410456",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1994 Retro Away",
+      "handle": "argentina-1994-retro-away",
+      "shopifyId": "gid://shopify/Product/9059526443224",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1994 Retro Away Long Sleeve",
+      "handle": "argentina-1994-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059526475992",
+      "imagesInShopify": 12,
+      "expectedImages": 7,
+      "missing": -5,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1994 Retro Home",
+      "handle": "argentina-1994-retro-home",
+      "shopifyId": "gid://shopify/Product/9059526508760",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1998 Retro Away",
+      "handle": "argentina-1998-retro-away",
+      "shopifyId": "gid://shopify/Product/9059526541528",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina 1998 Retro Home",
+      "handle": "argentina-1998-retro-home",
+      "shopifyId": "gid://shopify/Product/9059526574296",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Argentina Retro",
+      "handle": "argentina-retro",
+      "shopifyId": "gid://shopify/Product/9059527000280",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 03/04 Retro Away Long Sleeve",
+      "handle": "barcelona-03-04-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059527721176",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 04/05 Retro Away",
+      "handle": "barcelona-04-05-retro-away",
+      "shopifyId": "gid://shopify/Product/9059527753944",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 04/05 Retro Home",
+      "handle": "barcelona-04-05-retro-home",
+      "shopifyId": "gid://shopify/Product/9059527786712",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 05/06 Retro Away Long Sleeve",
+      "handle": "barcelona-05-06-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059527852248",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 05/06 Retro Home Champions League",
+      "handle": "barcelona-05-06-retro-home-champions-league",
+      "shopifyId": "gid://shopify/Product/9059527885016",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 05/06 Retro Home Long Sleeve",
+      "handle": "barcelona-05-06-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059527917784",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 07/08 Retro Home Long Sleeve",
+      "handle": "barcelona-07-08-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059527983320",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 10/11 Retro Away",
+      "handle": "barcelona-10-11-retro-away",
+      "shopifyId": "gid://shopify/Product/9059528147160",
+      "imagesInShopify": 13,
+      "expectedImages": 7,
+      "missing": -6,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 1992 Retro Home Long Sleeve",
+      "handle": "barcelona-1992-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059529031896",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona 90/91 Retro Home",
+      "handle": "barcelona-90-91-retro-home",
+      "shopifyId": "gid://shopify/Product/9059529097432",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona Retro",
+      "handle": "barcelona-retro",
+      "shopifyId": "gid://shopify/Product/9059529162968",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Barcelona Retro Away Long Sleeve",
+      "handle": "barcelona-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059529228504",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Bayern Múnich 25/26 Retro",
+      "handle": "bayern-mnich-25-26-retro",
+      "shopifyId": "gid://shopify/Product/9059529588952",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Bayern Múnich Retro",
+      "handle": "bayern-mnich-retro",
+      "shopifyId": "gid://shopify/Product/9059529654488",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 03/04 Retro Home",
+      "handle": "boca-juniors-03-04-retro-home",
+      "shopifyId": "gid://shopify/Product/9059529752792",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 1981 Retro Home",
+      "handle": "boca-juniors-1981-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530244312",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 1981 Retro Home Long Sleeve",
+      "handle": "boca-juniors-1981-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059530277080",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 1999 Retro Home",
+      "handle": "boca-juniors-1999-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530375384",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 2001 Retro Home",
+      "handle": "boca-juniors-2001-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530408152",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 2005 Retro Home",
+      "handle": "boca-juniors-2005-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530473688",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 85/86 Retro Home",
+      "handle": "boca-juniors-85-86-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530637528",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 90/91 Retro Away",
+      "handle": "boca-juniors-90-91-retro-away",
+      "shopifyId": "gid://shopify/Product/9059530703064",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Boca Juniors 90/91 Retro Home",
+      "handle": "boca-juniors-90-91-retro-home",
+      "shopifyId": "gid://shopify/Product/9059530768600",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 04/06 Retro Home",
+      "handle": "brasil-04-06-retro-home",
+      "shopifyId": "gid://shopify/Product/9059531522264",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 2002 Retro",
+      "handle": "brasil-2002-retro",
+      "shopifyId": "gid://shopify/Product/9059532046552",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 2002 Retro Away",
+      "handle": "brasil-2002-retro-away",
+      "shopifyId": "gid://shopify/Product/9059532079320",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 2002 Retro Away Long Sleeve",
+      "handle": "brasil-2002-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059532112088",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 2002 Retro Home",
+      "handle": "brasil-2002-retro-home",
+      "shopifyId": "gid://shopify/Product/9059532144856",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 2002 Retro Home Long Sleeve",
+      "handle": "brasil-2002-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059532177624",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 91/93 Retro Home",
+      "handle": "brasil-91-93-retro-home",
+      "shopifyId": "gid://shopify/Product/9059532472536",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 93/94 Retro Home",
+      "handle": "brasil-93-94-retro-home",
+      "shopifyId": "gid://shopify/Product/9059532505304",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil 94/96 Retro Away",
+      "handle": "brasil-94-96-retro-away",
+      "shopifyId": "gid://shopify/Product/9059532538072",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Brasil Retro Long Sleeve",
+      "handle": "brasil-retro-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059532767448",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Dinamarca 1986 Retro Away",
+      "handle": "dinamarca-1986-retro-away",
+      "shopifyId": "gid://shopify/Product/9059533619416",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "España Retro",
+      "handle": "espaa-retro",
+      "shopifyId": "gid://shopify/Product/9059533652184",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Francia 1994 Retro Away",
+      "handle": "francia-1994-retro-away",
+      "shopifyId": "gid://shopify/Product/9059533979864",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Francia 1994 Retro Home",
+      "handle": "francia-1994-retro-home",
+      "shopifyId": "gid://shopify/Product/9059534012632",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Francia 2006 Retro",
+      "handle": "francia-2006-retro",
+      "shopifyId": "gid://shopify/Product/9059534110936",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Francia 2014 Retro Home",
+      "handle": "francia-2014-retro-home",
+      "shopifyId": "gid://shopify/Product/9059534209240",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Holanda 2002 Retro Home",
+      "handle": "holanda-2002-retro-home",
+      "shopifyId": "gid://shopify/Product/9059534438616",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Holanda Retro Away",
+      "handle": "holanda-retro-away",
+      "shopifyId": "gid://shopify/Product/9059534602456",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Independiente 1978 Retro Home",
+      "handle": "independiente-1978-retro-home",
+      "shopifyId": "gid://shopify/Product/9059534700760",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Independiente Retro Home Long Sleeve",
+      "handle": "independiente-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059534962904",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inglaterra 94/95 Retro Home",
+      "handle": "inglaterra-94-95-retro-home",
+      "shopifyId": "gid://shopify/Product/9059535093976",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inglaterra Retro",
+      "handle": "inglaterra-retro",
+      "shopifyId": "gid://shopify/Product/9059535159512",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inglaterra Retro Away Long Sleeve",
+      "handle": "inglaterra-retro-away-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059535257816",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inglaterra Retro Home Long Sleeve",
+      "handle": "inglaterra-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059535323352",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inglaterra Retro Long Sleeve",
+      "handle": "inglaterra-retro-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059535356120",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Instituto de Córdoba 96/97 Retro Home",
+      "handle": "instituto-de-crdoba-96-97-retro-home",
+      "shopifyId": "gid://shopify/Product/9059535421656",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Inter Miami 25/26 Retro Home",
+      "handle": "inter-miami-25-26-retro-home",
+      "shopifyId": "gid://shopify/Product/9059536044248",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Italia 1994 Retro Home Long Sleeve",
+      "handle": "italia-1994-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059536077016",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Italia 2006 Retro Home",
+      "handle": "italia-2006-retro-home",
+      "shopifyId": "gid://shopify/Product/9059536142552",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Italia 2006 Retro Home Long Sleeve",
+      "handle": "italia-2006-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059536175320",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Japón 2006 Retro Away",
+      "handle": "japn-2006-retro-away",
+      "shopifyId": "gid://shopify/Product/9059536666840",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Japón 2006 Retro Home Long Sleeve",
+      "handle": "japn-2006-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059536699608",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Lazio 00/01 Retro Away",
+      "handle": "lazio-00-01-retro-away",
+      "shopifyId": "gid://shopify/Product/9059536896216",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "México 2010 Retro Away",
+      "handle": "mxico-2010-retro-away",
+      "shopifyId": "gid://shopify/Product/9059538206936",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "México Retro",
+      "handle": "mxico-retro",
+      "shopifyId": "gid://shopify/Product/9059538272472",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Newell's Old Boys 93/94 Retro",
+      "handle": "newells-old-boys-93-94-retro",
+      "shopifyId": "gid://shopify/Product/9059538469080",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Olympique de Marsella 92/93 Retro Home",
+      "handle": "olympique-de-marsella-92-93-retro-home",
+      "shopifyId": "gid://shopify/Product/9059538501848",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Porto 99/00 Retro Home",
+      "handle": "porto-99-00-retro-home",
+      "shopifyId": "gid://shopify/Product/9059538796760",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Portugal Retro Away",
+      "handle": "portugal-retro-away",
+      "shopifyId": "gid://shopify/Product/9059539091672",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Racing Club 99/00 Retro Away",
+      "handle": "racing-club-99-00-retro-away",
+      "shopifyId": "gid://shopify/Product/9059539779800",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Racing Club 99/00 Retro Home",
+      "handle": "racing-club-99-00-retro-home",
+      "shopifyId": "gid://shopify/Product/9059539845336",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 02/03 Retro Away Champions League",
+      "handle": "real-madrid-02-03-retro-away-champions-league",
+      "shopifyId": "gid://shopify/Product/9059539910872",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 02/03 Retro Home",
+      "handle": "real-madrid-02-03-retro-home",
+      "shopifyId": "gid://shopify/Product/9059539976408",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 02/03 Retro Home Champions League",
+      "handle": "real-madrid-02-03-retro-home-champions-league",
+      "shopifyId": "gid://shopify/Product/9059540009176",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 02/03 Retro Home Long Sleeve Champions League",
+      "handle": "real-madrid-02-03-retro-home-long-sleeve-champions-league",
+      "shopifyId": "gid://shopify/Product/9059540041944",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 11/12 Retro Home",
+      "handle": "real-madrid-11-12-retro-home",
+      "shopifyId": "gid://shopify/Product/9059540467928",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 11/12 Retro Home Long Sleeve",
+      "handle": "real-madrid-11-12-retro-home-long-sleeve",
+      "shopifyId": "gid://shopify/Product/9059540533464",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 15/16 Retro Home",
+      "handle": "real-madrid-15-16-retro-home",
+      "shopifyId": "gid://shopify/Product/9059540992216",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 16/17 Retro Away",
+      "handle": "real-madrid-16-17-retro-away",
+      "shopifyId": "gid://shopify/Product/9059541090520",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid 98/99 Retro Away",
+      "handle": "real-madrid-98-99-retro-away",
+      "shopifyId": "gid://shopify/Product/9059541614808",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "002.jpg"
+      ]
+    },
+    {
+      "nome": "Real Madrid Retro",
+      "handle": "real-madrid-retro",
+      "shopifyId": "gid://shopify/Product/9059541647576",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "River Plate 1986 Retro Home",
+      "handle": "river-plate-1986-retro-home",
+      "shopifyId": "gid://shopify/Product/9059542139096",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "River Plate 95/96 Retro Away",
+      "handle": "river-plate-95-96-retro-away",
+      "shopifyId": "gid://shopify/Product/9059542302936",
+      "imagesInShopify": 7,
+      "expectedImages": 7,
+      "missing": 0,
+      "missingLocalFiles": [
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Suecia 1994 Retro Away",
+      "handle": "suecia-1994-retro-away",
+      "shopifyId": "gid://shopify/Product/9059543515352",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    },
+    {
+      "nome": "Suecia 1994 Retro Home",
+      "handle": "suecia-1994-retro-home",
+      "shopifyId": "gid://shopify/Product/9059543548120",
+      "imagesInShopify": 6,
+      "expectedImages": 7,
+      "missing": 1,
+      "missingLocalFiles": [
+        "006.jpg",
+        "007.jpg"
+      ]
+    }
+  ]
+}
