@@ -46,7 +46,7 @@ export default function BlackFridayPopup() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[9998]"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[9998]"
           />
 
           {/* Popup */}
