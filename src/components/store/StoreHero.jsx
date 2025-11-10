@@ -12,7 +12,7 @@ const StoreHero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-dark to-black">
         {/* Mobile Image */}
         <OptimizedImage
-          src="/images/hero/Banner-Retrobox-mobile-2.webp"
+          src="/images/hero/banner-hero-section.png"
           alt="Retrobox - Camisetas Retrô"
           fill
           className="object-contain object-center md:hidden"
