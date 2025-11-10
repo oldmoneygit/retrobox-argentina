@@ -9,7 +9,7 @@ import { SOCIAL_LINKS } from '@/utils/constants'
 const CustomerFeedbacks = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // Array com todas as 19 imagens de feedback
+  // Array com todas as 19 imagens de feedback ordenadas numericamente
   const feedbacks = [
     { id: 1, image: '/images/feedbacks/1.png' },
     { id: 2, image: '/images/feedbacks/2.png' },
@@ -24,12 +24,12 @@ const CustomerFeedbacks = () => {
     { id: 11, image: '/images/feedbacks/11.png' },
     { id: 12, image: '/images/feedbacks/12.png' },
     { id: 13, image: '/images/feedbacks/13.png' },
-    { id: 14, image: '/images/feedbacks/34.png' },
-    { id: 15, image: '/images/feedbacks/35.png' },
-    { id: 16, image: '/images/feedbacks/36.png' },
-    { id: 17, image: '/images/feedbacks/37.png' },
-    { id: 18, image: '/images/feedbacks/38.png' },
-    { id: 19, image: '/images/feedbacks/39.png' },
+    { id: 34, image: '/images/feedbacks/34.png' },
+    { id: 35, image: '/images/feedbacks/35.png' },
+    { id: 36, image: '/images/feedbacks/36.png' },
+    { id: 37, image: '/images/feedbacks/37.png' },
+    { id: 38, image: '/images/feedbacks/38.png' },
+    { id: 39, image: '/images/feedbacks/39.png' },
     { id: 20, isInstagram: true }
   ]
 
