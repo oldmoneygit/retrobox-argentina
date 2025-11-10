@@ -98,7 +98,7 @@ export default function BlackFridayProductCard() {
         <div className="flex items-start gap-2">
           <Check className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
           <p className="text-xs text-white/70">
-            <strong className="text-white">¿Si quiero 6?</strong> Son 2 combos (ARS {(PACK_INSANO_PRICE * 2).toLocaleString('es-AR')} total)
+            <strong className="text-white">¿Si quiero 8?</strong> Son 2 combos (ARS {(PACK_INSANO_PRICE * 2).toLocaleString('es-AR')} total)
           </p>
         </div>
         <div className="flex items-start gap-2">
