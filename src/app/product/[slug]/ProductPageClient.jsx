@@ -11,6 +11,7 @@ import { useWishlist } from '@/context/WishlistContext'
 import Link from 'next/link'
 import BlackFridayProductCard from '@/components/blackfriday/BlackFridayProductCard'
 import ReservationCountdown from '@/components/blackfriday/ReservationCountdown'
+import CustomerFeedbacks from '@/components/store/CustomerFeedbacks'
 import { DEFAULT_SIZES } from '@/utils/constants'
 import useEmblaCarousel from 'embla-carousel-react'
 import AddToCartToast from '@/components/product/AddToCartToast'
@@ -645,11 +646,16 @@ export default function ProductPageClient({ product }) {
                 </button>
               </div>
 
+              {/* Reservation Countdown - Above Black Friday */}
+              <ReservationCountdown />
+
               {/* Black Friday Product Card */}
               <BlackFridayProductCard />
 
-              {/* Reservation Countdown */}
-              <ReservationCountdown />
+              {/* Customer Feedbacks Section */}
+              <div className="mt-6 md:mt-8">
+                <CustomerFeedbacks />
+              </div>
 
               {/* Product Details Section */}
               <div className="py-6 border-t border-white/10">
