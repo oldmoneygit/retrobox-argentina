@@ -80,16 +80,25 @@ const ProductCard = ({ product, index = 0 }) => {
             transition={{ duration: 0.3 }}
             className="w-full h-full"
           >
-            <OptimizedImage
-              src={image}
-              alt={name}
-              fill
-              className="object-cover transition-transform duration-500"
-              sizes="(max-width: 768px) 95vw, (max-width: 1200px) 45vw, 23vw"
-              loading={imageConfig.loading}
-              priority={imageConfig.priority}
-              quality={imageConfig.quality}
-            />
+            {image ? (
+              <OptimizedImage
+                src={image}
+                alt={name}
+                fill
+                className="object-cover transition-transform duration-500"
+                sizes="(max-width: 768px) 95vw, (max-width: 1200px) 45vw, 23vw"
+                loading={imageConfig.loading}
+                priority={imageConfig.priority}
+                quality={imageConfig.quality}
+                fallback="/images/placeholder-product.jpg"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
+                <div className="text-center p-4">
+                  <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
 
