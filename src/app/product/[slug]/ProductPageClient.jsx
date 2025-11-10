@@ -649,13 +649,13 @@ export default function ProductPageClient({ product }) {
               {/* Reservation Countdown - Above Black Friday */}
               <ReservationCountdown />
 
-              {/* Black Friday Product Card */}
-              <BlackFridayProductCard />
-
-              {/* Customer Feedbacks Section */}
+              {/* Customer Feedbacks Section - Below Reserva Activa */}
               <div className="mt-6 md:mt-8">
                 <CustomerFeedbacks />
               </div>
+
+              {/* Black Friday Product Card */}
+              <BlackFridayProductCard />
 
               {/* Product Details Section */}
               <div className="py-6 border-t border-white/10">
