@@ -3,73 +3,45 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import OptimizedImage from '@/components/OptimizedImage'
-import SectionTitle from './SectionTitle'
-import { ChevronLeft, ChevronRight, Heart, MessageCircle, Instagram, ArrowRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Star, MessageCircle, Instagram, ArrowRight } from 'lucide-react'
 import { SOCIAL_LINKS } from '@/utils/constants'
 
 const CustomerFeedbacks = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
+  // Array com todas as 19 imagens de feedback
   const feedbacks = [
-    {
-      id: 1,
-      image: '/images/feedbacks/feedback-template.jpg',
-      customer: 'cliente1',
-      messages: [
-        'Llegaron perfectos',
-        'Muy buena calidad',
-        '100% recomendable'
-      ]
-    },
-    {
-      id: 2,
-      image: '/images/feedbacks/feedback-template.jpg',
-      customer: 'cliente2',
-      messages: [
-        'Excelente atención',
-        'Justo lo que esperaba',
-        'Se ven increíbles 🔥'
-      ]
-    },
-    {
-      id: 3,
-      image: '/images/feedbacks/feedback-template.jpg',
-      customer: 'cliente3',
-      messages: [
-        'Todos perfectos',
-        'Excelente calidad',
-        'Super recomendado'
-      ]
-    },
-    {
-      id: 4,
-      image: '/images/feedbacks/feedback-template.jpg',
-      customer: 'cliente4',
-      messages: [
-        'Recibí la camiseta',
-        'Está increíble',
-        'Muchas gracias! 🔥'
-      ]
-    },
-    {
-      id: 5,
-      image: '/images/feedbacks/feedback-template.jpg',
-      customer: 'cliente5',
-      messages: [
-        'Increíble calidad',
-        'Llegó súper rápido',
-        'Los recomiendo 100%'
-      ]
-    },
+    { id: 1, image: '/images/feedbacks/1.png' },
+    { id: 2, image: '/images/feedbacks/2.png' },
+    { id: 3, image: '/images/feedbacks/3.png' },
+    { id: 4, image: '/images/feedbacks/4.png' },
+    { id: 5, image: '/images/feedbacks/5.png' },
+    { id: 6, image: '/images/feedbacks/6.png' },
+    { id: 7, image: '/images/feedbacks/7.png' },
+    { id: 8, image: '/images/feedbacks/8.png' },
+    { id: 9, image: '/images/feedbacks/9.png' },
+    { id: 10, image: '/images/feedbacks/10.png' },
+    { id: 11, image: '/images/feedbacks/11.png' },
+    { id: 12, image: '/images/feedbacks/12.png' },
+    { id: 13, image: '/images/feedbacks/13.png' },
+    { id: 14, image: '/images/feedbacks/34.png' },
+    { id: 15, image: '/images/feedbacks/35.png' },
+    { id: 16, image: '/images/feedbacks/36.png' },
+    { id: 17, image: '/images/feedbacks/37.png' },
+    { id: 18, image: '/images/feedbacks/38.png' },
+    { id: 19, image: '/images/feedbacks/39.png' },
+    { id: 20, isInstagram: true }
   ]
 
-  const stats = [
-    { label: 'Clientes Satisfechos', value: '10K+' },
-    { label: 'Pedidos Entregados', value: '25K+' },
-    { label: 'Calificación Promedio', value: '4.9⭐' },
-    { label: 'Tiempo de Entrega', value: '24-48h' },
-  ]
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
+  }
 
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + feedbacks.length) % feedbacks.length)
+  }
+
+  // Auto-play carousel
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
@@ -77,209 +49,216 @@ const CustomerFeedbacks = () => {
     return () => clearInterval(interval)
   }, [feedbacks.length])
 
-  const nextFeedback = () => {
-    setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
+  // Swipe handlers
+  const handleDragEnd = (event, info) => {
+    const threshold = 50
+    
+    if (info.offset.x > threshold) {
+      prevSlide()
+    } else if (info.offset.x < -threshold) {
+      nextSlide()
+    }
   }
-
-  const prevFeedback = () => {
-    setCurrentIndex((prev) => (prev - 1 + feedbacks.length) % feedbacks.length)
-  }
-
-  const currentFeedback = feedbacks[currentIndex]
 
   return (
-    <section className="relative py-8 md:py-10 bg-black overflow-hidden">
+    <section className="relative py-20 bg-gradient-to-b from-black via-gray-dark to-black overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-[120px]" />
+
       <div className="container mx-auto px-4">
-        <SectionTitle
-          title="Lo que dicen"
-          highlight="Nuestros Clientes"
-          subtitle="Experiencias reales de clientes satisfechos"
-        />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-8">
+            <MessageCircle className="w-5 h-5 text-white" />
+            <span className="text-sm font-bold tracking-widest text-white uppercase">
+              Clientes Satisfechos
+            </span>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-          {/* Mobile Mockup com Feedback */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative flex justify-center"
-          >
-            {/* Phone Frame */}
-            <div className="relative w-[280px] h-[580px] md:w-[320px] md:h-[660px]">
-              {/* Phone Border */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-dark via-black to-gray-dark rounded-[3rem] p-3 shadow-2xl border-2 border-white/10">
-                {/* Screen */}
-                <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
-                  {/* Status Bar */}
-                  <div className="h-8 bg-gradient-to-b from-gray-dark to-black flex items-center justify-between px-4 text-white text-[10px]">
-                    <span>9:41</span>
-                    <div className="flex gap-1">
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                      <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                  </div>
+          <div className="max-w-6xl mx-auto px-4">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-black leading-tight md:leading-relaxed mb-8">
+              <span className="text-white">Más de </span>
+              <span className="text-white font-black" style={{ filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.5))' }}>10K+ Clientes Satisfechos</span>
+              <span className="text-white"> y </span>
+              <span className="text-white font-black" style={{ filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.5))' }}>+25K Pedidos Entregados</span>
+              <span className="text-white"> en toda Argentina con calidad premium</span>
+            </h2>
+          </div>
+        </motion.div>
 
-                  {/* Instagram Feed */}
-                  <div className="h-full overflow-y-auto bg-black">
-                    {/* Instagram Header */}
-                    <div className="bg-gradient-to-b from-gray-dark to-black p-4 border-b border-white/10">
-                      <div className="flex items-center justify-between text-white">
-                        <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-                          <span className="text-sm font-semibold">retrobox.arg</span>
+        {/* Carousel */}
+        <div className="relative max-w-5xl mx-auto">
+          <div className="relative h-[600px] md:h-[700px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 0.5 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+                className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
+              >
+                {feedbacks[currentIndex].isInstagram ? (
+                  /* Instagram CTA Card */
+                  <div className="relative">
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent blur-3xl scale-110" />
+
+                    {/* Card Frame */}
+                    <div className="relative w-[350px] md:w-[400px] h-[600px] md:h-[700px] bg-gradient-to-br from-gray-dark to-black rounded-[3rem] p-3 shadow-2xl border border-white/30">
+                      {/* Screen */}
+                      <div className="w-full h-full bg-gradient-to-br from-black via-gray-dark to-black rounded-[2.5rem] overflow-hidden relative flex flex-col items-center justify-center p-8 text-center">
+                        {/* Instagram Icon Large */}
+                        <div className="mb-8 relative">
+                          <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full" />
+                          <Instagram className="w-24 h-24 text-white relative" strokeWidth={1.5} />
                         </div>
-                        <MessageCircle size={20} className="text-white" />
-                      </div>
-                    </div>
 
-                    {/* Feedback Image */}
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={currentFeedback.id}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.3 }}
-                        className="relative aspect-square bg-gradient-to-br from-gray-dark to-black"
-                      >
-                        <OptimizedImage
-                          src={currentFeedback.image}
-                          alt={`Feedback ${currentFeedback.id}`}
-                          fill
-                          className="object-cover opacity-90"
-                          sizes="(max-width: 768px) 280px, 320px"
-                        />
-                      </motion.div>
-                    </AnimatePresence>
+                        {/* Text */}
+                        <h3 className="text-3xl md:text-4xl font-black text-white mb-4 leading-tight">
+                          Y más en Instagram
+                        </h3>
 
-                    {/* Comments Section */}
-                    <div className="p-4 bg-black">
-                      <div className="space-y-3 mb-4">
-                        {currentFeedback.messages.map((msg, idx) => (
-                          <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.1 }}
-                            className="flex items-start gap-2"
-                          >
-                            <div className="w-6 h-6 bg-white/20 rounded-full flex-shrink-0"></div>
-                            <div className="flex-1">
-                              <p className="text-white text-xs font-semibold">{currentFeedback.customer}</p>
-                              <p className="text-white/80 text-xs">{msg}</p>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                      
-                      {/* Instagram Footer */}
-                      <div className="flex items-center gap-4 pt-2 border-t border-white/10">
-                        <Heart size={16} className="text-white" />
-                        <MessageCircle size={16} className="text-white" />
-                        <Instagram size={16} className="text-white" />
+                        <p className="text-gray-400 text-sm mb-8 max-w-xs">
+                          Miles de testimonios reales de clientes satisfechos
+                        </p>
+
+                        {/* CTA Button */}
+                        <a
+                          href={SOCIAL_LINKS.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-black text-sm hover:bg-gray-light transition-all duration-300 uppercase tracking-wider group"
+                        >
+                          <Instagram className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                          {SOCIAL_LINKS.instagramHandle}
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                        </a>
+
+                        {/* Tags */}
+                        <div className="flex gap-2 mt-8 flex-wrap justify-center">
+                          <span className="text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">Drops</span>
+                          <span className="text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">Previews</span>
+                          <span className="text-xs text-white/60 bg-white/10 px-3 py-1 rounded-full">Behind the Scenes</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
+                ) : (
+                  /* Phone Mockup with Feedback */
+                  <div className="relative">
+                    {/* Glow Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent blur-3xl scale-110" />
 
-              {/* Decorative Glow */}
-              <div className="absolute inset-0 bg-white/5 blur-3xl -z-10 rounded-[3rem]"></div>
-            </div>
+                    {/* Phone Frame */}
+                    <div className="relative w-[350px] md:w-[400px] h-[600px] md:h-[700px] bg-gradient-to-br from-gray-dark to-black rounded-[3rem] p-3 shadow-2xl border border-white/20">
+                      {/* Screen */}
+                      <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
+                        {/* Feedback Image */}
+                        <OptimizedImage
+                          src={feedbacks[currentIndex].image}
+                          alt={`Feedback ${feedbacks[currentIndex].id}`}
+                          fill
+                          className="object-cover"
+                          sizes="400px"
+                          priority={currentIndex < 3}
+                        />
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevFeedback}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full z-10 transition-all duration-300 hover:scale-110 border border-white/20"
-              aria-label="Previous feedback"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={nextFeedback}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full z-10 transition-all duration-300 hover:scale-110 border border-white/20"
-              aria-label="Next feedback"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </motion.div>
+                        {/* Verified Badge */}
+                        <div className="absolute top-4 right-4 bg-green-500 rounded-full p-3 shadow-lg">
+                          <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-          {/* Stats Section */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-lg z-10 border border-white/20"
+            aria-label="Anterior"
           >
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
-                >
-                  <p className="text-white text-3xl md:text-4xl font-black mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-gray-medium text-sm">
-                    {stat.label}
-                  </p>
-                </motion.div>
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 shadow-lg z-10 border border-white/20"
+            aria-label="Siguiente"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center gap-2 mt-8">
+            {feedbacks.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-8 bg-white'
+                    : 'w-2 bg-white/30 hover:bg-white/50'
+                }`}
+                aria-label={`Ir al feedback ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 max-w-6xl mx-auto"
+        >
+          <div className="bg-gradient-to-br from-gray-dark to-black border border-white/20 rounded-2xl p-6 text-center">
+            <div className="flex justify-center mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-white fill-white" />
               ))}
             </div>
+            <p className="text-3xl font-black text-white mb-2">4.9</p>
+            <p className="text-gray-400 text-sm">Calificación Promedio</p>
+          </div>
 
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-xl p-6"
-            >
-              <h3 className="text-white font-bold text-xl mb-3">
-                Únete a nuestros clientes satisfechos
-              </h3>
-              <p className="text-gray-medium text-sm mb-6">
-                Sigue nuestro Instagram para ver más testimonios y novedades
-              </p>
-              <a
-                href={SOCIAL_LINKS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-light transition-colors duration-200"
-              >
-                <Instagram size={20} />
-                Seguir en Instagram
-                <ArrowRight size={16} />
-              </a>
-            </motion.div>
-          </motion.div>
-        </div>
+          <div className="bg-gradient-to-br from-gray-dark to-black border border-white/20 rounded-2xl p-6 text-center">
+            <p className="text-3xl font-black text-white mb-2">+10K</p>
+            <p className="text-gray-400 text-sm">Clientes Satisfechos</p>
+          </div>
 
-        {/* Dots Indicator */}
-        <div className="flex justify-center gap-2 mt-8">
-          {feedbacks.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-white w-8' : 'bg-white/30'
-              }`}
-              aria-label={`Go to feedback ${index + 1}`}
-            />
-          ))}
-        </div>
+          <div className="bg-gradient-to-br from-gray-dark to-black border border-white/20 rounded-2xl p-6 text-center">
+            <p className="text-3xl font-black text-white mb-2">+25K</p>
+            <p className="text-gray-400 text-sm">Pedidos Entregados</p>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-dark to-black border border-white/20 rounded-2xl p-6 text-center">
+            <p className="text-3xl font-black text-white mb-2">98%</p>
+            <p className="text-gray-400 text-sm">Tasa de Recomendación</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
 
 export default CustomerFeedbacks
-
