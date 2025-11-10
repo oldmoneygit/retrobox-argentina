@@ -104,11 +104,11 @@ export default function CartPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8 md:mt-12 bg-gradient-to-r from-orange-500/10 to-yellow-400/10 border-2 border-orange-500/30 rounded-xl p-6 md:p-8"
+                className="mt-8 md:mt-12 bg-gradient-to-r from-white/10 to-blue-100/10 border-2 border-blue-200/30 rounded-xl p-6 md:p-8"
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-400 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-white to-blue-100 rounded-full flex items-center justify-center">
                       <span className="text-black text-2xl font-black">3x</span>
                     </div>
                   </div>
@@ -128,11 +128,11 @@ export default function CartPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8 md:mt-12 bg-gradient-to-r from-orange-500/10 to-yellow-400/10 border-2 border-orange-500/30 rounded-xl p-6 md:p-8"
+                className="mt-8 md:mt-12 bg-gradient-to-r from-white/10 to-blue-100/10 border-2 border-blue-200/30 rounded-xl p-6 md:p-8"
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-yellow-400 rounded-full flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-white to-blue-100 rounded-full flex items-center justify-center">
                       <span className="text-black text-2xl font-black">3x</span>
                     </div>
                   </div>

@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 const LiveSlotsIndicator = () => {
   const { packsRemaining, DAILY_PACK_LIMIT } = useBlackFriday()
-  const [isMinimized, setIsMinimized] = useState(false)
+  const [isMinimized, setIsMinimized] = useState(true) // Iniciar minimizado por padrão
   const [isMobile, setIsMobile] = useState(false)
   const isLowStock = packsRemaining < 15
   const isCritical = packsRemaining < 5
@@ -17,10 +17,6 @@ const LiveSlotsIndicator = () => {
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
-      // Minimizar por padrão no mobile
-      if (window.innerWidth < 768) {
-        setIsMinimized(true)
-      }
     }
 
     checkMobile()

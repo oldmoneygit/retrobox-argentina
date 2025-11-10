@@ -97,8 +97,8 @@ export const LOCATION_DATA = {
 
 // Social Links
 export const SOCIAL_LINKS = {
-  instagram: "https://instagram.com/retrobox",
-  instagramHandle: "@retrobox",
+  instagram: "https://instagram.com/retrobox.arg",
+  instagramHandle: "@retrobox.arg",
   whatsapp: "https://wa.me/5491123456789"
 }
 

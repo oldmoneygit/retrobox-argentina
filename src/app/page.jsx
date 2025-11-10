@@ -11,22 +11,27 @@ const BestSellers = dynamic(() => import('@/components/store/BestSellers'), {
   ssr: true,
 })
 
-const PackInsanoPromo = dynamic(() => import('@/components/blackfriday/PackInsanoPromo'), {
+const PackLocoPromo = dynamic(() => import('@/components/blackfriday/PackLocoPromo'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
 })
 
-const HowItWorksBlackFriday = dynamic(() => import('@/components/blackfriday/HowItWorksBlackFriday'), {
+const HowItWorksPackLoco = dynamic(() => import('@/components/blackfriday/HowItWorksPackLoco'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
 })
 
-const PackInsanoLiveSlots = dynamic(() => import('@/components/blackfriday/PackInsanoLiveSlots'), {
+const PackLocoLiveSlots = dynamic(() => import('@/components/blackfriday/PackLocoLiveSlots'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
 })
 
 const NuestrasColecciones = dynamic(() => import('@/components/store/NuestrasColecciones'), {
+  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  ssr: true,
+})
+
+const TeamProductsSection = dynamic(() => import('@/components/store/TeamProductsSection'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
 })
@@ -41,7 +46,7 @@ const FeaturedProducts = dynamic(() => import('@/components/store/FeaturedProduc
   ssr: true,
 })
 
-const MysteryBox = dynamic(() => import('@/components/store/MysteryBox'), {
+const MysteryBoxBlackFriday = dynamic(() => import('@/components/store/MysteryBoxBlackFriday'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
 })
@@ -52,12 +57,12 @@ const CustomerFeedbacks = dynamic(() => import('@/components/store/CustomerFeedb
 })
 
 export const metadata = {
-  title: 'Retrobox Argentina - Camisetas Retrô Exclusivas | Pack Insano 3x49.900',
-  description: 'Descubre las camisetas retrô más exclusivas. Pack Insano: 3 camisetas por $49.900 con envío gratis. Solo 50 packs diarios. Boca Juniors, River Plate, Argentina y más.',
-  keywords: 'camisetas retrô, pack insano, camisetas fútbol, argentina, retrobox, camisetas vintage, fútbol argentino, boca juniors, river plate',
+  title: 'Retrobox Argentina - Camisetas Retrô Exclusivas | Pack Black 4x59.900 Black Friday',
+  description: 'Black Friday! Pack Black: 4 camisetas retrô por $59.900 con envío gratis. Solo 15 packs diarios. Boca Juniors, River Plate, Argentina y más.',
+  keywords: 'camisetas retrô, pack black, black friday, camisetas fútbol, argentina, retrobox, camisetas vintage, fútbol argentino, boca juniors, river plate',
   openGraph: {
-    title: 'Retrobox Argentina - Pack Insano 3x49.900',
-    description: '3 camisetas retrô por $49.900 con envío gratis. Solo 50 packs diarios.',
+    title: 'Retrobox Argentina - Pack Black 4x59.900 Black Friday',
+    description: '4 camisetas retrô por $59.900 con envío gratis. Solo 15 packs diarios.',
     images: ['/images/logo/LOGO_BRANCO.webp'],
     locale: 'es_AR',
     type: 'website',
@@ -65,8 +70,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Retrobox Argentina - Pack Insano 3x49.900',
-    description: '3 camisetas retrô por $49.900 con envío gratis',
+    title: 'Retrobox Argentina - Pack Black 4x59.900',
+    description: '4 camisetas retrô por $59.900 con envío gratis',
     images: ['/images/logo/LOGO_BRANCO.webp'],
   },
   alternates: {
@@ -109,21 +114,57 @@ export default function HomePage() {
           <NuestrasColecciones />
         </Suspense>
 
-        {/* Promoção Pack Insano */}
-        <div id="pack-insano">
+        {/* Promoção Pack Black */}
+        <div id="pack-black">
           <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-            <PackInsanoPromo />
+            <PackLocoPromo />
           </Suspense>
         </div>
 
-        {/* Como Funciona o Pack Insano */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <HowItWorksBlackFriday />
-        </Suspense>
-
         {/* Visualização em Tempo Real - Slots Disponíveis */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <PackInsanoLiveSlots />
+          <PackLocoLiveSlots />
+        </Suspense>
+
+        {/* Colección Boca Juniors */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <TeamProductsSection
+            teamName="Boca"
+            title="BOCA JUNIORS"
+            subtitle="Las camisetas más icónicas de La Bombonera"
+            filterKey="name"
+            logo="/images/collections/boca-juniors-logo.png"
+            titleColor="text-[#ffed00]"
+          />
+        </Suspense>
+
+        {/* Colección River Plate */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <TeamProductsSection
+            teamName="River"
+            title="RIVER PLATE"
+            subtitle="La banda roja que conquistó América"
+            filterKey="name"
+            logo="/images/collections/river-plate-logo.png"
+            titleColor="text-red-600"
+          />
+        </Suspense>
+
+        {/* Colección Selección Argentina */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <TeamProductsSection
+            teamName="Argentina"
+            title="SELECCIÓN ARGENTINA"
+            subtitle="La albiceleste campeona del mundo"
+            filterKey="name"
+            logo="/images/collections/argentina-logo.png"
+            titleColor="text-[#75aadb]"
+          />
+        </Suspense>
+
+        {/* Como Funciona o Pack Black */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <HowItWorksPackLoco />
         </Suspense>
 
         {/* Como Funciona (Geral) */}
@@ -136,10 +177,10 @@ export default function HomePage() {
           <FeaturedProducts />
         </Suspense>
 
-        {/* MysteryBox - Caja Sorpresa */}
+        {/* MysteryBox - Black Friday */}
         <div id="mysterybox">
           <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-            <MysteryBox />
+            <MysteryBoxBlackFriday />
           </Suspense>
         </div>
 

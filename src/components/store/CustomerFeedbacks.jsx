@@ -88,7 +88,7 @@ const CustomerFeedbacks = () => {
   const currentFeedback = feedbacks[currentIndex]
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
+    <section className="relative py-8 md:py-10 bg-black overflow-hidden">
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Lo que dicen"

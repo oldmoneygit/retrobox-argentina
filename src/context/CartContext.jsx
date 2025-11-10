@@ -3,6 +3,8 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { createShopifyCheckout } from '@/lib/shopifyCheckout'
 import { getVariantId } from '@/utils/getVariantId'
+import { triggerInitiateCheckout } from '@/components/MetaPixelEvents'
+import { getFacebookClickId, getFacebookBrowserId } from '@/utils/metaPixelUtils'
 
 const normalizeKey = (value) =>
   (value ?? '')
@@ -132,7 +134,10 @@ export function CartProvider({ children }) {
         throw new Error('Carrinho vazio')
       }
 
-      // Converter itens do carrinho para line items do Shopify
+      // 1. Disparar evento InitiateCheckout ANTES de redirecionar
+      triggerInitiateCheckout(cartItems)
+
+      // 2. Converter itens do carrinho para line items do Shopify
       const lineItems = []
 
       for (const item of cartItems) {
@@ -150,10 +155,26 @@ export function CartProvider({ children }) {
         })
       }
 
-      // Criar checkout no Shopify
+      // 3. Criar checkout no Shopify
       const checkout = await createShopifyCheckout(lineItems)
 
-      return checkout.webUrl
+      // 4. Capturar fbc e fbp para passar para Shopify (CRÍTICO para tracking)
+      const fbc = getFacebookClickId()
+      const fbp = getFacebookBrowserId()
+
+      // 5. Adicionar fbc e fbp como parâmetros na URL do checkout
+      let checkoutUrl = checkout.webUrl
+
+      if (fbc || fbp) {
+        const url = new URL(checkoutUrl)
+        if (fbc) url.searchParams.append('fbc', fbc)
+        if (fbp) url.searchParams.append('fbp', fbp)
+        checkoutUrl = url.toString()
+
+        console.log('[Meta Pixel] Passing tracking params to Shopify:', { fbc, fbp })
+      }
+
+      return checkoutUrl
     } catch (error) {
       console.error('Erro ao criar checkout:', error)
       throw error

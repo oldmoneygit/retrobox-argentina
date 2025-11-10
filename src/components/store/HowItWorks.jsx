@@ -29,10 +29,10 @@ const HowItWorks = () => {
   ]
 
   return (
-    <section className="relative py-12 md:py-16 lg:py-20 bg-black">
+    <section className="relative py-8 md:py-10 bg-black">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-4 md:mb-6">
           <SectionTitle
             title="Cómo"
             highlight="Funciona"

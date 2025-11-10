@@ -280,7 +280,7 @@ const MysteryBoxSection = () => {
 
                 <Link
                   href="/#blackfriday"
-                  className="block w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-black py-3 px-6 rounded-lg hover:from-yellow-400 hover:to-orange-400 transition-all text-center"
+                  className="block w-full bg-gradient-to-r from-white to-blue-100 text-black font-black py-3 px-6 rounded-lg hover:from-blue-50 hover:to-blue-200 transition-all text-center"
                 >
                   Ver Pack Insano
                 </Link>
@@ -621,7 +621,7 @@ const MysteryBoxSection = () => {
 
                     {/* Price */}
                     <div className="flex items-baseline gap-2 mb-3">
-                      <span className="text-gray-400 line-through text-sm">
+                      <span className="text-white/20 line-through text-sm">
                         ${(box.originalPrice / 100).toLocaleString('es-AR')}
                       </span>
                       <span className="text-white font-bold text-xl">

@@ -49,13 +49,13 @@ export default function SearchPage() {
               <p className="text-gray-medium mt-4">Buscando productos...</p>
             </div>
           ) : filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               {filteredProducts.map((product, index) => (
                 <motion.div
                   key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ duration: 0.2, delay: index * 0.01 }}
                 >
                   <ProductCard product={product} index={index} />
                 </motion.div>

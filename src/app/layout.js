@@ -8,6 +8,8 @@ import { Analytics } from '@vercel/analytics/next'
 import StructuredData from '@/components/StructuredData'
 import BlackFridayPopup from '@/components/blackfriday/BlackFridayPopup'
 import LiveSlotsIndicator from '@/components/store/LiveSlotsIndicator'
+import MetaPixelScript from '@/components/MetaPixelScript'
+import MetaPixel from '@/components/MetaPixel'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -103,7 +105,11 @@ export default function RootLayout({ children }) {
       <body className="font-sans antialiased">
         {/* Structured Data - Organization */}
         <StructuredData type="organization" />
-        
+
+        {/* Meta Pixel Tracking */}
+        <MetaPixelScript pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
+        <MetaPixel />
+
         {/* Fix auto-scroll bug - always start at top */}
         <ScrollToTop />
         <ClientProviders>

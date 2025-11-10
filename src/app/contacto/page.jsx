@@ -55,23 +55,29 @@ export default function ContactPage() {
                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
                   <Mail className="text-white mb-4" size={32} />
                   <h3 className="text-white font-bold text-lg mb-2">Email</h3>
-                  <a href="mailto:contacto@retrobox.com" className="text-gray-medium hover:text-white transition-colors">
-                    contacto@retrobox.com
+                  <a href="mailto:contacto@retroboxargentina.com" className="text-gray-medium hover:text-white transition-colors">
+                    contacto@retroboxargentina.com
                   </a>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
-                  <Instagram className="text-white mb-4" size={32} />
-                  <h3 className="text-white font-bold text-lg mb-2">Instagram</h3>
-                  <a
-                    href={SOCIAL_LINKS.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-medium hover:text-white transition-colors"
-                  >
-                    {SOCIAL_LINKS.instagramHandle}
-                  </a>
-                </div>
+                <a
+                  href="https://instagram.com/retrobox.arg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-sm rounded-xl p-6 border border-pink-500/30 hover:border-pink-500/50 transition-all duration-300 hover:scale-105"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-purple-500 flex items-center justify-center flex-shrink-0">
+                      <Instagram className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-white font-bold text-lg mb-1">Instagram</h3>
+                      <p className="text-white/60 text-sm mb-2">Seguinos para ofertas exclusivas</p>
+                      <p className="text-pink-400 font-bold">@retrobox.arg</p>
+                      <p className="text-white/40 text-xs mt-2">Novedades diarias</p>
+                    </div>
+                  </div>
+                </a>
               </motion.div>
 
               {/* Contact Form */}

@@ -233,7 +233,7 @@ export default function ProductDetailPage({ params }) {
                 {/* Price Section */}
                 <div className="space-y-1 mb-2">
                   <div className="flex items-center gap-3">
-                    <p className="text-gray-400 text-2xl line-through">
+                    <p className="text-white/20 text-2xl line-through">
                       ${formatPrice(compareAtPrice)}
                     </p>
                   </div>
@@ -353,7 +353,7 @@ export default function ProductDetailPage({ params }) {
                       {relatedProduct.nome_completo}
                     </h3>
                     <div className="mt-2 space-y-0.5">
-                      <p className="text-gray-400 text-xs line-through">
+                      <p className="text-white/20 text-xs line-through">
                         ${formatPrice(getCompareAtPrice(relatedProduct))}
                       </p>
                       <p className="text-white font-bold text-lg">

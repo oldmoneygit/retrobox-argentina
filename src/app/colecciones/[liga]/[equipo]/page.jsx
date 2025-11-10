@@ -92,13 +92,13 @@ export default function EquipoPage({ params }) {
           </motion.div>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
             {products.map((product, index) => (
               <motion.div
                 key={product.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ duration: 0.2, delay: index * 0.01 }}
                 className="group h-full flex flex-col"
               >
                 <Link
@@ -155,7 +155,7 @@ export default function EquipoPage({ params }) {
 
                     {/* Price with discount */}
                     <div className="space-y-0.5">
-                      <p className="text-gray-400 text-xs line-through">
+                      <p className="text-white/20 text-xs line-through">
                         ${formatPrice(getCompareAtPrice(product))}
                       </p>
                       <p className="text-white font-bold text-lg md:text-xl">

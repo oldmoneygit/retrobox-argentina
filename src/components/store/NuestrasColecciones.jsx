@@ -1,8 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import useEmblaCarousel from 'embla-carousel-react'
+import Autoplay from 'embla-carousel-autoplay'
+import { Flag, Trophy, Shirt, Star } from 'lucide-react'
 
 // Ligas Principales
 const ligas = [
@@ -153,191 +157,147 @@ const selecoes = [
     name: 'Argentina',
     slug: 'seleccion-argentina',
     image: '/images/collections/argentina-logo.png',
-    description: 'Tri Campeón del Mundo'
+    description: 'Tri Campeón del Mundo',
+    type: 'seleccion'
   }
 ]
 
-export default function NuestrasColecciones() {
+const tabs = [
+  { id: 'argentina', label: 'Clubes Argentinos', Icon: Flag, collections: timesArgentinos },
+  { id: 'europa', label: 'Europa', Icon: Shirt, collections: timesInternacionais },
+  { id: 'ligas', label: 'Ligas', Icon: Trophy, collections: ligas },
+  { id: 'seleccion', label: 'Selección', Icon: Star, collections: selecoes },
+]
+
+// Componente de Carrossel para cada categoria
+const CollectionCarousel = ({ collections }) => {
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: 'start',
+      slidesToScroll: 1,
+      breakpoints: {
+        '(min-width: 640px)': { slidesToScroll: 2 },
+        '(min-width: 1024px)': { slidesToScroll: 4 },
+        '(min-width: 1280px)': { slidesToScroll: 5 }
+      }
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  )
+
   return (
-    <section className="py-16 md:py-24 bg-black">
-      <div className="container mx-auto px-4">
-        {/* Seleção Argentina - Destaque */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">
-            ⭐ Selección Nacional
-          </h3>
-          <Link
-            href={`/coleccion/${selecoes[0].slug}`}
-            className="block max-w-2xl mx-auto"
+    <div className="overflow-hidden" ref={emblaRef}>
+      <div className="flex gap-3 md:gap-4">
+        {collections.map((item, index) => (
+          <div
+            key={`${item.slug}-${index}`}
+            className="flex-[0_0_calc(50%-6px)] min-w-0 sm:flex-[0_0_calc(33.333%-10px)] md:flex-[0_0_calc(25%-12px)] lg:flex-[0_0_calc(20%-16px)]"
           >
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="relative h-64 bg-gradient-to-br from-blue-600 via-white to-blue-400 rounded-3xl overflow-hidden border-4 border-yellow-400 shadow-2xl"
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="relative w-40 h-40 mx-auto mb-4">
+            <Link href={`/coleccion/${item.slug}`}>
+              <motion.div
+                whileHover={{ y: -2, scale: 1.02 }}
+                className="relative aspect-[4/3] bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:border-blue-400/50 transition-all group backdrop-blur-sm"
+              >
+                <div className="absolute inset-0 p-2 md:p-3 flex flex-col items-center justify-center">
+                  <div className="relative w-full h-12 md:h-14 mb-1.5">
                     <Image
-                      src={selecoes[0].image}
-                      alt={selecoes[0].name}
+                      src={item.image}
+                      alt={item.name}
                       fill
-                      className="object-contain drop-shadow-2xl"
+                      className="object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="text-3xl font-black text-blue-900 mb-2">
-                    {selecoes[0].name}
+                  <h4 className="text-[10px] md:text-xs font-bold text-white text-center mb-0.5 line-clamp-1">
+                    {item.name}
                   </h4>
-                  <p className="text-xl font-bold text-blue-700">
-                    {selecoes[0].description}
-                  </p>
+                  {(item.country || item.liga || item.description) && (
+                    <p className="text-[9px] md:text-[10px] text-white/50 text-center line-clamp-1">
+                      {item.country || item.liga || item.description}
+                    </p>
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          </Link>
-        </motion.div>
+              </motion.div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
-        {/* Ligas Principales */}
+export default function NuestrasColecciones() {
+  const [activeTab, setActiveTab] = useState('argentina')
+
+  const activeTabData = tabs.find(tab => tab.id === activeTab)
+
+  return (
+    <section className="py-6 md:py-8 bg-black">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="text-center mb-4 md:mb-6"
         >
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">
-            🏆 Ligas Principales
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {ligas.map((liga, index) => (
-              <motion.div
-                key={liga.slug}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <Link href={`/coleccion/${liga.slug}`}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="relative aspect-square bg-gradient-to-br from-gray-dark to-black rounded-2xl overflow-hidden border-2 border-white/10 hover:border-orange-500 transition-all group"
-                  >
-                    <div className="absolute inset-0 p-4 flex flex-col items-center justify-center">
-                      <div className="relative w-full h-24 mb-3">
-                        <Image
-                          src={liga.image}
-                          alt={liga.name}
-                          fill
-                          className="object-contain group-hover:scale-110 transition-transform"
-                        />
-                      </div>
-                      <h4 className="text-sm font-bold text-white text-center">
-                        {liga.name}
-                      </h4>
-                      <p className="text-xs text-white/60 text-center">
-                        {liga.country}
-                      </p>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+          <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
+            Nuestras Colecciones
+          </h2>
         </motion.div>
 
-        {/* Times Argentinos */}
+        {/* Tabs Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="flex flex-wrap justify-center gap-2 md:gap-3 mb-4 md:mb-6"
         >
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">
-            🇦🇷 Fútbol Argentino
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {timesArgentinos.map((time, index) => (
-              <motion.div
-                key={time.slug}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+          {tabs.map((tab) => {
+            const IconComponent = tab.Icon
+            return (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`
+                  relative px-4 md:px-6 py-2 md:py-2.5 rounded-lg font-bold text-xs md:text-sm transition-all
+                  ${activeTab === tab.id
+                    ? 'bg-gradient-to-r from-white to-blue-100 text-black shadow-lg shadow-blue-200/30'
+                    : 'bg-white/5 text-white/70 border border-white/10 hover:border-blue-400/50 hover:bg-white/10'
+                  }
+                `}
               >
-                <Link href={`/coleccion/${time.slug}`}>
+                <span className="flex items-center gap-1.5 md:gap-2">
+                  <IconComponent className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                  <span>{tab.label}</span>
+                </span>
+
+                {activeTab === tab.id && (
                   <motion.div
-                    whileHover={{ y: -5 }}
-                    className="relative aspect-square bg-gradient-to-br from-gray-dark to-black rounded-2xl overflow-hidden border-2 border-white/10 hover:border-blue-400 transition-all group"
-                  >
-                    <div className="absolute inset-0 p-3 flex flex-col items-center justify-center">
-                      <div className="relative w-full h-20 mb-2">
-                        <Image
-                          src={time.image}
-                          alt={time.name}
-                          fill
-                          className="object-contain group-hover:scale-110 transition-transform"
-                        />
-                      </div>
-                      <h4 className="text-xs font-bold text-white text-center">
-                        {time.name}
-                      </h4>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                    layoutId="activeTab"
+                    className="absolute inset-0 bg-gradient-to-r from-white to-blue-100 rounded-lg -z-10"
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </motion.button>
+            )
+          })}
         </motion.div>
 
-        {/* Times Internacionais Populares */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-6 text-center">
-            🌍 Equipos Internacionales
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {timesInternacionais.map((time, index) => (
-              <motion.div
-                key={time.slug}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <Link href={`/coleccion/${time.slug}`}>
-                  <motion.div
-                    whileHover={{ y: -5 }}
-                    className="relative aspect-square bg-gradient-to-br from-gray-dark to-black rounded-2xl overflow-hidden border-2 border-white/10 hover:border-yellow-400 transition-all group"
-                  >
-                    <div className="absolute inset-0 p-4 flex flex-col items-center justify-center">
-                      <div className="relative w-full h-24 mb-2">
-                        <Image
-                          src={time.image}
-                          alt={time.name}
-                          fill
-                          className="object-contain group-hover:scale-110 transition-transform"
-                        />
-                      </div>
-                      <h4 className="text-sm font-bold text-white text-center mb-1">
-                        {time.name}
-                      </h4>
-                      <p className="text-xs text-white/60 text-center">
-                        {time.liga}
-                      </p>
-                    </div>
-                  </motion.div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+        {/* Carousel Content - Animated by Tab */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="relative"
+          >
+            <CollectionCarousel collections={activeTabData.collections} />
+          </motion.div>
+        </AnimatePresence>
 
         {/* CTA */}
         <motion.div
@@ -350,7 +310,7 @@ export default function NuestrasColecciones() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="bg-gradient-to-r from-white to-blue-100 text-black font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               Ver Todas las Camisetas
             </motion.button>

@@ -56,6 +56,24 @@ const COLLECTION_INFO = {
     logo: '/images/collections/Rosário-Central.png',
     keywords: ['Rosario Central', 'Central']
   },
+  'boca': {
+    name: 'Boca Juniors',
+    description: 'Camisetas retro del Club Atlético Boca Juniors',
+    logo: '/images/collections/boca-juniors-logo.png',
+    keywords: ['Boca', 'Boca Juniors', 'CABJ']
+  },
+  'river': {
+    name: 'River Plate',
+    description: 'Camisetas retro del Club Atlético River Plate',
+    logo: '/images/collections/river-plate-logo.png',
+    keywords: ['River', 'River Plate', 'CARP']
+  },
+  'argentina': {
+    name: 'Selección Argentina',
+    description: 'Camisetas retro de la Selección Argentina',
+    logo: '/images/collections/argentina.png',
+    keywords: ['Argentina', 'Selección Argentina', 'AFA', 'Albiceleste']
+  },
 
   // Ligas
   'premier-league': {
@@ -250,6 +268,14 @@ const COLLECTION_INFO = {
     description: 'Camisetas retro de la Selección de México',
     logo: '/images/collections/selecciones/mexico.png',
     keywords: ['México', 'Mexico', 'FMF', 'El Tri']
+  },
+
+  // Colecciones Especiales
+  'productos-destacados': {
+    name: 'Productos Destacados',
+    description: 'Selección especial de camisetas retrô exclusivas',
+    logo: null,
+    keywords: ['Destacados', 'Featured', 'Especial', 'Exclusivo']
   }
 }
 
@@ -267,7 +293,6 @@ export default function ColeccionPage() {
   useEffect(() => {
     async function loadProducts() {
       setLoading(true)
-      const products = await getAllProducts()
 
       if (!collectionInfo) {
         setAllProducts([])
@@ -276,22 +301,64 @@ export default function ColeccionPage() {
         return
       }
 
-      // Filtrar productos que pertenecen a la colección
-      const filtered = products.filter(product => {
-        // Verificar si el nombre de la colección está en las tags o en el nombre del producto
-        const searchText = `${product.name} ${product.tags?.join(' ') || ''} ${product.collection || ''}`.toLowerCase()
+      // Para "productos-destacados", buscar diretamente do Shopify
+      if (slug === 'productos-destacados') {
+        try {
+          const { getCollectionProducts } = await import('@/lib/shopifyCheckout')
+          const shopifyProducts = await getCollectionProducts('productos-destacados', 100)
+          
+          if (shopifyProducts && shopifyProducts.length > 0) {
+            setAllProducts(shopifyProducts)
+            setFilteredProducts(shopifyProducts)
+            extractFilters(shopifyProducts)
+          } else {
+            // Fallback para produtos locais se não encontrar no Shopify
+            const products = await getAllProducts()
+            const filtered = products.filter(product => {
+              const searchText = `${product.name} ${product.tags?.join(' ') || ''} ${product.collection || ''}`.toLowerCase()
+              return collectionInfo.keywords.some(keyword =>
+                searchText.includes(keyword.toLowerCase())
+              )
+            })
+            setAllProducts(filtered)
+            setFilteredProducts(filtered)
+            extractFilters(filtered)
+          }
+        } catch (error) {
+          console.error('Error loading productos destacados from Shopify:', error)
+          // Fallback para produtos locais
+          const products = await getAllProducts()
+          const filtered = products.filter(product => {
+            const searchText = `${product.name} ${product.tags?.join(' ') || ''} ${product.collection || ''}`.toLowerCase()
+            return collectionInfo.keywords.some(keyword =>
+              searchText.includes(keyword.toLowerCase())
+            )
+          })
+          setAllProducts(filtered)
+          setFilteredProducts(filtered)
+          extractFilters(filtered)
+        }
+      } else {
+        // Para outras coleções, usar a lógica existente
+        const products = await getAllProducts()
 
-        // Verificar si alguna palabra clave de la colección está en el producto
-        return collectionInfo.keywords.some(keyword =>
-          searchText.includes(keyword.toLowerCase())
-        )
-      })
+        // Filtrar productos que pertenecen a la colección
+        const filtered = products.filter(product => {
+          // Verificar si el nombre de la colección está en las tags o en el nombre del producto
+          const searchText = `${product.name} ${product.tags?.join(' ') || ''} ${product.collection || ''}`.toLowerCase()
 
-      setAllProducts(filtered)
-      setFilteredProducts(filtered)
+          // Verificar si alguna palabra clave de la colección está en el producto
+          return collectionInfo.keywords.some(keyword =>
+            searchText.includes(keyword.toLowerCase())
+          )
+        })
 
-      // Extraer filtros disponibles de los productos
-      extractFilters(filtered)
+        setAllProducts(filtered)
+        setFilteredProducts(filtered)
+
+        // Extraer filtros disponibles de los productos
+        extractFilters(filtered)
+      }
 
       setLoading(false)
     }
@@ -447,7 +514,7 @@ export default function ColeccionPage() {
                     <span className="text-white font-bold text-sm md:text-base">
                       Filtrar
                       {activeFilters.length > 0 && (
-                        <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-gradient-to-r from-orange-500 to-yellow-400 text-black rounded-full">
+                        <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-gradient-to-r from-white to-blue-100 text-black rounded-full">
                           {activeFilters.length}
                         </span>
                       )}
@@ -486,7 +553,7 @@ export default function ColeccionPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-black border-orange-400 shadow-lg shadow-orange-500/20'
+                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
                                 : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
                               }
                             `}
@@ -523,7 +590,7 @@ export default function ColeccionPage() {
                 )}
               </p>
               <motion.div
-                className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8"
+                className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6"
                 layout
               >
                 {filteredProducts.map((product, index) => (
@@ -545,7 +612,7 @@ export default function ColeccionPage() {
               <p className="text-gray-medium text-lg mb-4">No se encontraron productos con los filtros seleccionados</p>
               <button
                 onClick={clearFilters}
-                className="inline-block bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                className="inline-block bg-gradient-to-r from-white to-blue-100 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
               >
                 Limpiar filtros
               </button>
@@ -556,7 +623,7 @@ export default function ColeccionPage() {
               <p className="text-white/50 text-sm mb-6">Pronto agregaremos nuevos productos. ¡Volvé pronto!</p>
               <a
                 href="/"
-                className="inline-block bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                className="inline-block bg-gradient-to-r from-white to-blue-100 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
               >
                 Ver todos los productos
               </a>

@@ -51,7 +51,7 @@ async function shopifyStorefrontRequest(query, variables = {}) {
 }
 
 /**
- * Criar checkout na Shopify
+ * Criar checkout na Shopify usando Cart API
  *
  * @param {Array} lineItems - Array de itens do carrinho
  * @param {string} lineItems[].variantId - Shopify Variant ID (gid://shopify/ProductVariant/...)
@@ -68,33 +68,47 @@ async function shopifyStorefrontRequest(query, variables = {}) {
  * window.location.href = checkout.webUrl
  */
 export async function createShopifyCheckout(lineItems) {
+  // Converter lineItems para o formato da Cart API
+  const lines = lineItems.map(item => ({
+    merchandiseId: item.variantId,
+    quantity: item.quantity
+  }))
+
   const mutation = `
-    mutation checkoutCreate($input: CheckoutCreateInput!) {
-      checkoutCreate(input: $input) {
-        checkout {
+    mutation cartCreate($input: CartInput!) {
+      cartCreate(input: $input) {
+        cart {
           id
-          webUrl
-          totalPriceV2 {
-            amount
-            currencyCode
+          checkoutUrl
+          cost {
+            totalAmount {
+              amount
+              currencyCode
+            }
           }
-          lineItems(first: 50) {
+          lines(first: 50) {
             edges {
               node {
-                title
+                id
                 quantity
-                variant {
-                  title
-                  priceV2 {
-                    amount
-                    currencyCode
+                merchandise {
+                  ... on ProductVariant {
+                    id
+                    title
+                    product {
+                      title
+                    }
+                    price {
+                      amount
+                      currencyCode
+                    }
                   }
                 }
               }
             }
           }
         }
-        checkoutUserErrors {
+        userErrors {
           field
           message
         }
@@ -104,22 +118,22 @@ export async function createShopifyCheckout(lineItems) {
 
   const data = await shopifyStorefrontRequest(mutation, {
     input: {
-      lineItems: lineItems
+      lines: lines
     }
   })
 
-  if (data.checkoutCreate.checkoutUserErrors.length > 0) {
-    const error = data.checkoutCreate.checkoutUserErrors[0]
+  if (data.cartCreate.userErrors.length > 0) {
+    const error = data.cartCreate.userErrors[0]
     throw new Error(`Checkout Error: ${error.message} (${error.field})`)
   }
 
-  const checkout = data.checkoutCreate.checkout
+  const cart = data.cartCreate.cart
 
   return {
-    checkoutId: checkout.id,
-    webUrl: checkout.webUrl,
-    totalPrice: checkout.totalPriceV2,
-    lineItems: checkout.lineItems.edges.map(edge => edge.node)
+    checkoutId: cart.id,
+    webUrl: cart.checkoutUrl,
+    totalPrice: cart.cost.totalAmount,
+    lineItems: cart.lines.edges.map(edge => edge.node)
   }
 }
 
@@ -289,11 +303,157 @@ export function convertCartItemsToShopify(cartItems, getVariantIdFn) {
   })
 }
 
+/**
+ * Buscar produtos de uma coleção do Shopify usando Storefront API
+ *
+ * @param {string} collectionHandle - Handle da coleção (ex: "best-sellers")
+ * @param {number} limit - Número máximo de produtos (default: 50)
+ * @returns {Promise<Array>} - Array de produtos formatados
+ */
+export async function getCollectionProducts(collectionHandle, limit = 50) {
+  const query = `
+    query getCollection($handle: String!, $first: Int!) {
+      collectionByHandle(handle: $handle) {
+        id
+        title
+        products(first: $first) {
+          edges {
+            node {
+              id
+              title
+              handle
+              description
+              availableForSale
+              priceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+                maxVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              compareAtPriceRange {
+                minVariantPrice {
+                  amount
+                  currencyCode
+                }
+                maxVariantPrice {
+                  amount
+                  currencyCode
+                }
+              }
+              images(first: 5) {
+                edges {
+                  node {
+                    id
+                    url
+                    altText
+                    width
+                    height
+                  }
+                }
+              }
+              variants(first: 10) {
+                edges {
+                  node {
+                    id
+                    title
+                    price {
+                      amount
+                      currencyCode
+                    }
+                    compareAtPrice {
+                      amount
+                      currencyCode
+                    }
+                    availableForSale
+                    selectedOptions {
+                      name
+                      value
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+  try {
+    const data = await shopifyStorefrontRequest(query, { 
+      handle: collectionHandle, 
+      first: limit 
+    })
+
+    if (!data.collectionByHandle) {
+      console.warn(`Collection "${collectionHandle}" not found`)
+      return []
+    }
+
+    // Transformar produtos do Shopify para o formato esperado pelo ProductCard
+    return data.collectionByHandle.products.edges.map(edge => {
+      const product = edge.node
+      const firstImage = product.images.edges[0]?.node
+      const firstVariant = product.variants.edges[0]?.node
+      
+      // Calcular preço promocional e preço original
+      // Shopify Storefront API retorna preços como strings decimais (ex: "369.00" = ARS 369.00)
+      // O sistema local espera preços em centavos (ex: 36900)
+      const minPriceRaw = parseFloat(product.priceRange.minVariantPrice.amount)
+      const maxComparePriceRaw = product.compareAtPriceRange?.maxVariantPrice?.amount 
+        ? parseFloat(product.compareAtPriceRange.maxVariantPrice.amount)
+        : null
+      
+      // Converter preço do Shopify para centavos
+      // IMPORTANTE: O sistema espera preços em centavos (ex: 36900 para ARS 369.00)
+      // Shopify Storefront API normalmente retorna preços como strings decimais (ex: "369.00")
+      // Mas pode retornar já em centavos dependendo da configuração
+      
+      // Se o valor for >= 1000, provavelmente já está em centavos (não multiplicar)
+      // Se for < 1000, está em unidades decimais e precisa converter
+      const minPrice = minPriceRaw >= 1000
+        ? Math.round(minPriceRaw) // Já está em centavos
+        : Math.round(minPriceRaw * 100) // Converter de decimal para centavos (369.00 -> 36900)
+      
+      // Se tem compareAtPrice, usar como preço original
+      const regularPrice = maxComparePriceRaw && maxComparePriceRaw > minPriceRaw
+        ? (maxComparePriceRaw >= 1000
+            ? Math.round(maxComparePriceRaw) // Já está em centavos
+            : Math.round(maxComparePriceRaw * 100)) // Converter
+        : Math.round(minPrice * 1.5) // Fallback: 50% mais caro (Black November)
+
+      return {
+        id: product.id,
+        name: product.title,
+        slug: product.handle,
+        price: minPrice, // Já em centavos
+        regularPrice: regularPrice, // Já em centavos
+        image: firstImage?.url || '/images/placeholder.jpg',
+        description: product.description || '',
+        stock: product.availableForSale ? 'available' : 'soldout',
+        tags: [],
+        metadata: {
+          shopifyProductId: product.id,
+          shopifyVariantId: firstVariant?.id
+        }
+      }
+    })
+  } catch (error) {
+    console.error(`Error fetching collection "${collectionHandle}":`, error)
+    return []
+  }
+}
+
 // Exportar funções
 export default {
   createShopifyCheckout,
   updateShopifyCheckout,
   getCheckout,
   applyDiscountCode,
-  convertCartItemsToShopify
+  convertCartItemsToShopify,
+  getCollectionProducts
 }

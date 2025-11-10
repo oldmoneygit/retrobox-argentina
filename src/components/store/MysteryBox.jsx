@@ -481,8 +481,8 @@ export default function MysteryBox() {
           {/* Aviso sobre Pack Insano */}
           <div className="bg-gradient-to-br from-orange-900/20 to-gray-dark border-2 border-orange-500/50 rounded-2xl p-6">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                <AlertCircle className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-white to-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="w-6 h-6 text-black" />
               </div>
               <div>
                 <h3 className="text-xl font-black text-white mb-2">

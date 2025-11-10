@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ShoppingCart, Truck, Tag, CreditCard, Loader2 } from 'lucide-react'
 import { useBlackFriday } from '@/context/BlackFridayContext'
+import { useCart } from '@/context/CartContext'
 import { motion } from 'framer-motion'
 import ReservationCountdown from '@/components/blackfriday/ReservationCountdown'
 
@@ -10,6 +11,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
   const [isCheckingOut, setIsCheckingOut] = useState(false)
   const [checkoutError, setCheckoutError] = useState(null)
   const { calculatePackInsanoTotals, PACK_INSANO_PRICE } = useBlackFriday()
+  const { createCheckout } = useCart()
 
   // Calcular dados do combo
   const comboData = calculatePackInsanoTotals(cartItems)
@@ -24,15 +26,11 @@ const CartSummary = ({ subtotal, cartItems }) => {
     setCheckoutError(null)
 
     try {
-      // TODO: Implementar checkout com Shopify
-      console.log('Checkout items:', cartItems)
-      console.log('Combo data:', comboData)
-      
-      // Simular processo de checkout
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      alert('Checkout será implementado em breve')
-      setIsCheckingOut(false)
+      // Criar checkout no Shopify e obter URL de redirecionamento
+      const checkoutUrl = await createCheckout()
+
+      // Redirecionar para o checkout do Shopify
+      window.location.href = checkoutUrl
     } catch (error) {
       console.error('Checkout error:', error)
       setCheckoutError(error.message || 'Error al crear el checkout. Por favor intenta de nuevo.')
@@ -63,32 +61,32 @@ const CartSummary = ({ subtotal, cartItems }) => {
             </span>
           </div>
 
-          {/* Combo 3x - Display */}
+          {/* Pack Black 4x - Display */}
           {comboData.hasPack ? (
-            <div className="flex items-start gap-2 bg-gradient-to-r from-orange-500/10 to-yellow-400/10 border border-orange-500/30 rounded-lg p-3">
-              <Tag className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+            <div className="flex items-start gap-2 bg-gradient-to-r from-green-500/10 to-emerald-400/10 border border-green-500/30 rounded-lg p-3">
+              <Tag className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-orange-500 text-sm font-bold">
-                    Combo 3x Activado
+                  <span className="text-green-500 text-sm font-bold">
+                    Pack Black 4x Activado
                   </span>
-                  <span className="text-orange-500 font-bold">
+                  <span className="text-green-500 font-bold">
                     -${comboData.savings.toLocaleString('es-AR')}
                   </span>
                 </div>
-                <p className="text-orange-500/80 text-xs">
-                  ¡{comboData.fullPacks} {comboData.fullPacks === 1 ? 'combo' : 'combos'} de 3 camisetas por ARS {PACK_INSANO_PRICE.toLocaleString('es-AR')}!
+                <p className="text-green-500/80 text-xs">
+                  ¡{comboData.fullPacks} {comboData.fullPacks === 1 ? 'pack' : 'packs'} de 4 camisetas por ARS {PACK_INSANO_PRICE.toLocaleString('es-AR')}!
                 </p>
               </div>
             </div>
           ) : (
-            <div className="flex items-start gap-2 bg-gradient-to-r from-orange-500/10 to-yellow-400/10 border border-orange-500/30 rounded-lg p-3">
+            <div className="flex items-start gap-2 bg-gradient-to-r from-white/10 to-blue-100/10 border border-blue-200/30 rounded-lg p-3">
               <Tag className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <p className="text-orange-500 text-xs font-semibold">
                   {comboData.itemCount === 0
-                    ? `¡Agrega 3 camisetas para combo de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`
-                    : `¡Agrega ${comboData.productsNeeded} más para combo de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`}
+                    ? `¡Agrega 4 camisetas para Pack Black de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`
+                    : `¡Agrega ${comboData.productsNeeded} más para Pack Black de ARS ${PACK_INSANO_PRICE.toLocaleString('es-AR')}!`}
                 </p>
               </div>
             </div>
@@ -113,7 +111,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
               </span>
             </div>
             {comboData.hasPack && comboData.savings > 0 && (
-              <p className="text-orange-500 text-xs text-right font-semibold">
+              <p className="text-green-500 text-xs text-right font-semibold">
                 ¡Ahorraste ${comboData.savings.toLocaleString('es-AR')}!
               </p>
             )}

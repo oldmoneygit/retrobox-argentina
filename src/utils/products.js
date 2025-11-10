@@ -108,16 +108,84 @@ export async function searchProducts(query) {
   )
 }
 
-export async function getFeaturedProducts(limit = 8) {
+export async function getFeaturedProducts(limit = 15) {
+  try {
+    // Tentar buscar da coleção "productos-destacados" do Shopify
+    const { getCollectionProducts } = await import('@/lib/shopifyCheckout')
+    
+    // Tentar diferentes variações do handle da coleção
+    const collectionHandles = ['productos-destacados', 'destacados', 'featured-products', 'featured']
+    
+    for (const handle of collectionHandles) {
+      const shopifyProducts = await getCollectionProducts(handle, limit)
+      
+      if (shopifyProducts && shopifyProducts.length > 0) {
+        console.log(`✅ Found ${shopifyProducts.length} products from Shopify collection: ${handle}`)
+        
+        // Garantir que retornamos exatamente o limite solicitado
+        // Se tiver mais produtos, embaralhar para garantir variedade
+        if (shopifyProducts.length > limit) {
+          const shuffled = [...shopifyProducts].sort(() => Math.random() - 0.5)
+          return shuffled.slice(0, limit)
+        }
+        
+        return shopifyProducts
+      }
+    }
+    
+    console.warn('No products found in Shopify featured collections, using fallback')
+  } catch (error) {
+    console.warn('Error fetching featured products from Shopify, using fallback:', error.message)
+  }
+  
+  // Fallback: usar produtos do JSON local
+  // Garantir variedade: embaralhar produtos para mostrar diferentes opções
   const products = await getAllProducts()
-  // Retornar primeiros produtos (pode ser melhorado com lógica de featured)
-  return products.slice(0, limit)
+  
+  // Embaralhar produtos para garantir variedade
+  const shuffledProducts = [...products].sort(() => Math.random() - 0.5)
+  
+  return shuffledProducts.slice(0, limit)
 }
 
-export async function getBestSellers(limit = 8) {
+export async function getBestSellers(limit = 18) {
+  try {
+    // Tentar buscar da coleção "best-sellers" do Shopify
+    const { getCollectionProducts } = await import('@/lib/shopifyCheckout')
+    
+    // Tentar diferentes variações do handle da coleção
+    const collectionHandles = ['best-sellers', 'los-mas-vendidos', 'mas-vendidos']
+    
+    for (const handle of collectionHandles) {
+      const shopifyProducts = await getCollectionProducts(handle, limit)
+      
+      if (shopifyProducts && shopifyProducts.length > 0) {
+        console.log(`✅ Found ${shopifyProducts.length} products from Shopify collection: ${handle}`)
+        
+        // Garantir que retornamos exatamente o limite solicitado
+        // Se tiver mais produtos, embaralhar para garantir variedade
+        if (shopifyProducts.length > limit) {
+          const shuffled = [...shopifyProducts].sort(() => Math.random() - 0.5)
+          return shuffled.slice(0, limit)
+        }
+        
+        return shopifyProducts
+      }
+    }
+    
+    console.warn('No products found in Shopify collections, using fallback')
+  } catch (error) {
+    console.warn('Error fetching best sellers from Shopify, using fallback:', error.message)
+  }
+  
+  // Fallback: usar produtos do JSON local
+  // Garantir variedade: embaralhar produtos para mostrar diferentes opções
   const products = await getAllProducts()
-  // Por enquanto retornar primeiros produtos (pode ser melhorado com dados reais de vendas)
-  return products.slice(0, limit)
+  
+  // Embaralhar produtos para garantir variedade
+  const shuffledProducts = [...products].sort(() => Math.random() - 0.5)
+  
+  return shuffledProducts.slice(0, limit)
 }
 
 export function formatPrice(price) {

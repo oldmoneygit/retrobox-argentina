@@ -87,10 +87,11 @@ const Header = () => {
   }))
 
   const menuItems = [
+    { name: 'TODOS LOS PRODUCTOS', href: '/productos' },
+    { name: 'MÁS VENDIDOS', href: '/#bestsellers' },
     { name: 'EQUIPOS ARGENTINOS', href: '#', hasSubmenu: true, submenu: timesArgentinosSubMenu },
     { name: 'LIGAS', href: '#', hasSubmenu: true, submenu: ligasSubMenu },
     { name: 'SELECCIONES NACIONALES', href: '/coleccion/selecciones-nacionales' },
-    { name: 'MÁS VENDIDOS', href: '/#bestsellers' },
     { name: 'MYSTERYBOX', href: '/#mysterybox' },
     { name: 'RASTREÁ TU PEDIDO', href: '/seguimiento' },
     { name: 'CONTACTO', href: '/contacto' },

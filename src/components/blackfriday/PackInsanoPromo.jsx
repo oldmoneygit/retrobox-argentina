@@ -112,7 +112,7 @@ export default function PackInsanoPromo() {
                   <div className="flex items-start gap-3 p-3 bg-white/5 rounded-xl border border-white/10">
                     <Flame className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-white font-bold text-sm">Solo 50 Packs Diarios</p>
+                      <p className="text-white font-bold text-sm">Solo 15 Packs Diarios</p>
                       <p className="text-white/60 text-xs">Reset a las 00:00h - Corre antes que se agoten</p>
                     </div>
                   </div>

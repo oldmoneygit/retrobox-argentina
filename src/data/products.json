@@ -1103,7 +1103,7 @@
     "id": "gid://shopify/Product/9059526934744",
     "name": "Argentina 2025 Retro Chaqueta",
     "slug": "argentina-2025-retro-chaqueta",
-    "price": 36900,
+    "price": 49900,
     "regularPrice": null,
     "image": "https://cdn.shopify.com/s/files/1/0786/4788/6040/files/2c19f1ba7991d6e30c8412c40975d489.jpg?v=1762580210",
     "imageAlt": "Argentina 2025 Retro Chaqueta - Imagem Principal",
@@ -7337,5 +7337,734 @@
       "Valencia"
     ],
     "stock": "available"
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_0",
+    "name": "Inter de Milán 02/03 Retro Home",
+    "slug": "inter-de-milan-02-03-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 02/03 Retro Home - Imagem Principal",
+    "description": "Inter de Milán 02/03 Retro Home\n\nCamiseta retro Inter de Milán - Temporada 02/03\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 275,
+      "folderPath": "Inter de Milán 02-03 Retro Home",
+      "team": "Inter de Milán",
+      "year": "02/03",
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_1",
+    "name": "Inter de Milán 02/03 Retro Third",
+    "slug": "inter-de-milan-02-03-retro-third",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 02/03 Retro Third - Imagem Principal",
+    "description": "Inter de Milán 02/03 Retro Third\n\nCamiseta retro Inter de Milán - Temporada 02/03\nTipo: Third\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Third",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 276,
+      "folderPath": "Inter de Milán 02-03 Retro Third",
+      "team": "Inter de Milán",
+      "year": "02/03",
+      "type": "Third",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_2",
+    "name": "Inter de Milán 04/05 Retro Home",
+    "slug": "inter-de-milan-04-05-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 04/05 Retro Home - Imagem Principal",
+    "description": "Inter de Milán 04/05 Retro Home\n\nCamiseta retro Inter de Milán - Temporada 04/05\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 277,
+      "folderPath": "Inter de Milán 04-05 Retro Home",
+      "team": "Inter de Milán",
+      "year": "04/05",
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_3",
+    "name": "Inter de Milán 07/08 Retro Home",
+    "slug": "inter-de-milan-07-08-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 07/08 Retro Home - Imagem Principal",
+    "description": "Inter de Milán 07/08 Retro Home\n\nCamiseta retro Inter de Milán - Temporada 07/08\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 278,
+      "folderPath": "Inter de Milán 07-08 Retro Home",
+      "team": "Inter de Milán",
+      "year": "07/08",
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_4",
+    "name": "Inter de Milán 09/10 Retro Home Champions League",
+    "slug": "inter-de-milan-09-10-retro-home-champions-league",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 09/10 Retro Home Champions League - Imagem Principal",
+    "description": "Inter de Milán 09/10 Retro Home Champions League\n\nCamiseta retro Inter de Milán - Temporada 09/10\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 279,
+      "folderPath": "Inter de Milán 09-10 Retro Home Champions League",
+      "team": "Inter de Milán",
+      "year": "09/10",
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_5",
+    "name": "Inter de Milán 10/11 Retro Away",
+    "slug": "inter-de-milan-10-11-retro-away",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 10/11 Retro Away - Imagem Principal",
+    "description": "Inter de Milán 10/11 Retro Away\n\nCamiseta retro Inter de Milán - Temporada 10/11\nTipo: Away\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Away",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 280,
+      "folderPath": "Inter de Milán 10-11 Retro Away",
+      "team": "Inter de Milán",
+      "year": "10/11",
+      "type": "Away",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626447_6",
+    "name": "Inter de Milán 97/98 Retro Home Long Sleeve",
+    "slug": "inter-de-milan-97-98-retro-home-long-sleeve",
+    "price": 41900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 97/98 Retro Home Long Sleeve - Imagem Principal",
+    "description": "Inter de Milán 97/98 Retro Home Long Sleeve\n\nCamiseta retro Inter de Milán - Temporada 97/98\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 281,
+      "folderPath": "Inter de Milán 97-98 Retro Home Long Sleeve",
+      "team": "Inter de Milán",
+      "year": "97/98",
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_7",
+    "name": "Inter de Milán 97/98 Retro Third Long Sleeve",
+    "slug": "inter-de-milan-97-98-retro-third-long-sleeve",
+    "price": 41900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán 97/98 Retro Third Long Sleeve - Imagem Principal",
+    "description": "Inter de Milán 97/98 Retro Third Long Sleeve\n\nCamiseta retro Inter de Milán - Temporada 97/98\nTipo: Third\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Third",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 282,
+      "folderPath": "Inter de Milán 97-98 Retro Third Long Sleeve",
+      "team": "Inter de Milán",
+      "year": "97/98",
+      "type": "Third",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_8",
+    "name": "Inter de Milán Retro Home",
+    "slug": "inter-de-milan-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán Retro Home - Imagem Principal",
+    "description": "Inter de Milán Retro Home\n\nCamiseta retro Inter de Milán - Temporada Clássica\nTipo: Home\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 283,
+      "folderPath": "Inter de Milán Retro Home",
+      "team": "Inter de Milán",
+      "year": null,
+      "type": "Home",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_9",
+    "name": "Inter de Milán Retro Third",
+    "slug": "inter-de-milan-retro-third",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Inter de Milán Retro Third - Imagem Principal",
+    "description": "Inter de Milán Retro Third\n\nCamiseta retro Inter de Milán - Temporada Clássica\nTipo: Third\nLiga: Serie A\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Inter de Milán",
+      "Futebol",
+      "Third",
+      "Jersey",
+      "Retro",
+      "Serie A"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 284,
+      "folderPath": "Inter de Milán Retro Third",
+      "team": "Inter de Milán",
+      "year": null,
+      "type": "Third",
+      "league": "Serie A"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "Boca Juniors 25/26 Retro",
+    "slug": "boca-juniors-25-26-retro",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Boca Juniors 25/26 Retro - Imagem Principal",
+    "description": "Boca Juniors 25/26 Retro\n\nCamiseta retro Boca Juniors - Temporada 25/26\nTipo: Retro\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Boca Juniors",
+      "Futebol",
+      "Retro",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 145,
+      "folderPath": "Boca Juniors 25-26 Retro",
+      "team": "Boca Juniors",
+      "year": "25/26",
+      "type": null,
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_2",
+    "name": "Boca Juniors Retro Home",
+    "slug": "boca-juniors-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Boca Juniors Retro Home - Imagem Principal",
+    "description": "Boca Juniors Retro Home\n\nCamiseta retro Boca Juniors - Temporada Clássica\nTipo: Home\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Boca Juniors",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 156,
+      "folderPath": "Boca Juniors Retro Home",
+      "team": "Boca Juniors",
+      "year": null,
+      "type": "Home",
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "River Plate 25/26 Retro",
+    "slug": "river-plate-25-26-retro",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "River Plate 25/26 Retro - Imagem Principal",
+    "description": "River Plate 25/26 Retro\n\nCamiseta retro River Plate - Temporada 25/26\nTipo: Retro\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "River Plate",
+      "Futebol",
+      "Retro",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 432,
+      "folderPath": "River Plate 25-26 Retro",
+      "team": "River Plate",
+      "year": "25/26",
+      "type": null,
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_2",
+    "name": "River Plate 95/96 Retro Home",
+    "slug": "river-plate-95-96-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "River Plate 95/96 Retro Home - Imagem Principal",
+    "description": "River Plate 95/96 Retro Home\n\nCamiseta retro River Plate - Temporada 95/96\nTipo: Home\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "River Plate",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 435,
+      "folderPath": "River Plate 95-96 Retro Home",
+      "team": "River Plate",
+      "year": "95/96",
+      "type": "Home",
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "Independiente Retro Home",
+    "slug": "independiente-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Independiente Retro Home - Imagem Principal",
+    "description": "Independiente Retro Home\n\nCamiseta retro Independiente - Temporada Clássica\nTipo: Home\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Independiente",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 259,
+      "folderPath": "Independiente Retro Home",
+      "team": "Independiente",
+      "year": null,
+      "type": "Home",
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "Instituto de Córdoba 96/97 Retro Home",
+    "slug": "instituto-de-cordoba-96-97-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Instituto de Córdoba 96/97 Retro Home - Imagem Principal",
+    "description": "Instituto de Córdoba 96/97 Retro Home\n\nCamiseta retro Instituto de Córdoba - Temporada 96/97\nTipo: Home\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Instituto de Córdoba",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 273,
+      "folderPath": "Instituto de Córdoba 96-97 Retro Home",
+      "team": "Instituto de Córdoba",
+      "year": "96/97",
+      "type": "Home",
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_1",
+    "name": "Instituto de Córdoba 99/00 Retro Home",
+    "slug": "instituto-de-cordoba-99-00-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Instituto de Córdoba 99/00 Retro Home - Imagem Principal",
+    "description": "Instituto de Córdoba 99/00 Retro Home\n\nCamiseta retro Instituto de Córdoba - Temporada 99/00\nTipo: Home\nLiga: Primera División Argentina\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Instituto de Córdoba",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Primera División Argentina"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 274,
+      "folderPath": "Instituto de Córdoba 99-00 Retro Home",
+      "team": "Instituto de Córdoba",
+      "year": "99/00",
+      "type": "Home",
+      "league": "Primera División Argentina"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "Bayern Múnich 04/05 Retro Away",
+    "slug": "bayern-munich-04-05-retro-away",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 04/05 Retro Away - Imagem Principal",
+    "description": "Bayern Múnich 04/05 Retro Away\n\nCamiseta retro Bayern Múnich - Temporada 04/05\nTipo: Away\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Away",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 121,
+      "folderPath": "Bayern Múnich 04-05 Retro Away",
+      "team": "Bayern Múnich",
+      "year": "04/05",
+      "type": "Away",
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_1",
+    "name": "Bayern Múnich 07/08 Retro Home",
+    "slug": "bayern-munich-07-08-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 07/08 Retro Home - Imagem Principal",
+    "description": "Bayern Múnich 07/08 Retro Home\n\nCamiseta retro Bayern Múnich - Temporada 07/08\nTipo: Home\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 122,
+      "folderPath": "Bayern Múnich 07-08 Retro Home",
+      "team": "Bayern Múnich",
+      "year": "07/08",
+      "type": "Home",
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_2",
+    "name": "Bayern Múnich 12/13 Retro Home",
+    "slug": "bayern-munich-12-13-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 12/13 Retro Home - Imagem Principal",
+    "description": "Bayern Múnich 12/13 Retro Home\n\nCamiseta retro Bayern Múnich - Temporada 12/13\nTipo: Home\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 123,
+      "folderPath": "Bayern Múnich 12-13 Retro Home",
+      "team": "Bayern Múnich",
+      "year": "12/13",
+      "type": "Home",
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_3",
+    "name": "Bayern Múnich 14/15 Retro Home",
+    "slug": "bayern-munich-14-15-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 14/15 Retro Home - Imagem Principal",
+    "description": "Bayern Múnich 14/15 Retro Home\n\nCamiseta retro Bayern Múnich - Temporada 14/15\nTipo: Home\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 124,
+      "folderPath": "Bayern Múnich 14-15 Retro Home",
+      "team": "Bayern Múnich",
+      "year": "14/15",
+      "type": "Home",
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_4",
+    "name": "Bayern Múnich 17/18 Retro Home",
+    "slug": "bayern-munich-17-18-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 17/18 Retro Home - Imagem Principal",
+    "description": "Bayern Múnich 17/18 Retro Home\n\nCamiseta retro Bayern Múnich - Temporada 17/18\nTipo: Home\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 125,
+      "folderPath": "Bayern Múnich 17-18 Retro Home",
+      "team": "Bayern Múnich",
+      "year": "17/18",
+      "type": "Home",
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_5",
+    "name": "Bayern Múnich 25/26 Retro",
+    "slug": "bayern-munich-25-26-retro",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich 25/26 Retro - Imagem Principal",
+    "description": "Bayern Múnich 25/26 Retro\n\nCamiseta retro Bayern Múnich - Temporada 25/26\nTipo: Retro\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Retro",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 126,
+      "folderPath": "Bayern Múnich 25-26 Retro",
+      "team": "Bayern Múnich",
+      "year": "25/26",
+      "type": null,
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_6",
+    "name": "Bayern Múnich Retro",
+    "slug": "bayern-munich-retro",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Bayern Múnich Retro - Imagem Principal",
+    "description": "Bayern Múnich Retro\n\nCamiseta retro Bayern Múnich - Temporada Clássica\nTipo: Retro\nLiga: Bundesliga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Bayern Múnich",
+      "Futebol",
+      "Retro",
+      "Jersey",
+      "Retro",
+      "Bundesliga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 127,
+      "folderPath": "Bayern Múnich Retro",
+      "team": "Bayern Múnich",
+      "year": null,
+      "type": null,
+      "league": "Bundesliga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626448_0",
+    "name": "Barcelona 10/11 Retro Home",
+    "slug": "barcelona-10-11-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Barcelona 10/11 Retro Home - Imagem Principal",
+    "description": "Barcelona 10/11 Retro Home\n\nCamiseta retro Barcelona - Temporada 10/11\nTipo: Home\nLiga: La Liga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Barcelona",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "La Liga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 93,
+      "folderPath": "Barcelona 10-11 Retro Home",
+      "team": "Barcelona",
+      "year": "10/11",
+      "type": "Home",
+      "league": "La Liga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626449_3",
+    "name": "Barcelona 17/18 Retro Home",
+    "slug": "barcelona-17-18-retro-home",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Barcelona 17/18 Retro Home - Imagem Principal",
+    "description": "Barcelona 17/18 Retro Home\n\nCamiseta retro Barcelona - Temporada 17/18\nTipo: Home\nLiga: La Liga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Barcelona",
+      "Futebol",
+      "Home",
+      "Jersey",
+      "Retro",
+      "La Liga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 110,
+      "folderPath": "Barcelona 17-18 Retro Home",
+      "team": "Barcelona",
+      "year": "17/18",
+      "type": "Home",
+      "league": "La Liga"
+    }
+  },
+  {
+    "id": "gid://shopify/Product/PENDING_1762721626449_0",
+    "name": "Real Madrid 25/26 Retro",
+    "slug": "real-madrid-25-26-retro",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Real Madrid 25/26 Retro - Imagem Principal",
+    "description": "Real Madrid 25/26 Retro\n\nCamiseta retro Real Madrid - Temporada 25/26\nTipo: Retro\nLiga: La Liga\n\nMaterial de alta qualidade\nDesign clássico retro\nTamanhos disponíveis: S, M, L, XL, XXL, 3XL\n\n🔥 BLACK NOVEMBER - 33% OFF!",
+    "tags": [
+      "Real Madrid",
+      "Futebol",
+      "Retro",
+      "Jersey",
+      "Retro",
+      "La Liga"
+    ],
+    "stock": "available",
+    "metadata": {
+      "catalogId": 415,
+      "folderPath": "Real Madrid 25-26 Retro",
+      "team": "Real Madrid",
+      "year": "25/26",
+      "type": null,
+      "league": "La Liga"
+    }
   }
 ]

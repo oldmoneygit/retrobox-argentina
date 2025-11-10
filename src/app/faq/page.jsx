@@ -3,7 +3,7 @@
 import Header from '@/components/store/Header'
 import StoreFooter from '@/components/store/StoreFooter'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, ShoppingBag, CreditCard, Truck, RefreshCw, Ruler, ShieldCheck, HelpCircle } from 'lucide-react'
+import { ChevronDown, ShoppingBag, CreditCard, Truck, RefreshCw, Ruler, ShieldCheck, HelpCircle, PackageSearch, XCircle, CheckCircle, Store, Users, Lock } from 'lucide-react'
 import { useState } from 'react'
 
 const faqs = [
@@ -42,6 +42,54 @@ const faqs = [
     question: '¿Los productos son originales?',
     answer: 'Sí, todos nuestros productos son réplicas de alta calidad premium 1:1. Garantizamos materiales auténticos y acabados idénticos a las versiones oficiales.',
     category: 'Calidad'
+  },
+  {
+    icon: PackageSearch,
+    question: '¿Puedo rastrear mi pedido?',
+    answer: '¡Sí! Una vez que tu pedido sea despachado, recibirás un código de seguimiento por email o WhatsApp para rastrear tu envío en tiempo real. También podés usar nuestra página de seguimiento de pedidos.',
+    category: 'Envíos'
+  },
+  {
+    icon: XCircle,
+    question: '¿Puedo modificar o cancelar mi pedido?',
+    answer: 'Sí, podés modificar o cancelar tu pedido siempre que aún no haya sido despachado. Contactanos inmediatamente por WhatsApp o email con tu número de pedido y te ayudaremos. Una vez despachado, aplican las políticas de cambio y devolución.',
+    category: 'Compras'
+  },
+  {
+    icon: CheckCircle,
+    question: '¿Tienen garantía los productos?',
+    answer: 'Sí, todos nuestros productos tienen garantía contra defectos de fabricación. Si tu producto llega con algún defecto, lo cambiamos o reembolsamos sin costo adicional. El plazo de garantía es de 60 días para defectos de fábrica.',
+    category: 'Calidad'
+  },
+  {
+    icon: Ruler,
+    question: '¿Todos los talles están disponibles?',
+    answer: 'Trabajamos con talles desde S hasta 3XL. La disponibilidad varía según el producto. Si no encontrás tu talle en un producto específico, contactanos para verificar disponibilidad o recibir notificaciones cuando esté disponible.',
+    category: 'Tallas'
+  },
+  {
+    icon: Lock,
+    question: '¿Es seguro comprar en Retrobox Argentina?',
+    answer: '¡Totalmente seguro! Utilizamos encriptación SSL y procesadores de pago certificados como Mercado Pago. Tus datos personales y de pago están protegidos. No almacenamos información de tarjetas de crédito en nuestros servidores.',
+    category: 'Pagos'
+  },
+  {
+    icon: Users,
+    question: '¿Hacen venta mayorista?',
+    answer: '¡Sí! Ofrecemos precios especiales para compras en gran cantidad. Si estás interesado en comprar al por mayor, contactanos por email a contacto@retroboxargentina.com o por WhatsApp para más información sobre precios y condiciones.',
+    category: 'Otros'
+  },
+  {
+    icon: Store,
+    question: '¿Tienen tienda física?',
+    answer: 'Actualmente operamos 100% online para ofrecer los mejores precios y una experiencia de compra conveniente. Realizamos envíos a toda Argentina con entrega rápida y segura.',
+    category: 'Otros'
+  },
+  {
+    icon: CreditCard,
+    question: '¿Puedo pagar en cuotas?',
+    answer: '¡Sí! Aceptamos pagos en cuotas sin interés a través de Mercado Pago y tarjetas de crédito. Las opciones de cuotas disponibles dependen de tu banco y del método de pago seleccionado.',
+    category: 'Pagos'
   },
 ]
 
@@ -162,10 +210,7 @@ export default function FAQPage() {
 
               {/* Title */}
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 uppercase tracking-tight">
-                Preguntas
-                <span className="block bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent">
-                  Frecuentes
-                </span>
+                Preguntas Frecuentes
               </h1>
 
               {/* Subtitle */}
@@ -206,14 +251,12 @@ export default function FAQPage() {
                   Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.
                 </p>
                 <motion.a
-                  href="https://wa.me/5491234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contacto"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 bg-white text-black font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-gray-light transition-all shadow-lg hover:shadow-xl text-sm md:text-base"
                 >
-                  Contactar por WhatsApp
+                  Contáctanos
                 </motion.a>
               </motion.div>
             </div>

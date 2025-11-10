@@ -121,16 +121,16 @@ export default function FavoritesPage() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.1 }}
             >
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
+              <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6 mb-8">
                 <AnimatePresence mode="popLayout">
                   {wishlistItems.map((item, index) => (
                     <motion.div
                       key={item.id}
                       layout
-                      initial={{ opacity: 0, scale: 0.9 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      transition={{ duration: 0.2, delay: index * 0.01 }}
                       className="group h-full flex flex-col"
                     >
                       <Link href={`/product/${item.slug}`} className="flex-1 flex flex-col">

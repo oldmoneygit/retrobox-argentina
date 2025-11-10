@@ -80,22 +80,21 @@ export default function BlackFridayPopup() {
                 </motion.div>
 
                 {/* Title */}
-                <h2 className="text-2xl md:text-3xl font-black text-center uppercase mb-2">
-                  <span className="text-yellow-400">🔥 PACK INSANO</span>
+                <h2 className="text-2xl md:text-3xl font-black text-center uppercase mb-2 text-yellow-400">
+                  🔥 PACK BLACK
                   <br />
-                  <span className="text-white">INAUGURACIÓN</span>
+                  BLACK FRIDAY
                 </h2>
 
                 <div className="text-center mb-6">
                   <p className="text-xl md:text-2xl font-black text-orange-500 mb-1">
-                    3 CAMISETAS RETRO
+                    4 CAMISETAS RETRO
                   </p>
-                  <div className="flex items-center justify-center gap-2 mb-1">
-                    <span className="text-lg text-white/40 line-through">ARS 110.700</span>
-                    <span className="px-2 py-1 bg-red-500 text-white text-xs font-black rounded">55% OFF</span>
-                  </div>
                   <p className="text-3xl md:text-4xl font-black text-yellow-400">
-                    ARS 49.900
+                    ARS 59.900
+                  </p>
+                  <p className="text-sm text-green-400 mt-1 font-bold">
+                    = $14.900 cada una
                   </p>
                   <p className="text-sm text-white/60 mt-1">(Envío gratis incluido)</p>
                 </div>
@@ -117,37 +116,29 @@ export default function BlackFridayPopup() {
                   </p>
                 </div>
 
-                {/* Benefits */}
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
-                    <Flame className="w-5 h-5 text-orange-500 shrink-0 mt-0.5" />
+                {/* Benefits - Simplified */}
+                <div className="space-y-2 md:space-y-3 mb-6">
+                  <div className="flex items-start gap-2 md:gap-3 bg-white/5 p-2.5 md:p-3 rounded-xl border border-white/10">
+                    <Flame className="w-4 h-4 md:w-5 md:h-5 text-orange-500 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-white font-bold">Solo 50 packs por día</p>
-                      <p className="text-white/60 text-sm">Oferta de inauguración limitada</p>
+                      <p className="text-white font-bold text-sm md:text-base">Solo 15 packs diarios</p>
+                      <p className="text-white/60 text-xs md:text-sm">Black Friday limitado</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
-                    <Tag className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 md:gap-3 bg-white/5 p-2.5 md:p-3 rounded-xl border border-white/10">
+                    <Tag className="w-4 h-4 md:w-5 md:h-5 text-purple-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-white font-bold">Ahorrás $60.800</p>
-                      <p className="text-white/60 text-sm">55% OFF en 3 camisetas retro</p>
+                      <p className="text-white font-bold text-sm md:text-base">Precio insuperable</p>
+                      <p className="text-white/60 text-xs md:text-sm">4 camisetas por $59.900</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
-                    <Truck className="w-5 h-5 text-green-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 md:gap-3 bg-white/5 p-2.5 md:p-3 rounded-xl border border-white/10">
+                    <Truck className="w-4 h-4 md:w-5 md:h-5 text-green-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-white font-bold">Envío gratis</p>
-                      <p className="text-white/60 text-sm">Incluido en el precio</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
-                    <Clock className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-white font-bold">Reset diario</p>
-                      <p className="text-white/60 text-sm">Nuevos packs disponibles a las 00:00h</p>
+                      <p className="text-white font-bold text-sm md:text-base">Envío gratis</p>
+                      <p className="text-white/60 text-xs md:text-sm">Incluido en el precio</p>
                     </div>
                   </div>
                 </div>
@@ -157,9 +148,9 @@ export default function BlackFridayPopup() {
                   onClick={handleAccept}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-black uppercase text-lg rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl transition-all"
+                  className="w-full py-3 md:py-4 bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-black uppercase text-base md:text-lg rounded-xl shadow-lg shadow-orange-500/30 hover:shadow-xl transition-all"
                 >
-                  ARMAR MI PACK INSANO
+                  ARMAR MI PACK BLACK
                 </motion.button>
 
                 <button

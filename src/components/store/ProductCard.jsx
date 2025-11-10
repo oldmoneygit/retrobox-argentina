@@ -1,12 +1,15 @@
 'use client'
 
+import { useState } from 'react'
 import OptimizedImage from '@/components/OptimizedImage'
 import Link from 'next/link'
 import { getImageConfig } from '@/utils/performance'
 import WishlistButton from '@/components/wishlist/WishlistButton'
+import QuickViewModal from '@/components/product/QuickViewModal'
 import { motion } from 'framer-motion'
 
 const ProductCard = ({ product, index = 0 }) => {
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false)
   const {
     name,
     slug,
@@ -32,9 +35,8 @@ const ProductCard = ({ product, index = 0 }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: index * 0.02 }}
       className="group h-full flex flex-col"
     >
       <Link href={productUrl} className="flex-1 flex flex-col">
@@ -52,7 +54,7 @@ const ProductCard = ({ product, index = 0 }) => {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="absolute top-1.5 right-9 md:top-2 md:right-12 z-10 bg-gradient-to-r from-orange-500 to-yellow-400 text-black text-[10px] md:text-xs font-black px-1.5 py-0.5 md:px-2 md:py-1 rounded shadow-lg"
+            className="absolute top-1.5 right-9 md:top-2 md:right-12 z-10 bg-gradient-to-r from-white to-blue-100 text-black text-[10px] md:text-xs font-black px-1.5 py-0.5 md:px-2 md:py-1 rounded shadow-lg"
           >
             -{discountPercentage}%
           </motion.div>
@@ -98,7 +100,7 @@ const ProductCard = ({ product, index = 0 }) => {
 
           <div className="space-y-0.5 md:space-y-1">
             {/* Original Price (Always show for Black November) */}
-            <p className="text-gray-medium text-xs md:text-sm line-through">
+            <p className="text-white/20 text-xs md:text-sm line-through">
               ${originalPrice.toLocaleString('es-AR')}
             </p>
             {/* Promotional Price */}
@@ -106,18 +108,27 @@ const ProductCard = ({ product, index = 0 }) => {
               ${typeof price === 'number' ? price.toLocaleString('es-AR') : price}
             </p>
           </div>
-
-          {stock === 'available' && (
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full bg-white text-black font-bold py-2 md:py-2.5 rounded-full group-hover:bg-gray-light transition-all duration-300 transform uppercase text-[10px] md:text-xs text-center whitespace-nowrap"
-            >
-              VER DETALLES
-            </motion.div>
-          )}
         </div>
       </Link>
+
+      {/* Ver Detalles Button - Outside Link - More Discreet */}
+      {stock === 'available' && (
+        <motion.button
+          onClick={() => setIsQuickViewOpen(true)}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.99 }}
+          className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold py-2 md:py-2.5 rounded-lg hover:border-white/30 transition-all duration-300 text-[10px] md:text-xs text-center whitespace-nowrap mt-1.5 md:mt-2"
+        >
+          Ver Detalles
+        </motion.button>
+      )}
+
+      {/* Quick View Modal */}
+      <QuickViewModal
+        product={product}
+        isOpen={isQuickViewOpen}
+        onClose={() => setIsQuickViewOpen(false)}
+      />
     </motion.div>
   )
 }

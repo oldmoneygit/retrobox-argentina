@@ -16,7 +16,7 @@ const BestSellers = () => {
   
   useEffect(() => {
     async function loadProducts() {
-      const bestSellers = await getBestSellers(8)
+      const bestSellers = await getBestSellers(18)
       setProducts(bestSellers)
     }
     loadProducts()
@@ -29,7 +29,8 @@ const BestSellers = () => {
       slidesToScroll: 1,
       breakpoints: {
         '(min-width: 768px)': { slidesToScroll: 2 },
-        '(min-width: 1024px)': { slidesToScroll: 3 }
+        '(min-width: 1024px)': { slidesToScroll: 4 },
+        '(min-width: 1280px)': { slidesToScroll: 5 }
       }
     },
     [Autoplay({ delay: 5000, stopOnInteraction: false })]
@@ -46,7 +47,7 @@ const BestSellers = () => {
   if (products.length === 0) return null
 
   return (
-    <section className="relative py-20 bg-black overflow-hidden" id="bestsellers">
+    <section className="relative py-8 md:py-10 bg-black overflow-hidden" id="bestsellers">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <SectionTitle
@@ -62,7 +63,7 @@ const BestSellers = () => {
               {products.map((product, index) => (
                 <div
                   key={product.id}
-                  className="flex-[0_0_calc(50%-12px)] min-w-0 md:flex-[0_0_48%] lg:flex-[0_0_31%] xl:flex-[0_0_23%]"
+                  className="flex-[0_0_calc(50%-12px)] min-w-0 md:flex-[0_0_48%] lg:flex-[0_0_24%] xl:flex-[0_0_19%]"
                 >
                   <ProductCard product={product} index={index} />
                 </div>
@@ -85,6 +86,17 @@ const BestSellers = () => {
           >
             <ChevronRight size={24} />
           </button>
+        </div>
+
+        {/* Ver Todos Button */}
+        <div className="flex justify-center mt-6 md:mt-8">
+          <Link
+            href="/productos"
+            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white hover:bg-white/90 text-black font-black uppercase text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-white/50"
+          >
+            Ver Todos Los Productos
+            <ChevronRight size={20} className="md:hidden" />
+          </Link>
         </div>
       </div>
     </section>

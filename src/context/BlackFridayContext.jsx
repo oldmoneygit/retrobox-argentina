@@ -4,11 +4,15 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const BlackFridayContext = createContext()
 
-// Constantes do Pack Insano
-export const PACK_INSANO_PRICE = 49900 // ARS 49.900 por 3 camisetas
-export const PACK_INSANO_SIZE = 3
+// Constantes do Pack Black (Black Friday)
+export const PACK_LOCO_PRICE = 59900 // ARS 59.900 por 4 camisetas
+export const PACK_LOCO_SIZE = 4
 export const SHIPPING_FEE = 0 // Envío gratis incluído
-export const DAILY_PACK_LIMIT = 50 // 50 packs por dia
+export const DAILY_PACK_LIMIT = 15 // 15 packs por dia
+
+// Legacy exports para compatibilidade
+export const PACK_INSANO_PRICE = PACK_LOCO_PRICE
+export const PACK_INSANO_SIZE = PACK_LOCO_SIZE
 
 export function BlackFridayProvider({ children }) {
   const [hasSeenPopup, setHasSeenPopup] = useState(false)
@@ -82,13 +86,13 @@ export function BlackFridayProvider({ children }) {
   }
 
   /**
-   * Calcula o total com a lógica do Pack Insano
+   * Calcula o total com a lógica do Pack Black (Black Friday)
    *
    * Lógica:
-   * - Se < 3 produtos: preço normal
-   * - Se = 3 produtos: ARS 49.900 (Pack Insano)
-   * - Se > 3 produtos:
-   *   - Divide em packs completos (cada 3 = ARS 49.900)
+   * - Se < 4 produtos: preço normal
+   * - Se = 4 produtos: ARS 59.900 (Pack Black)
+   * - Se > 4 produtos:
+   *   - Divide em packs completos (cada 4 = ARS 59.900)
    *   - Produtos restantes pagam preço normal
    */
   const calculatePackInsanoTotals = (cartItems) => {
@@ -112,8 +116,8 @@ export function BlackFridayProvider({ children }) {
     // Calcular subtotal normal (sem pack)
     const subtotalNormal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
-    // Se menos de 3 produtos, não tem pack
-    if (itemCount < 3) {
+    // Se menos de 4 produtos, não tem pack
+    if (itemCount < PACK_LOCO_SIZE) {
       return {
         itemCount,
         hasPack: false,
@@ -124,16 +128,16 @@ export function BlackFridayProvider({ children }) {
         savings: 0,
         total: subtotalNormal + SHIPPING_FEE,
         shipping: SHIPPING_FEE,
-        productsNeeded: 3 - itemCount
+        productsNeeded: PACK_LOCO_SIZE - itemCount
       }
     }
 
     // Calcular packs completos e items restantes
-    const fullPacks = Math.floor(itemCount / PACK_INSANO_SIZE)
-    const remainingItems = itemCount % PACK_INSANO_SIZE
+    const fullPacks = Math.floor(itemCount / PACK_LOCO_SIZE)
+    const remainingItems = itemCount % PACK_LOCO_SIZE
 
     // Calcular preço com pack
-    let subtotalWithPack = fullPacks * PACK_INSANO_PRICE
+    let subtotalWithPack = fullPacks * PACK_LOCO_PRICE
 
     // Adicionar preço dos produtos restantes (que não completam pack)
     if (remainingItems > 0) {
@@ -173,6 +177,8 @@ export function BlackFridayProvider({ children }) {
         calculatePackInsanoTotals,
         packsRemaining,
         purchasePack,
+        PACK_LOCO_SIZE,
+        PACK_LOCO_PRICE,
         PACK_INSANO_SIZE,
         PACK_INSANO_PRICE,
         SHIPPING_FEE,

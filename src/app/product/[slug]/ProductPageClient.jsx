@@ -478,30 +478,30 @@ export default function ProductPageClient({ product }) {
         </div>
 
         {/* Product Section */}
-        <div className="container mx-auto px-4 pb-8 md:pb-12 pt-0 md:pt-2">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+        <div className="container mx-auto px-4 pb-8 md:pb-10 pt-0 md:pt-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-6 lg:gap-8">
             {/* Left Column - Gallery */}
             <div>
               <ProductGallery images={images} productName={product.name} />
             </div>
 
             {/* Right Column - Product Info */}
-            <div className="space-y-3 md:space-y-6">
+            <div className="space-y-3 md:space-y-4">
               {/* Product Name */}
               <div>
-                <h1 className="text-white font-black text-xl md:text-4xl uppercase tracking-wide leading-tight">
+                <h1 className="text-white font-black text-xl md:text-3xl lg:text-4xl uppercase tracking-wide leading-tight">
                   {product.name}
                 </h1>
               </div>
 
               {/* Price - Black November */}
-              <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-lg md:rounded-xl p-3 md:p-5">
+              <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-lg md:rounded-xl p-3 md:p-4">
                 {/* Black November Badge */}
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
                   <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg uppercase tracking-wide">
                     🔥 BLACK NOVEMBER
                   </span>
-                  <span className="inline-flex items-center bg-gradient-to-r from-orange-500 to-yellow-400 text-black text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg">
+                  <span className="inline-flex items-center bg-gradient-to-r from-white to-blue-100 text-black text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg">
                     -{discountPercentage}% OFF
                   </span>
                 </div>
@@ -509,53 +509,53 @@ export default function ProductPageClient({ product }) {
                 {/* Prices */}
                 <div className="space-y-1">
                   {/* Original Price (Always show for Black November) */}
-                  <p className="text-sm md:text-lg text-gray-medium line-through">
+                  <p className="text-sm md:text-base lg:text-lg text-white/20 line-through">
                     ${originalPrice.toLocaleString('es-AR')}
                   </p>
                   {/* Promotional Price */}
-                  <p className="text-2xl md:text-4xl font-black text-white">
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
                 </div>
               </div>
 
               {/* Size Selector with Guide */}
-              <div className="space-y-2 md:space-y-4">
+              <div className="space-y-2 md:space-y-3">
                 <div className="flex items-center justify-between">
                   <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
                     Seleccioná tu talla
                   </label>
                   <button
                     onClick={() => setShowSizeGuide(true)}
-                    className="flex items-center gap-1 md:gap-2 text-white hover:text-gray-light transition-colors text-xs md:text-sm font-bold"
+                    className="flex items-center gap-1 text-white hover:text-gray-light transition-colors text-xs md:text-sm font-bold"
                   >
                     <Ruler size={14} className="md:w-4 md:h-4" />
                     Guía de tallas
                   </button>
                 </div>
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 md:gap-3">
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   {sizes.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}
-                      className={`relative py-2.5 px-2 md:py-4 md:px-4 rounded-lg md:rounded-xl font-bold text-sm md:text-base transition-all duration-200 ${
+                      className={`relative py-2 px-2 md:py-2.5 md:px-3 rounded-lg font-bold text-sm transition-all duration-200 ${
                         selectedSize === size
                           ? 'bg-white text-black shadow-lg shadow-white/30 scale-105'
-                          : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105 border border-white/10 md:border-2 hover:border-white/30'
+                          : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105 border border-white/10 hover:border-white/30'
                       }`}
                     >
                       {size}
                       {selectedSize === size && (
-                        <div className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 w-3 h-3 md:w-4 md:h-4 bg-black rounded-full flex items-center justify-center">
-                          <Check className="w-2 h-2 md:w-3 md:h-3 text-white" />
+                        <div className="absolute -top-0.5 -right-0.5 w-3 h-3 md:w-3.5 md:h-3.5 bg-black rounded-full flex items-center justify-center">
+                          <Check className="w-2 h-2 text-white" />
                         </div>
                       )}
                     </button>
                   ))}
                 </div>
                 {selectedSize && (
-                  <p className="text-white/60 text-xs md:text-sm flex items-center gap-2">
-                    <Check className="w-3 h-3 md:w-4 md:h-4 text-white" />
+                  <p className="text-white/60 text-xs flex items-center gap-2">
+                    <Check className="w-3 h-3 text-white" />
                     Talla seleccionada: <span className="text-white font-bold">{selectedSize}</span>
                   </p>
                 )}
@@ -566,36 +566,36 @@ export default function ProductPageClient({ product }) {
                 <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
                   Cantidad
                 </label>
-                <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-2 md:gap-3">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     disabled={quantity <= 1}
-                    className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center transition-all duration-200 ${
+                    className={`w-9 h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                       quantity <= 1
                         ? 'bg-white/5 text-white/30 cursor-not-allowed'
                         : 'bg-white/10 text-white hover:bg-white hover:text-black hover:scale-110'
                     }`}
                   >
-                    <Minus size={16} className="md:w-5 md:h-5" />
+                    <Minus size={16} className="md:w-4 md:h-4" />
                   </button>
-                  <div className="flex-1 max-w-[80px] md:max-w-[100px]">
+                  <div className="flex-1 max-w-[70px] md:max-w-[80px]">
                     <input
                       type="text"
                       value={quantity}
                       readOnly
-                      className="w-full h-12 bg-white/5 text-white text-center font-bold rounded-xl border-2 border-white/10 focus:border-white/50 focus:outline-none text-lg"
+                      className="w-full h-10 md:h-11 bg-white/5 text-white text-center font-bold rounded-lg border-2 border-white/10 focus:border-white/50 focus:outline-none text-base md:text-lg"
                     />
                   </div>
                   <button
                     onClick={() => setQuantity(quantity + 1)}
                     disabled={quantity >= 10}
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-200 ${
+                    className={`w-9 h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                       quantity >= 10
                         ? 'bg-white/5 text-white/30 cursor-not-allowed'
                         : 'bg-white/10 text-white hover:bg-white hover:text-black hover:scale-110'
                     }`}
                   >
-                    <Plus size={20} />
+                    <Plus size={16} className="md:w-4 md:h-4" />
                   </button>
                   <span className="text-white/60 text-xs">
                     Máx. 10
@@ -604,12 +604,12 @@ export default function ProductPageClient({ product }) {
               </div>
 
               {/* Action Buttons - Cart + Wishlist in same row */}
-              <div className="flex gap-3">
+              <div className="flex gap-2 md:gap-3">
                 {/* Add to Cart Button - Stylized */}
                 <button
                   onClick={handleAddToCart}
                   disabled={addedToCart || !selectedSize}
-                  className={`flex-1 py-5 px-6 rounded-xl font-black text-base uppercase tracking-wide transition-all duration-300 flex items-center justify-center gap-3 ${
+                  className={`flex-1 py-3 px-4 md:py-4 md:px-5 rounded-lg md:rounded-xl font-black text-sm md:text-base uppercase tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                     addedToCart
                       ? 'bg-white text-black'
                       : !selectedSize
@@ -619,13 +619,14 @@ export default function ProductPageClient({ product }) {
                 >
                   {addedToCart ? (
                     <>
-                      <Check size={22} />
-                      <span>Agregado</span>
+                      <Check size={18} className="md:w-5 md:h-5" />
+                      <span className="hidden sm:inline">Agregado</span>
                     </>
                   ) : (
                     <>
-                      <ShoppingCart size={22} />
-                      <span>Agregar al Carrito</span>
+                      <ShoppingCart size={18} className="md:w-5 md:h-5" />
+                      <span className="hidden sm:inline">Agregar al Carrito</span>
+                      <span className="sm:hidden">Agregar</span>
                     </>
                   )}
                 </button>
@@ -633,14 +634,14 @@ export default function ProductPageClient({ product }) {
                 {/* Wishlist Button */}
                 <button
                   onClick={handleToggleWishlist}
-                  className={`py-5 px-6 rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 ${
+                  className={`py-3 px-4 md:py-4 md:px-5 rounded-lg md:rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 ${
                     inWishlist
                       ? 'bg-white text-black'
                       : 'bg-white/10 text-white hover:bg-white/20 border-2 border-white/10'
                   }`}
                   aria-label={inWishlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}
                 >
-                  <Heart size={22} fill={inWishlist ? 'currentColor' : 'none'} />
+                  <Heart size={18} className="md:w-5 md:h-5" fill={inWishlist ? 'currentColor' : 'none'} />
                 </button>
               </div>
 

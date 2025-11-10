@@ -208,8 +208,8 @@ const Categories = () => {
                 className={`
                   relative px-5 py-2.5 rounded-lg font-bold text-sm transition-all
                   ${activeTab === tab.id
-                    ? 'bg-gradient-to-r from-orange-500 to-yellow-400 text-black shadow-lg shadow-orange-500/30'
-                    : 'bg-gray-dark text-white/70 border border-white/10 hover:border-orange-500/50'
+                    ? 'bg-gradient-to-r from-white to-blue-100 text-black shadow-lg shadow-blue-200/30'
+                    : 'bg-gray-dark text-white/70 border border-white/10 hover:border-blue-400/50'
                   }
                 `}
               >
@@ -222,7 +222,7 @@ const Categories = () => {
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-lg -z-10"
+                    className="absolute inset-0 bg-gradient-to-r from-white to-blue-100 rounded-lg -z-10"
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -257,7 +257,7 @@ const Categories = () => {
                 <Link href={`/coleccion/${item.slug}`}>
                   <motion.div
                     whileHover={{ y: -3 }}
-                    className="relative overflow-hidden rounded-lg aspect-square bg-gradient-to-br from-gray-dark to-black border border-white/10 group-hover:border-orange-500 transition-all"
+                    className="relative overflow-hidden rounded-lg aspect-square bg-gradient-to-br from-gray-dark to-black border border-white/10 group-hover:border-blue-400 transition-all"
                   >
                     {/* Image */}
                     <div className="absolute inset-0 p-3 md:p-4 flex items-center justify-center">
@@ -309,7 +309,7 @@ const Categories = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-yellow-400 text-black font-bold text-sm px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
+              className="bg-gradient-to-r from-white to-blue-100 text-black font-bold text-sm px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
             >
               Ver Todas las Camisetas
             </motion.button>
