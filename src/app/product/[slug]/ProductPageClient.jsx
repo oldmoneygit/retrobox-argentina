@@ -12,6 +12,7 @@ import Link from 'next/link'
 import BlackFridayProductCard from '@/components/blackfriday/BlackFridayProductCard'
 import ReservationCountdown from '@/components/blackfriday/ReservationCountdown'
 import CustomerFeedbacks from '@/components/store/CustomerFeedbacks'
+import RelatedProducts from '@/components/product/RelatedProducts'
 import { DEFAULT_SIZES } from '@/utils/constants'
 import useEmblaCarousel from 'embla-carousel-react'
 import AddToCartToast from '@/components/product/AddToCartToast'
@@ -1157,6 +1158,9 @@ export default function ProductPageClient({ product }) {
             </div>
           )}
         </div> */}
+
+        {/* Related Products Section */}
+        <RelatedProducts currentProduct={product} limit={4} />
       </main>
 
       {/* Add to Cart Toast Notification */}
