@@ -1148,15 +1148,15 @@ export default function ProductPageClient({ product }) {
           </div>
         </div>
 
-        {/* Description Section */}
-        <div className="container mx-auto px-4 pb-8 md:pb-12">
+        {/* Description Section - Hidden */}
+        {/* <div className="container mx-auto px-4 pb-8 md:pb-12">
           {product.description && (
             <div className="pt-6 border-t border-white/10">
               <h3 className="text-white font-black text-lg mb-3 uppercase tracking-wide">Descripción</h3>
               <p className="text-white/70 leading-relaxed">{product.description}</p>
             </div>
           )}
-        </div>
+        </div> */}
       </main>
 
       {/* Add to Cart Toast Notification */}
