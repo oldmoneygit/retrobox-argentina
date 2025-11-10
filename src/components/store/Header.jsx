@@ -5,7 +5,6 @@ import { ShoppingCart, Search, Menu, X, ChevronDown, Heart, Loader2 } from 'luci
 import OptimizedImage from '@/components/OptimizedImage'
 import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
-import PromotionalBanner from './PromotionalBanner'
 import { useCart } from '@/context/CartContext'
 import { useWishlist } from '@/context/WishlistContext'
 import { MENU_ITEMS, COLLECTIONS } from '@/utils/constants'
@@ -194,7 +193,6 @@ const Header = () => {
 
   return (
     <>
-      <PromotionalBanner />
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
