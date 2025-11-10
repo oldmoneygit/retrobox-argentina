@@ -11,6 +11,11 @@ const BestSellers = dynamic(() => import('@/components/store/BestSellers'), {
   ssr: true,
 })
 
+const PromotionalBanner = dynamic(() => import('@/components/store/PromotionalBanner'), {
+  loading: () => <div className="h-64 bg-black animate-pulse" />,
+  ssr: true,
+})
+
 const PackLocoPromo = dynamic(() => import('@/components/blackfriday/PackLocoPromo'), {
   loading: () => <div className="h-96 bg-black animate-pulse" />,
   ssr: true,
@@ -107,6 +112,11 @@ export default function HomePage() {
         {/* Los Más Vendidos */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <BestSellers />
+        </Suspense>
+
+        {/* Banner Promocional Black Friday */}
+        <Suspense fallback={<div className="h-64 bg-black animate-pulse" />}>
+          <PromotionalBanner />
         </Suspense>
 
         {/* Nuestras Colecciones: Ligas y Equipos */}
