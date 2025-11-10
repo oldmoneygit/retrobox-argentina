@@ -23,7 +23,7 @@ export default function BlackFridayProductCard() {
             🔥 BLACK FRIDAY RETROBOX
           </h3>
           <p className="text-yellow-400 font-bold text-sm md:text-base">
-            COMBO 3 CAMISETAS
+            COMBO 4 CAMISETAS
           </p>
         </div>
       </div>
@@ -45,7 +45,7 @@ export default function BlackFridayProductCard() {
           <span className="flex items-center justify-center w-5 h-5 bg-gradient-to-br from-orange-500 to-yellow-400 text-black rounded-full font-black text-xs shrink-0">
             1
           </span>
-          <p>Agregá 3 camisetas al carrito (cualquier equipo)</p>
+          <p>Agregá 4 camisetas al carrito (cualquier equipo)</p>
         </div>
 
         <div className="flex items-start gap-2 text-sm text-white/90">
@@ -92,7 +92,7 @@ export default function BlackFridayProductCard() {
         <div className="flex items-start gap-2">
           <Check className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
           <p className="text-xs text-white/70">
-            <strong className="text-white">¿Puedo mezclar equipos?</strong> Sí, elegí cualquier 3 camisetas
+            <strong className="text-white">¿Puedo mezclar equipos?</strong> Sí, elegí cualquier 4 camisetas
           </p>
         </div>
         <div className="flex items-start gap-2">
