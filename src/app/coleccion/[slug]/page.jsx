@@ -447,10 +447,10 @@ export default function ColeccionPage() {
     return (
       <>
         <Header />
-        <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="min-h-screen dark:bg-black bg-white flex items-center justify-center transition-colors duration-300">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-white mb-4">Colección no encontrada</h1>
-            <a href="/" className="text-white hover:text-white/80 transition-colors">Volver a la tienda</a>
+            <h1 className="text-2xl font-bold dark:text-white text-black mb-4">Colección no encontrada</h1>
+            <a href="/" className="dark:text-white dark:hover:text-white/80 text-black hover:text-black/80 transition-colors">Volver a la tienda</a>
           </div>
         </div>
         <StoreFooter />
@@ -459,12 +459,12 @@ export default function ColeccionPage() {
   }
 
   return (
-    <>
+    <div className="min-h-screen dark:bg-black bg-white transition-colors duration-300">
       <Header />
 
-      <main className="min-h-screen bg-black text-white">
+      <main className="dark:text-white text-black">
         {/* Hero Section */}
-        <div className="relative bg-gradient-to-b from-gray-dark to-black py-12 md:py-16">
+        <div className="relative dark:bg-gradient-to-b dark:from-gray-dark dark:to-black bg-gradient-to-b from-gray-100 to-white py-12 md:py-16 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
               {/* Logo */}
@@ -489,10 +489,10 @@ export default function ColeccionPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center md:text-left"
               >
-                <h1 className="text-4xl md:text-5xl font-black text-white mb-4">
+                <h1 className="text-4xl md:text-5xl font-black dark:text-white text-black mb-4">
                   {collectionInfo.name}
                 </h1>
-                <p className="text-lg text-white/70">
+                <p className="text-lg dark:text-white/70 text-black/70">
                   {collectionInfo.description}
                 </p>
               </motion.div>
@@ -502,16 +502,16 @@ export default function ColeccionPage() {
 
         {/* Filters Section */}
         {!loading && availableFilters.length > 0 && (
-          <div className="border-b border-white/10 bg-white/[0.02] backdrop-blur-sm">
+          <div className="dark:border-b dark:border-white/10 dark:bg-white/[0.02] border-b border-black/10 bg-black/[0.02] backdrop-blur-sm">
             <div className="container mx-auto px-4 py-4 md:py-6">
               <div className="max-w-6xl mx-auto">
                 {/* Header - Mobile & Desktop */}
                 <div className="flex items-center justify-between mb-3 md:mb-4">
                   <div className="flex items-center gap-2">
-                    <div className="p-1.5 bg-white/10 rounded-lg">
-                      <Filter className="w-4 h-4 text-white" />
+                    <div className="p-1.5 dark:bg-white/10 bg-black/10 rounded-lg">
+                      <Filter className="w-4 h-4 dark:text-white text-black" />
                     </div>
-                    <span className="text-white font-bold text-sm md:text-base">
+                    <span className="dark:text-white text-black font-bold text-sm md:text-base">
                       Filtrar
                       {activeFilters.length > 0 && (
                         <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-gradient-to-r from-white to-blue-100 text-black rounded-full">
@@ -525,7 +525,7 @@ export default function ColeccionPage() {
                   {activeFilters.length > 0 && (
                     <motion.button
                       onClick={clearFilters}
-                      className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-xs md:text-sm text-white font-medium"
+                      className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white bg-black/10 hover:bg-black/20 rounded-lg transition-all text-xs md:text-sm text-black font-medium"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       whileTap={{ scale: 0.95 }}
@@ -539,8 +539,8 @@ export default function ColeccionPage() {
                 {/* Filter Chips - Horizontal scroll on mobile */}
                 <div className="relative">
                   {/* Gradient fade edges on mobile */}
-                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-black/50 to-transparent pointer-events-none z-10 md:hidden" />
-                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-black/50 to-transparent pointer-events-none z-10 md:hidden" />
+                  <div className="absolute left-0 top-0 bottom-0 w-8 dark:bg-gradient-to-r dark:from-black/50 bg-gradient-to-r from-white/50 to-transparent pointer-events-none z-10 md:hidden" />
+                  <div className="absolute right-0 top-0 bottom-0 w-8 dark:bg-gradient-to-l dark:from-black/50 bg-gradient-to-l from-white/50 to-transparent pointer-events-none z-10 md:hidden" />
 
                   <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                     <div className="flex md:flex-wrap gap-2 pb-2 md:pb-0">
@@ -553,8 +553,8 @@ export default function ColeccionPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -576,12 +576,12 @@ export default function ColeccionPage() {
         <div className="container mx-auto px-4 py-8 md:py-12">
           {loading ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
-              <p className="text-gray-medium mt-4">Cargando productos...</p>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 dark:border-b-2 dark:border-white border-b-2 border-black"></div>
+              <p className="dark:text-gray-medium text-gray-600 mt-4">Cargando productos...</p>
             </div>
           ) : filteredProducts.length > 0 ? (
             <>
-              <p className="text-white/60 text-center mb-8">
+              <p className="dark:text-white/60 text-black/60 text-center mb-8">
                 {filteredProducts.length} {filteredProducts.length === 1 ? 'producto encontrado' : 'productos encontrados'}
                 {activeFilters.length > 0 && (
                   <span className="ml-2">
@@ -609,21 +609,21 @@ export default function ColeccionPage() {
             </>
           ) : activeFilters.length > 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-medium text-lg mb-4">No se encontraron productos con los filtros seleccionados</p>
+              <p className="dark:text-gray-medium text-gray-600 text-lg mb-4">No se encontraron productos con los filtros seleccionados</p>
               <button
                 onClick={clearFilters}
-                className="inline-block bg-gradient-to-r from-white to-blue-100 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                className="inline-block dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black bg-gradient-to-r from-black to-gray-800 text-white font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
               >
                 Limpiar filtros
               </button>
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-medium text-lg mb-4">No hay productos disponibles en esta colección</p>
-              <p className="text-white/50 text-sm mb-6">Pronto agregaremos nuevos productos. ¡Volvé pronto!</p>
+              <p className="dark:text-gray-medium text-gray-600 text-lg mb-4">No hay productos disponibles en esta colección</p>
+              <p className="dark:text-white/50 text-black/50 text-sm mb-6">Pronto agregaremos nuevos productos. ¡Volvé pronto!</p>
               <a
                 href="/"
-                className="inline-block bg-gradient-to-r from-white to-blue-100 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                className="inline-block dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black bg-gradient-to-r from-black to-gray-800 text-white font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
               >
                 Ver todos los productos
               </a>
@@ -633,6 +633,6 @@ export default function ColeccionPage() {
       </main>
 
       <StoreFooter />
-    </>
+    </div>
   )
 }
