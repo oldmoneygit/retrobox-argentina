@@ -11,34 +11,34 @@ const CustomerFeedbacks = () => {
   const [preloadedImages, setPreloadedImages] = useState(new Set())
   const [imageErrors, setImageErrors] = useState(new Set())
 
-  // Array com todas as imagens de feedback ordenadas na ordem da pasta (0001, 001, 002, 003, 004, 005, 1-13, 34-39)
+  // Array com todas as imagens de feedback ordenadas sequencialmente (1.png a 25.png)
   const feedbacks = useMemo(() => [
-    { id: 1, image: '/images/feedbacks/0001.png' },
-    { id: 2, image: '/images/feedbacks/001.png' },
-    { id: 3, image: '/images/feedbacks/002.png' },
-    { id: 4, image: '/images/feedbacks/003.png' },
-    { id: 5, image: '/images/feedbacks/004.png' },
-    { id: 6, image: '/images/feedbacks/005.png' },
-    { id: 7, image: '/images/feedbacks/1.png' },
-    { id: 8, image: '/images/feedbacks/2.png' },
-    { id: 9, image: '/images/feedbacks/3.png' },
-    { id: 10, image: '/images/feedbacks/4.png' },
-    { id: 11, image: '/images/feedbacks/5.png' },
-    { id: 12, image: '/images/feedbacks/6.png' },
-    { id: 13, image: '/images/feedbacks/7.png' },
-    { id: 14, image: '/images/feedbacks/8.png' },
-    { id: 15, image: '/images/feedbacks/9.png' },
-    { id: 16, image: '/images/feedbacks/10.png' },
-    { id: 17, image: '/images/feedbacks/11.png' },
-    { id: 18, image: '/images/feedbacks/12.png' },
-    { id: 19, image: '/images/feedbacks/13.png' },
-    { id: 34, image: '/images/feedbacks/34.png' },
-    { id: 35, image: '/images/feedbacks/35.png' },
-    { id: 36, image: '/images/feedbacks/36.png' },
-    { id: 37, image: '/images/feedbacks/37.png' },
-    { id: 38, image: '/images/feedbacks/38.png' },
-    { id: 39, image: '/images/feedbacks/39.png' },
-    { id: 20, isInstagram: true }
+    { id: 1, image: '/images/feedbacks/1.png' },
+    { id: 2, image: '/images/feedbacks/2.png' },
+    { id: 3, image: '/images/feedbacks/3.png' },
+    { id: 4, image: '/images/feedbacks/4.png' },
+    { id: 5, image: '/images/feedbacks/5.png' },
+    { id: 6, image: '/images/feedbacks/6.png' },
+    { id: 7, image: '/images/feedbacks/7.png' },
+    { id: 8, image: '/images/feedbacks/8.png' },
+    { id: 9, image: '/images/feedbacks/9.png' },
+    { id: 10, image: '/images/feedbacks/10.png' },
+    { id: 11, image: '/images/feedbacks/11.png' },
+    { id: 12, image: '/images/feedbacks/12.png' },
+    { id: 13, image: '/images/feedbacks/13.png' },
+    { id: 14, image: '/images/feedbacks/14.png' },
+    { id: 15, image: '/images/feedbacks/15.png' },
+    { id: 16, image: '/images/feedbacks/16.png' },
+    { id: 17, image: '/images/feedbacks/17.png' },
+    { id: 18, image: '/images/feedbacks/18.png' },
+    { id: 19, image: '/images/feedbacks/19.png' },
+    { id: 20, image: '/images/feedbacks/20.png' },
+    { id: 21, image: '/images/feedbacks/21.png' },
+    { id: 22, image: '/images/feedbacks/22.png' },
+    { id: 23, image: '/images/feedbacks/23.png' },
+    { id: 24, image: '/images/feedbacks/24.png' },
+    { id: 25, image: '/images/feedbacks/25.png' },
+    { id: 26, isInstagram: true }
   ], [])
 
   // Preload próximas imagens do carousel usando img tag (mais confiável)
