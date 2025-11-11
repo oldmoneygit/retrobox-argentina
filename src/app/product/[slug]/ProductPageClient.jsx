@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import OptimizedImage from '@/components/OptimizedImage'
-import { ChevronLeft, ChevronRight, Minus, Plus, ArrowLeft, ShoppingCart, Check, Heart, Ruler, X, Package, Truck, Shield, RotateCcw, Sparkles } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Minus, Plus, ArrowLeft, ShoppingCart, Check, Heart, Ruler, X, Package, Truck, Shield, RotateCcw, Sparkles, Layers, Zap, Wind, Target, Award, Calendar } from 'lucide-react'
 import Header from '@/components/store/Header'
 import StoreFooter from '@/components/store/StoreFooter'
 import { useCart } from '@/context/CartContext'
@@ -763,7 +763,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Shield className="w-5 h-5 dark:text-black text-white" />
+                      <Layers className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Material</p>
@@ -785,7 +785,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
+                      <Zap className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Tecnología</p>
@@ -807,7 +807,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Package className="w-5 h-5 dark:text-black text-white" />
+                      <Wind className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Ventilación</p>
@@ -829,7 +829,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
+                      <Target className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Ajuste</p>
@@ -851,7 +851,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Check className="w-5 h-5 dark:text-black text-white" />
+                      <Award className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Calidad</p>
@@ -873,7 +873,7 @@ export default function ProductPageClient({ product }) {
                       transition={{ duration: 0.6 }}
                       className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
+                      <Calendar className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Temporada</p>
