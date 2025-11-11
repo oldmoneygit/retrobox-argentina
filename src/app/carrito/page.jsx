@@ -27,14 +27,14 @@ export default function CartPage() {
   const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0)
 
   return (
-    <>
+    <div className="min-h-screen dark:bg-black bg-white transition-colors duration-300">
       <Header />
-      <main className="min-h-screen bg-black">
+      <main className="dark:text-white text-black">
         {/* Back Button */}
         <div className="container mx-auto px-4 pt-6 md:pt-8 pb-4 md:pb-6">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-orange-500 transition-colors text-sm md:text-base"
+            className="inline-flex items-center gap-2 dark:text-white/60 dark:hover:text-orange-500 text-black/60 hover:text-orange-500 transition-colors text-sm md:text-base"
           >
             <ChevronLeft className="w-4 h-4" />
             Volver a la tienda
@@ -46,10 +46,10 @@ export default function CartPage() {
           <div className="max-w-6xl mx-auto">
             {/* Page Title */}
             <div className="mb-8 md:mb-12">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 uppercase">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-black dark:text-white text-black mb-2 uppercase">
                 Carrito de Compras
               </h1>
-              <p className="text-white/60 text-sm md:text-base">
+              <p className="dark:text-white/60 text-black/60 text-sm md:text-base">
                 {totalQuantity === 0
                   ? 'Tu carrito está vacío'
                   : `${totalQuantity} ${totalQuantity === 1 ? 'producto' : 'productos'} en tu carrito`}
@@ -60,19 +60,19 @@ export default function CartPage() {
               /* Empty Cart State */
               <div className="text-center py-16 md:py-20">
                 <div className="flex justify-center mb-6">
-                  <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
-                    <ShoppingBag className="w-12 h-12 text-white/30" />
+                  <div className="w-24 h-24 dark:bg-white/5 bg-black/5 rounded-full flex items-center justify-center">
+                    <ShoppingBag className="w-12 h-12 dark:text-white/30 text-black/30" />
                   </div>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                <h2 className="text-2xl md:text-3xl font-bold dark:text-white text-black mb-3">
                   Tu carrito está vacío
                 </h2>
-                <p className="text-white/60 mb-8 max-w-md mx-auto">
+                <p className="dark:text-white/60 text-black/60 mb-8 max-w-md mx-auto">
                   Parece que aún no has agregado ningún producto. ¡Explora nuestra colección!
                 </p>
                 <Link
                   href="/"
-                  className="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-3 rounded-lg font-bold text-base md:text-lg uppercase tracking-wide hover:bg-gray-light transition-all duration-300 hover:scale-105 shadow-lg shadow-white/20"
+                  className="inline-flex items-center justify-center gap-2 dark:bg-white dark:text-black dark:hover:bg-gray-light dark:shadow-white/20 bg-black text-white px-8 py-3 rounded-lg font-bold text-base md:text-lg uppercase tracking-wide hover:bg-gray-dark transition-all duration-300 hover:scale-105 shadow-lg shadow-black/20"
                 >
                   Explorar Productos
                 </Link>
@@ -104,7 +104,7 @@ export default function CartPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8 md:mt-12 bg-gradient-to-r from-white/10 to-blue-100/10 border-2 border-blue-200/30 rounded-xl p-6 md:p-8"
+                className="mt-8 md:mt-12 dark:bg-gradient-to-r dark:from-white/10 dark:to-blue-100/10 dark:border-blue-200/30 bg-gradient-to-r from-black/10 to-gray-800/10 border-2 border-gray-600/30 rounded-xl p-6 md:p-8"
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
@@ -113,10 +113,10 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="text-center md:text-left flex-1">
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                    <h3 className="text-xl md:text-2xl font-bold dark:text-white text-black mb-1">
                       ¡Promoción Combo 3x Activada! 🎉
                     </h3>
-                    <p className="text-white/80 text-sm md:text-base mb-4">
+                    <p className="dark:text-white/80 text-black/80 text-sm md:text-base mb-4">
                       ¡Estás aprovechando el combo Black Friday! 3 camisetas por ARS 32.900 con envío gratis incluido.
                     </p>
                     {/* Reservation Countdown */}
@@ -128,7 +128,7 @@ export default function CartPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8 md:mt-12 bg-gradient-to-r from-white/10 to-blue-100/10 border-2 border-blue-200/30 rounded-xl p-6 md:p-8"
+                className="mt-8 md:mt-12 dark:bg-gradient-to-r dark:from-white/10 dark:to-blue-100/10 dark:border-blue-200/30 bg-gradient-to-r from-black/10 to-gray-800/10 border-2 border-gray-600/30 rounded-xl p-6 md:p-8"
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
@@ -137,10 +137,10 @@ export default function CartPage() {
                     </div>
                   </div>
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                    <h3 className="text-xl md:text-2xl font-bold dark:text-white text-black mb-1">
                       ¡Agrega {3 - totalQuantity} Producto{3 - totalQuantity > 1 ? 's' : ''} Más!
                     </h3>
-                    <p className="text-white/80 text-sm md:text-base">
+                    <p className="dark:text-white/80 text-black/80 text-sm md:text-base">
                       Activa la promoción Combo 3x Black Friday y obtén 3 camisetas por ARS 32.900 con envío gratis incluido!
                     </p>
                   </div>
@@ -151,7 +151,7 @@ export default function CartPage() {
         </div>
       </main>
       <StoreFooter />
-    </>
+    </div>
   )
 }
 

@@ -42,21 +42,21 @@ const CartSummary = ({ subtotal, cartItems }) => {
 
   return (
     <div className="sticky top-24">
-      <div className="bg-white/5 border-2 border-white/10 rounded-xl p-6 space-y-6">
+      <div className="dark:bg-white/5 dark:border-white/10 bg-black/5 border-2 border-black/10 rounded-xl p-6 space-y-6">
         {/* Title */}
-        <div className="flex items-center gap-3 pb-4 border-b border-white/10">
+        <div className="flex items-center gap-3 pb-4 dark:border-b dark:border-white/10 border-b border-black/10">
           <ShoppingCart className="w-6 h-6 text-orange-500" />
-          <h2 className="text-xl font-bold text-white">Resumen del Pedido</h2>
+          <h2 className="text-xl font-bold dark:text-white text-black">Resumen del Pedido</h2>
         </div>
 
         {/* Summary Details */}
         <div className="space-y-4">
           {/* Quantidade de produtos */}
           <div className="flex items-center justify-between">
-            <span className="text-white/60 text-sm">
+            <span className="dark:text-white/60 text-black/60 text-sm">
               {comboData.itemCount} {comboData.itemCount === 1 ? 'producto' : 'productos'}
             </span>
-            <span className="text-white/60 text-sm">
+            <span className="dark:text-white/60 text-black/60 text-sm">
               ${comboData.subtotalNormal.toLocaleString('es-AR')}
             </span>
           </div>
@@ -80,7 +80,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
               </div>
             </div>
           ) : (
-            <div className="flex items-start gap-2 bg-gradient-to-r from-white/10 to-blue-100/10 border border-blue-200/30 rounded-lg p-3">
+            <div className="flex items-start gap-2 dark:bg-gradient-to-r dark:from-white/10 dark:to-blue-100/10 dark:border-blue-200/30 bg-gradient-to-r from-black/10 to-gray-800/10 border border-gray-600/30 rounded-lg p-3">
               <Tag className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
                 <p className="text-orange-500 text-xs font-semibold">
@@ -95,18 +95,18 @@ const CartSummary = ({ subtotal, cartItems }) => {
           {/* Shipping */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Truck className="w-4 h-4 text-white/60" />
-              <span className="text-white/60 text-sm">Envío</span>
+              <Truck className="w-4 h-4 dark:text-white/60 text-black/60" />
+              <span className="dark:text-white/60 text-black/60 text-sm">Envío</span>
             </div>
             <span className="text-orange-500 font-semibold text-sm">GRATIS</span>
           </div>
 
           {/* Divider */}
-          <div className="border-t-2 border-white/10 pt-4">
+          <div className="dark:border-t-2 dark:border-white/10 border-t-2 border-black/10 pt-4">
             {/* Total */}
             <div className="flex items-center justify-between mb-1">
-              <span className="text-white text-lg font-bold">Total</span>
-              <span className="text-white text-2xl font-black">
+              <span className="dark:text-white text-black text-lg font-bold">Total</span>
+              <span className="dark:text-white text-black text-2xl font-black">
                 ${comboData.total.toLocaleString('es-AR')}
               </span>
             </div>
@@ -132,7 +132,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
         <button
           onClick={handleCheckout}
           disabled={isCheckingOut || comboData.itemCount === 0}
-          className="w-full bg-white text-black py-4 rounded-lg font-bold text-lg uppercase tracking-wide hover:bg-gray-light active:scale-95 transition-all duration-300 shadow-lg shadow-white/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full dark:bg-white dark:text-black dark:hover:bg-gray-light dark:shadow-white/20 bg-black text-white py-4 rounded-lg font-bold text-lg uppercase tracking-wide hover:bg-gray-dark active:scale-95 transition-all duration-300 shadow-lg shadow-black/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isCheckingOut ? (
             <>
@@ -148,16 +148,16 @@ const CartSummary = ({ subtotal, cartItems }) => {
         </button>
 
         {/* Security Badge */}
-        <div className="pt-4 border-t border-white/10">
+        <div className="pt-4 dark:border-t dark:border-white/10 border-t border-black/10">
           <div className="flex items-start gap-3">
-            <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="w-10 h-10 dark:bg-white/10 bg-black/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg className="w-5 h-5 dark:text-white text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
             </div>
             <div>
-              <p className="text-white text-sm font-semibold mb-1">Compra Segura</p>
-              <p className="text-white/60 text-xs">
+              <p className="dark:text-white text-black text-sm font-semibold mb-1">Compra Segura</p>
+              <p className="dark:text-white/60 text-black/60 text-xs">
                 Protección al comprador y pago 100% seguro
               </p>
             </div>
@@ -165,16 +165,16 @@ const CartSummary = ({ subtotal, cartItems }) => {
         </div>
 
         {/* Features */}
-        <div className="space-y-3 pt-4 border-t border-white/10">
-          <div className="flex items-center gap-2 text-white/60 text-xs">
+        <div className="space-y-3 pt-4 dark:border-t dark:border-white/10 border-t border-black/10">
+          <div className="flex items-center gap-2 dark:text-white/60 text-black/60 text-xs">
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
             <span>Calidad Premium</span>
           </div>
-          <div className="flex items-center gap-2 text-white/60 text-xs">
+          <div className="flex items-center gap-2 dark:text-white/60 text-black/60 text-xs">
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
             <span>Envío rápido hasta 10 días</span>
           </div>
-          <div className="flex items-center gap-2 text-white/60 text-xs">
+          <div className="flex items-center gap-2 dark:text-white/60 text-black/60 text-xs">
             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
             <span>Seguimiento en tiempo real</span>
           </div>
@@ -182,11 +182,11 @@ const CartSummary = ({ subtotal, cartItems }) => {
       </div>
 
       {/* Botão Fixo Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 lg:hidden bg-black border-t-2 border-white/20 p-4 z-[60] shadow-2xl">
+      <div className="fixed bottom-0 left-0 right-0 lg:hidden dark:bg-black dark:border-white/20 bg-white border-t-2 border-black/20 p-4 z-[60] shadow-2xl transition-colors duration-300">
         <button
           onClick={handleCheckout}
           disabled={isCheckingOut || comboData.itemCount === 0}
-          className="w-full bg-white text-black py-4 rounded-lg font-bold text-lg uppercase tracking-wide hover:bg-gray-light active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full dark:bg-white dark:text-black dark:hover:bg-gray-light bg-black text-white py-4 rounded-lg font-bold text-lg uppercase tracking-wide hover:bg-gray-dark active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg min-h-[56px] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isCheckingOut ? (
             <>
