@@ -81,6 +81,27 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${inter.variable} ${bebasNeue.variable}`}>
       <head>
+        {/* Theme Script - Apply dark mode by default before React hydrates */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const savedTheme = localStorage.getItem('retrobox-theme');
+                  const theme = savedTheme || 'dark';
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {
+                  // Fallback to dark mode if localStorage is not available
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <link rel="canonical" href={SEO_DATA.url} />
 
         {/* Performance Optimization: Preconnect to external domains */}

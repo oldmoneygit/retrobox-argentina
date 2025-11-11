@@ -45,11 +45,8 @@ export function ThemeProvider({ children }) {
     isDark: theme === 'dark',
   }
 
-  // Evitar flash de conteúdo não estilizado
-  if (!mounted) {
-    return null
-  }
-
+  // O script inline no layout já aplica a classe 'dark' antes do React hidratar
+  // Então podemos renderizar imediatamente sem esperar pela montagem
   return (
     <ThemeContext.Provider value={value}>
       {children}
