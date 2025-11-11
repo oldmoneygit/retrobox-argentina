@@ -16,6 +16,7 @@ import RelatedProducts from '@/components/product/RelatedProducts'
 import { DEFAULT_SIZES } from '@/utils/constants'
 import useEmblaCarousel from 'embla-carousel-react'
 import AddToCartToast from '@/components/product/AddToCartToast'
+import ProductCustomization from '@/components/product/ProductCustomization'
 
 // Size Guide Modal Component
 const SizeGuideModal = ({ isOpen, onClose }) => {
@@ -429,6 +430,7 @@ export default function ProductPageClient({ product }) {
   const [showSizeGuide, setShowSizeGuide] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('envio') // Tab control for Información Importante
+  const [customization, setCustomization] = useState(null)
 
   const images = product.gallery || [product.image]
   const sizes = product.sizes || DEFAULT_SIZES
@@ -446,7 +448,7 @@ export default function ProductPageClient({ product }) {
       alert('Por favor selecciona un tamaño')
       return
     }
-    addToCart(product, selectedSize, quantity)
+    addToCart(product, selectedSize, quantity, customization)
     setAddedToCart(true)
     setToastOpen(true)
     setTimeout(() => setAddedToCart(false), 2000)
@@ -518,6 +520,13 @@ export default function ProductPageClient({ product }) {
                   <p className="text-2xl md:text-3xl lg:text-4xl font-black dark:text-white text-black">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
+                  {/* Customization cost if enabled */}
+                  {customization?.enabled && (
+                    <p className="text-sm md:text-base dark:text-white/80 text-black/80 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" />
+                      + ${customization.price.toLocaleString('es-AR')} (Personalización)
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -604,6 +613,12 @@ export default function ProductPageClient({ product }) {
                   </span>
                 </div>
               </div>
+
+              {/* Product Customization */}
+              <ProductCustomization
+                onCustomizationChange={setCustomization}
+                customizationPrice={5000}
+              />
 
               {/* Action Buttons - Cart + Wishlist in same row */}
               <div className="flex gap-2 md:gap-3">

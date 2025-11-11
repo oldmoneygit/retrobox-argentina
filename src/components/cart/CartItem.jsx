@@ -3,13 +3,14 @@
 import { useState } from 'react'
 import OptimizedImage from '@/components/OptimizedImage'
 import Link from 'next/link'
-import { Minus, Plus, X } from 'lucide-react'
+import { Minus, Plus, X, Sparkles } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
-  const { id, name, slug, image, price, size, quantity } = item
+  const { id, name, slug, image, price, size, quantity, customization } = item
 
-  const itemTotal = price * quantity
+  const customizationPrice = customization?.enabled ? customization.price : 0
+  const itemTotal = (price + customizationPrice) * quantity
 
   const handleDecrease = () => {
     if (quantity > 1) {
@@ -64,10 +65,39 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
               Talla: <span className="dark:text-white text-black font-semibold">{size}</span>
             </p>
 
+            {/* Customization Info */}
+            {customization?.enabled && (
+              <div className="mb-2 p-2 dark:bg-white/5 dark:border-white/10 bg-black/5 border border-black/10 rounded-lg">
+                <div className="flex items-center gap-1 mb-1">
+                  <Sparkles className="w-3 h-3 dark:text-white/80 text-black/80" />
+                  <span className="dark:text-white/80 text-black/80 text-xs font-bold">Personalizado</span>
+                </div>
+                <div className="text-xs space-y-0.5">
+                  {customization.playerName && (
+                    <p className="dark:text-white/70 text-black/70">
+                      Nombre: <span className="dark:text-white text-black font-bold">{customization.playerName}</span>
+                    </p>
+                  )}
+                  {customization.playerNumber && (
+                    <p className="dark:text-white/70 text-black/70">
+                      Número: <span className="dark:text-white text-black font-bold">{customization.playerNumber}</span>
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Price */}
-            <p className="dark:text-white text-black text-xl md:text-2xl font-bold">
-              ${price.toLocaleString('es-AR')}
-            </p>
+            <div>
+              <p className="dark:text-white text-black text-xl md:text-2xl font-bold">
+                ${price.toLocaleString('es-AR')}
+              </p>
+              {customization?.enabled && (
+                <p className="dark:text-white/60 text-black/60 text-xs">
+                  + ${customizationPrice.toLocaleString('es-AR')} (Personalización)
+                </p>
+              )}
+            </div>
           </div>
 
           {/* Quantity Controls & Remove */}

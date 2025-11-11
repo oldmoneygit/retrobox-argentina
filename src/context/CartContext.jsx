@@ -14,9 +14,12 @@ const normalizeKey = (value) =>
     .replace(/[^a-z0-9]+/gi, '')
     .toLowerCase()
 
-const buildVariantKey = (productId, size) => {
+const buildVariantKey = (productId, size, customization = null) => {
   const sizeKey = normalizeKey(size)
-  return [productId, sizeKey].filter(Boolean).join('::')
+  const customKey = customization?.enabled
+    ? `custom::${normalizeKey(customization.playerName || '')}::${normalizeKey(customization.playerNumber || '')}`
+    : ''
+  return [productId, sizeKey, customKey].filter(Boolean).join('::')
 }
 
 const CartContext = createContext()
@@ -64,9 +67,9 @@ export function CartProvider({ children }) {
   }, [cartItems, isLoaded])
 
   // Add item to cart or update quantity if already exists
-  const addToCart = (product, size, quantity = 1) => {
+  const addToCart = (product, size, quantity = 1, customization = null) => {
     setCartItems((prevItems) => {
-      const variantKey = buildVariantKey(product.id, size)
+      const variantKey = buildVariantKey(product.id, size, customization)
 
       const existingItemIndex = prevItems.findIndex((item) => item.variantKey === variantKey)
 
@@ -84,6 +87,7 @@ export function CartProvider({ children }) {
           price: product.price,
           size,
           quantity,
+          customization: customization?.enabled ? customization : null,
           shopifyVariantId: product.shopifyVariantId || null,
           shopifyProductId: product.shopifyProductId || null,
         }
@@ -124,7 +128,11 @@ export function CartProvider({ children }) {
 
   // Get total price of cart
   const getTotalPrice = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0)
+    return cartItems.reduce((total, item) => {
+      const itemPrice = item.price
+      const customizationPrice = item.customization?.enabled ? item.customization.price : 0
+      return total + (itemPrice + customizationPrice) * item.quantity
+    }, 0)
   }
 
   // Create checkout URL (Shopify integration)
