@@ -4,6 +4,7 @@ import Header from '@/components/store/Header'
 import StoreHero from '@/components/store/StoreHero'
 import StoreFooter from '@/components/store/StoreFooter'
 import StructuredData from '@/components/StructuredData'
+import LazySection from '@/components/LazySection'
 
 // Lazy load heavy components below the fold with aggressive optimization
 // Priority 1: Above the fold or critical for SEO (SSR enabled)
@@ -175,32 +176,42 @@ export default function HomePage() {
           />
         </Suspense>
 
-        {/* Como Funciona o Pack Black */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <HowItWorksPackLoco />
-        </Suspense>
-
-        {/* Como Funciona (Geral) */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <HowItWorks />
-        </Suspense>
-
-        {/* Produtos Destacados */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <FeaturedProducts />
-        </Suspense>
-
-        {/* MysteryBox - Black Friday */}
-        <div id="mysterybox">
-          <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-            <MysteryBoxBlackFriday />
+        {/* Como Funciona o Pack Black - Lazy Load */}
+        <LazySection rootMargin="400px" fallback={<div className="h-96 dark:bg-black bg-white" />}>
+          <Suspense fallback={<div className="h-96 dark:bg-black bg-white animate-pulse" />}>
+            <HowItWorksPackLoco />
           </Suspense>
+        </LazySection>
+
+        {/* Como Funciona (Geral) - Lazy Load */}
+        <LazySection rootMargin="400px" fallback={<div className="h-96 dark:bg-black bg-white" />}>
+          <Suspense fallback={<div className="h-96 dark:bg-black bg-white animate-pulse" />}>
+            <HowItWorks />
+          </Suspense>
+        </LazySection>
+
+        {/* Produtos Destacados - Lazy Load */}
+        <LazySection rootMargin="400px" fallback={<div className="h-96 dark:bg-black bg-white" />}>
+          <Suspense fallback={<div className="h-96 dark:bg-black bg-white animate-pulse" />}>
+            <FeaturedProducts />
+          </Suspense>
+        </LazySection>
+
+        {/* MysteryBox - Black Friday - Lazy Load */}
+        <div id="mysterybox">
+          <LazySection rootMargin="400px" fallback={<div className="h-96 dark:bg-black bg-white" />}>
+            <Suspense fallback={<div className="h-96 dark:bg-black bg-white animate-pulse" />}>
+              <MysteryBoxBlackFriday />
+            </Suspense>
+          </LazySection>
         </div>
 
-        {/* Depoimentos de Clientes */}
-        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
-          <CustomerFeedbacks />
-        </Suspense>
+        {/* Depoimentos de Clientes - Lazy Load quando próximo do viewport */}
+        <LazySection rootMargin="500px" fallback={<div className="h-96 dark:bg-black bg-white" />}>
+          <Suspense fallback={<div className="h-96 dark:bg-black bg-white animate-pulse" />}>
+            <CustomerFeedbacks />
+          </Suspense>
+        </LazySection>
 
         {/* Footer */}
         <StoreFooter />

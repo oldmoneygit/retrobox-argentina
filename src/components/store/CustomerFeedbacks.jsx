@@ -1,16 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import OptimizedImage from '@/components/OptimizedImage'
+import Image from 'next/image'
 import { ChevronLeft, ChevronRight, Star, MessageCircle, Instagram, ArrowRight } from 'lucide-react'
 import { SOCIAL_LINKS } from '@/utils/constants'
 
 const CustomerFeedbacks = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [preloadedImages, setPreloadedImages] = useState(new Set())
 
   // Array com todas as imagens de feedback ordenadas na ordem da pasta (0001, 001, 002, 003, 004, 005, 1-13, 34-39)
-  const feedbacks = [
+  const feedbacks = useMemo(() => [
     { id: 1, image: '/images/feedbacks/0001.png' },
     { id: 2, image: '/images/feedbacks/001.png' },
     { id: 3, image: '/images/feedbacks/002.png' },
@@ -37,7 +38,50 @@ const CustomerFeedbacks = () => {
     { id: 38, image: '/images/feedbacks/38.png' },
     { id: 39, image: '/images/feedbacks/39.png' },
     { id: 20, isInstagram: true }
-  ]
+  ], [])
+
+  // Preload próximas imagens do carousel
+  useEffect(() => {
+    const preloadNextImages = () => {
+      const nextIndex = (currentIndex + 1) % feedbacks.length
+      const prevIndex = (currentIndex - 1 + feedbacks.length) % feedbacks.length
+      
+      const imagesToPreload = [
+        feedbacks[nextIndex]?.image,
+        feedbacks[prevIndex]?.image,
+        feedbacks[(nextIndex + 1) % feedbacks.length]?.image,
+      ].filter(Boolean)
+
+      imagesToPreload.forEach((src) => {
+        if (!preloadedImages.has(src) && src) {
+          const link = document.createElement('link')
+          link.rel = 'preload'
+          link.as = 'image'
+          link.href = src
+          document.head.appendChild(link)
+          setPreloadedImages((prev) => new Set([...prev, src]))
+        }
+      })
+    }
+
+    preloadNextImages()
+  }, [currentIndex, feedbacks, preloadedImages])
+
+  // Preload das primeiras 3 imagens imediatamente
+  useEffect(() => {
+    const initialImages = feedbacks.slice(0, 3).map(f => f.image).filter(Boolean)
+    initialImages.forEach((src) => {
+      if (!preloadedImages.has(src)) {
+        const link = document.createElement('link')
+        link.rel = 'preload'
+        link.as = 'image'
+        link.href = src
+        link.fetchPriority = 'high'
+        document.head.appendChild(link)
+        setPreloadedImages((prev) => new Set([...prev, src]))
+      }
+    })
+  }, [feedbacks, preloadedImages])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
@@ -75,10 +119,11 @@ const CustomerFeedbacks = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
+          style={{ willChange: 'transform, opacity' }}
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-8">
@@ -105,14 +150,15 @@ const CustomerFeedbacks = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, transform: 'translateX(100px)' }}
+                animate={{ opacity: 1, transform: 'translateX(0)' }}
+                exit={{ opacity: 0, transform: 'translateX(-100px)' }}
+                transition={{ duration: 0.4, ease: [0.6, -0.05, 0.01, 0.99] }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 onDragEnd={handleDragEnd}
+                style={{ willChange: 'transform, opacity' }}
                 className="absolute inset-0 flex items-center justify-center cursor-grab active:cursor-grabbing"
               >
                 {feedbacks[currentIndex].isInstagram ? (
@@ -172,13 +218,16 @@ const CustomerFeedbacks = () => {
                       {/* Screen */}
                       <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
                         {/* Feedback Image */}
-                        <OptimizedImage
+                        <Image
                           src={feedbacks[currentIndex].image}
                           alt={`Feedback ${feedbacks[currentIndex].id}`}
                           fill
                           className="object-cover"
-                          sizes="400px"
+                          sizes="(max-width: 768px) 350px, 400px"
                           priority={currentIndex < 3}
+                          quality={85}
+                          loading={currentIndex < 3 ? 'eager' : 'lazy'}
+                          unoptimized={false}
                         />
 
                         {/* Verified Badge */}
@@ -231,10 +280,11 @@ const CustomerFeedbacks = () => {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, transform: 'translateY(20px)' }}
+          whileInView={{ opacity: 1, transform: 'translateY(0)' }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.6, -0.05, 0.01, 0.99] }}
+          style={{ willChange: 'transform, opacity' }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 max-w-6xl mx-auto"
         >
           <div className="bg-gradient-to-br from-gray-dark to-black border border-white/20 rounded-2xl p-6 text-center">

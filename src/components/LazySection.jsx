@@ -1,61 +1,63 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 /**
- * LazySection - Component for lazy loading sections with Intersection Observer
- * Only renders children when they're about to enter the viewport
- *
- * @param {object} props - Component props
- * @param {React.ReactNode} props.children - Content to lazy load
- * @param {string} props.className - Optional className for the wrapper
- * @param {number} props.rootMargin - Margin before triggering load (default: 300px)
- * @param {number} props.threshold - Intersection threshold (default: 0)
- * @param {React.ReactNode} props.placeholder - Optional placeholder while loading
+ * LazySection - Componente que carrega conteúdo apenas quando próximo do viewport
+ * Melhora significativamente o Speed Index ao adiar carregamento de conteúdo abaixo da dobra
+ * 
+ * @param {ReactNode} children - Conteúdo a ser carregado lazy
+ * @param {string} rootMargin - Margem do viewport para trigger (ex: "300px")
+ * @param {ReactNode} fallback - Componente a mostrar enquanto não visível
  */
-export default function LazySection({
-  children,
-  className = '',
+export default function LazySection({ 
+  children, 
   rootMargin = '300px',
-  threshold = 0,
-  placeholder = null,
+  fallback = null 
 }) {
   const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef(null)
+  const [hasBeenVisible, setHasBeenVisible] = useState(false)
+  const ref = useRef(null)
 
   useEffect(() => {
-    // Skip if already visible or no ref
-    if (isVisible || !sectionRef.current) return
+    // Se já foi visível, não precisa mais observar
+    if (hasBeenVisible) return
 
-    // Skip if IntersectionObserver is not supported (load immediately)
+    // Fallback para browsers sem IntersectionObserver
     if (typeof IntersectionObserver === 'undefined') {
       setIsVisible(true)
+      setHasBeenVisible(true)
       return
     }
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          observer.disconnect()
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true)
+            setHasBeenVisible(true)
+            observer.disconnect()
+          }
+        })
       },
       {
         rootMargin,
-        threshold,
+        threshold: 0.01, // Trigger assim que 1% estiver visível
       }
     )
 
-    observer.observe(sectionRef.current)
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
 
     return () => {
       observer.disconnect()
     }
-  }, [isVisible, rootMargin, threshold])
+  }, [rootMargin, hasBeenVisible])
 
   return (
-    <div ref={sectionRef} className={className}>
-      {isVisible ? children : placeholder}
+    <div ref={ref}>
+      {isVisible ? children : fallback}
     </div>
   )
 }
