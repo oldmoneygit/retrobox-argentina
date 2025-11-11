@@ -788,11 +788,11 @@ export default function ProductPageClient({ product }) {
                       <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Tecnología</p>
-                      <p className="text-white font-black">Dri-FIT</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Tecnología</p>
+                      <p className="dark:text-white text-black font-black">Dri-FIT</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Absorbe la transpiración y se seca rápidamente</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Absorbe la transpiración y se seca rápidamente</p>
                 </motion.div>
 
                 {/* Ventilación */}
@@ -810,11 +810,11 @@ export default function ProductPageClient({ product }) {
                       <Package className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Ventilación</p>
-                      <p className="text-white font-black">Mesh Estratégico</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Ventilación</p>
+                      <p className="dark:text-white text-black font-black">Mesh Estratégico</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Paneles de malla en zonas de alto calor</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Paneles de malla en zonas de alto calor</p>
                 </motion.div>
 
                 {/* Ajuste */}
@@ -832,11 +832,11 @@ export default function ProductPageClient({ product }) {
                       <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Ajuste</p>
-                      <p className="text-white font-black">Stadium Fit</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Ajuste</p>
+                      <p className="dark:text-white text-black font-black">Stadium Fit</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Corte anatómico para máxima movilidad</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Corte anatómico para máxima movilidad</p>
                 </motion.div>
 
                 {/* Calidad */}
@@ -854,11 +854,11 @@ export default function ProductPageClient({ product }) {
                       <Check className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Calidad</p>
-                      <p className="text-white font-black">Premium 1:1</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Calidad</p>
+                      <p className="dark:text-white text-black font-black">Premium 1:1</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Réplica idéntica a la versión oficial</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Réplica idéntica a la versión oficial</p>
                 </motion.div>
 
                 {/* Temporada */}
@@ -876,11 +876,11 @@ export default function ProductPageClient({ product }) {
                       <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Temporada</p>
-                      <p className="text-white font-black">Retro Clásica</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Temporada</p>
+                      <p className="dark:text-white text-black font-black">Retro Clásica</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Diseño oficial de la temporada histórica</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Diseño oficial de la temporada histórica</p>
                 </motion.div>
               </div>
 
