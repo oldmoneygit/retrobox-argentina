@@ -300,10 +300,10 @@ export default function CollectionPage() {
   }
 
   return (
-    <>
+    <div className="min-h-screen dark:bg-black bg-white transition-colors duration-300">
       <Header />
       
-      <main className="min-h-screen dark:bg-black dark:text-white bg-white text-black transition-colors duration-300">
+      <main className="dark:text-white text-black">
         <div className="container mx-auto px-4 py-8 md:py-12">
           <SectionTitle
             title={collection.name}
@@ -678,7 +678,7 @@ export default function CollectionPage() {
       </main>
 
       <StoreFooter />
-    </>
+    </div>
   )
 }
 
