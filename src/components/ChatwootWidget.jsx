@@ -26,6 +26,7 @@ export default function ChatwootWidget({
       strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: `
+          window.chatwootSettings = {"position":"right","type":"expanded_bubble","launcherTitle":"Chatea con nosotros"};
           (function(d,t) {
             var BASE_URL="${baseUrl}";
             var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -36,8 +37,7 @@ export default function ChatwootWidget({
               window.chatwootSDK.run({
                 websiteToken:'${websiteToken}',
                 baseUrl:BASE_URL
-              });
-              console.log('[Chatwoot] Widget inicializado correctamente');
+              })
             }
           })(document,"script");
         `,
