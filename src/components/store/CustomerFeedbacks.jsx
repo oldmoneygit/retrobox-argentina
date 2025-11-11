@@ -208,7 +208,7 @@ const CustomerFeedbacks = () => {
                     <div className="relative w-[350px] md:w-[400px] h-[600px] md:h-[700px] bg-gradient-to-br from-gray-dark to-black rounded-[3rem] p-3 shadow-2xl border border-white/20">
                       {/* Screen */}
                       <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
-                        {/* Feedback Image - Next.js otimizado */}
+                        {/* Feedback Image - Local PNGs precisam unoptimized */}
                         {feedbacks[currentIndex].image && (
                           <Image
                             src={feedbacks[currentIndex].image}
@@ -219,8 +219,7 @@ const CustomerFeedbacks = () => {
                             priority={currentIndex < 3}
                             quality={90}
                             loading={currentIndex < 3 ? 'eager' : 'lazy'}
-                            placeholder="blur"
-                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxODE4MTgiLz48L3N2Zz4="
+                            unoptimized={true}
                           />
                         )}
 
