@@ -16,6 +16,9 @@ const inter = Inter({
   variable: '--font-inter',
   display: 'swap',
   weight: ['400', '500', '600', '700'], // normal, medium, semibold, bold
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+  adjustFontFallback: true,
 })
 
 const bebasNeue = Bebas_Neue({
@@ -23,6 +26,9 @@ const bebasNeue = Bebas_Neue({
   variable: '--font-bebas',
   display: 'swap',
   weight: '400',
+  preload: true,
+  fallback: ['Impact', 'Arial Black', 'sans-serif'],
+  adjustFontFallback: true,
 })
 
 export const metadata = {
@@ -81,52 +87,31 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${inter.variable} ${bebasNeue.variable}`}>
       <head>
-        {/* Theme Script - Apply dark mode by default before React hydrates */}
+        {/* Theme Script - Apply dark mode by default before React hydrates - Minified */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const savedTheme = localStorage.getItem('retrobox-theme');
-                  const theme = savedTheme || 'dark';
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {
-                  // Fallback to dark mode if localStorage is not available
-                  document.documentElement.classList.add('dark');
-                }
-              })();
-            `,
+            __html: `!function(){try{var t=localStorage.getItem('retrobox-theme')||'dark';'dark'===t?document.documentElement.classList.add('dark'):document.documentElement.classList.remove('dark')}catch(e){document.documentElement.classList.add('dark')}}();`,
           }}
         />
-        <link rel="canonical" href={SEO_DATA.url} />
 
-        {/* Performance Optimization: Preconnect to external domains */}
-        <link rel="preconnect" href="https://connect.facebook.net" />
-        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        {/* Performance Optimization: Preconnect to critical external domains */}
         <link rel="preconnect" href="https://cdn.shopify.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://cdn.shopify.com" />
 
-        {/* Performance Optimization: Preload critical resources */}
-        <link rel="preload" as="image" href={SEO_DATA.ogImage} fetchPriority="high" />
+        {/* Defer non-critical connections */}
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
+        {/* Performance Optimization: Preload only CRITICAL above-the-fold images */}
         <link rel="preload" as="image" href="/images/logo/LOGO_BRANCO.webp" fetchPriority="high" />
         <link rel="preload" as="image" href="/images/hero/banner-hero-section.png" fetchPriority="high" />
-        
-        {/* Preload critical fonts */}
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-var.woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" type="font/woff2" href="/fonts/bebas-neue.woff2" crossOrigin="anonymous" />
 
         {/* Mobile Optimization */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-        {/* Performance Hints */}
-        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
       </head>
       <body className="font-sans antialiased">
         {/* Structured Data - Organization */}

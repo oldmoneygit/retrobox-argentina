@@ -5,60 +5,63 @@ import StoreHero from '@/components/store/StoreHero'
 import StoreFooter from '@/components/store/StoreFooter'
 import StructuredData from '@/components/StructuredData'
 
-// Lazy load heavy components below the fold
+// Lazy load heavy components below the fold with aggressive optimization
+// Priority 1: Above the fold or critical for SEO (SSR enabled)
 const BestSellers = dynamic(() => import('@/components/store/BestSellers'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white" />,
   ssr: true,
 })
 
+// Priority 2: Important but below fold (SSR disabled for faster initial load)
 const PromotionalBanner = dynamic(() => import('@/components/store/PromotionalBanner'), {
-  loading: () => <div className="h-64 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => <div className="h-64 dark:bg-black bg-white" />,
+  ssr: false,
 })
 
 const PackLocoPromo = dynamic(() => import('@/components/blackfriday/PackLocoPromo'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
-})
-
-const HowItWorksPackLoco = dynamic(() => import('@/components/blackfriday/HowItWorksPackLoco'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
-})
-
-const PackLocoLiveSlots = dynamic(() => import('@/components/blackfriday/PackLocoLiveSlots'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => <div className="h-96 dark:bg-black bg-white" />,
+  ssr: false,
 })
 
 const NuestrasColecciones = dynamic(() => import('@/components/store/NuestrasColecciones'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => <div className="h-96 dark:bg-black bg-white" />,
+  ssr: true, // Keep SSR for SEO (links to collections)
+})
+
+// Priority 3: Lower priority components (SSR disabled, load on demand)
+const HowItWorksPackLoco = dynamic(() => import('@/components/blackfriday/HowItWorksPackLoco'), {
+  loading: () => null,
+  ssr: false,
+})
+
+const PackLocoLiveSlots = dynamic(() => import('@/components/blackfriday/PackLocoLiveSlots'), {
+  loading: () => null,
+  ssr: false,
 })
 
 const TeamProductsSection = dynamic(() => import('@/components/store/TeamProductsSection'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => null,
+  ssr: false,
 })
 
 const HowItWorks = dynamic(() => import('@/components/store/HowItWorks'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => null,
+  ssr: false,
 })
 
 const FeaturedProducts = dynamic(() => import('@/components/store/FeaturedProducts'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => null,
+  ssr: false,
 })
 
 const MysteryBoxBlackFriday = dynamic(() => import('@/components/store/MysteryBoxBlackFriday'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => null,
+  ssr: false,
 })
 
 const CustomerFeedbacks = dynamic(() => import('@/components/store/CustomerFeedbacks'), {
-  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
-  ssr: true,
+  loading: () => null,
+  ssr: false,
 })
 
 export const metadata = {

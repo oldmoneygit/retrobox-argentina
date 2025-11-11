@@ -5,12 +5,38 @@ import Image from 'next/image'
 
 /**
  * OptimizedImage Component
- * Wrapper para Next.js Image com otimizações e tratamento de erros
+ * Wrapper para Next.js Image com otimizações avançadas e tratamento de erros
+ *
+ * @param {string} src - Image source URL
+ * @param {string} alt - Alt text for accessibility
+ * @param {string} fallback - Fallback image URL
+ * @param {string} className - CSS classes
+ * @param {boolean} priority - Load image with high priority (above fold)
+ * @param {string} sizes - Sizes attribute for responsive images
+ * @param {number} quality - Image quality (1-100)
+ * @param {string} placeholder - 'blur' | 'empty'
+ * @param {string} blurDataURL - Base64 blur placeholder
+ * @param {function} onError - Error callback
  */
-export default function OptimizedImage({ src, alt, fallback, className = '', onError, ...props }) {
+export default function OptimizedImage({
+  src,
+  alt,
+  fallback,
+  className = '',
+  priority = false,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  quality = 75,
+  placeholder = 'blur',
+  blurDataURL,
+  onError,
+  ...props
+}) {
   const [imgSrc, setImgSrc] = useState(src || fallback)
   const [hasError, setHasError] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+
+  // Default blur placeholder (1x1 pixel transparent)
+  const defaultBlurDataURL = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMyMzIzMjMiLz48L3N2Zz4='
 
   useEffect(() => {
     // Reset quando src muda
@@ -70,7 +96,7 @@ export default function OptimizedImage({ src, alt, fallback, className = '', onE
 
   return (
     <>
-      {isLoading && (
+      {isLoading && !priority && (
         <div className={`absolute inset-0 bg-gradient-to-br from-gray-dark to-black flex items-center justify-center z-0`} style={props.style}>
           <div className="animate-pulse">
             <div className="w-16 h-16 border-4 border-white/10 border-t-white/30 rounded-full"></div>
@@ -83,6 +109,12 @@ export default function OptimizedImage({ src, alt, fallback, className = '', onE
         className={className}
         onError={handleError}
         onLoad={handleLoad}
+        priority={priority}
+        loading={priority ? 'eager' : 'lazy'}
+        sizes={sizes}
+        quality={quality}
+        placeholder={blurDataURL || placeholder === 'blur' ? 'blur' : 'empty'}
+        blurDataURL={blurDataURL || defaultBlurDataURL}
         unoptimized={hasError} // Desabilitar otimização quando há erro para permitir fallback
         {...props}
       />
