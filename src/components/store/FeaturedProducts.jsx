@@ -22,7 +22,7 @@ const FeaturedProducts = () => {
   if (products.length === 0) return null
 
   return (
-    <section className="relative py-8 md:py-10 bg-black" id="featured">
+    <section className="relative py-8 md:py-10 dark:bg-black bg-white transition-colors duration-300" id="featured">
       <div className="container mx-auto px-4">
         <SectionTitle
           title="Productos"
@@ -47,7 +47,7 @@ const FeaturedProducts = () => {
         <div className="flex justify-center mt-6 md:mt-8">
           <Link
             href="/coleccion/productos-destacados"
-            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white hover:bg-white/90 text-black font-black uppercase text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-white/50"
+            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 dark:bg-white dark:hover:bg-white/90 dark:text-black dark:hover:shadow-white/50 bg-black hover:bg-black/90 text-white hover:shadow-black/50 font-black uppercase text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Ver Colección Completa
             <ChevronRight size={20} className="md:hidden" />
