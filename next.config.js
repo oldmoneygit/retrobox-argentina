@@ -54,12 +54,12 @@ const nextConfig = {
     scrollRestoration: true,
   },
 
-  // Modularize imports for better tree-shaking
-  modularizeImports: {
-    'lucide-react': {
-      transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
-    },
-  },
+  // Modularize imports - DESABILITADO temporariamente (causava problemas de build)
+  // modularizeImports: {
+  //   'lucide-react': {
+  //     transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
+  //   },
+  // },
 
   // Cache headers for better performance
   async headers() {
@@ -103,50 +103,13 @@ const nextConfig = {
     ]
   },
 
-  // Webpack optimizations
+  // Webpack optimizations - SIMPLIFICADO para evitar erros de module not found
   webpack: (config, { dev, isServer }) => {
-    // Production optimizations
+    // Apenas otimizações básicas e seguras
     if (!dev) {
-      // Optimize bundle size
       config.optimization = {
         ...config.optimization,
         usedExports: true,
-        sideEffects: false,
-        splitChunks: {
-          chunks: 'all',
-          cacheGroups: {
-            default: false,
-            vendors: false,
-            // Vendor chunk for node_modules
-            vendor: {
-              name: 'vendor',
-              chunks: 'all',
-              test: /node_modules/,
-              priority: 20,
-            },
-            // Common chunk for shared code
-            common: {
-              name: 'common',
-              minChunks: 2,
-              chunks: 'all',
-              priority: 10,
-              reuseExistingChunk: true,
-              enforce: true,
-            },
-            // Separate chunk for framer-motion (heavy library)
-            framer: {
-              name: 'framer',
-              test: /[\\/]node_modules[\\/](framer-motion)[\\/]/,
-              priority: 30,
-            },
-            // Separate chunk for React
-            react: {
-              name: 'react',
-              test: /[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
-              priority: 30,
-            },
-          },
-        },
       }
     }
 
