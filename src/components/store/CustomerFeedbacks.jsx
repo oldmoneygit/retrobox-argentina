@@ -11,7 +11,7 @@ const CustomerFeedbacks = () => {
   const [preloadedImages, setPreloadedImages] = useState(new Set())
   const [imageErrors, setImageErrors] = useState(new Set())
 
-  // Array com todas as imagens de feedback ordenadas sequencialmente (1.png a 25.png)
+  // Array com todas as imagens de feedback ÚNICAS (1.png a 19.png) - duplicatas removidas
   const feedbacks = useMemo(() => [
     { id: 1, image: '/images/feedbacks/1.png' },
     { id: 2, image: '/images/feedbacks/2.png' },
@@ -32,13 +32,7 @@ const CustomerFeedbacks = () => {
     { id: 17, image: '/images/feedbacks/17.png' },
     { id: 18, image: '/images/feedbacks/18.png' },
     { id: 19, image: '/images/feedbacks/19.png' },
-    { id: 20, image: '/images/feedbacks/20.png' },
-    { id: 21, image: '/images/feedbacks/21.png' },
-    { id: 22, image: '/images/feedbacks/22.png' },
-    { id: 23, image: '/images/feedbacks/23.png' },
-    { id: 24, image: '/images/feedbacks/24.png' },
-    { id: 25, image: '/images/feedbacks/25.png' },
-    { id: 26, isInstagram: true }
+    { id: 20, isInstagram: true }
   ], [])
 
   // Preload próximas imagens do carousel usando img tag (mais confiável)
