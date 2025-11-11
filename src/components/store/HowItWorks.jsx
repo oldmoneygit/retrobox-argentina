@@ -29,7 +29,7 @@ const HowItWorks = () => {
   ]
 
   return (
-    <section className="relative py-8 md:py-10 bg-black">
+    <section className="relative py-8 md:py-10 dark:bg-black bg-white transition-colors duration-300">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="mb-4 md:mb-6">
@@ -54,32 +54,32 @@ const HowItWorks = () => {
                 className="relative"
               >
                 {/* Card */}
-                <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all hover:bg-white/10 h-full flex flex-col items-center text-center">
+                <div className="dark:bg-white/5 dark:border-white/10 dark:hover:border-white/20 dark:hover:bg-white/10 bg-black/5 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-black/10 hover:border-black/20 transition-all hover:bg-black/10 h-full flex flex-col items-center text-center">
                   {/* Icon Container */}
                   <div className="relative mb-4 md:mb-6">
-                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 shadow-lg">
-                      <Icon className="w-8 h-8 md:w-10 md:h-10 text-white" strokeWidth={1.5} />
+                    <div className="w-16 h-16 md:w-20 md:h-20 dark:bg-gradient-to-br dark:from-white/20 dark:to-white/5 dark:border-white/20 bg-gradient-to-br from-black/20 to-black/5 backdrop-blur-sm rounded-full flex items-center justify-center border border-black/20 shadow-lg">
+                      <Icon className="w-8 h-8 md:w-10 md:h-10 dark:text-white text-black" strokeWidth={1.5} />
                     </div>
                     {/* Step Number Badge */}
-                    <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-7 h-7 md:w-8 md:h-8 bg-white text-black rounded-full flex items-center justify-center font-bold text-xs md:text-sm shadow-lg">
+                    <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-7 h-7 md:w-8 md:h-8 dark:bg-white dark:text-black bg-black text-white rounded-full flex items-center justify-center font-bold text-xs md:text-sm shadow-lg">
                       {index + 1}
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-white font-bold text-base md:text-lg mb-2 md:mb-3">
+                  <h3 className="dark:text-white text-black font-bold text-base md:text-lg mb-2 md:mb-3">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                  <p className="dark:text-white/70 text-black/70 text-sm md:text-base leading-relaxed">
                     {step.description}
                   </p>
                 </div>
 
                 {/* Connector Line (hidden on mobile, visible on lg) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-white/20 to-transparent -translate-x-1/2 z-0" />
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 dark:bg-gradient-to-r dark:from-white/20 dark:to-transparent bg-gradient-to-r from-black/20 to-transparent -translate-x-1/2 z-0" />
                 )}
               </motion.div>
             )

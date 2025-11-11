@@ -9,7 +9,7 @@ const StoreHero = () => {
   return (
     <section className="relative h-[70vh] md:h-[85vh] lg:h-screen w-full overflow-hidden" id="hero">
       {/* Background Image - Full Screen, Clean */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-dark to-black">
+      <div className="absolute inset-0 dark:bg-gradient-to-br dark:from-black dark:via-gray-dark dark:to-black bg-gradient-to-br from-white via-gray-100 to-white">
         {/* Mobile Image */}
         <OptimizedImage
           src="/images/hero/banner-hero-section.png"
@@ -34,9 +34,9 @@ const StoreHero = () => {
 
       {/* Subtle Bottom Gradient - Monocromático */}
       {/* Mobile: Gradiente mais forte para melhor legibilidade */}
-      <div className="md:hidden absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent z-[1]" />
+      <div className="md:hidden absolute inset-0 dark:bg-gradient-to-t dark:from-black/90 dark:via-black/50 dark:to-transparent bg-gradient-to-t from-white/90 via-white/50 to-transparent z-[1]" />
       {/* Desktop: Gradiente mais sutil */}
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-[1]" />
+      <div className="hidden md:block absolute inset-0 dark:bg-gradient-to-t dark:from-black/80 dark:via-black/40 dark:to-transparent bg-gradient-to-t from-white/80 via-white/40 to-transparent z-[1]" />
 
       {/* Minimal Content at Bottom */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-12 md:pb-20 px-4">
@@ -46,7 +46,7 @@ const StoreHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-block text-white text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
+            className="inline-block dark:text-white text-black text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
           >
             Camisetas Retrô Exclusivas
           </motion.span>
@@ -56,7 +56,7 @@ const StoreHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-4xl md:text-6xl lg:text-8xl font-black text-white mb-4 md:mb-6 uppercase tracking-tight"
+            className="text-4xl md:text-6xl lg:text-8xl font-black dark:text-white text-black mb-4 md:mb-6 uppercase tracking-tight"
           >
             RETROBOX
           </motion.h1>
@@ -66,7 +66,7 @@ const StoreHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-white/80 text-lg md:text-xl mb-6 md:mb-8 max-w-2xl"
+            className="dark:text-white/80 text-black/80 text-lg md:text-xl mb-6 md:mb-8 max-w-2xl"
           >
             Descubre nuestras camisetas retrô de los mejores equipos del mundo
           </motion.p>
@@ -79,7 +79,7 @@ const StoreHero = () => {
           >
             <Link
               href="#products"
-              className="inline-block px-6 py-3 md:px-8 md:py-4 bg-white text-black font-bold uppercase tracking-wide text-xs md:text-sm rounded-full hover:bg-gray-light transition-colors duration-200 active:scale-95"
+              className="inline-block px-6 py-3 md:px-8 md:py-4 dark:bg-white dark:text-black dark:hover:bg-gray-light bg-black text-white hover:bg-gray-dark font-bold uppercase tracking-wide text-xs md:text-sm rounded-full transition-colors duration-200 active:scale-95"
             >
               EXPLORAR COLECCIÓN
             </Link>
@@ -97,7 +97,7 @@ const StoreHero = () => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <ChevronDown size={32} className="text-white/60" />
+            <ChevronDown size={32} className="dark:text-white/60 text-black/60" />
           </motion.div>
         </motion.div>
       </div>

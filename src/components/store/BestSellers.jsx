@@ -47,7 +47,7 @@ const BestSellers = () => {
   if (products.length === 0) return null
 
   return (
-    <section className="relative py-8 md:py-10 bg-black overflow-hidden" id="bestsellers">
+    <section className="relative py-8 md:py-10 dark:bg-black bg-white overflow-hidden transition-colors duration-300" id="bestsellers">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <SectionTitle
@@ -74,7 +74,7 @@ const BestSellers = () => {
           {/* Navigation Arrows */}
           <button
             onClick={scrollPrev}
-            className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-4 rounded-full z-10 transition-all duration-300 hover:scale-110 border border-white/20"
+            className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 bg-black/10 hover:bg-black/20 text-black border border-black/20 backdrop-blur-sm p-4 rounded-full z-10 transition-all duration-300 hover:scale-110"
             aria-label="Previous"
           >
             <ChevronLeft size={24} />
@@ -92,7 +92,7 @@ const BestSellers = () => {
         <div className="flex justify-center mt-6 md:mt-8">
           <Link
             href="/productos"
-            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white hover:bg-white/90 text-black font-black uppercase text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-white/50"
+            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 dark:bg-white dark:hover:bg-white/90 dark:text-black dark:hover:shadow-white/50 bg-black hover:bg-black/90 text-white hover:shadow-black/50 font-black uppercase text-sm md:text-base rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
           >
             Ver Todos Los Productos
             <ChevronRight size={20} className="md:hidden" />

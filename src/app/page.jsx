@@ -7,57 +7,57 @@ import StructuredData from '@/components/StructuredData'
 
 // Lazy load heavy components below the fold
 const BestSellers = dynamic(() => import('@/components/store/BestSellers'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const PromotionalBanner = dynamic(() => import('@/components/store/PromotionalBanner'), {
-  loading: () => <div className="h-64 bg-black animate-pulse" />,
+  loading: () => <div className="h-64 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const PackLocoPromo = dynamic(() => import('@/components/blackfriday/PackLocoPromo'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const HowItWorksPackLoco = dynamic(() => import('@/components/blackfriday/HowItWorksPackLoco'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const PackLocoLiveSlots = dynamic(() => import('@/components/blackfriday/PackLocoLiveSlots'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const NuestrasColecciones = dynamic(() => import('@/components/store/NuestrasColecciones'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const TeamProductsSection = dynamic(() => import('@/components/store/TeamProductsSection'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const HowItWorks = dynamic(() => import('@/components/store/HowItWorks'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const FeaturedProducts = dynamic(() => import('@/components/store/FeaturedProducts'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const MysteryBoxBlackFriday = dynamic(() => import('@/components/store/MysteryBoxBlackFriday'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
 const CustomerFeedbacks = dynamic(() => import('@/components/store/CustomerFeedbacks'), {
-  loading: () => <div className="h-96 bg-black animate-pulse" />,
+  loading: () => <div className="h-96 dark:bg-black bg-white animate-pulse" />,
   ssr: true,
 })
 
@@ -102,7 +102,7 @@ export default function HomePage() {
       <StructuredData type="webSite" />
       <StructuredData type="organization" />
 
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen dark:bg-black dark:text-white bg-white text-black transition-colors duration-300">
         {/* Header */}
         <Header />
 

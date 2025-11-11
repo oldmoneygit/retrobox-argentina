@@ -40,7 +40,7 @@ const ProductCard = ({ product, index = 0 }) => {
       className="group h-full flex flex-col"
     >
       <Link href={productUrl} className="flex-1 flex flex-col">
-        <div className="relative aspect-[3/4] bg-white rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4">
+        <div className="relative aspect-[3/4] dark:bg-white bg-gray-100 rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-4 transition-colors duration-300">
           {/* Black November Badge - Mobile First */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -93,9 +93,9 @@ const ProductCard = ({ product, index = 0 }) => {
                 fallback="/images/placeholder-product.jpg"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
+              <div className="w-full h-full flex items-center justify-center dark:bg-gradient-to-br dark:from-gray-dark dark:to-black bg-gradient-to-br from-gray-200 to-gray-300">
                 <div className="text-center p-4">
-                  <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
+                  <p className="dark:text-white/40 text-black/40 text-xs font-semibold">Imagen no disponible</p>
                 </div>
               </div>
             )}
@@ -103,17 +103,17 @@ const ProductCard = ({ product, index = 0 }) => {
         </div>
 
         <div className="space-y-1.5 md:space-y-2">
-          <h3 className="text-white font-semibold text-sm md:text-base line-clamp-2 group-hover:text-white/80 transition-colors min-h-[2.5rem]">
+          <h3 className="dark:text-white dark:group-hover:text-white/80 text-black group-hover:text-black/80 font-semibold text-sm md:text-base line-clamp-2 transition-colors min-h-[2.5rem]">
             {name}
           </h3>
 
           <div className="space-y-0.5 md:space-y-1">
             {/* Original Price (Always show for Black November) */}
-            <p className="text-white/20 text-xs md:text-sm line-through">
+            <p className="dark:text-white/20 text-black/20 text-xs md:text-sm line-through">
               ${originalPrice.toLocaleString('es-AR')}
             </p>
             {/* Promotional Price */}
-            <p className="text-white font-bold text-base md:text-lg lg:text-xl">
+            <p className="dark:text-white text-black font-bold text-base md:text-lg lg:text-xl">
               ${typeof price === 'number' ? price.toLocaleString('es-AR') : price}
             </p>
           </div>
@@ -126,7 +126,7 @@ const ProductCard = ({ product, index = 0 }) => {
           onClick={() => setIsQuickViewOpen(true)}
           whileHover={{ scale: 1.01 }}
           whileTap={{ scale: 0.99 }}
-          className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold py-2 md:py-2.5 rounded-lg hover:border-white/30 transition-all duration-300 text-[10px] md:text-xs text-center whitespace-nowrap mt-1.5 md:mt-2"
+          className="w-full dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20 dark:hover:border-white/30 bg-black/10 hover:bg-black/20 text-black border border-black/20 hover:border-black/30 font-semibold py-2 md:py-2.5 rounded-lg transition-all duration-300 text-[10px] md:text-xs text-center whitespace-nowrap mt-1.5 md:mt-2"
         >
           Ver Detalles
         </motion.button>

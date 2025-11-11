@@ -196,7 +196,7 @@ const CollectionCarousel = ({ collections }) => {
             <Link href={`/coleccion/${item.slug}`}>
               <motion.div
                 whileHover={{ y: -2, scale: 1.02 }}
-                className="relative aspect-[4/3] bg-white/5 border border-white/10 rounded-lg overflow-hidden hover:border-blue-400/50 transition-all group backdrop-blur-sm"
+                className="relative aspect-[4/3] dark:bg-white/5 dark:border-white/10 bg-black/5 border border-black/10 rounded-lg overflow-hidden dark:hover:border-blue-400/50 hover:border-blue-400/50 transition-all group backdrop-blur-sm"
               >
                 <div className="absolute inset-0 p-2 md:p-3 flex flex-col items-center justify-center">
                   <div className="relative w-full h-12 md:h-14 mb-1.5">
@@ -207,11 +207,11 @@ const CollectionCarousel = ({ collections }) => {
                       className="object-contain group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="text-[10px] md:text-xs font-bold text-white text-center mb-0.5 line-clamp-1">
+                  <h4 className="text-[10px] md:text-xs font-bold dark:text-white text-black text-center mb-0.5 line-clamp-1">
                     {item.name}
                   </h4>
                   {(item.country || item.liga || item.description) && (
-                    <p className="text-[9px] md:text-[10px] text-white/50 text-center line-clamp-1">
+                    <p className="text-[9px] md:text-[10px] dark:text-white/50 text-black/50 text-center line-clamp-1">
                       {item.country || item.liga || item.description}
                     </p>
                   )}
@@ -231,7 +231,7 @@ export default function NuestrasColecciones() {
   const activeTabData = tabs.find(tab => tab.id === activeTab)
 
   return (
-    <section className="py-6 md:py-8 bg-black">
+    <section className="py-6 md:py-8 dark:bg-black bg-white transition-colors duration-300">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <motion.div
@@ -240,7 +240,7 @@ export default function NuestrasColecciones() {
           viewport={{ once: true }}
           className="text-center mb-4 md:mb-6"
         >
-          <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
+          <h2 className="text-2xl md:text-3xl font-black dark:text-white text-black mb-2">
             Nuestras Colecciones
           </h2>
         </motion.div>
@@ -263,8 +263,8 @@ export default function NuestrasColecciones() {
                 className={`
                   relative px-4 md:px-6 py-2 md:py-2.5 rounded-lg font-bold text-xs md:text-sm transition-all
                   ${activeTab === tab.id
-                    ? 'bg-gradient-to-r from-white to-blue-100 text-black shadow-lg shadow-blue-200/30'
-                    : 'bg-white/5 text-white/70 border border-white/10 hover:border-blue-400/50 hover:bg-white/10'
+                    ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:shadow-blue-200/30 bg-gradient-to-r from-black to-gray-800 text-white shadow-lg shadow-gray-200/30'
+                    : 'dark:bg-white/5 dark:text-white/70 dark:border-white/10 dark:hover:border-blue-400/50 dark:hover:bg-white/10 bg-black/5 text-black/70 border border-black/10 hover:border-blue-400/50 hover:bg-black/10'
                   }
                 `}
               >
@@ -276,7 +276,7 @@ export default function NuestrasColecciones() {
                 {activeTab === tab.id && (
                   <motion.div
                     layoutId="activeTab"
-                    className="absolute inset-0 bg-gradient-to-r from-white to-blue-100 rounded-lg -z-10"
+                    className="absolute inset-0 dark:bg-gradient-to-r dark:from-white dark:to-blue-100 bg-gradient-to-r from-black to-gray-800 rounded-lg -z-10"
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
                 )}
@@ -310,7 +310,7 @@ export default function NuestrasColecciones() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-white to-blue-100 text-black font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all"
+              className="dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black bg-gradient-to-r from-black to-gray-800 text-white font-black text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all"
             >
               Ver Todas las Camisetas
             </motion.button>

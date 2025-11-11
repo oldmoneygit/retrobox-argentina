@@ -53,7 +53,7 @@ export default function TeamProductsSection({
     .replace(/\s+/g, '-')
 
   return (
-    <section className="bg-black py-8 md:py-10 px-4 sm:px-6 lg:px-8">
+    <section className="dark:bg-black bg-white py-8 md:py-10 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-6 md:mb-8">
@@ -73,7 +73,7 @@ export default function TeamProductsSection({
             </h2>
           </div>
           {subtitle && (
-            <p className="text-gray-400 text-lg mt-4">
+            <p className="dark:text-gray-400 text-gray-600 text-lg mt-4">
               {subtitle}
             </p>
           )}
@@ -90,7 +90,7 @@ export default function TeamProductsSection({
         <div className="text-center">
           <Link
             href={`/coleccion/${collectionSlug}`}
-            className="inline-block border-2 border-white/20 hover:border-white/40 text-white px-8 py-3 rounded-lg transition-all duration-300 uppercase tracking-wider hover:bg-white/5"
+            className="inline-block dark:border-white/20 dark:hover:border-white/40 dark:text-white dark:hover:bg-white/5 border-2 border-black/20 hover:border-black/40 text-black px-8 py-3 rounded-lg transition-all duration-300 uppercase tracking-wider hover:bg-black/5"
           >
             Ver Todos los Productos
           </Link>
