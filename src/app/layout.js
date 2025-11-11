@@ -7,7 +7,6 @@ import ScrollToTopButton from '@/components/ScrollToTopButton'
 import { Analytics } from '@vercel/analytics/next'
 import StructuredData from '@/components/StructuredData'
 import BlackFridayPopup from '@/components/blackfriday/BlackFridayPopup'
-import LiveSlotsIndicator from '@/components/store/LiveSlotsIndicator'
 import MetaPixelScript from '@/components/MetaPixelScript'
 import MetaPixel from '@/components/MetaPixel'
 import ChatwootWidget from '@/components/ChatwootWidget'
@@ -133,8 +132,6 @@ export default function RootLayout({ children }) {
           <ScrollToTopButton />
           {/* Black Friday Popup */}
           <BlackFridayPopup />
-          {/* Live Slots Indicator */}
-          <LiveSlotsIndicator />
         </ClientProviders>
         <Analytics />
       </body>
