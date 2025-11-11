@@ -19,7 +19,7 @@ export default function BlackFridayProductCard() {
           <Tag className="w-5 h-5 text-black" />
         </div>
         <div className="flex-1">
-          <h3 className="text-lg md:text-xl font-black text-white uppercase">
+          <h3 className="text-lg md:text-xl font-black dark:text-white text-black uppercase">
             🔥 BLACK FRIDAY RETROBOX
           </h3>
           <p className="text-yellow-400 font-bold text-sm md:text-base">
@@ -30,25 +30,25 @@ export default function BlackFridayProductCard() {
 
       {/* Precio destacado */}
       <div className="bg-gradient-to-r from-yellow-400/20 to-orange-500/20 border border-yellow-400/30 rounded-xl p-4 mb-5">
-        <p className="text-white/80 text-sm mb-1">Precio combo:</p>
+        <p className="dark:text-white/80 text-black/80 text-sm mb-1">Precio combo:</p>
         <p className="text-yellow-400 text-2xl md:text-3xl font-black">
           ARS {PACK_INSANO_PRICE.toLocaleString('es-AR')}
         </p>
-        <p className="text-white/60 text-xs mt-1">Envío GRATIS incluido</p>
+        <p className="dark:text-white/60 text-black/60 text-xs mt-1">Envío GRATIS incluido</p>
       </div>
 
       {/* Como funciona */}
       <div className="space-y-3 mb-5">
-        <p className="text-white font-bold mb-2">Cómo funciona:</p>
+        <p className="dark:text-white text-black font-bold mb-2">Cómo funciona:</p>
 
-        <div className="flex items-start gap-2 text-sm text-white/90">
+        <div className="flex items-start gap-2 text-sm dark:text-white/90 text-black/90">
           <span className="flex items-center justify-center w-5 h-5 bg-gradient-to-br from-orange-500 to-yellow-400 text-black rounded-full font-black text-xs shrink-0">
             1
           </span>
           <p>Agregá 4 camisetas al carrito (cualquier equipo)</p>
         </div>
 
-        <div className="flex items-start gap-2 text-sm text-white/90">
+        <div className="flex items-start gap-2 text-sm dark:text-white/90 text-black/90">
           <span className="flex items-center justify-center w-5 h-5 bg-gradient-to-br from-orange-500 to-yellow-400 text-black rounded-full font-black text-xs shrink-0">
             2
           </span>
@@ -57,7 +57,7 @@ export default function BlackFridayProductCard() {
           </p>
         </div>
 
-        <div className="flex items-start gap-2 text-sm text-white/90">
+        <div className="flex items-start gap-2 text-sm dark:text-white/90 text-black/90">
           <span className="flex items-center justify-center w-5 h-5 bg-gradient-to-br from-orange-500 to-yellow-400 text-black rounded-full font-black text-xs shrink-0">
             3
           </span>
@@ -69,42 +69,42 @@ export default function BlackFridayProductCard() {
 
       {/* Benefits */}
       <div className="grid grid-cols-2 gap-2 mb-4">
-        <div className="flex items-center gap-2 text-xs text-white/80">
+        <div className="flex items-center gap-2 text-xs dark:text-white/80 text-black/80">
           <Check className="w-4 h-4 text-orange-500" />
           <span>Envío GRATIS</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-white/80">
+        <div className="flex items-center gap-2 text-xs dark:text-white/80 text-black/80">
           <Tag className="w-4 h-4 text-orange-500" />
           <span>Precio fijo</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-white/80">
+        <div className="flex items-center gap-2 text-xs dark:text-white/80 text-black/80">
           <Clock className="w-4 h-4 text-orange-500" />
           <span>Hasta 10 días</span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-white/80">
+        <div className="flex items-center gap-2 text-xs dark:text-white/80 text-black/80">
           <Shield className="w-4 h-4 text-orange-500" />
           <span>100% seguro</span>
         </div>
       </div>
 
       {/* FAQ rápido */}
-      <div className="space-y-2 bg-black/30 rounded-lg p-3">
+      <div className="space-y-2 dark:bg-black/30 bg-gray-100/50 rounded-lg p-3">
         <div className="flex items-start gap-2">
           <Check className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-          <p className="text-xs text-white/70">
-            <strong className="text-white">¿Puedo mezclar equipos?</strong> Sí, elegí cualquier 4 camisetas
+          <p className="text-xs dark:text-white/70 text-black/70">
+            <strong className="dark:text-white text-black">¿Puedo mezclar equipos?</strong> Sí, elegí cualquier 4 camisetas
           </p>
         </div>
         <div className="flex items-start gap-2">
           <Check className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-          <p className="text-xs text-white/70">
-            <strong className="text-white">¿Si quiero 8?</strong> Son 2 combos (ARS {(PACK_INSANO_PRICE * 2).toLocaleString('es-AR')} total)
+          <p className="text-xs dark:text-white/70 text-black/70">
+            <strong className="dark:text-white text-black">¿Si quiero 8?</strong> Son 2 combos (ARS {(PACK_INSANO_PRICE * 2).toLocaleString('es-AR')} total)
           </p>
         </div>
         <div className="flex items-start gap-2">
           <Check className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-          <p className="text-xs text-white/70">
-            <strong className="text-white">¿Hay límite?</strong> No, comprá cuantos combos quieras
+          <p className="text-xs dark:text-white/70 text-black/70">
+            <strong className="dark:text-white text-black">¿Hay límite?</strong> No, comprá cuantos combos quieras
           </p>
         </div>
       </div>
