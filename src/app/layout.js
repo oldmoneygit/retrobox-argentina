@@ -10,6 +10,7 @@ import BlackFridayPopup from '@/components/blackfriday/BlackFridayPopup'
 import LiveSlotsIndicator from '@/components/store/LiveSlotsIndicator'
 import MetaPixelScript from '@/components/MetaPixelScript'
 import MetaPixel from '@/components/MetaPixel'
+import ChatwootWidget from '@/components/ChatwootWidget'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -120,6 +121,9 @@ export default function RootLayout({ children }) {
         {/* Meta Pixel Tracking */}
         <MetaPixelScript pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
         <MetaPixel />
+
+        {/* Chatwoot Live Chat Widget */}
+        <ChatwootWidget websiteToken={process.env.NEXT_PUBLIC_CHATWOOT_TOKEN} />
 
         {/* Fix auto-scroll bug - always start at top */}
         <ScrollToTop />
