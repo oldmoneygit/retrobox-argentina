@@ -46,7 +46,7 @@ const StoreFooter = () => {
                 Camisetas retrô exclusivas de alta calidad. Envíos a toda Argentina.
               </p>
 
-              <p className="text-white text-sm">
+              <p className="dark:text-white text-black text-sm">
                 <span className="font-semibold">Ubicación:</span><br />
                 {LOCATION_DATA.fullAddress}
               </p>
