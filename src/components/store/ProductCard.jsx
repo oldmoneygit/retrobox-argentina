@@ -34,9 +34,10 @@ const ProductCard = ({ product, index = 0 }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.02 }}
+      initial={{ opacity: 0, transform: 'translateY(20px)' }}
+      animate={{ opacity: 1, transform: 'translateY(0)' }}
+      transition={{ duration: 0.3, delay: index * 0.02, ease: [0.6, -0.05, 0.01, 0.99] }}
+      style={{ willChange: 'transform, opacity' }}
       className="group h-full flex flex-col"
     >
       <Link href={productUrl} className="flex-1 flex flex-col">
@@ -78,6 +79,7 @@ const ProductCard = ({ product, index = 0 }) => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
+            style={{ willChange: 'transform' }}
             className="w-full h-full"
           >
             {image ? (

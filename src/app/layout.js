@@ -111,8 +111,13 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://cdn.shopify.com" />
 
         {/* Performance Optimization: Preload critical resources */}
-        <link rel="preload" as="image" href={SEO_DATA.ogImage} />
-        <link rel="preload" as="image" href="/images/logo/LOGO_BRANCO.webp" />
+        <link rel="preload" as="image" href={SEO_DATA.ogImage} fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/logo/LOGO_BRANCO.webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/images/hero/banner-hero-section.png" fetchPriority="high" />
+        
+        {/* Preload critical fonts */}
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-var.woff2" crossOrigin="anonymous" />
+        <link rel="preload" as="font" type="font/woff2" href="/fonts/bebas-neue.woff2" crossOrigin="anonymous" />
 
         {/* Mobile Optimization */}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />

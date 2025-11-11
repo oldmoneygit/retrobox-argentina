@@ -43,9 +43,10 @@ const StoreHero = () => {
         <div className="container mx-auto text-center md:text-left">
           {/* Small Tag */}
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0)' }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.6, -0.05, 0.01, 0.99] }}
+            style={{ willChange: 'transform, opacity' }}
             className="inline-block dark:text-white text-black text-xs md:text-sm font-bold uppercase tracking-wider mb-3 md:mb-4"
           >
             Camisetas Retrô Exclusivas
@@ -53,9 +54,10 @@ const StoreHero = () => {
 
           {/* Main Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0)' }}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.6, -0.05, 0.01, 0.99] }}
+            style={{ willChange: 'transform, opacity' }}
             className="text-4xl md:text-6xl lg:text-8xl font-black dark:text-white text-black mb-4 md:mb-6 uppercase tracking-tight"
           >
             RETROBOX
@@ -63,9 +65,10 @@ const StoreHero = () => {
 
           {/* Subtitle */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0)' }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.6, -0.05, 0.01, 0.99] }}
+            style={{ willChange: 'transform, opacity' }}
             className="dark:text-white/80 text-black/80 text-lg md:text-xl mb-6 md:mb-8 max-w-2xl"
           >
             Descubre nuestras camisetas retrô de los mejores equipos del mundo
@@ -73,9 +76,10 @@ const StoreHero = () => {
 
           {/* Main CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, transform: 'translateY(20px)' }}
+            animate={{ opacity: 1, transform: 'translateY(0)' }}
+            transition={{ duration: 0.6, delay: 0.5, ease: [0.6, -0.05, 0.01, 0.99] }}
+            style={{ willChange: 'transform, opacity' }}
           >
             <Link
               href="#products"
@@ -91,11 +95,13 @@ const StoreHero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
+          style={{ willChange: 'opacity' }}
           className="hidden md:block absolute bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ transform: 'translateY(0) translateY(10px) translateY(0)' }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ willChange: 'transform' }}
           >
             <ChevronDown size={32} className="dark:text-white/60 text-black/60" />
           </motion.div>

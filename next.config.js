@@ -2,7 +2,7 @@
 const nextConfig = {
   // Image optimization config
   images: {
-    formats: ['image/webp'], // Force WebP format for better performance
+    formats: ['image/webp', 'image/avif'], // Force modern formats for better performance
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     minimumCacheTTL: 60 * 60 * 24 * 365, // Cache images for 1 year
@@ -23,12 +23,26 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    // Optimize image loading
+    unoptimized: false,
+    loader: 'default',
   },
 
   // Performance optimizations
   swcMinify: true,
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
 
   // Cache headers for better performance
@@ -36,6 +50,24 @@ const nextConfig = {
     return [
       {
         source: '/images/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/fonts/:path*',
         headers: [
           {
             key: 'Cache-Control',
