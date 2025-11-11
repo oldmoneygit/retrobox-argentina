@@ -108,8 +108,8 @@ export default function CartPage() {
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-white to-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-black text-2xl font-black">3x</span>
+                    <div className="w-16 h-16 dark:bg-gradient-to-br dark:from-white dark:to-blue-100 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center">
+                      <span className="dark:text-black text-white text-2xl font-black">3x</span>
                     </div>
                   </div>
                   <div className="text-center md:text-left flex-1">
@@ -132,8 +132,8 @@ export default function CartPage() {
               >
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-white to-blue-100 rounded-full flex items-center justify-center">
-                      <span className="text-black text-2xl font-black">3x</span>
+                    <div className="w-16 h-16 dark:bg-gradient-to-br dark:from-white dark:to-blue-100 bg-gradient-to-br from-black to-gray-800 rounded-full flex items-center justify-center">
+                      <span className="dark:text-black text-white text-2xl font-black">3x</span>
                     </div>
                   </div>
                   <div className="text-center md:text-left">
