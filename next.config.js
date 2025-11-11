@@ -47,7 +47,7 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@vercel/analytics'],
-    optimizeCss: true, // Enable CSS optimization
+    // optimizeCss: true, // Desabilitado - requer pacote 'critters' adicional
     scrollRestoration: true,
   },
 
