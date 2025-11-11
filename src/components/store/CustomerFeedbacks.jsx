@@ -9,7 +9,6 @@ import { SOCIAL_LINKS } from '@/utils/constants'
 const CustomerFeedbacks = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [preloadedImages, setPreloadedImages] = useState(new Set())
-  const [imageErrors, setImageErrors] = useState(new Set())
 
   // Array com todas as imagens de feedback ÚNICAS (1.png a 19.png) - duplicatas removidas
   const feedbacks = useMemo(() => [
@@ -48,40 +47,32 @@ const CustomerFeedbacks = () => {
       ].filter(Boolean)
 
       imagesToPreload.forEach((src) => {
-        if (!preloadedImages.has(src) && src && !imageErrors.has(src)) {
+        if (!preloadedImages.has(src) && src) {
           const img = new window.Image()
           img.src = src
           img.onload = () => {
             setPreloadedImages((prev) => new Set([...prev, src]))
-          }
-          img.onerror = () => {
-            console.warn('Failed to preload image:', src)
-            setImageErrors((prev) => new Set([...prev, src]))
           }
         }
       })
     }
 
     preloadNextImages()
-  }, [currentIndex, feedbacks, preloadedImages, imageErrors])
+  }, [currentIndex, feedbacks, preloadedImages])
 
   // Preload das primeiras 3 imagens imediatamente
   useEffect(() => {
     const initialImages = feedbacks.slice(0, 3).map(f => f.image).filter(Boolean)
     initialImages.forEach((src) => {
-      if (!preloadedImages.has(src) && !imageErrors.has(src)) {
+      if (!preloadedImages.has(src)) {
         const img = new window.Image()
         img.src = src
         img.onload = () => {
           setPreloadedImages((prev) => new Set([...prev, src]))
         }
-        img.onerror = () => {
-          console.warn('Failed to preload initial image:', src)
-          setImageErrors((prev) => new Set([...prev, src]))
-        }
       }
     })
-  }, [feedbacks, preloadedImages, imageErrors])
+  }, [feedbacks, preloadedImages])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
@@ -217,62 +208,20 @@ const CustomerFeedbacks = () => {
                     <div className="relative w-[350px] md:w-[400px] h-[600px] md:h-[700px] bg-gradient-to-br from-gray-dark to-black rounded-[3rem] p-3 shadow-2xl border border-white/20">
                       {/* Screen */}
                       <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
-                        {/* Feedback Image - Usar img nativo se Next.js Image falhar */}
-                        {feedbacks[currentIndex].image ? (
-                          <>
-                            {/* Tentar Next.js Image primeiro */}
-                            {!imageErrors.has(`next-${feedbacks[currentIndex].image}`) ? (
-                              <Image
-                                src={feedbacks[currentIndex].image}
-                                alt={`Feedback ${feedbacks[currentIndex].id}`}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 350px, 400px"
-                                priority={currentIndex < 3}
-                                quality={85}
-                                loading={currentIndex < 3 ? 'eager' : 'lazy'}
-                                unoptimized={true}
-                                onError={(e) => {
-                                  console.warn('Next.js Image failed, falling back to native img:', feedbacks[currentIndex].image)
-                                  setImageErrors((prev) => new Set([...prev, `next-${feedbacks[currentIndex].image}`]))
-                                }}
-                              />
-                            ) : (
-                              /* Fallback para img nativo */
-                              <img
-                                src={feedbacks[currentIndex].image}
-                                alt={`Feedback ${feedbacks[currentIndex].id}`}
-                                className="w-full h-full object-cover"
-                                loading={currentIndex < 3 ? 'eager' : 'lazy'}
-                                onError={(e) => {
-                                  console.error('Native img also failed:', feedbacks[currentIndex].image)
-                                  setImageErrors((prev) => new Set([...prev, feedbacks[currentIndex].image]))
-                                  e.target.style.display = 'none'
-                                }}
-                              />
-                            )}
-                            {/* Placeholder se ambas falharem */}
-                            {imageErrors.has(feedbacks[currentIndex].image) && (
-                              <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
-                                <div className="text-center p-4">
-                                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-2 opacity-40">
-                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"/>
-                                  </svg>
-                                  <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
-                                  <p className="text-white/20 text-[10px] mt-1 break-all px-2">{feedbacks[currentIndex].image}</p>
-                                </div>
-                              </div>
-                            )}
-                          </>
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
-                            <div className="text-center p-4">
-                              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-2 opacity-40">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"/>
-                              </svg>
-                              <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
-                            </div>
-                          </div>
+                        {/* Feedback Image - Next.js otimizado */}
+                        {feedbacks[currentIndex].image && (
+                          <Image
+                            src={feedbacks[currentIndex].image}
+                            alt={`Feedback ${feedbacks[currentIndex].id}`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 350px, 400px"
+                            priority={currentIndex < 3}
+                            quality={90}
+                            loading={currentIndex < 3 ? 'eager' : 'lazy'}
+                            placeholder="blur"
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxODE4MTgiLz48L3N2Zz4="
+                          />
                         )}
 
                         {/* Verified Badge */}
