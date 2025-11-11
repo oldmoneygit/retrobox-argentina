@@ -2,18 +2,18 @@
 
 ## 📋 Resumo da Atualização
 
-Todos os produtos **Long Sleeve (Manga Longa)** tiveram seus preços ajustados para **R$ 369,00** como parte da promoção de Black Friday.
+Todos os produtos **Long Sleeve (Manga Longa)** tiveram seus preços ajustados para **$36.900 ARS** como parte da promoção de Black Friday.
 
 ### Justificativa: Pack Black
 
-A promoção **Pack Black** oferece **4 camisetas por R$ 599,00**. Para que essa oferta faça sentido economicamente:
+A promoção **Pack Black** oferece **4 camisetas por $59.900 ARS**. Para que essa oferta faça sentido economicamente:
 
 | Item | Valor |
 |------|-------|
-| **Preço unitário Long Sleeve** | R$ 369,00 |
-| **4 camisetas (preço normal)** | R$ 1.476,00 |
-| **Pack Black (promoção)** | R$ 599,00 |
-| **Economia** | R$ 877,00 |
+| **Preço unitário Long Sleeve** | $36.900 |
+| **4 camisetas (preço normal)** | $147.600 |
+| **Pack Black (promoção)** | $59.900 |
+| **Economia** | $87.700 |
 | **Desconto** | **59% OFF** 🔥 |
 
 ## 📊 Estatísticas da Atualização
@@ -21,9 +21,9 @@ A promoção **Pack Black** oferece **4 camisetas por R$ 599,00**. Para que essa
 - **Total de produtos no catálogo:** 415
 - **Produtos Long Sleeve:** 101
 - **Produtos atualizados:** 101 ✅
-- **Preço anterior:** R$ 419,00 (41.900)
-- **Novo preço:** R$ 369,00 (36.900)
-- **Redução por produto:** R$ 50,00 (11,9%)
+- **Preço anterior:** $41.900 ARS
+- **Novo preço:** $36.900 ARS
+- **Redução por produto:** $5.000 ARS (11,9%)
 
 ## 🎯 Produtos Afetados
 
@@ -107,13 +107,13 @@ node scripts/updateLongSleevePrices.mjs
 ### Para o Cliente
 
 1. **Preço Individual Atrativo**
-   - Long Sleeve por apenas R$ 369,00
-   - R$ 50,00 mais barato que antes
+   - Long Sleeve por apenas $36.900
+   - $5.000 mais barato que antes
 
 2. **Pack Black Super Vantajoso**
-   - 4 camisetas por R$ 599,00
-   - Apenas R$ 149,75 por camiseta
-   - Economia de R$ 877,00 (59% OFF)
+   - 4 camisetas por $59.900
+   - Apenas $14.975 por camiseta
+   - Economia de $87.700 (59% OFF)
 
 3. **Produtos Premium**
    - Mangas longas de alta qualidade
@@ -138,26 +138,26 @@ node scripts/updateLongSleevePrices.mjs
 
 ### Banner Principal
 ```
-🔥 BLACK FRIDAY: Long Sleeve por R$ 369,00!
-💰 Pack Black: 4 camisetas por R$ 599,00 (59% OFF)
+🔥 BLACK FRIDAY: Long Sleeve por $36.900!
+💰 Pack Black: 4 camisetas por $59.900 (59% OFF)
 ```
 
 ### Descrição de Produto
 ```
-🔥 BLACK NOVEMBER - Agora R$ 369,00!
+🔥 BLACK NOVEMBER - Agora $36.900!
 Manga longa premium, qualidade excepcional
-Ou leve 4 no Pack Black por apenas R$ 599,00
+Ou leve 4 no Pack Black por apenas $59.900
 ```
 
 ### Redes Sociais
 ```
 🚨 PROMOÇÃO IMPERDÍVEL! 🚨
 
-Camisetas Long Sleeve agora R$ 369,00
+Camisetas Long Sleeve agora $36.900
 Ou aproveite o PACK BLACK:
-4 camisetas por R$ 599,00
+4 camisetas por $59.900
 
-Economize R$ 877 (59% OFF)! 🔥
+Economize $87.700 (59% OFF)! 🔥
 
 Times: Real Madrid, Barcelona, Man Utd, Boca, River e+
 Seleções: Argentina, Brasil, Alemanha, França e+
@@ -176,8 +176,8 @@ npm run dev
 
 1. Abrir http://localhost:3000
 2. Navegar para um produto Long Sleeve
-3. Verificar preço: **R$ 369,00**
-4. Verificar Pack Black: **4 por R$ 599,00**
+3. Verificar preço: **$36.900**
+4. Verificar Pack Black: **4 por $59.900**
 
 ### Testar no Vercel
 
@@ -200,7 +200,7 @@ deaabf3 ← fix: Adicionar shopify-variant-mapping.json para habilitar checkout
 
 ### NÃO Alterar
 
-Os seguintes produtos **NÃO** foram alterados (mantêm preço R$ 369,00):
+Os seguintes produtos **NÃO** foram alterados (mantêm preço $36.900):
 - Camisetas **manga curta** regulares
 - Produtos especiais ou edições limitadas
 
