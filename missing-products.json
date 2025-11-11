@@ -1,0 +1,1162 @@
+[
+  {
+    "id": 8,
+    "nome": "AC Milan 07/08 Retro Away",
+    "slug": "ac-milan-07-08-retro-away",
+    "time": "AC Milan",
+    "ano": "07/08",
+    "tipo": "Away",
+    "liga": "Serie A",
+    "pasta": "AC Milan 07-08 Retro Away"
+  },
+  {
+    "id": 9,
+    "nome": "AC Milan 07/08 Retro Away",
+    "slug": "ac-milan-07-08-retro-away",
+    "time": "AC Milan",
+    "ano": "07/08",
+    "tipo": "Away",
+    "liga": "Serie A",
+    "pasta": "AC Milan 07-08 Retro Away"
+  },
+  {
+    "id": 19,
+    "nome": "AC Milan 11/12 Retro Away",
+    "slug": "ac-milan-11-12-retro-away",
+    "time": "AC Milan",
+    "ano": "11/12",
+    "tipo": "Away",
+    "liga": "Serie A",
+    "pasta": "AC Milan 11-12 Retro Away"
+  },
+  {
+    "id": 20,
+    "nome": "AC Milan 11/12 Retro Away",
+    "slug": "ac-milan-11-12-retro-away",
+    "time": "AC Milan",
+    "ano": "11/12",
+    "tipo": "Away",
+    "liga": "Serie A",
+    "pasta": "AC Milan 11-12 Retro Away"
+  },
+  {
+    "id": 68,
+    "nome": "Arsenal 04/05 Retro Home Long Sleeve",
+    "slug": "arsenal-04-05-retro-home-long-sleeve",
+    "time": "Arsenal",
+    "ano": "04/05",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Arsenal 04-05 Retro Home Long Sleeve"
+  },
+  {
+    "id": 69,
+    "nome": "Arsenal 04/05 Retro Home Long Sleeve",
+    "slug": "arsenal-04-05-retro-home-long-sleeve",
+    "time": "Arsenal",
+    "ano": "04/05",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Arsenal 04-05 Retro Home Long Sleeve"
+  },
+  {
+    "id": 73,
+    "nome": "Arsenal 12/13 Retro Home",
+    "slug": "arsenal-12-13-retro-home",
+    "time": "Arsenal",
+    "ano": "12/13",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Arsenal 12-13 Retro Home"
+  },
+  {
+    "id": 74,
+    "nome": "Arsenal 12/13 Retro Home",
+    "slug": "arsenal-12-13-retro-home",
+    "time": "Arsenal",
+    "ano": "12/13",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Arsenal 12-13 Retro Home"
+  },
+  {
+    "id": 81,
+    "nome": "Atlético de Madrid 16/17 Retro Home",
+    "slug": "atletico-de-madrid-16-17-retro-home",
+    "time": "Atlético de Madrid",
+    "ano": "16/17",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Atlético de Madrid 16-17 Retro Home"
+  },
+  {
+    "id": 93,
+    "nome": "Barcelona 10/11 Retro Home",
+    "slug": "barcelona-10-11-retro-home",
+    "time": "Barcelona",
+    "ano": "10/11",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Barcelona 10-11 Retro Home"
+  },
+  {
+    "id": 94,
+    "nome": "Barcelona 10/11 Retro Home",
+    "slug": "barcelona-10-11-retro-home",
+    "time": "Barcelona",
+    "ano": "10/11",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Barcelona 10-11 Retro Home"
+  },
+  {
+    "id": 95,
+    "nome": "Barcelona 10/11 Retro Home",
+    "slug": "barcelona-10-11-retro-home",
+    "time": "Barcelona",
+    "ano": "10/11",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Barcelona 10-11 Retro Home"
+  },
+  {
+    "id": 110,
+    "nome": "Barcelona 17/18 Retro Home",
+    "slug": "barcelona-17-18-retro-home",
+    "time": "Barcelona",
+    "ano": "17/18",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Barcelona 17-18 Retro Home"
+  },
+  {
+    "id": 111,
+    "nome": "Barcelona 17/18 Retro Home",
+    "slug": "barcelona-17-18-retro-home",
+    "time": "Barcelona",
+    "ano": "17/18",
+    "tipo": "Home",
+    "liga": "La Liga",
+    "pasta": "Barcelona 17-18 Retro Home"
+  },
+  {
+    "id": 121,
+    "nome": "Bayern Múnich 04/05 Retro Away",
+    "slug": "bayern-munich-04-05-retro-away",
+    "time": "Bayern Múnich",
+    "ano": "04/05",
+    "tipo": "Away",
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 04-05 Retro Away"
+  },
+  {
+    "id": 122,
+    "nome": "Bayern Múnich 07/08 Retro Home",
+    "slug": "bayern-munich-07-08-retro-home",
+    "time": "Bayern Múnich",
+    "ano": "07/08",
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 07-08 Retro Home"
+  },
+  {
+    "id": 123,
+    "nome": "Bayern Múnich 12/13 Retro Home",
+    "slug": "bayern-munich-12-13-retro-home",
+    "time": "Bayern Múnich",
+    "ano": "12/13",
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 12-13 Retro Home"
+  },
+  {
+    "id": 124,
+    "nome": "Bayern Múnich 14/15 Retro Home",
+    "slug": "bayern-munich-14-15-retro-home",
+    "time": "Bayern Múnich",
+    "ano": "14/15",
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 14-15 Retro Home"
+  },
+  {
+    "id": 125,
+    "nome": "Bayern Múnich 17/18 Retro Home",
+    "slug": "bayern-munich-17-18-retro-home",
+    "time": "Bayern Múnich",
+    "ano": "17/18",
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 17-18 Retro Home"
+  },
+  {
+    "id": 126,
+    "nome": "Bayern Múnich 25/26 Retro",
+    "slug": "bayern-munich-25-26-retro",
+    "time": "Bayern Múnich",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich 25-26 Retro"
+  },
+  {
+    "id": 127,
+    "nome": "Bayern Múnich Retro",
+    "slug": "bayern-munich-retro",
+    "time": "Bayern Múnich",
+    "ano": null,
+    "tipo": null,
+    "liga": "Bundesliga",
+    "pasta": "Bayern Múnich Retro"
+  },
+  {
+    "id": 145,
+    "nome": "Boca Juniors 25/26 Retro",
+    "slug": "boca-juniors-25-26-retro",
+    "time": "Boca Juniors",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "Primera División Argentina",
+    "pasta": "Boca Juniors 25-26 Retro"
+  },
+  {
+    "id": 146,
+    "nome": "Boca Juniors 25/26 Retro",
+    "slug": "boca-juniors-25-26-retro",
+    "time": "Boca Juniors",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "Primera División Argentina",
+    "pasta": "Boca Juniors 25-26 Retro"
+  },
+  {
+    "id": 156,
+    "nome": "Boca Juniors Retro Home",
+    "slug": "boca-juniors-retro-home",
+    "time": "Boca Juniors",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Boca Juniors Retro Home"
+  },
+  {
+    "id": 157,
+    "nome": "Boca Juniors Retro Home",
+    "slug": "boca-juniors-retro-home",
+    "time": "Boca Juniors",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Boca Juniors Retro Home"
+  },
+  {
+    "id": 164,
+    "nome": "Borussia Dortmund Retro Home",
+    "slug": "borussia-dortmund-retro-home",
+    "time": "Borussia Dortmund",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Borussia Dortmund Retro Home"
+  },
+  {
+    "id": 165,
+    "nome": "Borussia Dortmund Retro Home",
+    "slug": "borussia-dortmund-retro-home",
+    "time": "Borussia Dortmund",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Borussia Dortmund Retro Home"
+  },
+  {
+    "id": 166,
+    "nome": "Borussia Dortmund Retro Home",
+    "slug": "borussia-dortmund-retro-home",
+    "time": "Borussia Dortmund",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Bundesliga",
+    "pasta": "Borussia Dortmund Retro Home"
+  },
+  {
+    "id": 177,
+    "nome": "Brasil 20/21 Retro",
+    "slug": "brasil-20-21-retro",
+    "time": "Brasil",
+    "ano": "20/21",
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Brasil 20-21 Retro"
+  },
+  {
+    "id": 178,
+    "nome": "Brasil 20/21 Retro",
+    "slug": "brasil-20-21-retro",
+    "time": "Brasil",
+    "ano": "20/21",
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Brasil 20-21 Retro"
+  },
+  {
+    "id": 195,
+    "nome": "Brasil Retro",
+    "slug": "brasil-retro",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro"
+  },
+  {
+    "id": 196,
+    "nome": "Brasil Retro",
+    "slug": "brasil-retro",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro"
+  },
+  {
+    "id": 197,
+    "nome": "Brasil Retro Away",
+    "slug": "brasil-retro-away",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Away"
+  },
+  {
+    "id": 198,
+    "nome": "Brasil Retro Away",
+    "slug": "brasil-retro-away",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Away"
+  },
+  {
+    "id": 199,
+    "nome": "Brasil Retro Away",
+    "slug": "brasil-retro-away",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Away"
+  },
+  {
+    "id": 200,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 201,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 202,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 203,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 204,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 205,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 206,
+    "nome": "Brasil Retro Home",
+    "slug": "brasil-retro-home",
+    "time": "Brasil",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Brasil Retro Home"
+  },
+  {
+    "id": 211,
+    "nome": "Chelsea 09/10 Retro Home Long Sleeve",
+    "slug": "chelsea-09-10-retro-home-long-sleeve",
+    "time": "Chelsea",
+    "ano": "09/10",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea 09-10 Retro Home Long Sleeve"
+  },
+  {
+    "id": 212,
+    "nome": "Chelsea 09/10 Retro Home Long Sleeve",
+    "slug": "chelsea-09-10-retro-home-long-sleeve",
+    "time": "Chelsea",
+    "ano": "09/10",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea 09-10 Retro Home Long Sleeve"
+  },
+  {
+    "id": 217,
+    "nome": "Chelsea 12/13 Retro Home",
+    "slug": "chelsea-12-13-retro-home",
+    "time": "Chelsea",
+    "ano": "12/13",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea 12-13 Retro Home"
+  },
+  {
+    "id": 218,
+    "nome": "Chelsea 12/13 Retro Home",
+    "slug": "chelsea-12-13-retro-home",
+    "time": "Chelsea",
+    "ano": "12/13",
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea 12-13 Retro Home"
+  },
+  {
+    "id": 224,
+    "nome": "Chelsea Retro Home",
+    "slug": "chelsea-retro-home",
+    "time": "Chelsea",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea Retro Home"
+  },
+  {
+    "id": 225,
+    "nome": "Chelsea Retro Home",
+    "slug": "chelsea-retro-home",
+    "time": "Chelsea",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Premier League",
+    "pasta": "Chelsea Retro Home"
+  },
+  {
+    "id": 226,
+    "nome": "Colombia Retro",
+    "slug": "colombia-retro",
+    "time": "Colombia",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Colombia Retro"
+  },
+  {
+    "id": 227,
+    "nome": "Colombia Retro",
+    "slug": "colombia-retro",
+    "time": "Colombia",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Colombia Retro"
+  },
+  {
+    "id": 229,
+    "nome": "España Retro",
+    "slug": "espana-retro",
+    "time": "España",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "España Retro"
+  },
+  {
+    "id": 230,
+    "nome": "España Retro Away",
+    "slug": "espana-retro-away",
+    "time": "España",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "España Retro Away"
+  },
+  {
+    "id": 231,
+    "nome": "España Retro Away",
+    "slug": "espana-retro-away",
+    "time": "España",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "España Retro Away"
+  },
+  {
+    "id": 232,
+    "nome": "España Retro Away",
+    "slug": "espana-retro-away",
+    "time": "España",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "España Retro Away"
+  },
+  {
+    "id": 233,
+    "nome": "España Retro Away",
+    "slug": "espana-retro-away",
+    "time": "España",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "España Retro Away"
+  },
+  {
+    "id": 234,
+    "nome": "España Retro Home",
+    "slug": "espana-retro-home",
+    "time": "España",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "España Retro Home"
+  },
+  {
+    "id": 235,
+    "nome": "España Retro Home",
+    "slug": "espana-retro-home",
+    "time": "España",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "España Retro Home"
+  },
+  {
+    "id": 236,
+    "nome": "Fenerbahçe 07/08 Retro Away",
+    "slug": "fenerbahce-07-08-retro-away",
+    "time": "Fenerbahçe",
+    "ano": "07/08",
+    "tipo": "Away",
+    "liga": "Süper Lig",
+    "pasta": "Fenerbahçe 07-08 Retro Away"
+  },
+  {
+    "id": 237,
+    "nome": "Fenerbahçe 07/08 Retro Home",
+    "slug": "fenerbahce-07-08-retro-home",
+    "time": "Fenerbahçe",
+    "ano": "07/08",
+    "tipo": "Home",
+    "liga": "Süper Lig",
+    "pasta": "Fenerbahçe 07-08 Retro Home"
+  },
+  {
+    "id": 238,
+    "nome": "Fenerbahçe 08/09 Retro Home",
+    "slug": "fenerbahce-08-09-retro-home",
+    "time": "Fenerbahçe",
+    "ano": "08/09",
+    "tipo": "Home",
+    "liga": "Süper Lig",
+    "pasta": "Fenerbahçe 08-09 Retro Home"
+  },
+  {
+    "id": 253,
+    "nome": "Holanda Retro Home",
+    "slug": "holanda-retro-home",
+    "time": "Holanda",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Holanda Retro Home"
+  },
+  {
+    "id": 254,
+    "nome": "Holanda Retro Home",
+    "slug": "holanda-retro-home",
+    "time": "Holanda",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Holanda Retro Home"
+  },
+  {
+    "id": 259,
+    "nome": "Independiente Retro Home",
+    "slug": "independiente-retro-home",
+    "time": "Independiente",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Independiente Retro Home"
+  },
+  {
+    "id": 260,
+    "nome": "Independiente Retro Home",
+    "slug": "independiente-retro-home",
+    "time": "Independiente",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Independiente Retro Home"
+  },
+  {
+    "id": 261,
+    "nome": "Independiente Retro Home",
+    "slug": "independiente-retro-home",
+    "time": "Independiente",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Independiente Retro Home"
+  },
+  {
+    "id": 267,
+    "nome": "Inglaterra Retro Away",
+    "slug": "inglaterra-retro-away",
+    "time": "Inglaterra",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Inglaterra Retro Away"
+  },
+  {
+    "id": 268,
+    "nome": "Inglaterra Retro Away",
+    "slug": "inglaterra-retro-away",
+    "time": "Inglaterra",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Inglaterra Retro Away"
+  },
+  {
+    "id": 269,
+    "nome": "Inglaterra Retro Away",
+    "slug": "inglaterra-retro-away",
+    "time": "Inglaterra",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Inglaterra Retro Away"
+  },
+  {
+    "id": 273,
+    "nome": "Instituto de Córdoba 96/97 Retro Home",
+    "slug": "instituto-de-cordoba-96-97-retro-home",
+    "time": "Instituto de Córdoba",
+    "ano": "96/97",
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Instituto de Córdoba 96-97 Retro Home"
+  },
+  {
+    "id": 274,
+    "nome": "Instituto de Córdoba 99/00 Retro Home",
+    "slug": "instituto-de-cordoba-99-00-retro-home",
+    "time": "Instituto de Córdoba",
+    "ano": "99/00",
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "Instituto de Córdoba 99-00 Retro Home"
+  },
+  {
+    "id": 275,
+    "nome": "Inter de Milán 02/03 Retro Home",
+    "slug": "inter-de-milan-02-03-retro-home",
+    "time": "Inter de Milán",
+    "ano": "02/03",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 02-03 Retro Home"
+  },
+  {
+    "id": 276,
+    "nome": "Inter de Milán 02/03 Retro Third",
+    "slug": "inter-de-milan-02-03-retro-third",
+    "time": "Inter de Milán",
+    "ano": "02/03",
+    "tipo": "Third",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 02-03 Retro Third"
+  },
+  {
+    "id": 277,
+    "nome": "Inter de Milán 04/05 Retro Home",
+    "slug": "inter-de-milan-04-05-retro-home",
+    "time": "Inter de Milán",
+    "ano": "04/05",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 04-05 Retro Home"
+  },
+  {
+    "id": 278,
+    "nome": "Inter de Milán 07/08 Retro Home",
+    "slug": "inter-de-milan-07-08-retro-home",
+    "time": "Inter de Milán",
+    "ano": "07/08",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 07-08 Retro Home"
+  },
+  {
+    "id": 279,
+    "nome": "Inter de Milán 09/10 Retro Home Champions League",
+    "slug": "inter-de-milan-09-10-retro-home-champions-league",
+    "time": "Inter de Milán",
+    "ano": "09/10",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 09-10 Retro Home Champions League"
+  },
+  {
+    "id": 280,
+    "nome": "Inter de Milán 10/11 Retro Away",
+    "slug": "inter-de-milan-10-11-retro-away",
+    "time": "Inter de Milán",
+    "ano": "10/11",
+    "tipo": "Away",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 10-11 Retro Away"
+  },
+  {
+    "id": 281,
+    "nome": "Inter de Milán 97/98 Retro Home Long Sleeve",
+    "slug": "inter-de-milan-97-98-retro-home-long-sleeve",
+    "time": "Inter de Milán",
+    "ano": "97/98",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 97-98 Retro Home Long Sleeve"
+  },
+  {
+    "id": 282,
+    "nome": "Inter de Milán 97/98 Retro Third Long Sleeve",
+    "slug": "inter-de-milan-97-98-retro-third-long-sleeve",
+    "time": "Inter de Milán",
+    "ano": "97/98",
+    "tipo": "Third",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán 97-98 Retro Third Long Sleeve"
+  },
+  {
+    "id": 283,
+    "nome": "Inter de Milán Retro Home",
+    "slug": "inter-de-milan-retro-home",
+    "time": "Inter de Milán",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán Retro Home"
+  },
+  {
+    "id": 284,
+    "nome": "Inter de Milán Retro Third",
+    "slug": "inter-de-milan-retro-third",
+    "time": "Inter de Milán",
+    "ano": null,
+    "tipo": "Third",
+    "liga": "Serie A",
+    "pasta": "Inter de Milán Retro Third"
+  },
+  {
+    "id": 285,
+    "nome": "Inter Miami 25/26 Retro Away",
+    "slug": "inter-miami-25-26-retro-away",
+    "time": "Inter Miami",
+    "ano": "25/26",
+    "tipo": "Away",
+    "liga": "MLS",
+    "pasta": "Inter Miami 25-26 Retro Away"
+  },
+  {
+    "id": 286,
+    "nome": "Inter Miami 25/26 Retro Away",
+    "slug": "inter-miami-25-26-retro-away",
+    "time": "Inter Miami",
+    "ano": "25/26",
+    "tipo": "Away",
+    "liga": "MLS",
+    "pasta": "Inter Miami 25-26 Retro Away"
+  },
+  {
+    "id": 292,
+    "nome": "Italia Retro Home",
+    "slug": "italia-retro-home",
+    "time": "Italia",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Italia Retro Home"
+  },
+  {
+    "id": 293,
+    "nome": "Italia Retro Home",
+    "slug": "italia-retro-home",
+    "time": "Italia",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Italia Retro Home"
+  },
+  {
+    "id": 294,
+    "nome": "Japón 16/17 Retro Away",
+    "slug": "japon-16-17-retro-away",
+    "time": "Japón",
+    "ano": "16/17",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Japón 16-17 Retro Away"
+  },
+  {
+    "id": 295,
+    "nome": "Japón 1998 Retro Away",
+    "slug": "japon-1998-retro-away",
+    "time": "Japón",
+    "ano": "1998",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Japón 1998 Retro Away"
+  },
+  {
+    "id": 296,
+    "nome": "Japón 1998 Retro Away Long Sleeve",
+    "slug": "japon-1998-retro-away-long-sleeve",
+    "time": "Japón",
+    "ano": "1998",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Japón 1998 Retro Away Long Sleeve"
+  },
+  {
+    "id": 297,
+    "nome": "Japón 1998 Retro Home Long Sleeve",
+    "slug": "japon-1998-retro-home-long-sleeve",
+    "time": "Japón",
+    "ano": "1998",
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Japón 1998 Retro Home Long Sleeve"
+  },
+  {
+    "id": 298,
+    "nome": "Japón 1998 Retro Long Sleeve",
+    "slug": "japon-1998-retro-long-sleeve",
+    "time": "Japón",
+    "ano": "1998",
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "Japón 1998 Retro Long Sleeve"
+  },
+  {
+    "id": 299,
+    "nome": "Japón 2006 Retro Away",
+    "slug": "japon-2006-retro-away",
+    "time": "Japón",
+    "ano": "2006",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "Japón 2006 Retro Away"
+  },
+  {
+    "id": 300,
+    "nome": "Japón 2006 Retro Home Long Sleeve",
+    "slug": "japon-2006-retro-home-long-sleeve",
+    "time": "Japón",
+    "ano": "2006",
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Japón 2006 Retro Home Long Sleeve"
+  },
+  {
+    "id": 301,
+    "nome": "Japón 2014 Retro Home",
+    "slug": "japon-2014-retro-home",
+    "time": "Japón",
+    "ano": "2014",
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Japón 2014 Retro Home"
+  },
+  {
+    "id": 302,
+    "nome": "Japón 2018 Retro Home",
+    "slug": "japon-2018-retro-home",
+    "time": "Japón",
+    "ano": "2018",
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Japón 2018 Retro Home"
+  },
+  {
+    "id": 303,
+    "nome": "Japón Retro Home",
+    "slug": "japon-retro-home",
+    "time": "Japón",
+    "ano": null,
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "Japón Retro Home"
+  },
+  {
+    "id": 318,
+    "nome": "Manchester United 08/09 Retro Away Champions League",
+    "slug": "manchester-united-08-09-retro-away-champions-league",
+    "time": "Manchester United",
+    "ano": "08/09",
+    "tipo": "Away",
+    "liga": "Premier League",
+    "pasta": "Manchester United 08-09 Retro Away Champions League"
+  },
+  {
+    "id": 319,
+    "nome": "Manchester United 08/09 Retro Away Champions League",
+    "slug": "manchester-united-08-09-retro-away-champions-league",
+    "time": "Manchester United",
+    "ano": "08/09",
+    "tipo": "Away",
+    "liga": "Premier League",
+    "pasta": "Manchester United 08-09 Retro Away Champions League"
+  },
+  {
+    "id": 335,
+    "nome": "México 1998 Retro Away",
+    "slug": "mexico-1998-retro-away",
+    "time": "México",
+    "ano": "1998",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "México 1998 Retro Away"
+  },
+  {
+    "id": 336,
+    "nome": "México 2010 Retro Away",
+    "slug": "mexico-2010-retro-away",
+    "time": "México",
+    "ano": "2010",
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "México 2010 Retro Away"
+  },
+  {
+    "id": 337,
+    "nome": "México 2010 Retro Home",
+    "slug": "mexico-2010-retro-home",
+    "time": "México",
+    "ano": "2010",
+    "tipo": "Home",
+    "liga": "Selecciones",
+    "pasta": "México 2010 Retro Home"
+  },
+  {
+    "id": 338,
+    "nome": "México Retro",
+    "slug": "mexico-retro",
+    "time": "México",
+    "ano": null,
+    "tipo": null,
+    "liga": "Selecciones",
+    "pasta": "México Retro"
+  },
+  {
+    "id": 339,
+    "nome": "México Retro Away",
+    "slug": "mexico-retro-away",
+    "time": "México",
+    "ano": null,
+    "tipo": "Away",
+    "liga": "Selecciones",
+    "pasta": "México Retro Away"
+  },
+  {
+    "id": 342,
+    "nome": "Napoli 90/91 Retro Home",
+    "slug": "napoli-90-91-retro-home",
+    "time": "Napoli",
+    "ano": "90/91",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Napoli 90-91 Retro Home"
+  },
+  {
+    "id": 343,
+    "nome": "Napoli 90/91 Retro Home",
+    "slug": "napoli-90-91-retro-home",
+    "time": "Napoli",
+    "ano": "90/91",
+    "tipo": "Home",
+    "liga": "Serie A",
+    "pasta": "Napoli 90-91 Retro Home"
+  },
+  {
+    "id": 344,
+    "nome": "Newell's Old Boys 93/94 Retro",
+    "slug": "newell-s-old-boys-93-94-retro",
+    "time": "Newell's Old Boys",
+    "ano": "93/94",
+    "tipo": null,
+    "liga": "Primera División Argentina",
+    "pasta": "Newell's Old Boys 93-94 Retro"
+  },
+  {
+    "id": 363,
+    "nome": "PSG 18/19 Retro",
+    "slug": "psg-18-19-retro",
+    "time": "PSG",
+    "ano": "18/19",
+    "tipo": null,
+    "liga": "Ligue 1",
+    "pasta": "PSG 18-19 Retro"
+  },
+  {
+    "id": 364,
+    "nome": "PSG 18/19 Retro",
+    "slug": "psg-18-19-retro",
+    "time": "PSG",
+    "ano": "18/19",
+    "tipo": null,
+    "liga": "Ligue 1",
+    "pasta": "PSG 18-19 Retro"
+  },
+  {
+    "id": 365,
+    "nome": "PSG 18/19 Retro",
+    "slug": "psg-18-19-retro",
+    "time": "PSG",
+    "ano": "18/19",
+    "tipo": null,
+    "liga": "Ligue 1",
+    "pasta": "PSG 18-19 Retro"
+  },
+  {
+    "id": 415,
+    "nome": "Real Madrid 25/26 Retro",
+    "slug": "real-madrid-25-26-retro",
+    "time": "Real Madrid",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "La Liga",
+    "pasta": "Real Madrid 25-26 Retro"
+  },
+  {
+    "id": 416,
+    "nome": "Real Madrid 25/26 Retro",
+    "slug": "real-madrid-25-26-retro",
+    "time": "Real Madrid",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "La Liga",
+    "pasta": "Real Madrid 25-26 Retro"
+  },
+  {
+    "id": 417,
+    "nome": "Real Madrid 25/26 Retro",
+    "slug": "real-madrid-25-26-retro",
+    "time": "Real Madrid",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "La Liga",
+    "pasta": "Real Madrid 25-26 Retro"
+  },
+  {
+    "id": 432,
+    "nome": "River Plate 25/26 Retro",
+    "slug": "river-plate-25-26-retro",
+    "time": "River Plate",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "Primera División Argentina",
+    "pasta": "River Plate 25-26 Retro"
+  },
+  {
+    "id": 433,
+    "nome": "River Plate 25/26 Retro",
+    "slug": "river-plate-25-26-retro",
+    "time": "River Plate",
+    "ano": "25/26",
+    "tipo": null,
+    "liga": "Primera División Argentina",
+    "pasta": "River Plate 25-26 Retro"
+  },
+  {
+    "id": 435,
+    "nome": "River Plate 95/96 Retro Home",
+    "slug": "river-plate-95-96-retro-home",
+    "time": "River Plate",
+    "ano": "95/96",
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "River Plate 95-96 Retro Home"
+  },
+  {
+    "id": 436,
+    "nome": "River Plate 95/96 Retro Home",
+    "slug": "river-plate-95-96-retro-home",
+    "time": "River Plate",
+    "ano": "95/96",
+    "tipo": "Home",
+    "liga": "Primera División Argentina",
+    "pasta": "River Plate 95-96 Retro Home"
+  },
+  {
+    "id": 456,
+    "nome": "Santos 12/13 Retro Away",
+    "slug": "santos-12-13-retro-away",
+    "time": "Santos",
+    "ano": "12/13",
+    "tipo": "Away",
+    "liga": "Brasileirão",
+    "pasta": "Santos 12-13 Retro Away"
+  },
+  {
+    "id": 457,
+    "nome": "Santos 12/13 Retro Away",
+    "slug": "santos-12-13-retro-away",
+    "time": "Santos",
+    "ano": "12/13",
+    "tipo": "Away",
+    "liga": "Brasileirão",
+    "pasta": "Santos 12-13 Retro Away"
+  }
+]

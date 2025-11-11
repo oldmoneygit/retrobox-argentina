@@ -520,13 +520,6 @@ export default function ProductPageClient({ product }) {
                   <p className="text-2xl md:text-3xl lg:text-4xl font-black dark:text-white text-black">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
-                  {/* Customization cost if enabled */}
-                  {customization?.enabled && (
-                    <p className="text-sm md:text-base dark:text-white/80 text-black/80 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4" />
-                      + ${customization.price.toLocaleString('es-AR')} (Personalización)
-                    </p>
-                  )}
                 </div>
               </div>
 
@@ -617,7 +610,7 @@ export default function ProductPageClient({ product }) {
               {/* Product Customization */}
               <ProductCustomization
                 onCustomizationChange={setCustomization}
-                customizationPrice={5000}
+                customizationPrice={0}
               />
 
               {/* Action Buttons - Cart + Wishlist in same row */}

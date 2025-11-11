@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import OptimizedImage from '@/components/OptimizedImage'
 import Link from 'next/link'
-import { Minus, Plus, X, Sparkles } from 'lucide-react'
+import { Minus, Plus, X, Shirt } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
@@ -69,7 +69,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
             {customization?.enabled && (
               <div className="mb-2 p-2 dark:bg-white/5 dark:border-white/10 bg-black/5 border border-black/10 rounded-lg">
                 <div className="flex items-center gap-1 mb-1">
-                  <Sparkles className="w-3 h-3 dark:text-white/80 text-black/80" />
+                  <Shirt className="w-3 h-3 dark:text-white/80 text-black/80" />
                   <span className="dark:text-white/80 text-black/80 text-xs font-bold">Personalizado</span>
                 </div>
                 <div className="text-xs space-y-0.5">
@@ -92,11 +92,6 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }) => {
               <p className="dark:text-white text-black text-xl md:text-2xl font-bold">
                 ${price.toLocaleString('es-AR')}
               </p>
-              {customization?.enabled && (
-                <p className="dark:text-white/60 text-black/60 text-xs">
-                  + ${customizationPrice.toLocaleString('es-AR')} (Personalización)
-                </p>
-              )}
             </div>
           </div>
 

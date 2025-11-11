@@ -1,94 +1,68 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { promisify } from 'util'
 import dotenv from 'dotenv'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// Carregar variáveis de ambiente
+// Carregar variáveis de ambiente do .env.local
 dotenv.config({ path: path.join(__dirname, '../.env.local') })
 
-console.log('📸 SHOPIFY IMAGE UPLOADER - RETROBOX ARGENTINA\n')
+const readdir = promisify(fs.readdir)
+const readFile = promisify(fs.readFile)
 
-// Verificar credenciais
-if (!process.env.SHOPIFY_STORE_DOMAIN || !process.env.SHOPIFY_ADMIN_ACCESS_TOKEN) {
-  console.error('❌ ERRO: Credenciais da Shopify não configuradas!')
-  console.error('   Verifique se o arquivo .env.local existe e contém:')
-  console.error('   - SHOPIFY_STORE_DOMAIN')
-  console.error('   - SHOPIFY_ADMIN_ACCESS_TOKEN')
+// Configuração Shopify
+const SHOPIFY_STORE = process.env.SHOPIFY_STORE_DOMAIN || '2twsv4-hr.myshopify.com'
+const ADMIN_TOKEN = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN
+
+if (!ADMIN_TOKEN) {
+  console.error('❌ SHOPIFY_ADMIN_ACCESS_TOKEN não encontrado no .env.local')
   process.exit(1)
 }
 
-const SHOPIFY_API_VERSION = '2024-10'
-const SHOPIFY_ADMIN_API = `https://${process.env.SHOPIFY_STORE_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`
-const ADMIN_TOKEN = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN
+// Ler products.json
+const productsPath = path.join(__dirname, '../src/data/products.json')
+const allProducts = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 
-// Ler dados dos produtos
-const productosRetro = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../src/data/productos-retro.json'), 'utf-8')
-)
+// Pegar os últimos 38 produtos (os que acabamos de adicionar)
+const newProducts = allProducts.slice(-38)
 
-/**
- * Converter nome para handle (mesmo do script CSV)
- */
-function generateHandle(nomeCompleto) {
-  return nomeCompleto
-    .toLowerCase()
-    .replace(/\//g, '-')
-    .replace(/\s+/g, '-')
-    .replace(/\((\d+)\)/g, '-$1')
-    .replace(/[^\w\s-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
+// Path base das imagens: RETRO/[Liga]/[Time]/[Produto]/
+const IMAGES_BASE_PATH = 'C:\\Users\\PC\\Documents\\Retrobox\\RETRO'
+
+console.log(`📸 UPLOAD DE IMAGENS PARA SHOPIFY\n`)
+console.log(`Total de produtos: ${newProducts.length}\n`)
+
+// Mapeamento de nomes de liga para nomes de pasta
+const leagueMapping = {
+  'Serie A': 'Serie A',
+  'Bundesliga': 'Bundesliga',
+  'La Liga': 'La Liga',
+  'Primera División Argentina': 'Primera División Argentina',
+  'Premier League': 'Premier League',
+  'Ligue 1': 'Ligue 1',
+  'MLS': 'MLS',
+  'Brasileirão': 'Brasileirão',
+  'Eredivisie': 'Eredivisie',
+  'Primeira Liga': 'Primeira Liga',
+  'Süper Lig': 'Süper Lig',
+  'Selecciones': 'Selecciones'
 }
 
-/**
- * Get product images based on liga
- */
-function getProductImagePaths(product) {
-  const basePath = path.join(__dirname, '../public/images/retro', product.pasta_liga, product.pasta_time, product.pasta_album)
-
-  // MLS usa padrão diferente
-  if (product.pasta_liga === 'MLS') {
-    return [
-      { path: path.join(basePath, '001.jpg'), ext: 'jpg' },
-      { path: path.join(basePath, '002.webp'), ext: 'webp' },
-      { path: path.join(basePath, '003.webp'), ext: 'webp' },
-      { path: path.join(basePath, '004.webp'), ext: 'webp' },
-      { path: path.join(basePath, '005.webp'), ext: 'webp' },
-      { path: path.join(basePath, '006.webp'), ext: 'webp' },
-      { path: path.join(basePath, '007.jpg'), ext: 'jpg' }
-    ]
-  }
-
-  // Outras ligas usam .jpg
-  return [
-    { path: path.join(basePath, '001.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '002.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '003.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '004.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '005.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '006.jpg'), ext: 'jpg' },
-    { path: path.join(basePath, '007.jpg'), ext: 'jpg' }
-  ]
-}
-
-/**
- * Buscar produto na Shopify por handle
- */
+// Função para buscar produto na Shopify pelo handle
 async function getProductByHandle(handle) {
   const query = `
-    query getProduct($handle: String!) {
+    query getProductByHandle($handle: String!) {
       productByHandle(handle: $handle) {
         id
-        title
         handle
-        images(first: 20) {
+        title
+        images(first: 1) {
           edges {
             node {
               id
-              url
             }
           }
         }
@@ -96,7 +70,7 @@ async function getProductByHandle(handle) {
     }
   `
 
-  const response = await fetch(SHOPIFY_ADMIN_API, {
+  const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/graphql.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -108,29 +82,22 @@ async function getProductByHandle(handle) {
     })
   })
 
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
-  }
-
   const data = await response.json()
 
   if (data.errors) {
-    throw new Error(`GraphQL errors: ${JSON.stringify(data.errors)}`)
+    console.error(`❌ Erro ao buscar produto ${handle}:`, data.errors)
+    return null
   }
 
-  return data.data?.productByHandle || null
+  return data.data?.productByHandle
 }
 
-/**
- * Adicionar imagem ao produto usando REST API
- */
-async function addProductImage(productId, base64Image, altText = '') {
-  // Extrair o ID numérico do GID
+// Função para fazer upload de imagem para Shopify (REST API)
+async function uploadImageToProduct(productId, imageBase64, altText) {
+  // Converter productId de GraphQL para REST: gid://shopify/Product/123 -> 123
   const numericId = productId.split('/').pop()
 
-  const SHOPIFY_REST_API = `https://${process.env.SHOPIFY_STORE_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/products/${numericId}/images.json`
-
-  const response = await fetch(SHOPIFY_REST_API, {
+  const response = await fetch(`https://${SHOPIFY_STORE}/admin/api/2024-01/products/${numericId}/images.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -138,187 +105,173 @@ async function addProductImage(productId, base64Image, altText = '') {
     },
     body: JSON.stringify({
       image: {
-        attachment: base64Image,
+        attachment: imageBase64.split(',')[1], // Remover "data:image/...;base64," prefix
         alt: altText
       }
     })
   })
 
-  if (!response.ok) {
-    const errorText = await response.text()
-    throw new Error(`HTTP ${response.status}: ${errorText}`)
-  }
-
   const data = await response.json()
 
   if (data.errors) {
-    throw new Error(`API errors: ${JSON.stringify(data.errors)}`)
+    console.error(`❌ Erro ao fazer upload da imagem:`, data.errors)
+    return null
   }
 
-  return data.image || null
-}
-
-/**
- * Upload de imagens
- */
-async function uploadImages() {
-  let successCount = 0
-  let errorCount = 0
-  let skippedCount = 0
-  let totalProducts = productosRetro.length
-  let processedProducts = 0
-
-  console.log(`✅ Total de produtos: ${totalProducts}`)
-  console.log(`📸 Enviando todas as imagens (001-007) para CDN da Shopify`)
-  console.log(`⏱️  Tempo estimado: ~${Math.ceil(totalProducts * 7 * 0.5 / 60)} minutos`)
-  console.log('💡 Você pode deixar rodando em background.\n')
-  console.log('─'.repeat(60))
-
-  const startTime = Date.now()
-
-  // Rastrear handles já processados para evitar duplicatas
-  const processedHandles = new Set()
-
-  // Processar cada produto
-  for (const product of productosRetro) {
-    processedProducts++
-    const progress = `[${processedProducts}/${totalProducts}]`
-    const handle = generateHandle(product.nome_completo)
-
-    console.log(`\n${progress} 📦 ${product.nome_completo}`)
-    console.log(`   Handle: ${handle}`)
-
-    // Pular handles duplicados
-    if (processedHandles.has(handle)) {
-      console.log('   ⚠️  Handle duplicado - pulando')
-      skippedCount++
-      continue
-    }
-    processedHandles.add(handle)
-
-    try {
-      // 1. Buscar produto na Shopify
-      console.log('   🔍 Buscando na Shopify...')
-      const shopifyProduct = await getProductByHandle(handle)
-
-      if (!shopifyProduct) {
-        console.log('   ⚠️  Produto não encontrado - pulando')
-        skippedCount++
-        continue
-      }
-
-      console.log(`   ✅ Encontrado! ID: ${shopifyProduct.id}`)
-
-      // Verificar quantas imagens já existem
-      const existingImagesCount = shopifyProduct.images.edges.length
-      if (existingImagesCount > 0) {
-        console.log(`   ℹ️  Já tem ${existingImagesCount} imagens - adicionando mais imagens...`)
-      }
-
-      // 2. Obter caminhos de todas as imagens
-      const imagePaths = getProductImagePaths(product)
-      console.log(`   📸 Processando ${imagePaths.length} imagens para CDN...`)
-
-      let uploadedImages = 0
-
-      // 3. Fazer upload de cada imagem
-      for (let i = 0; i < imagePaths.length; i++) {
-        const { path: imagePath, ext } = imagePaths[i]
-        const imageNum = String(i + 1).padStart(3, '0')
-
-        // Verificar se existe
-        if (!fs.existsSync(imagePath)) {
-          console.log(`   ⚠️  ${imageNum}.${ext}: Não encontrada`)
-          continue
-        }
-
-        console.log(`   ⏳ ${imageNum}.${ext}: Fazendo upload...`)
-
-        try {
-          // Ler imagem como base64
-          const imageBuffer = fs.readFileSync(imagePath)
-          const base64Image = imageBuffer.toString('base64')
-
-          // Upload via REST API
-          const result = await addProductImage(
-            shopifyProduct.id,
-            base64Image,
-            `${product.nome_completo} - Imagem ${i + 1}`
-          )
-
-          if (result) {
-            console.log(`   ✅ Enviada! URL: ${result.src}`)
-            successCount++
-            uploadedImages++
-          } else {
-            console.log(`   ❌ Erro ao enviar imagem`)
-            errorCount++
-          }
-
-          // Rate limit: aguardar 500ms entre uploads
-          await new Promise(resolve => setTimeout(resolve, 500))
-
-        } catch (imgError) {
-          console.log(`   ❌ Erro no upload: ${imgError.message}`)
-          errorCount++
-        }
-      }
-
-      console.log(`   ✅ Produto concluído! (${uploadedImages}/${imagePaths.length} imagens enviadas)`)
-
-      // Progresso a cada 10 produtos
-      if (processedProducts % 10 === 0) {
-        const elapsed = Date.now() - startTime
-        const avgTimePerProduct = elapsed / processedProducts
-        const remaining = totalProducts - processedProducts
-        const estimatedRemaining = (avgTimePerProduct * remaining) / 1000 / 60
-
-        console.log('\n' + '─'.repeat(60))
-        console.log(`⏱️  Progresso: ${processedProducts}/${totalProducts} produtos`)
-        console.log(`   ✅ Imagens enviadas: ${successCount}`)
-        console.log(`   ⚠️  Pulados: ${skippedCount}`)
-        console.log(`   ❌ Erros: ${errorCount}`)
-        console.log(`   ⏱️  Tempo restante estimado: ${Math.ceil(estimatedRemaining)} minutos`)
-        console.log('─'.repeat(60))
-      }
-
-    } catch (error) {
-      console.log(`   ❌ Erro: ${error.message}`)
-      errorCount++
+  if (data.image) {
+    return {
+      id: data.image.id,
+      url: data.image.src,
+      altText: data.image.alt
     }
   }
 
-  // Resumo final
-  const totalTime = ((Date.now() - startTime) / 1000 / 60).toFixed(1)
-
-  console.log('\n' + '='.repeat(60))
-  console.log('📊 RESUMO FINAL')
-  console.log('='.repeat(60))
-  console.log(`✅ Imagens enviadas com sucesso: ${successCount}`)
-  console.log(`⚠️  Produtos pulados: ${skippedCount}`)
-  console.log(`❌ Erros: ${errorCount}`)
-  console.log(`📦 Produtos processados: ${processedProducts}/${totalProducts}`)
-  console.log(`⏱️  Tempo total: ${totalTime} minutos`)
-  console.log('='.repeat(60))
-
-  if (successCount > 0) {
-    console.log('\n🎉 Upload concluído!')
-    console.log('🌐 Todas as imagens estão no Shopify CDN')
-    console.log('📱 Acesse: https://2twsv4-hr.myshopify.com/admin/products')
-  }
-
-  if (errorCount > 0) {
-    console.log(`\n⚠️  ${errorCount} uploads falharam`)
-    console.log('💡 Você pode rodar o script novamente para tentar os que falharam')
-  }
-
-  console.log('\n🎯 PRÓXIMO PASSO:')
-  console.log('   Execute: npm run shopify:fetch-variants')
-  console.log('   Para gerar o mapeamento de Variant IDs\n')
+  return null
 }
 
-// Executar
-uploadImages().catch(error => {
-  console.error('\n❌ Erro fatal:', error.message)
-  process.exit(1)
-})
+// Função para encontrar imagens na pasta
+// Estrutura: RETRO/[Liga]/[Time]/[Produto]/
+async function findProductImages(product) {
+  const league = product.metadata.league
+  const team = product.metadata.team
+  const folderName = product.metadata.folderPath
+
+  if (!league || !team || !folderName) {
+    console.log(`   ⚠️  Metadata incompleto`)
+    return []
+  }
+
+  // Converter formato da pasta: "02/03" -> "02-03"
+  const normalizedFolderName = folderName.replace(/(\d{2})\/(\d{2})/g, '$1-$2')
+
+  // Estrutura: RETRO/[Liga]/[Time]/[Produto]/
+  const leagueFolderName = leagueMapping[league] || league
+  const folderPath = path.join(IMAGES_BASE_PATH, leagueFolderName, team, normalizedFolderName)
+
+  if (!fs.existsSync(folderPath)) {
+    console.log(`   ⚠️  Pasta não encontrada: ${folderPath}`)
+    return []
+  }
+
+  try {
+    const files = await readdir(folderPath)
+    const imageFiles = files.filter(file =>
+      /\.(jpg|jpeg|png|webp|gif)$/i.test(file)
+    )
+
+    return imageFiles.map(file => path.join(folderPath, file))
+  } catch (error) {
+    console.error(`   ❌ Erro ao ler pasta ${folderPath}:`, error.message)
+    return []
+  }
+}
+
+// Função para converter imagem para base64 data URL
+async function imageToBase64DataURL(imagePath) {
+  try {
+    const imageBuffer = await readFile(imagePath)
+    const ext = path.extname(imagePath).toLowerCase()
+    let mimeType = 'image/jpeg'
+
+    if (ext === '.png') mimeType = 'image/png'
+    else if (ext === '.webp') mimeType = 'image/webp'
+    else if (ext === '.gif') mimeType = 'image/gif'
+
+    const base64 = imageBuffer.toString('base64')
+    return `data:${mimeType};base64,${base64}`
+  } catch (error) {
+    console.error(`   ❌ Erro ao ler imagem ${imagePath}:`, error.message)
+    return null
+  }
+}
+
+// Delay entre requisições (para evitar rate limiting)
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+// Processar produtos
+let successCount = 0
+let errorCount = 0
+
+for (let i = 0; i < newProducts.length; i++) {
+  const product = newProducts[i]
+
+  console.log(`\n[${i + 1}/${newProducts.length}] ${product.name}`)
+  console.log(`   Handle: ${product.slug}`)
+  console.log(`   Liga: ${product.metadata.league}`)
+  console.log(`   Time: ${product.metadata.team}`)
+  console.log(`   Pasta: ${product.metadata.folderPath}`)
+
+  // Buscar produto na Shopify
+  const shopifyProduct = await getProductByHandle(product.slug)
+
+  if (!shopifyProduct) {
+    console.log(`   ⚠️  Produto não encontrado na Shopify. Certifique-se de importar o CSV primeiro!`)
+    errorCount++
+    await delay(500)
+    continue
+  }
+
+  console.log(`   ✅ Produto encontrado na Shopify`)
+
+  // Verificar se já tem imagem
+  if (shopifyProduct.images.edges.length > 0) {
+    console.log(`   ℹ️  Produto já tem imagem, pulando...`)
+    successCount++
+    await delay(500)
+    continue
+  }
+
+  // Buscar imagens na pasta
+  const images = await findProductImages(product)
+
+  if (images.length === 0) {
+    console.log(`   ⚠️  Nenhuma imagem encontrada`)
+    errorCount++
+    await delay(500)
+    continue
+  }
+
+  console.log(`   📸 ${images.length} imagens encontradas`)
+
+  // Fazer upload da primeira imagem
+  const firstImage = images[0]
+  console.log(`   📤 Fazendo upload: ${path.basename(firstImage)}`)
+
+  const imageBase64 = await imageToBase64DataURL(firstImage)
+
+  if (!imageBase64) {
+    console.log(`   ❌ Erro ao converter imagem`)
+    errorCount++
+    await delay(500)
+    continue
+  }
+
+  const uploadedImage = await uploadImageToProduct(
+    shopifyProduct.id,
+    imageBase64,
+    `${product.name} - Imagem Principal`
+  )
+
+  if (uploadedImage) {
+    console.log(`   ✅ Imagem enviada com sucesso!`)
+    console.log(`   🔗 URL: ${uploadedImage.url}`)
+    successCount++
+  } else {
+    console.log(`   ❌ Falha no upload da imagem`)
+    errorCount++
+  }
+
+  // Aguardar 2 segundos entre requisições (rate limiting da Shopify: 2 req/sec)
+  if (i < newProducts.length - 1) {
+    console.log(`   ⏳ Aguardando 2s...`)
+    await delay(2000)
+  }
+}
+
+console.log(`\n\n📊 RESUMO DO UPLOAD:\n`)
+console.log(`✅ Sucesso: ${successCount} produtos`)
+console.log(`❌ Erros: ${errorCount} produtos`)
+console.log(`📈 Total: ${newProducts.length} produtos`)
+console.log(`\n✨ Processo concluído!`)

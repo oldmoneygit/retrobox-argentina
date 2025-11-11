@@ -2,18 +2,18 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Type, Hash, Sparkles, Info } from 'lucide-react'
+import { Type, Hash, Shirt, Info } from 'lucide-react'
 
 /**
  * ProductCustomization Component
  * Permite al cliente personalizar su camiseta con nombre y número
  *
  * @param {function} onCustomizationChange - Callback cuando cambian los datos de personalización
- * @param {number} customizationPrice - Precio adicional por personalización (default: 5000 ARS)
+ * @param {number} customizationPrice - Precio adicional por personalización (default: 0 - GRATIS)
  */
 export default function ProductCustomization({
   onCustomizationChange,
-  customizationPrice = 5000
+  customizationPrice = 0
 }) {
   const [isCustomizing, setIsCustomizing] = useState(false)
   const [playerName, setPlayerName] = useState('')
@@ -75,7 +75,7 @@ export default function ProductCustomization({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 md:gap-3">
           <div className="p-1.5 md:p-2 dark:bg-white bg-black rounded-lg">
-            <Sparkles className="w-4 h-4 md:w-5 md:h-5 dark:text-black text-white" />
+            <Shirt className="w-4 h-4 md:w-5 md:h-5 dark:text-black text-white" />
           </div>
           <div>
             <h3 className="dark:text-white text-black font-black text-sm md:text-base uppercase tracking-wide">
@@ -121,21 +121,21 @@ export default function ProductCustomization({
             transition={{ duration: 0.3 }}
             className="space-y-3 md:space-y-4"
           >
-            {/* Info y Precio */}
-            <div className="dark:bg-gradient-to-r dark:from-white/5 dark:to-transparent dark:border-white/10 bg-gradient-to-r from-black/5 to-transparent border border-black/10 rounded-lg p-3 md:p-4">
+            {/* Info - Personalización Gratis */}
+            <div className="dark:bg-gradient-to-r dark:from-green-500/10 dark:to-transparent dark:border-green-500/20 bg-gradient-to-r from-green-500/10 to-transparent border border-green-500/20 rounded-lg p-3 md:p-4">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-2">
-                  <Info className="w-4 h-4 dark:text-white/60 text-black/60" />
+                  <Info className="w-4 h-4 dark:text-green-400 text-green-600" />
                   <span className="dark:text-white/80 text-black/80 text-xs md:text-sm">
-                    Costo adicional
+                    Personalización incluida
                   </span>
                 </div>
-                <span className="dark:text-white text-black font-black text-sm md:text-base">
-                  +${customizationPrice.toLocaleString('es-AR')}
+                <span className="dark:text-green-400 text-green-600 font-black text-sm md:text-base uppercase">
+                  ¡GRATIS!
                 </span>
               </div>
               <p className="dark:text-white/60 text-black/60 text-xs leading-relaxed">
-                Incluye estampado de nombre y número en la espalda con tecnología profesional
+                Incluye estampado de nombre y número en la espalda con tecnología profesional sin costo adicional
               </p>
             </div>
 

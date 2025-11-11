@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-11-10T00:49:56.742Z",
+  "passed": 6,
+  "warnings": 0,
+  "issues": 0,
+  "summary": {
+    "passed": [
+      "Nenhum título problemático",
+      "Todos os componentes Phase 1 criados",
+      "Diretivas 'use client' OK",
+      "Trust badge image OK",
+      "Documentação criada",
+      "Correções de títulos aplicadas"
+    ],
+    "warnings": [],
+    "issues": []
+  }
+}
