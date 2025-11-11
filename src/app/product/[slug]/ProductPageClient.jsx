@@ -300,7 +300,7 @@ const ProductGallery = ({ images = [], productName }) => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 relative aspect-square bg-gradient-to-br from-gray-200 to-gray-300"
+                className="flex-[0_0_100%] min-w-0 relative aspect-square"
               >
                 <div
                   className="absolute inset-0 cursor-zoom-in"
