@@ -976,8 +976,8 @@ export default function ProductPageClient({ product }) {
                   onClick={() => setActiveTab('garantia')}
                   className={`flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'garantia'
-                      ? 'bg-white text-black shadow-lg shadow-white/20'
-                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20'
+                      ? 'dark:bg-white dark:text-black dark:shadow-white/20 bg-gray-600 text-white shadow-lg shadow-gray-600/20'
+                      : 'dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:border-white/10 dark:hover:border-white/20 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <Shield className="w-5 h-5" />
@@ -987,8 +987,8 @@ export default function ProductPageClient({ product }) {
                   onClick={() => setActiveTab('cuidados')}
                   className={`flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'cuidados'
-                      ? 'bg-white text-black shadow-lg shadow-white/20'
-                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20'
+                      ? 'dark:bg-white dark:text-black dark:shadow-white/20 bg-gray-600 text-white shadow-lg shadow-gray-600/20'
+                      : 'dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:border-white/10 dark:hover:border-white/20 bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300 hover:border-gray-400'
                   }`}
                 >
                   <Sparkles className="w-5 h-5" />
