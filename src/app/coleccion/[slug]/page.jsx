@@ -464,7 +464,7 @@ export default function ColeccionPage() {
 
       <main className="dark:text-white text-black">
         {/* Hero Section */}
-        <div className="relative dark:bg-gradient-to-b dark:from-gray-dark dark:to-black bg-gradient-to-b from-gray-100 to-white py-12 md:py-16 transition-colors duration-300">
+        <div className="relative dark:bg-gradient-to-b dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-b from-gray-100 to-white py-12 md:py-16 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
               {/* Logo */}
