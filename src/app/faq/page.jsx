@@ -102,10 +102,10 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.05 }}
-      className={`bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl border transition-all duration-300 overflow-hidden ${
+      className={`dark:bg-gradient-to-br dark:from-white/5 dark:to-white/[0.02] dark:border-white/30 dark:shadow-white/10 dark:hover:border-white/20 dark:hover:bg-white/[0.07] bg-gradient-to-br from-black/5 to-black/[0.02] backdrop-blur-sm rounded-xl md:rounded-2xl border transition-all duration-300 overflow-hidden ${
         isOpen
-          ? 'border-white/30 shadow-lg shadow-white/10'
-          : 'border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
+          ? 'border-black/30 shadow-lg shadow-black/10'
+          : 'border-black/10 hover:border-black/20 hover:bg-black/[0.07]'
       }`}
     >
       <button
@@ -115,8 +115,8 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
         {/* Icon */}
         <div className={`flex-shrink-0 p-2 md:p-3 rounded-lg md:rounded-xl transition-all duration-300 ${
           isOpen
-            ? 'bg-white text-black shadow-lg'
-            : 'bg-white/10 text-white group-hover:bg-white/20'
+            ? 'dark:bg-white dark:text-black bg-black text-white shadow-lg'
+            : 'dark:bg-white/10 dark:text-white dark:group-hover:bg-white/20 bg-black/10 text-black group-hover:bg-black/20'
         }`}>
           <Icon className="w-5 h-5 md:w-6 md:h-6" strokeWidth={2} />
         </div>
@@ -124,11 +124,11 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
         {/* Question */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-wider">
+            <span className="text-[10px] md:text-xs font-bold dark:text-white/50 text-black/50 uppercase tracking-wider">
               {faq.category}
             </span>
           </div>
-          <h3 className="text-white font-bold text-sm md:text-lg leading-snug pr-2">
+          <h3 className="dark:text-white text-black font-bold text-sm md:text-lg leading-snug pr-2">
             {faq.question}
           </h3>
         </div>
@@ -141,7 +141,7 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
         >
           <ChevronDown
             className={`w-5 h-5 md:w-6 md:h-6 transition-colors ${
-              isOpen ? 'text-white' : 'text-white/50 group-hover:text-white/70'
+              isOpen ? 'dark:text-white text-black' : 'dark:text-white/50 dark:group-hover:text-white/70 text-black/50 group-hover:text-black/70'
             }`}
             strokeWidth={2.5}
           />
@@ -159,8 +159,8 @@ const FAQItem = ({ faq, index, isOpen, onToggle }) => {
             className="overflow-hidden"
           >
             <div className="px-4 md:px-6 pb-4 md:pb-6">
-              <div className="pl-0 md:pl-[52px] border-t border-white/10 pt-4">
-                <p className="text-white/70 text-sm md:text-base leading-relaxed">
+              <div className="pl-0 md:pl-[52px] dark:border-t dark:border-white/10 border-t border-black/10 pt-4">
+                <p className="dark:text-white/70 text-black/70 text-sm md:text-base leading-relaxed">
                   {faq.answer}
                 </p>
               </div>
@@ -179,7 +179,7 @@ export default function FAQPage() {
     <>
       <Header />
 
-      <main className="min-h-screen bg-black text-white relative overflow-hidden">
+      <main className="min-h-screen dark:bg-black dark:text-white bg-white text-black relative overflow-hidden transition-colors duration-300">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
@@ -200,21 +200,21 @@ export default function FAQPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6"
+                className="inline-flex items-center gap-2 dark:bg-white/10 dark:border-white/20 bg-black/10 backdrop-blur-sm border border-black/20 rounded-full px-4 py-2 mb-6"
               >
-                <HelpCircle className="w-4 h-4 text-white" />
-                <span className="text-white text-xs md:text-sm font-bold uppercase tracking-wide">
+                <HelpCircle className="w-4 h-4 dark:text-white text-black" />
+                <span className="dark:text-white text-black text-xs md:text-sm font-bold uppercase tracking-wide">
                   Centro de Ayuda
                 </span>
               </motion.div>
 
               {/* Title */}
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 md:mb-6 uppercase tracking-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black dark:text-white text-black mb-4 md:mb-6 uppercase tracking-tight">
                 Preguntas Frecuentes
               </h1>
 
               {/* Subtitle */}
-              <p className="text-white/60 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto">
+              <p className="dark:text-white/60 text-black/60 text-sm md:text-lg leading-relaxed max-w-2xl mx-auto">
                 Encuentra respuestas a las preguntas más comunes sobre nuestros productos, envíos, pagos y políticas
               </p>
             </motion.div>
@@ -242,19 +242,19 @@ export default function FAQPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mt-12 md:mt-16 p-6 md:p-8 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 rounded-2xl text-center"
+                className="mt-12 md:mt-16 p-6 md:p-8 dark:bg-gradient-to-br dark:from-white/10 dark:to-white/5 dark:border-white/20 bg-gradient-to-br from-black/10 to-black/5 backdrop-blur-sm border border-black/20 rounded-2xl text-center"
               >
-                <h3 className="text-white font-black text-xl md:text-2xl mb-3">
+                <h3 className="dark:text-white text-black font-black text-xl md:text-2xl mb-3">
                   ¿No encontraste lo que buscabas?
                 </h3>
-                <p className="text-white/60 mb-6 text-sm md:text-base">
+                <p className="dark:text-white/60 text-black/60 mb-6 text-sm md:text-base">
                   Estamos aquí para ayudarte. Contáctanos y te responderemos lo antes posible.
                 </p>
                 <motion.a
                   href="/contacto"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center gap-2 bg-white text-black font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-gray-light transition-all shadow-lg hover:shadow-xl text-sm md:text-base"
+                  className="inline-flex items-center gap-2 dark:bg-white dark:text-black dark:hover:bg-gray-light bg-black text-white font-bold px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-gray-dark transition-all shadow-lg hover:shadow-xl text-sm md:text-base"
                 >
                   Contáctanos
                 </motion.a>

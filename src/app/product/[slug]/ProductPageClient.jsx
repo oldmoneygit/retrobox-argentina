@@ -27,7 +27,7 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-4 bg-black/95 backdrop-blur-md"
+        className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-4 dark:bg-black/95 bg-white/95 backdrop-blur-md"
         onClick={onClose}
       >
         <motion.div
@@ -35,7 +35,7 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           onClick={(e) => e.stopPropagation()}
-          className="bg-black border-2 border-white/10 rounded-xl md:rounded-2xl p-4 md:p-8 max-w-3xl w-full max-h-[92vh] md:max-h-[90vh] overflow-y-auto"
+          className="dark:bg-black dark:border-white/10 bg-white border-2 border-black/10 rounded-xl md:rounded-2xl p-4 md:p-8 max-w-3xl w-full max-h-[92vh] md:max-h-[90vh] overflow-y-auto transition-colors duration-300"
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-4 md:mb-6">
@@ -43,14 +43,14 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
               <div className="p-1.5 md:p-2 bg-white rounded-lg">
                 <Ruler className="w-4 h-4 md:w-5 md:h-5 text-black" />
               </div>
-              <h2 className="text-lg md:text-3xl font-black text-white uppercase">Guía de Tallas</h2>
+              <h2 className="text-lg md:text-3xl font-black dark:text-white text-black uppercase">Guía de Tallas</h2>
             </div>
             <button
               onClick={onClose}
-              className="p-1.5 md:p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="p-1.5 md:p-2 dark:hover:bg-white/10 hover:bg-black/10 rounded-lg transition-colors"
               aria-label="Cerrar guía"
             >
-              <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <X className="w-5 h-5 md:w-6 md:h-6 dark:text-white text-black" />
             </button>
           </div>
 
@@ -61,9 +61,9 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
                 <Check className="w-4 h-4 md:w-5 md:h-5 text-black" />
               </div>
               <div>
-                <p className="text-white font-bold mb-1 text-xs md:text-base">¿No querés medir?</p>
-                <p className="text-white/80 text-xs md:text-sm leading-relaxed">
-                  Podés elegir tu <strong className="text-white">talla habitual</strong> sin problemas.
+                <p className="dark:text-white text-black font-bold mb-1 text-xs md:text-base">¿No querés medir?</p>
+                <p className="dark:text-white/80 text-black/80 text-xs md:text-sm leading-relaxed">
+                  Podés elegir tu <strong className="dark:text-white text-black">talla habitual</strong> sin problemas.
                   Nuestras camisetas tienen un calce estándar y cómodo.
                 </p>
               </div>
@@ -72,7 +72,7 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
 
           {/* Size Chart Table */}
           <div className="mb-4 md:mb-6">
-            <h3 className="text-white font-bold mb-2 md:mb-3 uppercase text-xs md:text-sm">Tabla de Medidas</h3>
+            <h3 className="dark:text-white text-black font-bold mb-2 md:mb-3 uppercase text-xs md:text-sm">Tabla de Medidas</h3>
 
             {/* Mobile: Cards Layout */}
             <div className="md:hidden space-y-2">
@@ -84,19 +84,19 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
                 { size: 'XXL', chest: '112-117 cm', length: '79 cm', equiv: '2X Large' },
                 { size: '3XL', chest: '118-123 cm', length: '81 cm', equiv: '3X Large' }
               ].map((item) => (
-                <div key={item.size} className="bg-white/5 border border-white/10 rounded-lg p-3">
+                <div key={item.size} className="dark:bg-white/5 dark:border-white/10 bg-black/5 border border-black/10 rounded-lg p-3">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-white font-bold text-lg">{item.size}</span>
-                    <span className="text-white/60 text-[10px] uppercase">{item.equiv}</span>
+                    <span className="dark:text-white text-black font-bold text-lg">{item.size}</span>
+                    <span className="dark:text-white/60 text-black/60 text-[10px] uppercase">{item.equiv}</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div>
-                      <span className="text-white/60 text-[10px] uppercase block">Pecho</span>
-                      <span className="text-white/90">{item.chest}</span>
+                      <span className="dark:text-white/60 text-black/60 text-[10px] uppercase block">Pecho</span>
+                      <span className="dark:text-white/90 text-black/90">{item.chest}</span>
                     </div>
                     <div>
-                      <span className="text-white/60 text-[10px] uppercase block">Largo</span>
-                      <span className="text-white/90">{item.length}</span>
+                      <span className="dark:text-white/60 text-black/60 text-[10px] uppercase block">Largo</span>
+                      <span className="dark:text-white/90 text-black/90">{item.length}</span>
                     </div>
                   </div>
                 </div>
@@ -107,8 +107,8 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
             <div className="hidden md:block">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-white/10">
-                    <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
+                  <tr className="dark:bg-white/10 bg-black/10">
+                    <th className="px-4 py-3 text-left dark:text-white text-black font-bold uppercase text-sm dark:border-white/10 border border-black/10">
                       Talla
                     </th>
                     <th className="px-4 py-3 text-left text-white font-bold uppercase text-sm border border-white/10">
@@ -123,41 +123,41 @@ const SizeGuideModal = ({ isOpen, onClose }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">S</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">88-93 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">71 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Small</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">S</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">88-93 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">71 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">Small</td>
                   </tr>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">M</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">94-99 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">73 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Medium</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">M</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">94-99 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">73 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">Medium</td>
                   </tr>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">L</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">100-105 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">75 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Large</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">L</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">100-105 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">75 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">Large</td>
                   </tr>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">XL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">106-111 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">77 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">Extra Large</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">XL</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">106-111 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">77 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">Extra Large</td>
                   </tr>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">XXL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">112-117 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">79 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">2X Large</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">XXL</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">112-117 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">79 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">2X Large</td>
                   </tr>
-                  <tr className="hover:bg-white/5 transition-colors">
-                    <td className="px-4 py-3 text-white font-bold border border-white/10">3XL</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">118-123 cm</td>
-                    <td className="px-4 py-3 text-white/80 border border-white/10">81 cm</td>
-                    <td className="px-4 py-3 text-white/60 text-sm border border-white/10">3X Large</td>
+                  <tr className="dark:hover:bg-white/5 hover:bg-black/5 transition-colors">
+                    <td className="px-4 py-3 dark:text-white text-black font-bold dark:border-white/10 border border-black/10">3XL</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">118-123 cm</td>
+                    <td className="px-4 py-3 dark:text-white/80 text-black/80 dark:border-white/10 border border-black/10">81 cm</td>
+                    <td className="px-4 py-3 dark:text-white/60 text-black/60 text-sm dark:border-white/10 border border-black/10">3X Large</td>
                   </tr>
                 </tbody>
               </table>
@@ -281,8 +281,8 @@ const ProductGallery = ({ images = [], productName }) => {
 
   if (images.length === 0) {
     return (
-      <div className="w-full aspect-square bg-white/5 rounded-lg flex items-center justify-center">
-        <p className="text-white/40 text-sm md:text-base">Sin imágenes disponibles</p>
+      <div className="w-full aspect-square dark:bg-white/5 bg-black/5 rounded-lg flex items-center justify-center">
+        <p className="dark:text-white/40 text-black/40 text-sm md:text-base">Sin imágenes disponibles</p>
       </div>
     )
   }
@@ -300,7 +300,7 @@ const ProductGallery = ({ images = [], productName }) => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 relative aspect-square bg-gradient-to-br from-gray-dark to-black"
+                className="flex-[0_0_100%] min-w-0 relative aspect-square dark:bg-gradient-to-br dark:from-gray-dark dark:to-black bg-gradient-to-br from-gray-200 to-gray-300"
               >
                 <div
                   className="absolute inset-0 cursor-zoom-in"
@@ -326,14 +326,14 @@ const ProductGallery = ({ images = [], productName }) => {
           <>
             <button
               onClick={scrollPrev}
-              className="hidden md:flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 bg-black/70 hover:bg-black/90 text-white rounded-full items-center justify-center transition-all backdrop-blur-sm z-10"
+              className="hidden md:flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 dark:bg-black/70 dark:hover:bg-black/90 dark:text-white bg-white/70 hover:bg-white/90 text-black rounded-full items-center justify-center transition-all backdrop-blur-sm z-10"
               aria-label="Imagen anterior"
             >
               <ChevronLeft size={20} className="md:w-6 md:h-6" />
             </button>
             <button
               onClick={scrollNext}
-              className="hidden md:flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 bg-black/70 hover:bg-black/90 text-white rounded-full items-center justify-center transition-all backdrop-blur-sm z-10"
+              className="hidden md:flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 md:w-12 md:h-12 dark:bg-black/70 dark:hover:bg-black/90 dark:text-white bg-white/70 hover:bg-white/90 text-black rounded-full items-center justify-center transition-all backdrop-blur-sm z-10"
               aria-label="Imagen siguiente"
             >
               <ChevronRight size={20} className="md:w-6 md:h-6" />
@@ -343,13 +343,13 @@ const ProductGallery = ({ images = [], productName }) => {
 
         {/* Image Counter */}
         {images.length > 1 && (
-          <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 bg-black/70 backdrop-blur-sm text-white px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg text-xs md:text-sm font-bold">
+          <div className="absolute bottom-2 md:bottom-4 right-2 md:right-4 dark:bg-black/70 dark:text-white bg-white/70 text-black backdrop-blur-sm px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg text-xs md:text-sm font-bold">
             {selectedIndex + 1} / {images.length}
           </div>
         )}
 
         {/* Swipe Indicator - Mobile only */}
-        <div className="md:hidden absolute bottom-2 left-2 bg-black/70 backdrop-blur-sm text-white px-2 py-1 rounded-md text-xs font-medium flex items-center gap-1.5">
+        <div className="md:hidden absolute bottom-2 left-2 dark:bg-black/70 dark:text-white bg-white/70 text-black backdrop-blur-sm px-2 py-1 rounded-md text-xs font-medium flex items-center gap-1.5">
           <Sparkles className="w-3 h-3" />
           Deslizá
         </div>
@@ -363,10 +363,10 @@ const ProductGallery = ({ images = [], productName }) => {
               <button
                 key={index}
                 onClick={() => onThumbClick(index)}
-                className={`flex-[0_0_auto] w-14 h-14 md:w-16 md:h-16 relative rounded-md md:rounded-xl overflow-hidden bg-white/5 transition-all duration-200 ${
+                className={`flex-[0_0_auto] w-14 h-14 md:w-16 md:h-16 relative rounded-md md:rounded-xl overflow-hidden dark:bg-white/5 bg-black/5 transition-all duration-200 ${
                   selectedIndex === index
-                    ? 'ring-2 ring-white scale-105 shadow-lg shadow-white/30'
-                    : 'ring-1 md:ring-2 ring-transparent hover:ring-white/30 opacity-60 hover:opacity-100'
+                    ? 'dark:ring-2 dark:ring-white dark:shadow-white/30 ring-2 ring-black scale-105 shadow-lg shadow-black/30'
+                    : 'ring-1 md:ring-2 ring-transparent dark:hover:ring-white/30 hover:ring-black/30 opacity-60 hover:opacity-100'
                 }`}
               >
                 <OptimizedImage
@@ -378,7 +378,7 @@ const ProductGallery = ({ images = [], productName }) => {
                   quality={60}
                 />
                 {selectedIndex === index && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+                  <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-white/20 dark:to-transparent bg-gradient-to-t from-black/20 to-transparent" />
                 )}
               </button>
             ))}
@@ -393,15 +393,15 @@ const ProductGallery = ({ images = [], productName }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 dark:bg-black/95 bg-white/95 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setIsZoomed(false)}
           >
             <button
               onClick={() => setIsZoomed(false)}
-              className="absolute top-4 right-4 p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+              className="absolute top-4 right-4 p-2 md:p-3 dark:bg-white/10 dark:hover:bg-white/20 bg-black/10 hover:bg-black/20 rounded-full transition-colors"
               aria-label="Cerrar zoom"
             >
-              <X className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <X className="w-5 h-5 md:w-6 md:h-6 dark:text-white text-black" />
             </button>
             <div className="relative w-full h-full max-w-6xl max-h-[90vh]">
               <OptimizedImage
@@ -467,12 +467,12 @@ export default function ProductPageClient({ product }) {
       {/* Size Guide Modal */}
       <SizeGuideModal isOpen={showSizeGuide} onClose={() => setShowSizeGuide(false)} />
 
-      <main className="min-h-screen bg-black pt-14 md:pt-20">
+      <main className="min-h-screen dark:bg-black bg-white pt-14 md:pt-20 transition-colors duration-300">
         {/* Breadcrumb */}
         <div className="container mx-auto px-4 py-0 md:py-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors text-sm md:text-base font-semibold"
+            className="inline-flex items-center gap-2 dark:text-white/60 dark:hover:text-white text-black/60 hover:text-black transition-colors text-sm md:text-base font-semibold"
           >
             <ArrowLeft size={18} />
             Volver a la tienda
@@ -491,13 +491,13 @@ export default function ProductPageClient({ product }) {
             <div className="space-y-3 md:space-y-4">
               {/* Product Name */}
               <div>
-                <h1 className="text-white font-black text-xl md:text-3xl lg:text-4xl uppercase tracking-wide leading-tight">
+                <h1 className="dark:text-white text-black font-black text-xl md:text-3xl lg:text-4xl uppercase tracking-wide leading-tight">
                   {product.name}
                 </h1>
               </div>
 
               {/* Price - Black November */}
-              <div className="bg-gradient-to-r from-white/5 to-transparent border border-white/10 rounded-lg md:rounded-xl p-3 md:p-4">
+              <div className="dark:bg-gradient-to-r dark:from-white/5 dark:to-transparent dark:border-white/10 bg-gradient-to-r from-black/5 to-transparent border border-black/10 rounded-lg md:rounded-xl p-3 md:p-4">
                 {/* Black November Badge */}
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
                   <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] md:text-xs font-black px-2 py-1 md:px-3 md:py-1.5 rounded shadow-lg uppercase tracking-wide">
@@ -511,11 +511,11 @@ export default function ProductPageClient({ product }) {
                 {/* Prices */}
                 <div className="space-y-1">
                   {/* Original Price (Always show for Black November) */}
-                  <p className="text-sm md:text-base lg:text-lg text-white/20 line-through">
+                  <p className="text-sm md:text-base lg:text-lg dark:text-white/20 text-black/20 line-through">
                     ${originalPrice.toLocaleString('es-AR')}
                   </p>
                   {/* Promotional Price */}
-                  <p className="text-2xl md:text-3xl lg:text-4xl font-black text-white">
+                  <p className="text-2xl md:text-3xl lg:text-4xl font-black dark:text-white text-black">
                     ${product.price.toLocaleString('es-AR')}
                   </p>
                 </div>
@@ -524,12 +524,12 @@ export default function ProductPageClient({ product }) {
               {/* Size Selector with Guide */}
               <div className="space-y-2 md:space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
+                  <label className="block dark:text-white text-black font-bold text-xs md:text-sm uppercase tracking-wide">
                     Seleccioná tu talla
                   </label>
                   <button
                     onClick={() => setShowSizeGuide(true)}
-                    className="flex items-center gap-1 text-white hover:text-gray-light transition-colors text-xs md:text-sm font-bold"
+                    className="flex items-center gap-1 dark:text-white dark:hover:text-gray-light text-black hover:text-gray-dark transition-colors text-xs md:text-sm font-bold"
                   >
                     <Ruler size={14} className="md:w-4 md:h-4" />
                     Guía de tallas
@@ -542,30 +542,30 @@ export default function ProductPageClient({ product }) {
                       onClick={() => setSelectedSize(size)}
                       className={`relative py-2 px-2 md:py-2.5 md:px-3 rounded-lg font-bold text-sm transition-all duration-200 ${
                         selectedSize === size
-                          ? 'bg-white text-black shadow-lg shadow-white/30 scale-105'
-                          : 'bg-white/5 text-white hover:bg-white/10 hover:scale-105 border border-white/10 hover:border-white/30'
+                          ? 'dark:bg-white dark:text-black dark:shadow-white/30 bg-black text-white shadow-lg shadow-black/30 scale-105'
+                          : 'dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:border-white/10 dark:hover:border-white/30 bg-black/5 text-black hover:bg-black/10 hover:scale-105 border border-black/10 hover:border-black/30'
                       }`}
                     >
                       {size}
                       {selectedSize === size && (
-                        <div className="absolute -top-0.5 -right-0.5 w-3 h-3 md:w-3.5 md:h-3.5 bg-black rounded-full flex items-center justify-center">
-                          <Check className="w-2 h-2 text-white" />
+                        <div className="absolute -top-0.5 -right-0.5 w-3 h-3 md:w-3.5 md:h-3.5 dark:bg-black bg-white rounded-full flex items-center justify-center">
+                          <Check className="w-2 h-2 dark:text-white text-black" />
                         </div>
                       )}
                     </button>
                   ))}
                 </div>
                 {selectedSize && (
-                  <p className="text-white/60 text-xs flex items-center gap-2">
-                    <Check className="w-3 h-3 text-white" />
-                    Talla seleccionada: <span className="text-white font-bold">{selectedSize}</span>
+                  <p className="dark:text-white/60 text-black/60 text-xs flex items-center gap-2">
+                    <Check className="w-3 h-3 dark:text-white text-black" />
+                    Talla seleccionada: <span className="dark:text-white text-black font-bold">{selectedSize}</span>
                   </p>
                 )}
               </div>
 
               {/* Quantity Selector */}
               <div className="space-y-2 md:space-y-3">
-                <label className="block text-white font-bold text-xs md:text-sm uppercase tracking-wide">
+                <label className="block dark:text-white text-black font-bold text-xs md:text-sm uppercase tracking-wide">
                   Cantidad
                 </label>
                 <div className="flex items-center gap-2 md:gap-3">
@@ -574,8 +574,8 @@ export default function ProductPageClient({ product }) {
                     disabled={quantity <= 1}
                     className={`w-9 h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                       quantity <= 1
-                        ? 'bg-white/5 text-white/30 cursor-not-allowed'
-                        : 'bg-white/10 text-white hover:bg-white hover:text-black hover:scale-110'
+                        ? 'dark:bg-white/5 dark:text-white/30 bg-black/5 text-black/30 cursor-not-allowed'
+                        : 'dark:bg-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black bg-black/10 text-black hover:bg-black hover:text-white hover:scale-110'
                     }`}
                   >
                     <Minus size={16} className="md:w-4 md:h-4" />
@@ -585,7 +585,7 @@ export default function ProductPageClient({ product }) {
                       type="text"
                       value={quantity}
                       readOnly
-                      className="w-full h-10 md:h-11 bg-white/5 text-white text-center font-bold rounded-lg border-2 border-white/10 focus:border-white/50 focus:outline-none text-base md:text-lg"
+                      className="w-full h-10 md:h-11 dark:bg-white/5 dark:text-white dark:border-white/10 dark:focus:border-white/50 bg-black/5 text-black text-center font-bold rounded-lg border-2 border-black/10 focus:border-black/50 focus:outline-none text-base md:text-lg"
                     />
                   </div>
                   <button
@@ -593,13 +593,13 @@ export default function ProductPageClient({ product }) {
                     disabled={quantity >= 10}
                     className={`w-9 h-9 md:w-10 md:h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
                       quantity >= 10
-                        ? 'bg-white/5 text-white/30 cursor-not-allowed'
-                        : 'bg-white/10 text-white hover:bg-white hover:text-black hover:scale-110'
+                        ? 'dark:bg-white/5 dark:text-white/30 bg-black/5 text-black/30 cursor-not-allowed'
+                        : 'dark:bg-white/10 dark:text-white dark:hover:bg-white dark:hover:text-black bg-black/10 text-black hover:bg-black hover:text-white hover:scale-110'
                     }`}
                   >
                     <Plus size={16} className="md:w-4 md:h-4" />
                   </button>
-                  <span className="text-white/60 text-xs">
+                  <span className="dark:text-white/60 text-black/60 text-xs">
                     Máx. 10
                   </span>
                 </div>
@@ -613,10 +613,10 @@ export default function ProductPageClient({ product }) {
                   disabled={addedToCart || !selectedSize}
                   className={`flex-1 py-3 px-4 md:py-4 md:px-5 rounded-lg md:rounded-xl font-black text-sm md:text-base uppercase tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                     addedToCart
-                      ? 'bg-white text-black'
+                      ? 'dark:bg-white dark:text-black bg-black text-white'
                       : !selectedSize
-                        ? 'bg-white/10 text-white/50 cursor-not-allowed border-2 border-white/10'
-                        : 'bg-white text-black hover:bg-gray-light hover:shadow-xl hover:shadow-white/20 active:scale-95 hover:scale-105'
+                        ? 'dark:bg-white/10 dark:text-white/50 dark:border-white/10 bg-black/10 text-black/50 cursor-not-allowed border-2 border-black/10'
+                        : 'dark:bg-white dark:text-black dark:hover:bg-gray-light dark:hover:shadow-white/20 bg-black text-white hover:bg-gray-dark hover:shadow-xl hover:shadow-black/20 active:scale-95 hover:scale-105'
                   }`}
                 >
                   {addedToCart ? (
@@ -638,8 +638,8 @@ export default function ProductPageClient({ product }) {
                   onClick={handleToggleWishlist}
                   className={`py-3 px-4 md:py-4 md:px-5 rounded-lg md:rounded-xl transition-all duration-300 hover:scale-110 active:scale-95 ${
                     inWishlist
-                      ? 'bg-white text-black'
-                      : 'bg-white/10 text-white hover:bg-white/20 border-2 border-white/10'
+                      ? 'dark:bg-white dark:text-black bg-black text-white'
+                      : 'dark:bg-white/10 dark:text-white dark:hover:bg-white/20 dark:border-white/10 bg-black/10 text-black hover:bg-black/20 border-2 border-black/10'
                   }`}
                   aria-label={inWishlist ? 'Quitar de favoritos' : 'Agregar a favoritos'}
                 >
@@ -659,71 +659,71 @@ export default function ProductPageClient({ product }) {
               <BlackFridayProductCard />
 
               {/* Product Details Section */}
-              <div className="py-6 border-t border-white/10">
-                <h3 className="text-white font-black text-lg mb-4 uppercase tracking-wide flex items-center gap-2">
-                  <Package className="w-5 h-5 text-white" />
+              <div className="py-6 dark:border-t dark:border-white/10 border-t border-black/10">
+                <h3 className="dark:text-white text-black font-black text-lg mb-4 uppercase tracking-wide flex items-center gap-2">
+                  <Package className="w-5 h-5 dark:text-white text-black" />
                   Detalles del Producto
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                    <p className="text-white/60 text-xs uppercase tracking-wide mb-1">Material</p>
-                    <p className="text-white font-bold">100% Poliéster Premium</p>
+                  <div className="dark:bg-white/5 dark:border-white/10 bg-black/5 rounded-lg p-4 border border-black/10">
+                    <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide mb-1">Material</p>
+                    <p className="dark:text-white text-black font-bold">100% Poliéster Premium</p>
                   </div>
-                  <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                    <p className="text-white/60 text-xs uppercase tracking-wide mb-1">Calidad</p>
-                    <p className="text-white font-bold">Réplica Premium 1:1</p>
+                  <div className="dark:bg-white/5 dark:border-white/10 bg-black/5 rounded-lg p-4 border border-black/10">
+                    <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide mb-1">Calidad</p>
+                    <p className="dark:text-white text-black font-bold">Réplica Premium 1:1</p>
                   </div>
-                  <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                    <p className="text-white/60 text-xs uppercase tracking-wide mb-1">Origen</p>
-                    <p className="text-white font-bold">Importado</p>
+                  <div className="dark:bg-white/5 dark:border-white/10 bg-black/5 rounded-lg p-4 border border-black/10">
+                    <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide mb-1">Origen</p>
+                    <p className="dark:text-white text-black font-bold">Importado</p>
                   </div>
                 </div>
               </div>
 
               {/* Product Features - Enhanced Grid */}
-              <div className="space-y-4 pt-6 border-t border-white/10">
-                <h3 className="text-white font-black text-lg uppercase tracking-wide flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-white" />
+              <div className="space-y-4 pt-6 dark:border-t dark:border-white/10 border-t border-black/10">
+                <h3 className="dark:text-white text-black font-black text-lg uppercase tracking-wide flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 dark:text-white text-black" />
                   Beneficios
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 bg-gradient-to-br from-white/5 to-white/0 p-4 rounded-xl border border-white/10">
-                    <div className="p-2 bg-white rounded-lg shrink-0">
-                      <Sparkles className="w-5 h-5 text-black" />
+                  <div className="flex items-start gap-3 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/0 dark:border-white/10 bg-gradient-to-br from-black/5 to-black/0 p-4 rounded-xl border border-black/10">
+                    <div className="p-2 dark:bg-white bg-black rounded-lg shrink-0">
+                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm mb-1">Calidad Premium</p>
-                      <p className="text-white/60 text-xs">Materiales de alta calidad con acabado profesional</p>
+                      <p className="dark:text-white text-black font-bold text-sm mb-1">Calidad Premium</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs">Materiales de alta calidad con acabado profesional</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-gradient-to-br from-white/5 to-white/0 p-4 rounded-xl border border-white/10">
-                    <div className="p-2 bg-white rounded-lg shrink-0">
-                      <Truck className="w-5 h-5 text-black" />
+                  <div className="flex items-start gap-3 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/0 dark:border-white/10 bg-gradient-to-br from-black/5 to-black/0 p-4 rounded-xl border border-black/10">
+                    <div className="p-2 dark:bg-white bg-black rounded-lg shrink-0">
+                      <Truck className="w-5 h-5 dark:text-black text-white" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm mb-1">Envío Express</p>
-                      <p className="text-white/60 text-xs">Recibí tu pedido en 3-5 días hábiles</p>
+                      <p className="dark:text-white text-black font-bold text-sm mb-1">Envío Express</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs">Recibí tu pedido en 3-5 días hábiles</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-gradient-to-br from-white/5 to-white/0 p-4 rounded-xl border border-white/10">
-                    <div className="p-2 bg-white rounded-lg shrink-0">
-                      <Shield className="w-5 h-5 text-black" />
+                  <div className="flex items-start gap-3 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/0 dark:border-white/10 bg-gradient-to-br from-black/5 to-black/0 p-4 rounded-xl border border-black/10">
+                    <div className="p-2 dark:bg-white bg-black rounded-lg shrink-0">
+                      <Shield className="w-5 h-5 dark:text-black text-white" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm mb-1">Compra Segura</p>
-                      <p className="text-white/60 text-xs">Protección total en todas tus transacciones</p>
+                      <p className="dark:text-white text-black font-bold text-sm mb-1">Compra Segura</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs">Protección total en todas tus transacciones</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3 bg-gradient-to-br from-white/5 to-white/0 p-4 rounded-xl border border-white/10">
-                    <div className="p-2 bg-white rounded-lg shrink-0">
-                      <RotateCcw className="w-5 h-5 text-black" />
+                  <div className="flex items-start gap-3 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/0 dark:border-white/10 bg-gradient-to-br from-black/5 to-black/0 p-4 rounded-xl border border-black/10">
+                    <div className="p-2 dark:bg-white bg-black rounded-lg shrink-0">
+                      <RotateCcw className="w-5 h-5 dark:text-black text-white" />
                     </div>
                     <div>
-                      <p className="text-white font-bold text-sm mb-1">Garantía de Satisfacción</p>
-                      <p className="text-white/60 text-xs">Cambios y devoluciones sin complicaciones</p>
+                      <p className="dark:text-white text-black font-bold text-sm mb-1">Garantía de Satisfacción</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs">Cambios y devoluciones sin complicaciones</p>
                     </div>
                   </div>
                 </div>
@@ -734,7 +734,7 @@ export default function ProductPageClient({ product }) {
         </div>
 
         {/* Especificaciones Técnicas - Full Width Section */}
-        <div className="bg-gradient-to-b from-black via-gray-dark to-black py-12 md:py-16">
+        <div className="dark:bg-gradient-to-b dark:from-black dark:via-gray-dark dark:to-black bg-gradient-to-b from-white via-gray-100 to-white py-12 md:py-16 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -742,10 +742,10 @@ export default function ProductPageClient({ product }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-white font-black text-3xl md:text-4xl mb-3 uppercase tracking-wide text-center">
+              <h3 className="dark:text-white text-black font-black text-3xl md:text-4xl mb-3 uppercase tracking-wide text-center">
                 Especificaciones Técnicas
               </h3>
-              <p className="text-white/60 text-center mb-10 text-base">
+              <p className="dark:text-white/60 text-black/60 text-center mb-10 text-base">
                 Conocé todos los detalles de tu jersey
               </p>
 
@@ -755,37 +755,37 @@ export default function ProductPageClient({ product }) {
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Shield className="w-5 h-5 text-black" />
+                      <Shield className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
-                      <p className="text-white/60 text-xs uppercase tracking-wide">Material</p>
-                      <p className="text-white font-black">Poliéster Premium 100%</p>
+                      <p className="dark:text-white/60 text-black/60 text-xs uppercase tracking-wide">Material</p>
+                      <p className="dark:text-white text-black font-black">Poliéster Premium 100%</p>
                     </div>
                   </div>
-                  <p className="text-white/60 text-xs group-hover:text-white/80 transition-colors">Tela de alta calidad con doble tejido</p>
+                  <p className="dark:text-white/60 dark:group-hover:text-white/80 text-black/60 group-hover:text-black/80 text-xs transition-colors">Tela de alta calidad con doble tejido</p>
                 </motion.div>
 
                 {/* Tecnología */}
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 text-black" />
+                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-wide">Tecnología</p>
@@ -799,15 +799,15 @@ export default function ProductPageClient({ product }) {
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Package className="w-5 h-5 text-black" />
+                      <Package className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-wide">Ventilación</p>
@@ -821,15 +821,15 @@ export default function ProductPageClient({ product }) {
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 text-black" />
+                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-wide">Ajuste</p>
@@ -843,15 +843,15 @@ export default function ProductPageClient({ product }) {
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Check className="w-5 h-5 text-black" />
+                      <Check className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-wide">Calidad</p>
@@ -865,15 +865,15 @@ export default function ProductPageClient({ product }) {
                 <motion.div
                   whileHover={{ y: -5, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer group"
+                  className="dark:bg-white/5 dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 border border-black/10 rounded-xl p-5 hover:bg-black/10 hover:border-black/20 transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3 mb-3">
                     <motion.div
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="p-2.5 bg-white rounded-lg group-hover:shadow-lg group-hover:shadow-white/20 transition-shadow"
+                      className="p-2.5 dark:bg-white dark:group-hover:shadow-white/20 bg-black group-hover:shadow-lg group-hover:shadow-black/20 transition-shadow rounded-lg"
                     >
-                      <Sparkles className="w-5 h-5 text-black" />
+                      <Sparkles className="w-5 h-5 dark:text-black text-white" />
                     </motion.div>
                     <div>
                       <p className="text-white/60 text-xs uppercase tracking-wide">Temporada</p>
@@ -890,35 +890,35 @@ export default function ProductPageClient({ product }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 md:p-8 mb-6"
+                className="dark:bg-white/5 dark:border-white/10 bg-black/5 border border-black/10 rounded-xl p-6 md:p-8 mb-6"
               >
-                <h4 className="text-white font-black text-xl md:text-2xl mb-6 flex items-center gap-2 justify-center">
-                  <Sparkles className="w-6 h-6" />
+                <h4 className="dark:text-white text-black font-black text-xl md:text-2xl mb-6 flex items-center gap-2 justify-center">
+                  <Sparkles className="w-6 h-6 dark:text-white text-black" />
                   Características Premium
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Escudo del equipo bordado en alta definición</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Logo del fabricante con detalles premium</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Cuello ergonómico con tecnología anti-rozaduras</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Costuras reforzadas para mayor durabilidad</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Tecnología anti-olor y antibacterial</span>
                   </div>
-                  <div className="flex items-center gap-3 text-sm text-white/80 hover:text-white transition-colors">
-                    <div className="w-2 h-2 bg-white rounded-full shrink-0"></div>
+                  <div className="flex items-center gap-3 text-sm dark:text-white/80 dark:hover:text-white text-black/80 hover:text-black transition-colors">
+                    <div className="w-2 h-2 dark:bg-white bg-black rounded-full shrink-0"></div>
                     <span>Colores que no se destiñen con el lavado</span>
                   </div>
                 </div>
@@ -930,14 +930,14 @@ export default function ProductPageClient({ product }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-gradient-to-br from-white/10 to-white/5 border-2 border-white/20 rounded-xl p-6 md:p-8"
+                className="dark:bg-gradient-to-br dark:from-white/10 dark:to-white/5 dark:border-white/20 bg-gradient-to-br from-black/10 to-black/5 border-2 border-black/20 rounded-xl p-6 md:p-8"
               >
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <Shield className="w-7 h-7 text-white" />
-                  <h4 className="text-white font-black text-xl md:text-2xl uppercase">Garantía de Autenticidad</h4>
-                  <Shield className="w-7 h-7 text-white" />
+                  <Shield className="w-7 h-7 dark:text-white text-black" />
+                  <h4 className="dark:text-white text-black font-black text-xl md:text-2xl uppercase">Garantía de Autenticidad</h4>
+                  <Shield className="w-7 h-7 dark:text-white text-black" />
                 </div>
-                <p className="text-white/80 text-center text-base leading-relaxed">
+                <p className="dark:text-white/80 text-black/80 text-center text-base leading-relaxed">
                   Todos nuestros jerseys son réplicas premium 1:1 con los mismos materiales y
                   tecnologías que las versiones oficiales. Garantizamos la máxima calidad en cada detalle.
                 </p>
@@ -947,7 +947,7 @@ export default function ProductPageClient({ product }) {
         </div>
 
         {/* Información Importante - Full Width Tabs Section */}
-        <div className="bg-black py-12 md:py-16 border-t border-white/10">
+        <div className="dark:bg-black dark:border-white/10 bg-white py-12 md:py-16 border-t border-black/10 transition-colors duration-300">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -955,7 +955,7 @@ export default function ProductPageClient({ product }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-white font-black text-3xl md:text-4xl mb-8 uppercase tracking-wide text-center">
+              <h3 className="dark:text-white text-black font-black text-3xl md:text-4xl mb-8 uppercase tracking-wide text-center">
                 Información Importante
               </h3>
 
@@ -965,8 +965,8 @@ export default function ProductPageClient({ product }) {
                   onClick={() => setActiveTab('envio')}
                   className={`flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
                     activeTab === 'envio'
-                      ? 'bg-white text-black shadow-lg shadow-white/20'
-                      : 'bg-white/5 text-white hover:bg-white/10 border border-white/10 hover:border-white/20'
+                      ? 'dark:bg-white dark:text-black dark:shadow-white/20 bg-black text-white shadow-lg shadow-black/20'
+                      : 'dark:bg-white/5 dark:text-white dark:hover:bg-white/10 dark:border-white/10 dark:hover:border-white/20 bg-black/5 text-black hover:bg-black/10 border border-black/10 hover:border-black/20'
                   }`}
                 >
                   <Truck className="w-5 h-5" />
@@ -1005,42 +1005,42 @@ export default function ProductPageClient({ product }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl p-6 md:p-10"
+                    className="dark:bg-gradient-to-br dark:from-white/5 dark:to-transparent dark:border-white/10 bg-gradient-to-br from-black/5 to-transparent border border-black/10 rounded-2xl p-6 md:p-10"
                   >
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 bg-white rounded-xl">
-                        <Truck className="w-7 h-7 text-black" />
+                      <div className="p-3 dark:bg-white bg-black rounded-xl">
+                        <Truck className="w-7 h-7 dark:text-black text-white" />
                       </div>
-                      <h4 className="text-white font-black text-2xl md:text-3xl">Envío Gratis a Todo el País</h4>
+                      <h4 className="dark:text-white text-black font-black text-2xl md:text-3xl">Envío Gratis a Todo el País</h4>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Entrega Rápida</p>
-                          <p className="text-white/80 text-sm">3-5 días hábiles en todo Argentina</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Entrega Rápida</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">3-5 días hábiles en todo Argentina</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Envío Gratis</p>
-                          <p className="text-white/80 text-sm">En todas las compras sin mínimo</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Envío Gratis</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">En todas las compras sin mínimo</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Seguimiento</p>
-                          <p className="text-white/80 text-sm">Código de rastreo en tiempo real</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Seguimiento</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Código de rastreo en tiempo real</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Embalaje</p>
-                          <p className="text-white/80 text-sm">Packaging premium con protección completa</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Embalaje</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Packaging premium con protección completa</p>
                         </div>
                       </div>
                     </div>
@@ -1054,42 +1054,42 @@ export default function ProductPageClient({ product }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl p-6 md:p-10"
+                    className="dark:bg-gradient-to-br dark:from-white/5 dark:to-transparent dark:border-white/10 bg-gradient-to-br from-black/5 to-transparent border border-black/10 rounded-2xl p-6 md:p-10"
                   >
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 bg-white rounded-xl">
-                        <Shield className="w-7 h-7 text-black" />
+                      <div className="p-3 dark:bg-white bg-black rounded-xl">
+                        <Shield className="w-7 h-7 dark:text-black text-white" />
                       </div>
-                      <h4 className="text-white font-black text-2xl md:text-3xl">Garantía y Devoluciones</h4>
+                      <h4 className="dark:text-white text-black font-black text-2xl md:text-3xl">Garantía y Devoluciones</h4>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Garantía de Satisfacción</p>
-                          <p className="text-white/80 text-sm">30 días para cambios y devoluciones</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Garantía de Satisfacción</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">30 días para cambios y devoluciones</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Cambio de Talla</p>
-                          <p className="text-white/80 text-sm">Sin costo adicional si elegiste mal</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Cambio de Talla</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Sin costo adicional si elegiste mal</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Devolución Fácil</p>
-                          <p className="text-white/80 text-sm">Proceso simple y rápido</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Devolución Fácil</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Proceso simple y rápido</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Reembolso Completo</p>
-                          <p className="text-white/80 text-sm">Si el producto tiene algún defecto</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Reembolso Completo</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Si el producto tiene algún defecto</p>
                         </div>
                       </div>
                     </div>
@@ -1103,42 +1103,42 @@ export default function ProductPageClient({ product }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-2xl p-6 md:p-10"
+                    className="dark:bg-gradient-to-br dark:from-white/5 dark:to-transparent dark:border-white/10 bg-gradient-to-br from-black/5 to-transparent border border-black/10 rounded-2xl p-6 md:p-10"
                   >
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 bg-white rounded-xl">
-                        <Sparkles className="w-7 h-7 text-black" />
+                      <div className="p-3 dark:bg-white bg-black rounded-xl">
+                        <Sparkles className="w-7 h-7 dark:text-black text-white" />
                       </div>
-                      <h4 className="text-white font-black text-2xl md:text-3xl">Cuidados del Producto</h4>
+                      <h4 className="dark:text-white text-black font-black text-2xl md:text-3xl">Cuidados del Producto</h4>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Lavado</p>
-                          <p className="text-white/80 text-sm">Lavar con agua fría (máx 30°C) y colores similares</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Lavado</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Lavar con agua fría (máx 30°C) y colores similares</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Secado</p>
-                          <p className="text-white/80 text-sm">No usar secadora, secar al aire libre</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Secado</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">No usar secadora, secar al aire libre</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Planchado</p>
-                          <p className="text-white/80 text-sm">Planchar del revés a temperatura baja</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Planchado</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">Planchar del revés a temperatura baja</p>
                         </div>
                       </div>
-                      <div className="flex items-start gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
-                        <Check className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                      <div className="flex items-start gap-3 p-4 dark:bg-white/5 dark:hover:bg-white/10 bg-black/5 rounded-xl hover:bg-black/10 transition-colors">
+                        <Check className="w-6 h-6 dark:text-white text-black shrink-0 mt-0.5" />
                         <div>
-                          <p className="text-white font-bold mb-1 text-base">Importante</p>
-                          <p className="text-white/80 text-sm">No usar blanqueador ni suavizante</p>
+                          <p className="dark:text-white text-black font-bold mb-1 text-base">Importante</p>
+                          <p className="dark:text-white/80 text-black/80 text-sm">No usar blanqueador ni suavizante</p>
                         </div>
                       </div>
                     </div>

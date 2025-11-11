@@ -282,7 +282,7 @@ export default function AllProductsPage() {
     <>
       <Header />
       
-      <main className="min-h-screen bg-black text-white">
+      <main className="min-h-screen dark:bg-black dark:text-white bg-white text-black transition-colors duration-300">
         <div className="container mx-auto px-4 py-8 md:py-12">
           <SectionTitle
             title="Todos Los"
@@ -299,18 +299,18 @@ export default function AllProductsPage() {
                         availableTeamsByCategory.bundesliga.length > 0 ||
                         availableTeamsByCategory.ligue1.length > 0 ||
                         availableTeamsByCategory.otros.length > 0) && (
-            <div className="border-b border-white/10 bg-white/[0.02] backdrop-blur-sm mb-6 md:mb-8 rounded-lg overflow-hidden">
+            <div className="dark:border-b dark:border-white/10 dark:bg-white/[0.02] border-b border-black/10 bg-black/[0.02] backdrop-blur-sm mb-6 md:mb-8 rounded-lg overflow-hidden">
               {/* Botão para abrir/fechar filtros */}
               <motion.button
                 onClick={() => setIsFiltersOpen(!isFiltersOpen)}
-                className="w-full flex items-center justify-between p-4 md:p-5 hover:bg-white/5 transition-colors"
+                className="w-full flex items-center justify-between p-4 md:p-5 dark:hover:bg-white/5 hover:bg-black/5 transition-colors"
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-white/10 rounded-lg">
-                    <Filter className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                  <div className="p-1.5 dark:bg-white/10 bg-black/10 rounded-lg">
+                    <Filter className="w-4 h-4 md:w-5 md:h-5 dark:text-white text-black" />
                   </div>
-                  <span className="text-white font-bold text-sm md:text-base">
+                  <span className="dark:text-white text-black font-bold text-sm md:text-base">
                     Filtrar por Equipo
                     {activeFilters.length > 0 && (
                       <span className="ml-2 inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold bg-gradient-to-r from-white to-blue-100 text-black rounded-full">
@@ -327,7 +327,7 @@ export default function AllProductsPage() {
                         e.stopPropagation()
                         clearFilters()
                       }}
-                      className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all text-xs md:text-sm text-white font-medium"
+                      className="flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white bg-black/10 hover:bg-black/20 rounded-lg transition-all text-xs md:text-sm text-black font-medium"
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       whileTap={{ scale: 0.95 }}
@@ -339,7 +339,7 @@ export default function AllProductsPage() {
                   <motion.div
                     animate={{ rotate: isFiltersOpen ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-white"
+                    className="dark:text-white text-black"
                   >
                     <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                   </motion.div>
@@ -363,7 +363,7 @@ export default function AllProductsPage() {
                   {/* Selecciones Nacionales */}
                   {availableTeamsByCategory.selecciones.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Selecciones Nacionales
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -376,8 +376,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -394,7 +394,7 @@ export default function AllProductsPage() {
                   {/* Clubes Argentinos */}
                   {availableTeamsByCategory.argentinos.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Clubes Argentinos
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -407,8 +407,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -425,7 +425,7 @@ export default function AllProductsPage() {
                   {/* Premier League */}
                   {availableTeamsByCategory.premierLeague.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Premier League
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -438,8 +438,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -456,7 +456,7 @@ export default function AllProductsPage() {
                   {/* La Liga */}
                   {availableTeamsByCategory.laLiga.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         La Liga
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -469,8 +469,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -487,7 +487,7 @@ export default function AllProductsPage() {
                   {/* Serie A */}
                   {availableTeamsByCategory.serieA.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Serie A
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -500,8 +500,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -518,7 +518,7 @@ export default function AllProductsPage() {
                   {/* Bundesliga */}
                   {availableTeamsByCategory.bundesliga.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Bundesliga
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -531,8 +531,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -549,7 +549,7 @@ export default function AllProductsPage() {
                   {/* Ligue 1 */}
                   {availableTeamsByCategory.ligue1.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Ligue 1
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -562,8 +562,8 @@ export default function AllProductsPage() {
                             className={`
                               flex-shrink-0 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold transition-all border-2
                               ${isActive
-                                ? 'bg-gradient-to-r from-white to-blue-100 text-black border-blue-200 shadow-lg shadow-blue-200/20'
-                                : 'bg-white/5 text-white border-white/10 hover:bg-white/10 hover:border-white/20'
+                                ? 'dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black dark:border-blue-200 dark:shadow-blue-200/20 bg-gradient-to-r from-black to-gray-800 text-white border-gray-600 shadow-lg shadow-gray-600/20'
+                                : 'dark:bg-white/5 dark:text-white dark:border-white/10 dark:hover:bg-white/10 dark:hover:border-white/20 bg-black/5 text-black border-black/10 hover:bg-black/10 hover:border-black/20'
                               }
                             `}
                             whileHover={{ scale: 1.05 }}
@@ -580,7 +580,7 @@ export default function AllProductsPage() {
                   {/* Otros */}
                   {availableTeamsByCategory.otros.length > 0 && (
                     <div>
-                      <h3 className="text-white/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
+                      <h3 className="dark:text-white/70 text-black/70 text-xs md:text-sm font-semibold uppercase tracking-wider mb-2 md:mb-3 px-1">
                         Otros Clubes
                       </h3>
                       <div className="flex flex-wrap gap-2">
@@ -617,8 +617,8 @@ export default function AllProductsPage() {
 
           {loading ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
-              <p className="text-gray-medium mt-4">Cargando productos...</p>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 dark:border-b-2 dark:border-white border-b-2 border-black"></div>
+              <p className="dark:text-gray-medium text-gray-600 mt-4">Cargando productos...</p>
             </div>
           ) : filteredProducts.length > 0 ? (
             <motion.div
@@ -640,17 +640,17 @@ export default function AllProductsPage() {
             </motion.div>
           ) : activeFilters.length > 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-medium text-lg mb-4">No se encontraron productos con los filtros seleccionados</p>
+              <p className="dark:text-gray-medium text-gray-600 text-lg mb-4">No se encontraron productos con los filtros seleccionados</p>
               <button
                 onClick={clearFilters}
-                className="inline-block bg-gradient-to-r from-white to-blue-100 text-black font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
+                className="inline-block dark:bg-gradient-to-r dark:from-white dark:to-blue-100 dark:text-black bg-gradient-to-r from-black to-gray-800 text-white font-bold px-6 py-3 rounded-lg hover:shadow-lg transition-all"
               >
                 Limpiar filtros
               </button>
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-medium">No hay productos disponibles</p>
+              <p className="dark:text-gray-medium text-gray-600">No hay productos disponibles</p>
             </div>
           )}
         </div>
