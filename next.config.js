@@ -23,8 +23,11 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+    // Permitir imagens não otimizadas para PNGs locais (mais confiável no Vercel)
     unoptimized: false,
     loader: 'default',
+    // Configuração adicional para garantir que imagens estáticas funcionem
+    domains: [],
   },
 
   // Performance optimizations

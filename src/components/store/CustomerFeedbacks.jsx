@@ -9,6 +9,7 @@ import { SOCIAL_LINKS } from '@/utils/constants'
 const CustomerFeedbacks = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [preloadedImages, setPreloadedImages] = useState(new Set())
+  const [imageErrors, setImageErrors] = useState(new Set())
 
   // Array com todas as imagens de feedback ordenadas na ordem da pasta (0001, 001, 002, 003, 004, 005, 1-13, 34-39)
   const feedbacks = useMemo(() => [
@@ -40,7 +41,7 @@ const CustomerFeedbacks = () => {
     { id: 20, isInstagram: true }
   ], [])
 
-  // Preload próximas imagens do carousel
+  // Preload próximas imagens do carousel usando img tag (mais confiável)
   useEffect(() => {
     const preloadNextImages = () => {
       const nextIndex = (currentIndex + 1) % feedbacks.length
@@ -53,35 +54,40 @@ const CustomerFeedbacks = () => {
       ].filter(Boolean)
 
       imagesToPreload.forEach((src) => {
-        if (!preloadedImages.has(src) && src) {
-          const link = document.createElement('link')
-          link.rel = 'preload'
-          link.as = 'image'
-          link.href = src
-          document.head.appendChild(link)
-          setPreloadedImages((prev) => new Set([...prev, src]))
+        if (!preloadedImages.has(src) && src && !imageErrors.has(src)) {
+          const img = new window.Image()
+          img.src = src
+          img.onload = () => {
+            setPreloadedImages((prev) => new Set([...prev, src]))
+          }
+          img.onerror = () => {
+            console.warn('Failed to preload image:', src)
+            setImageErrors((prev) => new Set([...prev, src]))
+          }
         }
       })
     }
 
     preloadNextImages()
-  }, [currentIndex, feedbacks, preloadedImages])
+  }, [currentIndex, feedbacks, preloadedImages, imageErrors])
 
   // Preload das primeiras 3 imagens imediatamente
   useEffect(() => {
     const initialImages = feedbacks.slice(0, 3).map(f => f.image).filter(Boolean)
     initialImages.forEach((src) => {
-      if (!preloadedImages.has(src)) {
-        const link = document.createElement('link')
-        link.rel = 'preload'
-        link.as = 'image'
-        link.href = src
-        link.fetchPriority = 'high'
-        document.head.appendChild(link)
-        setPreloadedImages((prev) => new Set([...prev, src]))
+      if (!preloadedImages.has(src) && !imageErrors.has(src)) {
+        const img = new window.Image()
+        img.src = src
+        img.onload = () => {
+          setPreloadedImages((prev) => new Set([...prev, src]))
+        }
+        img.onerror = () => {
+          console.warn('Failed to preload initial image:', src)
+          setImageErrors((prev) => new Set([...prev, src]))
+        }
       }
     })
-  }, [feedbacks, preloadedImages])
+  }, [feedbacks, preloadedImages, imageErrors])
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % feedbacks.length)
@@ -217,18 +223,63 @@ const CustomerFeedbacks = () => {
                     <div className="relative w-[350px] md:w-[400px] h-[600px] md:h-[700px] bg-gradient-to-br from-gray-dark to-black rounded-[3rem] p-3 shadow-2xl border border-white/20">
                       {/* Screen */}
                       <div className="w-full h-full bg-black rounded-[2.5rem] overflow-hidden relative">
-                        {/* Feedback Image */}
-                        <Image
-                          src={feedbacks[currentIndex].image}
-                          alt={`Feedback ${feedbacks[currentIndex].id}`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 350px, 400px"
-                          priority={currentIndex < 3}
-                          quality={85}
-                          loading={currentIndex < 3 ? 'eager' : 'lazy'}
-                          unoptimized={false}
-                        />
+                        {/* Feedback Image - Usar img nativo se Next.js Image falhar */}
+                        {feedbacks[currentIndex].image ? (
+                          <>
+                            {/* Tentar Next.js Image primeiro */}
+                            {!imageErrors.has(`next-${feedbacks[currentIndex].image}`) ? (
+                              <Image
+                                src={feedbacks[currentIndex].image}
+                                alt={`Feedback ${feedbacks[currentIndex].id}`}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 768px) 350px, 400px"
+                                priority={currentIndex < 3}
+                                quality={85}
+                                loading={currentIndex < 3 ? 'eager' : 'lazy'}
+                                unoptimized={true}
+                                onError={(e) => {
+                                  console.warn('Next.js Image failed, falling back to native img:', feedbacks[currentIndex].image)
+                                  setImageErrors((prev) => new Set([...prev, `next-${feedbacks[currentIndex].image}`]))
+                                }}
+                              />
+                            ) : (
+                              /* Fallback para img nativo */
+                              <img
+                                src={feedbacks[currentIndex].image}
+                                alt={`Feedback ${feedbacks[currentIndex].id}`}
+                                className="w-full h-full object-cover"
+                                loading={currentIndex < 3 ? 'eager' : 'lazy'}
+                                onError={(e) => {
+                                  console.error('Native img also failed:', feedbacks[currentIndex].image)
+                                  setImageErrors((prev) => new Set([...prev, feedbacks[currentIndex].image]))
+                                  e.target.style.display = 'none'
+                                }}
+                              />
+                            )}
+                            {/* Placeholder se ambas falharem */}
+                            {imageErrors.has(feedbacks[currentIndex].image) && (
+                              <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
+                                <div className="text-center p-4">
+                                  <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-2 opacity-40">
+                                    <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"/>
+                                  </svg>
+                                  <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
+                                  <p className="text-white/20 text-[10px] mt-1 break-all px-2">{feedbacks[currentIndex].image}</p>
+                                </div>
+                              </div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-dark to-black">
+                            <div className="text-center p-4">
+                              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" className="mx-auto mb-2 opacity-40">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"/>
+                              </svg>
+                              <p className="text-white/40 text-xs font-semibold">Imagen no disponible</p>
+                            </div>
+                          </div>
+                        )}
 
                         {/* Verified Badge */}
                         <div className="absolute top-4 right-4 bg-green-500 rounded-full p-3 shadow-lg">
