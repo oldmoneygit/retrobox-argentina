@@ -1,0 +1,11 @@
+Figma Design Link:
+https://www.figma.com/design/YgNGr3pSBvVmlljdyPa26B/Template-Autoral-_-02-_-BrandsDecoded%C2%AE?node-id=24-47&m=dev
+
+Node ID: 24-47
+Mode: Dev Mode
+
+To access:
+1. Open the link above in your browser
+2. Make sure you have access to the Figma file
+3. Enable Dev Mode (</> icon in top right)
+4. Select elements and export CSS/specifications
