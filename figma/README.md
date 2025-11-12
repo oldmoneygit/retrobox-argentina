@@ -7,7 +7,31 @@
 **Modo:** Dev Mode
 
 ## Status da Implementação
-⏳ **Pendente** - Aguardando especificações detalhadas do design
+✅ **MCP Server Configurado** - Figma Desktop MCP conectado com sucesso!
+
+### Configuração MCP
+- **Servidor:** figma-desktop
+- **URL:** http://127.0.0.1:3845/mcp
+- **Status:** ✓ Conectado
+- **Tipo:** HTTP Transport
+
+### Como Usar o MCP do Figma
+
+**Opção 1: Baseado em Seleção**
+1. Abra o Figma Desktop app
+2. Navegue até o arquivo do design
+3. Selecione o frame ou layer que deseja implementar
+4. Volte ao Claude Code e diga: "Implemente minha seleção atual do Figma"
+
+**Opção 2: Baseado em Link**
+1. No Figma, clique com botão direito no frame/layer
+2. Copie o link (Copy link to selection)
+3. Cole o link aqui e peça para implementar
+
+**Link do Design Atual:**
+```
+https://www.figma.com/design/YgNGr3pSBvVmlljdyPa26B/Template-Autoral-_-02-_-BrandsDecoded%C2%AE?node-id=24-47&m=dev
+```
 
 ## Instruções para Implementação
 
