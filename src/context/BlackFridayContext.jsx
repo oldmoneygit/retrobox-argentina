@@ -14,6 +14,15 @@ export const DAILY_PACK_LIMIT = 15 // 15 packs por dia
 export const PACK_INSANO_PRICE = PACK_LOCO_PRICE
 export const PACK_INSANO_SIZE = PACK_LOCO_SIZE
 
+// Tabela de preços Mystery Box (desconto progressivo)
+export const MYSTERYBOX_PRICE_TIERS = [
+  { quantity: 1, price: 23900, pricePerBox: 23900, discount: 0 },
+  { quantity: 2, price: 39900, pricePerBox: 19950, discount: 16 },
+  { quantity: 3, price: 47700, pricePerBox: 15900, discount: 33 },
+  { quantity: 4, price: 55600, pricePerBox: 13900, discount: 42 },
+  { quantity: 5, price: 59500, pricePerBox: 11900, discount: 50 },
+]
+
 export function BlackFridayProvider({ children }) {
   const [hasSeenPopup, setHasSeenPopup] = useState(false)
   const [blackFridayEnabled, setBlackFridayEnabled] = useState(true)
@@ -86,85 +95,122 @@ export function BlackFridayProvider({ children }) {
   }
 
   /**
-   * Calcula o total com a lógica do Pack Black (Black Friday)
+   * Calcula o total com a lógica do Pack Black (Black Friday) e Mystery Box
    *
    * Lógica:
-   * - Se < 4 produtos: preço normal
-   * - Se = 4 produtos: ARS 59.900 (Pack Black)
-   * - Se > 4 produtos:
-   *   - Divide em packs completos (cada 4 = ARS 59.900)
-   *   - Produtos restantes pagam preço normal
+   * - Mystery Boxes: desconto progressivo (1-5 boxes)
+   * - Jerseys normais: Pack Black (4x59.900)
+   * - Ambos podem coexistir no mesmo carrinho
    */
   const calculatePackInsanoTotals = (cartItems) => {
     if (!cartItems || cartItems.length === 0) {
       return {
         itemCount: 0,
         hasPack: false,
+        hasMysteryBox: false,
         fullPacks: 0,
         remainingItems: 0,
         subtotalNormal: 0,
         subtotalWithPack: 0,
         savings: 0,
         total: 0,
-        shipping: SHIPPING_FEE
+        shipping: SHIPPING_FEE,
+        mysteryBoxCount: 0,
+        mysteryBoxDiscount: 0
       }
     }
 
-    // Calcular quantidade total
-    const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    // Separar Mystery Boxes de jerseys normais
+    const mysteryBoxItems = cartItems.filter(item =>
+      item.slug && item.slug.startsWith('mystery-box-')
+    )
+    const regularItems = cartItems.filter(item =>
+      !item.slug || !item.slug.startsWith('mystery-box-')
+    )
 
-    // Calcular subtotal normal (sem pack)
+    // Contar Mystery Boxes
+    const mysteryBoxCount = mysteryBoxItems.reduce((sum, item) => sum + item.quantity, 0)
+    const regularCount = regularItems.reduce((sum, item) => sum + item.quantity, 0)
+    const itemCount = mysteryBoxCount + regularCount
+
+    // Calcular subtotal normal (sem descontos)
     const subtotalNormal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
-    // Se menos de 4 produtos, não tem pack
-    if (itemCount < PACK_LOCO_SIZE) {
-      return {
-        itemCount,
-        hasPack: false,
-        fullPacks: 0,
-        remainingItems: itemCount,
-        subtotalNormal,
-        subtotalWithPack: subtotalNormal,
-        savings: 0,
-        total: subtotalNormal + SHIPPING_FEE,
-        shipping: SHIPPING_FEE,
-        productsNeeded: PACK_LOCO_SIZE - itemCount
-      }
+    let subtotalWithPack = 0
+    let savings = 0
+    let mysteryBoxDiscount = 0
+    let hasMysteryBox = false
+    let hasPack = false
+
+    // CALCULAR DESCONTO DOS MYSTERY BOXES
+    if (mysteryBoxCount > 0) {
+      hasMysteryBox = true
+      // Pegar o tier correto (máximo 5)
+      const tierQuantity = Math.min(mysteryBoxCount, 5)
+      const tier = MYSTERYBOX_PRICE_TIERS.find(t => t.quantity === tierQuantity)
+        || MYSTERYBOX_PRICE_TIERS[0]
+
+      const mysteryBoxNormalPrice = mysteryBoxItems.reduce((sum, item) =>
+        sum + (item.price * item.quantity), 0
+      )
+      const mysteryBoxDiscountedPrice = tier.price
+      mysteryBoxDiscount = mysteryBoxNormalPrice - mysteryBoxDiscountedPrice
+
+      subtotalWithPack += mysteryBoxDiscountedPrice
+      savings += mysteryBoxDiscount
     }
 
-    // Calcular packs completos e items restantes
-    const fullPacks = Math.floor(itemCount / PACK_LOCO_SIZE)
-    const remainingItems = itemCount % PACK_LOCO_SIZE
+    // CALCULAR DESCONTO DO PACK BLACK (JERSEYS NORMAIS)
+    if (regularCount >= PACK_LOCO_SIZE) {
+      hasPack = true
+      const fullPacks = Math.floor(regularCount / PACK_LOCO_SIZE)
+      const remainingItems = regularCount % PACK_LOCO_SIZE
 
-    // Calcular preço com pack
-    let subtotalWithPack = fullPacks * PACK_LOCO_PRICE
+      // Preço com pack
+      subtotalWithPack += fullPacks * PACK_LOCO_PRICE
 
-    // Adicionar preço dos produtos restantes (que não completam pack)
-    if (remainingItems > 0) {
-      const sortedByPrice = [...cartItems].sort((a, b) => b.price - a.price)
-      let itemsToAdd = remainingItems
+      // Adicionar preço dos produtos restantes (que não completam pack)
+      if (remainingItems > 0) {
+        const sortedByPrice = [...regularItems].sort((a, b) => b.price - a.price)
+        let itemsToAdd = remainingItems
 
-      for (const item of sortedByPrice) {
-        if (itemsToAdd === 0) break
-        const quantityToUse = Math.min(item.quantity, itemsToAdd)
-        subtotalWithPack += item.price * quantityToUse
-        itemsToAdd -= quantityToUse
+        for (const item of sortedByPrice) {
+          if (itemsToAdd === 0) break
+          const quantityToUse = Math.min(item.quantity, itemsToAdd)
+          subtotalWithPack += item.price * quantityToUse
+          itemsToAdd -= quantityToUse
+        }
       }
+
+      const regularNormalPrice = regularItems.reduce((sum, item) =>
+        sum + (item.price * item.quantity), 0
+      )
+      const packSavings = regularNormalPrice - (subtotalWithPack - (hasMysteryBox ? MYSTERYBOX_PRICE_TIERS.find(t => t.quantity === Math.min(mysteryBoxCount, 5))?.price || 0 : 0))
+      savings += packSavings
+    } else {
+      // Jerseys normais sem pack (preço normal)
+      const regularNormalPrice = regularItems.reduce((sum, item) =>
+        sum + (item.price * item.quantity), 0
+      )
+      subtotalWithPack += regularNormalPrice
     }
 
-    const savings = subtotalNormal - subtotalWithPack
     const total = subtotalWithPack + SHIPPING_FEE
 
     return {
       itemCount,
-      hasPack: true,
-      fullPacks,
-      remainingItems,
+      hasPack,
+      hasMysteryBox,
+      mysteryBoxCount,
+      mysteryBoxDiscount,
+      fullPacks: regularCount >= PACK_LOCO_SIZE ? Math.floor(regularCount / PACK_LOCO_SIZE) : 0,
+      remainingItems: regularCount % PACK_LOCO_SIZE,
       subtotalNormal,
       subtotalWithPack,
       savings,
       total,
-      shipping: SHIPPING_FEE
+      shipping: SHIPPING_FEE,
+      productsNeeded: regularCount < PACK_LOCO_SIZE ? PACK_LOCO_SIZE - regularCount : 0
     }
   }
 

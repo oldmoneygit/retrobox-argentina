@@ -433,7 +433,10 @@ export default function ProductPageClient({ product }) {
   const [customization, setCustomization] = useState(null)
 
   const images = product.gallery || [product.image]
-  const sizes = product.sizes || DEFAULT_SIZES
+  // Handle Mystery Box sizes from mysteryBoxData
+  const sizes = product.isMysteryBox
+    ? product.mysteryBoxData?.sizes || DEFAULT_SIZES
+    : product.sizes || DEFAULT_SIZES
   const inWishlist = isInWishlist(product.id)
 
   // Black November: Calculate original price (50% more expensive)

@@ -61,6 +61,28 @@ const CartSummary = ({ subtotal, cartItems }) => {
             </span>
           </div>
 
+          {/* Mystery Box Progressive Discount - Display */}
+          {comboData.hasMysteryBox && (
+            <div className="flex items-start gap-2 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/30 rounded-lg p-3">
+              <Tag className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-purple-400 text-sm font-bold">
+                    Mystery Box Descuento Progresivo
+                  </span>
+                  {comboData.mysteryBoxDiscount > 0 && (
+                    <span className="text-purple-400 font-bold">
+                      -${comboData.mysteryBoxDiscount.toLocaleString('es-AR')}
+                    </span>
+                  )}
+                </div>
+                <p className="text-purple-400/80 text-xs">
+                  ¡{comboData.mysteryBoxCount} Mystery {comboData.mysteryBoxCount === 1 ? 'Box' : 'Boxes'} con descuento aplicado!
+                </p>
+              </div>
+            </div>
+          )}
+
           {/* Pack Black 4x - Display */}
           {comboData.hasPack ? (
             <div className="flex items-start gap-2 bg-gradient-to-r from-green-500/10 to-emerald-400/10 border border-green-500/30 rounded-lg p-3">
@@ -79,7 +101,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
                 </p>
               </div>
             </div>
-          ) : (
+          ) : !comboData.hasMysteryBox ? (
             <div className="flex items-start gap-2 dark:bg-gradient-to-r dark:from-white/10 dark:to-blue-100/10 dark:border-blue-200/30 bg-gradient-to-r from-black/10 to-gray-800/10 border border-gray-600/30 rounded-lg p-3">
               <Tag className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
               <div className="flex-1 min-w-0">
@@ -90,7 +112,7 @@ const CartSummary = ({ subtotal, cartItems }) => {
                 </p>
               </div>
             </div>
-          )}
+          ) : null}
 
           {/* Shipping */}
           <div className="flex items-center justify-between">
@@ -110,8 +132,8 @@ const CartSummary = ({ subtotal, cartItems }) => {
                 ${comboData.total.toLocaleString('es-AR')}
               </span>
             </div>
-            {comboData.hasPack && comboData.savings > 0 && (
-              <p className="text-green-500 text-xs text-right font-semibold">
+            {(comboData.hasPack || comboData.hasMysteryBox) && comboData.savings > 0 && (
+              <p className={`${comboData.hasPack && comboData.hasMysteryBox ? 'text-orange-500' : comboData.hasMysteryBox ? 'text-purple-400' : 'text-green-500'} text-xs text-right font-semibold`}>
                 ¡Ahorraste ${comboData.savings.toLocaleString('es-AR')}!
               </p>
             )}

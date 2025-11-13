@@ -8066,5 +8066,302 @@
       "type": null,
       "league": "La Liga"
     }
+  },
+  {
+    "id": "gid://shopify/Product/9066159440088",
+    "name": "Mystery Box Serie A",
+    "slug": "mystery-box-serie-a",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Serie A - Imagem Principal",
+    "description": "🎁 Mystery Box Serie A ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Serie A. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Serie A Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Serie A Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Serie A",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Serie A",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159505624",
+    "name": "Mystery Box Premier League",
+    "slug": "mystery-box-premier-league",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Premier League - Imagem Principal",
+    "description": "🎁 Mystery Box Premier League ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Premier League. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Premier League Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Premier League Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Premier League",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Premier League",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159538392",
+    "name": "Mystery Box La Liga",
+    "slug": "mystery-box-la-liga",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box La Liga - Imagem Principal",
+    "description": "🎁 Mystery Box La Liga ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la La Liga. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la La Liga Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: La Liga Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Futebol",
+      "Jersey",
+      "La Liga",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "La Liga",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159603928",
+    "name": "Mystery Box Bundesliga",
+    "slug": "mystery-box-bundesliga",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Bundesliga - Imagem Principal",
+    "description": "🎁 Mystery Box Bundesliga ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Bundesliga. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Bundesliga Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Bundesliga Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Bundesliga",
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Bundesliga",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159669464",
+    "name": "Mystery Box Ligue 1",
+    "slug": "mystery-box-ligue-1",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Ligue 1 - Imagem Principal",
+    "description": "🎁 Mystery Box Ligue 1 ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Ligue 1. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Ligue 1 Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Ligue 1 Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Futebol",
+      "Jersey",
+      "Ligue 1",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Ligue 1",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159702232",
+    "name": "Mystery Box Eredivisie",
+    "slug": "mystery-box-eredivisie",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Eredivisie - Imagem Principal",
+    "description": "🎁 Mystery Box Eredivisie ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Eredivisie. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Eredivisie Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Eredivisie Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Eredivisie",
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Eredivisie",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066159800536",
+    "name": "Mystery Box Brasileirão",
+    "slug": "mystery-box-brasileirao",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Brasileirão - Imagem Principal",
+    "description": "🎁 Mystery Box Brasileirão ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Brasileirão. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Brasileirão Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Brasileirão Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Brasileirão",
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Brasileirão",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066163372248",
+    "name": "Mystery Box Primera División Argentina",
+    "slug": "mystery-box-argentina",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box Primera División Argentina - Imagem Principal",
+    "description": "🎁 Mystery Box Primera División Argentina ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la Primera División Argentina. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la Primera División Argentina Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: Primera División Argentina Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Primera División Argentina",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "Primera División Argentina",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
+  },
+  {
+    "id": "gid://shopify/Product/9066163437784",
+    "name": "Mystery Box FIFA World Cup",
+    "slug": "mystery-box-world-cup",
+    "price": 36900,
+    "regularPrice": null,
+    "image": "",
+    "imageAlt": "Mystery Box FIFA World Cup - Imagem Principal",
+    "description": "🎁 Mystery Box FIFA World Cup ¡Sorpresa garantizada! Recibe una camiseta retro aleatoria de la FIFA World Cup. ¿Qué incluye? 1 camiseta retro oficial de un equipo de la FIFA World Cup Temporada y equipo seleccionados aleatoriamente Material de alta calidad Diseño clásico retro auténtico Personalización GRATIS incluida (nombre y número) 📦 Detalles del Mystery Box Liga: FIFA World Cup Tipo: Camiseta retro (puede ser Home, Away o Third) Calidad: Premium - igual que nuestros productos regulares Sorpresa: No sabrás qué equipo o temporada recibirás hasta que llegue ✨ Beneficios 🎲 Emoción de la sorpresa: Cada pedido es único 💰 Mismo precio que camisetas regulares 🎨 Personalización incluida gratis 🚚 Sin costos aduaneros: Nos encargamos de todo ✅ 100% Garantía de calidad 📏 Tamanhos Disponíveis S, M, L, XL, XXL, 3XL ⚠️ Importante El equipo y temporada son seleccionados aleatoriamente No se aceptan solicitudes de equipos específicos Cada Mystery Box es único - ideal para coleccionistas Calidad garantizada en todas las camisetas 🛡️ Sin Costos Aduaneros ¡Nosotros nos encargamos de TODO! Solo pagas el precio de la camiseta. Nos hacemos cargo de todos los impuestos, tributos y costos de importación. Sin sorpresas al recibir tu pedido.",
+    "tags": [
+      "FIFA World Cup",
+      "Futebol",
+      "Jersey",
+      "Mystery Box",
+      "Random",
+      "Retro",
+      "Surprise"
+    ],
+    "stock": "available",
+    "isMysteryBox": true,
+    "mysteryBoxData": {
+      "league": "FIFA World Cup",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "totalImages": 0
+    }
   }
 ]
