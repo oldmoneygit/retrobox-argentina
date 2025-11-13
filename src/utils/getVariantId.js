@@ -13,7 +13,7 @@ let variantMapping = {}
 
 try {
   // Tentar importar o mapeamento (pode não existir ainda)
-  variantMapping = require('../../shopify-variant-mapping.json')
+  variantMapping = require('../../data/shopify-variant-mapping.json')
 } catch (error) {
   console.warn('⚠️  Shopify variant mapping not found. Run: npm run shopify:fetch-variants')
   console.warn('   Checkout will not work until variant mapping is generated.')

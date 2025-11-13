@@ -10,7 +10,7 @@ const productsPath = path.join(__dirname, '../src/data/products.json')
 const localProducts = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 
 // Ler shopify-variant-mapping.json
-const mappingPath = path.join(__dirname, '../shopify-variant-mapping.json')
+const mappingPath = path.join(__dirname, '../data/shopify-variant-mapping.json')
 const shopifyMapping = JSON.parse(fs.readFileSync(mappingPath, 'utf-8'))
 
 console.log('📊 COMPARAÇÃO DE PRODUTOS\n')

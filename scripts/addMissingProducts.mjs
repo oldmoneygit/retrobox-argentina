@@ -16,7 +16,7 @@ function createSlug(name) {
 }
 
 // Ler arquivos
-const missingProductsPath = path.join(__dirname, '../missing-products.json')
+const missingProductsPath = path.join(__dirname, '../data/missing-products.json')
 const productsPath = path.join(__dirname, '../src/data/products.json')
 const catalogPath = 'C:\\Users\\PC\\Documents\\Retrobox\\RETRO\\catalogo_produtos.json'
 

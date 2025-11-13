@@ -9,9 +9,9 @@ console.log('🗑️  REMOVENDO PRODUTOS DUPLICADOS (v2/v3)\n')
 
 // Paths
 const productsPath = path.join(__dirname, '../src/data/products.json')
-const mappingPath = path.join(__dirname, '../shopify-variant-mapping.json')
+const mappingPath = path.join(__dirname, '../data/shopify-variant-mapping.json')
 const productsBackupPath = path.join(__dirname, '../src/data/products.json.backup')
-const mappingBackupPath = path.join(__dirname, '../shopify-variant-mapping.json.backup')
+const mappingBackupPath = path.join(__dirname, '../data/shopify-variant-mapping.json.backup')
 
 // Ler arquivos
 const allProducts = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
@@ -60,4 +60,4 @@ console.log(`\n✅ Mapeamento antes: ${Object.keys(mapping).length + duplicateSl
 console.log(`✅ Mapeamento depois: ${Object.keys(mapping).length}`)
 console.log(`\n✅ Arquivos atualizados com sucesso!`)
 console.log(`\n💡 Para restaurar o backup caso necessário:`)
-console.log(`   node -e "const fs = require('fs'); fs.copyFileSync('src/data/products.json.backup', 'src/data/products.json'); fs.copyFileSync('shopify-variant-mapping.json.backup', 'shopify-variant-mapping.json')"`)
+console.log(`   node -e "const fs = require('fs'); fs.copyFileSync('src/data/products.json.backup', 'src/data/products.json'); fs.copyFileSync('data/shopify-variant-mapping.json.backup', 'data/shopify-variant-mapping.json')"`)

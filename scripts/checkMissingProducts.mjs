@@ -72,9 +72,9 @@ Object.keys(byLeague).sort().forEach(liga => {
 })
 
 // Salvar lista de produtos faltando em JSON
-const outputPath = path.join(__dirname, '../missing-products.json')
+const outputPath = path.join(__dirname, '../data/missing-products.json')
 fs.writeFileSync(outputPath, JSON.stringify(missingProducts, null, 2))
-console.log(`\n✅ Lista salva em: missing-products.json`)
+console.log(`\n✅ Lista salva em: data/missing-products.json`)
 
 // Resumo por liga
 console.log('\n📈 RESUMO POR LIGA:\n')

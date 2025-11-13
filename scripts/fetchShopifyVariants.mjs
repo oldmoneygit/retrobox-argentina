@@ -201,7 +201,7 @@ async function main() {
     })
 
     // Salvar mapeamento
-    const mappingPath = path.join(__dirname, '../shopify-variant-mapping.json')
+    const mappingPath = path.join(__dirname, '../data/shopify-variant-mapping.json')
     fs.writeFileSync(mappingPath, JSON.stringify(mapping, null, 2), 'utf8')
 
     console.log('\n✅ Mapeamento criado com sucesso!')

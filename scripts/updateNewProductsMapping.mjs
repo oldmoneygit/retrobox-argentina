@@ -19,7 +19,7 @@ if (!ADMIN_TOKEN) {
 
 // Ler arquivos
 const productsPath = path.join(__dirname, '../src/data/products.json')
-const mappingPath = path.join(__dirname, '../shopify-variant-mapping.json')
+const mappingPath = path.join(__dirname, '../data/shopify-variant-mapping.json')
 
 const allProducts = JSON.parse(fs.readFileSync(productsPath, 'utf-8'))
 const currentMapping = fs.existsSync(mappingPath)
