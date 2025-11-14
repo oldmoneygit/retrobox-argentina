@@ -120,13 +120,13 @@ export default function HomePage() {
         <StoreHero />
 
         {/* Aviso Importante - Instagram */}
-        <section className="w-full py-6 md:py-8 px-4">
-          <div className="max-w-4xl mx-auto">
+        <section className="w-full py-4 md:py-6 px-4">
+          <div className="max-w-md md:max-w-lg mx-auto">
             <Image
               src="/images/AVISO.png"
               alt="Aviso Importante - Nueva cuenta oficial de Instagram @retroboxargentina"
-              width={1200}
-              height={800}
+              width={600}
+              height={400}
               className="w-full h-auto rounded-lg shadow-lg"
               priority={false}
               quality={90}
