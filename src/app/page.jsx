@@ -29,6 +29,11 @@ const NuestrasColecciones = dynamic(() => import('@/components/store/NuestrasCol
   ssr: true, // Keep SSR for SEO (links to collections)
 })
 
+const TopSellersWeek = dynamic(() => import('@/components/store/TopSellersWeek'), {
+  loading: () => <div className="h-96 dark:bg-black bg-white" />,
+  ssr: true, // Keep SSR for SEO
+})
+
 // Priority 3: Lower priority components (SSR disabled, load on demand)
 const HowItWorksPackLoco = dynamic(() => import('@/components/blackfriday/HowItWorksPackLoco'), {
   loading: () => null,
@@ -126,6 +131,11 @@ export default function HomePage() {
         {/* Nuestras Colecciones: Ligas y Equipos */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
           <NuestrasColecciones />
+        </Suspense>
+
+        {/* Los Más Vendidos de esta Semana - Shopify Collection */}
+        <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
+          <TopSellersWeek />
         </Suspense>
 
         {/* Promoção Pack Black */}
