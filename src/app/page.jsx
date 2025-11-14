@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import Header from '@/components/store/Header'
 import StoreHero from '@/components/store/StoreHero'
 import StoreFooter from '@/components/store/StoreFooter'
@@ -117,6 +118,22 @@ export default function HomePage() {
 
         {/* Hero Section */}
         <StoreHero />
+
+        {/* Aviso Importante - Instagram */}
+        <section className="w-full py-6 md:py-8 px-4">
+          <div className="max-w-4xl mx-auto">
+            <Image
+              src="/images/AVISO.png"
+              alt="Aviso Importante - Nueva cuenta oficial de Instagram @retroboxargentina"
+              width={1200}
+              height={800}
+              className="w-full h-auto rounded-lg shadow-lg"
+              priority={false}
+              quality={90}
+              loading="lazy"
+            />
+          </div>
+        </section>
 
         {/* Los Más Vendidos */}
         <Suspense fallback={<div className="h-96 bg-black animate-pulse" />}>
